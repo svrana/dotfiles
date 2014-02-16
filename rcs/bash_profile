@@ -6,10 +6,6 @@
 
 rm -f ~/.bash_history
 
-# User specific environment and startup programs                                             
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-#
-# Warning: Color name "S_base03" is not defined
-# (to remove the above warning message)
+# Warning: Color name "S_base03" is not defined (to remove the above warning
+# message)
 xrdb -merge ~/.Xresources > /dev/null 2>&1
