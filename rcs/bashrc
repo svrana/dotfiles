@@ -51,7 +51,7 @@ $GRUF_CONFIG:\
 #
 # Source configuration common among all boxen.
 #
-. ~/config/config.env
+. ~/dotfiles/config.env
 
 # unbind ctrl-s/-q from konsole
 stty -ixon
