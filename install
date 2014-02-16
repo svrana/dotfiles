@@ -1,0 +1,72 @@
+#!/bin/bash
+#
+# Creates defaults directories setup in directories.env; copies or links
+# configuration files into place as appropriate.
+#
+# This needs to be once.
+#
+
+current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Setup defaults required by these dotfiles
+. ${current_dir}/config.env
+
+mkdir -p $BIN_DIR
+mkdir -p $MY_TMP
+mkdir -p ~/.bak
+mkdir -p ~/.vim/colors
+mkdir -p ~/.config/fontconfig/conf.d
+mkdir -p ~/.fonts
+mkdir -p ~/.vim/swp
+mkdir -p ~/.vim/bundle
+
+if [ "${HOME}" != "/root" ]; then
+    mkdir -p ~/apps
+    mkdir -p ~/repos
+    mkdir -p ~/kernels
+
+    mkdir -p $DOCUMENTS
+    mkdir -p $MUSIC
+    mkdir -p $PHOTOS
+    mkdir -p $DOWNLOADS
+
+    ln -Tsf $DOCUMENTS/playlists/ ~/Playlists
+fi
+
+egood "Created default directories as specified in $current_dir/directories.env"
+
+ln -sf ${RC_DIR}/bash_profile 	    ~/.bash_profile
+ln -sf ${RC_DIR}/bashrc             ~/.bashrc
+ln -sf ${RC_DIR}/vimrc              ~/.vimrc
+ln -sf ${RC_DIR}/shawterm.vim       ~/.vim/colors
+ln -sf ${RC_DIR}/shawgui.vim        ~/.vim/colors
+ln -sf ${RC_DIR}/eclipse.vim 	    ~/.vim/colors
+ln -sf ${RC_DIR}/tmux.conf 	    ~/.tmux.conf
+ln -sf ${RC_DIR}/gitconfig          ~/.gitconfig
+ln -sf ${RC_DIR}/eclimrc            ~/.eclimrc
+ln -sf ${RC_DIR}/rvmrc              ~/.rvmrc
+ln -sf ${RC_DIR}/10-powerline-symbols.conf      ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
+ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
+ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
+
+egood "Created home directory file links"
+
+fc-cache -vf ~/.fonts > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    sbox "Built font cache for powerline"
+else
+    ebox "Failed to build font cache for powerline"
+fi
+
+for i in $(ls -1 $SCRIPT_DIR)
+do
+    chmod +x ${SCRIPT_DIR}/$i
+done
+egood "Added execute permission to scripts in $SCRIPT_DIR"
+
+for i in $(ls -1 $SCRIPT_DIR)
+do
+    ln -sf ${SCRIPT_DIR}/$i ${BIN_DIR}/$i
+done
+egood "Created links in ${BIN_DIR} to scripts in $SCRIPT_DIR"
+
+source ~/.bashrc

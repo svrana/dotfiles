@@ -1,0 +1,63 @@
+[user]
+	name = Shaw Vrana
+	email = shaw@vranix.com
+	#email = shaw@lookout.com
+[credential]
+	helper = cache
+[alias]
+	standup = log --since yesterday --author="shaw@lookout.com" --pretty=oneline
+	rename = commit --reset-author --amend
+	ch = checkout
+	co = commit -v
+    	ci = commit
+	st = status
+	cat = cat-file
+	br = branch --color -v
+	b = branch --color -v
+	ffwd = pull --rebase
+	changes = diff --name-status -r
+	diffstat = diff --stat -r
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+    	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+    	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+    	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
+	gerrits = push gerrit HEAD:refs/for/master
+[commit]
+	template = /home/shaw/Documents/lookout/git/commit.template
+[color]
+  ui = true
+[color "branch"]
+  current = yellow black
+  local = yellow
+  remote = magenta
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red reverse
+  new = green reverse
+  whitespace = white reverse
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan reverse
+  branch = magenta
+  switch = !legit switch \"$@\"
+  branches = !legit branches
+  sprout = !legit sprout \"$@\"
+  unpublish = !legit unpublish \"$@\"
+  harvest = !legit harvest \"$@\"
+  sync = !legit sync \"$@\"
+  publish = !legit publish \"$@\"
+  graft = !legit graft \"$@\"
+#[push]
+#	default = simple

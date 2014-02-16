@@ -1,0 +1,789 @@
+"
+" .vimrc (shaw@vranix.com)
+"
+" Plugins:
+"   taglisttoo
+"   command-t
+"
+set nocompatible
+syntax on
+filetype plugin indent on
+
+call pathogen#infect()
+
+set mouse=a
+
+"let c_space_errors=1
+let g:edit_modes = [ "code", "email" ]
+let g:edit_mode = 0
+let g:code_modes = [ "rbt", "kernel" ]
+let g:code_mode = 0
+
+let mapleader = ","
+let maplocalleader = ","
+
+let g:CommandTMaxHeight = 15
+"let g:TaglistTooEnabled = 1
+"let g:Tlist_Auto_Open = 2
+let g:Tlist_Use_Right_Window = 1
+
+" Whitespace related
+"
+" To disable showing trailing whitespace:
+" let g:ShowTrailingWhitespace = 0
+" Don't auto-delete whitespace
+let g:DeleteTrailingWhitespace = 0
+
+"set fileformat=unix
+set completeopt+=menu
+"setlocal spell spelllang=en_us
+
+" sometimes the following block helps with (F1) mapping problems.
+"set cpoptions-=K
+"set <F1>=[A
+set notimeout
+set ttimeout
+set ttimeoutlen=100
+set backspace=indent,eol,start
+set directory=~/.vim/swp
+
+set shiftwidth=4
+set noexpandtab
+set textwidth=78
+set nowrap
+set nosol
+" show filename in X window frame
+set title
+" show nothing in window frame on exit
+set titleold=
+set scrollopt=ver
+set ic
+set smartcase
+"set nohlsearch
+set incsearch
+
+
+nnoremap <leader>a :Ack 
+"set list
+"set listchars=tab:▸\ ,eol:¬
+
+" make asterick search work in visual mode
+vmap * "yy:let @/='\(' . @y . '\'<cr>n
+
+source ${GRUF_CONFIG}/gruf.vimrc
+
+"/home/shaw/.rvm/gems/ruby-1.8.7-p371/gems/tags
+set tags=tags,${GRUF_PROJECT}/tags,/home/shaw/.rvm/gems/ruby-1.9.3-p392@smb/tags,/home/shaw/android-sdk-linux/sources/android-18/tags
+"set tags=tags,${GRUF_PROJECT}/tags,/home/shaw/Projects/security/tags,/home/shaw/Android/sdk-sources/tags,/home/shaw/.rvm/gems/ruby-1.8.7-p371/gems/tags
+"/home/shaw/android-sdk-linux/sources/android-18"
+
+"
+" :cs help
+"
+"   's'	  symbol: find all references to the token under cursor
+"   'g'   global: find global definition(s) of the token under cursor
+"   'c'   calls:  find all calls to the function name under cursor
+"   't'   text:   find all instances of the text under cursor
+"   'e'   egrep:  egrep search for the word under cursor
+"   'f'   file:   open the filename under cursor
+"   'i'   includes: find files that include the filename under cursor
+"   'd'   called: find functions that function under cursor calls
+"
+"   <c-\>  same window
+"   <c-spacebar> horiz split
+"   <c-spacebar> <c-spacebar> vert split
+"
+
+if has("cscope")
+    set nocscopetag
+    set nocsverb
+
+    if filereadable("cscope.out")
+        cs add cscope.out
+    elseif filereadable("ncscope.out")
+        cs add ncscope.out
+    endif
+
+    if filereadable(expand("$KERN/cscope.out"))
+        cs add $KERN/cscope.out
+    elseif filereadable("$KERN/ncscope.out")
+        cs add $KERN/ncscope.out
+    endif
+
+    "
+    " The following maps all invoke one of the following cscope search types:
+    "
+    "   's'   symbol: find all references to the token under cursor
+    "   'g'   global: find global definition(s) of the token under cursor
+    "   'c'   calls:  find all calls to the function name under cursor
+    "   't'   text:   find all instances of the text under cursor
+    "   'e'   egrep:  egrep search for the word under cursor
+    "   'f'   file:   open the filename under cursor
+    "   'i'   includes: find files that include the filename under cursor
+    "   'd'   called: find functions that function under cursor calls
+    "
+    " Below are three sets of the maps: one set that just jumps to your
+    " search result, one that splits the existing vim window horizontally and
+    " diplays your search result in the new window, and one that does the same
+    " thing, but does a vertical split instead (vim 6 only).
+    "
+    " I've used CTRL-\ and CTRL-@ as the starting keys for these maps, as it's
+    " unlikely that you need their default mappings (CTRL-\'s default use is
+    " as part of CTRL-\ CTRL-N typemap, which basically just does the same
+    " thing as hitting 'escape': CTRL-@ doesn't seem to have any default use).
+    " If you don't like using 'CTRL-@' or CTRL-\, , you can change some or all
+    " of these maps to use other keys.  One likely candidate is 'CTRL-_'
+    " (which also maps to CTRL-/, which is easier to type).  By default it is
+    " used to switch between Hebrew and English keyboard mode.
+    "
+    " All of the maps involving the <cfile> macro use '^<cfile>$': this is so
+    " that searches over '#include <time.h>" return only references to
+    " 'time.h', and not 'sys/time.h', etc. (by default cscope will return all
+    " files that contain 'time.h' as part of their name).
+    "
+    " To do the first type of search, hit 'CTRL-\', followed by one of the
+    " cscope search types above (s,g,c,t,e,f,i,d).  The result of your cscope
+    " search will be displayed in the current window.  You can use CTRL-T to
+    " go back to where you were before the search.
+    "
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+    " Using 'CTRL-spacebar' (intepreted as CTRL-@ by vim) then a search type
+    " makes the vim window split horizontally, with search result displayed in
+    " the new window.
+    "
+    " (Note: earlier versions of vim may not have the :scs command, but it
+    " can be simulated roughly via:
+    "    nmap <C-@>s <C-W><C-S> :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+
+    " Hitting CTRL-space *twice* before the search type does a vertical
+    " split instead of a horizontal one (vim 6 and up only)
+    "
+    " (Note: you may wish to put a 'set splitright' in your .vimrc
+    " if you prefer the new window on the right instead of the left
+    nmap <C-@><C-@>s :vert scs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>g :vert scs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>t :vert scs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>e :vert scs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-@><C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-@><C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
+
+endif
+
+set comments=sr:/*,mb:*,exl:*/,://,b:#,:%:XCOMM,n:>,fb:-
+set comments+=b:\"
+
+
+"set verbose=9
+autocmd BufEnter,FileType *.gradle :set cindent
+autocmd BufEnter,FileType *.gradle :set fo+=croql
+autocmd BufEnter,FileType *.gradle :silent call NonKernelCode()
+
+autocmd BufEnter,FileType c :set cindent
+autocmd BufEnter,FileType c :set fo+=croql
+autocmd BufEnter,FileType c :silent call NonKernelCode()
+
+autocmd BufEnter,FileType vim :set cindent
+autocmd BufEnter,FileType vim :set fo+=croql
+autocmd BufEnter,FileType vim :silent call NonKernelCode()
+
+autocmd BufEnter,FileType sh :set cindent
+autocmd BufEnter,FileType sh :set fo+=croql
+autocmd BufEnter,FileType sh :silent call NonKernelCode()
+
+autocmd BufEnter,FileType *.h :set cindent
+autocmd BufEnter,FileType *.h :set fo+=croql
+autocmd BufEnter,FileType *.h silent call NonKernelCode()
+"autocmd BufEnter,FileType *.h silent call KernelCode()
+
+autocmd BufEnter,FileType *.cc :set cindent
+autocmd BufEnter,FileType *.cc :set fo+=croql
+autocmd BufEnter,FileType *.cc :silent call NonKernelCode()
+
+"autocmd BufEnter,FileType java :set cindent
+autocmd BufEnter,FileType java :set fo+=croql
+autocmd BufEnter,FileType java :silent call JavaCode()
+
+autocmd BufEnter,FileType perl :set cindent
+autocmd BufEnter,FileType perl :set fo+=croql
+autocmd BufEnter,FileType perl silent call NonKernelCode()
+
+autocmd BufEnter,BufNewFile /tmp/mutt* :set textwidth=72
+autocmd BufEnter /tmp/mutt* :set noexpandtab
+autocmd BufEnter /tmp/mutt* :set fo+=aw
+autocmd BufEnter /tmp/mutt* silent call EmailEditMode()
+autocmd BufEnter,BufNewFile /tmp/mutt* :setlocal spell spelllang=en_us
+
+
+autocmd BufRead .git/COMMIT_EDITMSG setlocal spell spelllang=en_US
+autocmd BufRead .git/COMMIT_EDITMSG setlocal textwidth=70
+
+autocmd BufEnter *.txt :set spell
+autocmd BufEnter *.txt :set textwidth=72
+autocmd BufEnter *.txt :set noexpandtab
+autocmd BufEnter *.txt :set fo+=aw
+autocmd BufEnter *.txt call EmailEditMode()
+
+autocmd BufEnter,FileType xml silent call NonKernelCode()
+
+autocmd BufEnter svn-commit.* :set textwidth=60
+autocmd BufEnter svn-commit.* :set spell
+autocmd BufEnter svn-commit.* :set noexpandtab
+autocmd BufEnter svn-commit.* call EmailEditMode()
+
+autocmd BufNewFile,BufRead *.pl compiler perl
+autocmd BufNewFile,BufRead *.pl setf perl
+autocmd BufNewFile,BufRead *.pl let g:perldoc_program='perldoc'
+autocmd BufNewFile,BufRead *.pl map \pd :Perldoc<cword><CR>
+
+autocmd BufRead,BufNewFile Makefile set noexpandtab
+autocmd BufRead,BufNewFile makefile set noexpandtab
+autocmd BufRead,BufNewFile *.mak    set noexpandtab
+
+autocmd BufRead,BufNewFile java :silent call JavaCode()
+
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+autocmd BufNewFile,BufEnter,FileType ruby set cindent
+autocmd BufNewFile,BufEnter,FileType ruby set expandtab
+autocmd BufNewFile,BufEnter,FileType ruby set shiftwidth=2
+autocmd BufNewFile,BufEnter,FileType ruby set softtabstop=2
+
+autocmd BufNewFile,BufEnter,FileType *.feature set cindent
+autocmd BufNewFile,BufEnter,FileType *.feature set expandtab
+autocmd BufNewFile,BufEnter,FileType *.feature set shiftwidth=2
+autocmd BufNewFile,BufEnter,FileType *.feature set softtabstop=2
+
+
+set showmatch
+set backupext=.bak
+set backupdir=~/.bak
+set sessionoptions=buffers,options,winpos,winsize,help,blank,globals,resize
+set noerrorbells
+set showmode
+set showcmd
+set helpheight=0
+set visualbell
+set t_vb=
+set ruler
+"set statusline=%<%f%h%m%r%=%b\ 0x%-03.3B\ \ %l\ %P
+set laststatus=2
+set go=ia
+set noequalalways
+set mousehide
+set mousefocus
+set mousemodel=extend
+
+" requires GNU id-utils
+function! ID_search()
+	let g:word = expand("<cword>")
+	let x = system("lid --key=none ". g:word)
+	let x = substitute(x, "\n", " ", "g")
+	execute "next " . x
+endfunction
+map _u :call ID_search()<Bar>execute "/\\<" . g:word . "\\>"<CR>
+map _n :n<Bar>execute "/\\<" . g:word . "\\>"<CR>
+
+" vim -b: edit binary using xxd-format
+augroup Binary
+	au!
+	au BufReadPre  *.bin let &bin=1
+	au BufReadPost *.bin if &bin | %!xxd
+	au BufReadPost *.bin set ft=xxd | endif
+	au BufWritePre *.bin if &bin | %!xxd -r
+	au BufWritePre *.bin endif
+	au BufWritePost *.bin if &bin | %!xxd
+	au BufWritePost *.bin set nomod | endif
+augroup END
+
+"
+" Quotes needed if envvar hasn't been defined or vim will throw
+" an error during startup... But the quotes cause it not to work, so that's
+" not a solution.
+"
+function! GotoConfig()
+	cd $CONFIG_DIR
+endfun
+
+function! ToggleEditMode()
+    let g:edit_mode = g:edit_mode + 1
+    if g:edit_mode >= len(g:edit_modes)
+        let g:edit_mode = 0
+    endif
+    if g:edit_mode == 0 | set fo-=t | endif
+    if g:edit_mode == 1 | set fo+=t | endif
+    echo "entry mode:" g:edit_modes[g:edit_mode]
+endfun
+map <F5> :call ToggleEditMode()<CR>
+map! <F5> <ESC>:call ToggleEditMode()<CR>
+
+function! ToggleCodeMode()
+    let g:code_mode = g:code_mode + 1
+    if g:code_mode >= len(g:code_modes)
+        let g:code_mode = 0
+    endif
+    if g:code_mode == 0
+        set shiftwidth=4
+        set softtabstop=4
+        set expandtab
+    endif
+    if g:code_mode == 1
+        set shiftwidth=8
+        set softtabstop=8
+        set noexpandtab
+    endif
+    echo "code mode:"g:code_modes[g:code_mode]
+endfun
+map <F6> :call ToggleCodeMode()<CR>
+map! <F6> <ESC>:call ToggleCodeMode()<CR>
+
+
+function! EmailEditMode()
+	let g:edit_mode=0
+	call ToggleEditMode()
+
+	let g:code_mode=1
+	call ToggleCodeMode()
+endfun
+
+function! CodeEditMode()
+	let g:edit_mode=1
+	call ToggleEditMode()
+endfun
+
+
+function! NonKernelCode()
+    	call CodeEditMode()
+
+	let g:code_mode=1
+	call ToggleCodeMode()
+
+	let g:Tlist_Auto_Open = 0
+endfun
+
+function! KernelCode()
+    call CodeEditMode()
+
+    let g:code_mode=0
+    call ToggleCodeMode()
+
+    let g:Tlist_Auto_Open = 0
+
+endfun
+
+function! JavaCode() 
+    call NonKernelCode() 
+    "let g:Tlist_Auto_Open = 2
+    ": TlistToo
+endfun
+
+
+"
+" Toggle fold state between closed and opened
+" with the space bar. If there is no fold at
+" current line, just moves forward.  If it is present,
+" reverse its state. Use zf<move action> to create fold.
+" zf% to create fold on function, for example.
+"
+function! ToggleFold()
+    if foldlevel('.') == 0
+        normal! l
+    else
+        if foldclosed('.') < 0
+            . foldclose
+        else
+            . foldopen
+        endif
+    endif
+    " Clear status line
+    echo
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" abbreviations
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+ab ljb //------------------------------------------------------------------------<CR><CR>------------------------------------------------------------------------<esc>ka<space>
+ab sjb //---------------------------------------------------------------------<CR><CR>---------------------------------------------------------------------<esc>ka<space>
+ab lvb """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<ESC>
+ab lbb ###############################################################################<ESC>0<CR>
+ab lbd -------------------------------------------------------------------------------<ESC>0<CR>
+
+ab #d #define
+ab #i #include
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" maps
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""nnoremap % :let line=line(".")%:echo line(".") - line
+noremap <buffer> <space> :call ToggleFold()<CR>
+"nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
+"
+
+map     \cf :call GetFile(expand("$CONFIG_DIR"))<CR>
+map!    \cf <ESC>:call GetFile(expand("$CONFIG_DIR"))<CR>
+
+map     \gc :call GotoConfig()<CR>
+map!    \gc <ESC>:call GotoConfig()<CR>
+
+map 	\sp :split<CR>
+map!	\sp <ESC>:split<CR>
+map     \yrs :YRShow<CR>
+map! 	\yrs <ESC>:YRShow<CR>
+nmap <silent> \ts :ts<CR>
+
+" Launch Eclair (2.1) emulator
+map 	\ee :!eclair.sh<CR><CR>
+map! 	\ee <ESC>:!eclair.sh<CR><CR>
+
+" Launch Froyo (2.2) emulator
+map 	\ef :!froyo.sh<CR><CR>
+map! 	\ef <ESC>:!froyo.sh<CR><CR>
+
+" Launch Gingerbread (2.3) emulator
+map 	\eg :!gingerbread.sh<CR><CR>
+map! 	\eg <ESC>:!gingerbread.sh<CR><CR>
+
+" Launch Jellybean (4.1) emulator
+map 	\ej :!jellybean.sh<CR><CR>
+map! 	\ej <ESC>:!jellybean.sh<CR><CR>
+
+map 	\il :!install-lookout.sh<CR><CR>
+map! 	\il <ESC>:!install-lookout.sh<CR><CR>
+
+map 	\iv :!install-viz.sh<CR><CR>
+map! 	\iv <ESC>:!install-viz.sh<CR><CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  Function key mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map 	<F1> :w<CR>
+map!  	<F1> <ESC>:w<CR>
+map 	<F2> :registers<CR>
+map! 	<F2> <ESC>:registers<CR>
+"Avoid Vifm popping up its own window
+if has("gui_running")
+	map <F3> :Explore<CR>
+	map! <F3> <ESC>:Explore<CR>
+else
+	map <F3> :EditVifm<CR>
+	map! <F3> <ESC>:EditVifm<CR>
+endif
+"       <F4> is marked for toggling paste below
+"map 	<F6> taken
+"map! 	<F6> taken
+"map 	<F7> :!ctags *.c *.h *.java *.S<CR><CR>
+"map! 	<F7> <ESC>:!ctags *.c *.h *.java *.S<CR><CR>
+map 	<F7> :!tlc<CR><CR>
+map! 	<F7> <ESC>:!tlc<CR><CR>
+" Spellcheck with F8 if editing mail using `aspell'
+"autocmd FileType mail :nmap <F8> :w<CR>:!aspell -e -c %<CR>:e<CR>
+"map 	<F9> :Tlist<CR>
+"map! 	<F9> <ESC>:Tlist<CR>
+
+" For toggling eclim project tree
+map 	<F8> :ProjectTreeToggle<CR>
+map! 	<F8> <ESC>:ProjectTreeToggle<CR>
+" For toggling file list
+map 	<F9> :TlistToo<CR>
+map! 	<F9> <ESC>:TlistToo<CR>
+
+"map 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
+"map! 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
+
+" rot encoding/decoding toggle
+map 	<F10> ggg?G<CR>
+map! 	<F10> <ESC>ggg?G<CR>
+"map 	<F11> :!install-lookout.sh<CR>
+"map! 	<F11> <ESC>:!install-lookout.sh<CR>
+map 	<F11> :CommandTFlush<CR>
+map! 	<F11> <ESC>:CommandTFlush<CR>
+map 	<F12> :q<CR>
+map! 	<F12> <ESC>:q<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap n nmzz.`z
+nmap N Nmzz.`z
+nmap * *mzz.`z
+nmap # #mzz.`z
+nmap g* g*mzz.`z
+nmap g# g#mzz.`z
+nmap gn :set invnu<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" alt mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map 	<m-n> :cn<CR>
+map! 	<m-n> <ESC>:cn<CR>
+map 	<m-p> :cp<CR>
+map! 	<m-p> <ESC>:cp<CR>
+map 	<m-f> :cfirst<CR>
+map! 	<m-f> <ESC>:cfirst<CR>
+map 	<m-l> :clist<CR>
+map! 	<m-l> <ESC>:clist<CR>
+map 	<m-o> :copen<CR>
+map! 	<m-o> <ESC>:copen<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ctrl mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" buffers
+map 	<c-p> :bp<CR>
+map! 	<c-p> <esc>:bp<CR>
+map 	<c-n> :bn<CR>
+map! 	<c-n> <esc>:bn<CR>
+map 	<c-j> :buffers<CR>
+map! 	<c-j> <esc>:buffers<CR>
+map 	<c-x> :bdelete<CR>
+map! 	<c-x> <esc>:bdelete<CR>
+map 	<c-/> :bdelete<CR>
+map! 	<c-/> <esc>:bdelete<CR>
+
+" tabs
+map 	<c-s> :tabp<CR>
+map! 	<c-s> <ESC>tabp<CR>
+map     <c-h> :tabn<CR>
+map!  	<c-h> <ESC>tabn<CR>
+nnoremap \tt :tabnew<CR>
+nnoremap \nt :tabnew<CR>
+
+" comment current line
+map 	<c-k> mzI/* <ESC>A */ <ESC>`z
+map! 	<c-k> <ESC>mzI/* <ESC>A */ <ESC>`z
+" uncomment current line
+map 	<c-l> :silent! s/\(.*\)\(\/\* \)\(.*\)\(\*\/\)/\1\3/<CR>
+map! 	<c-l> <ESC>:silent! s/\(.*\)\(\/\* \)\(.*\)\(\*\/\)/\1\3/<CR>
+map 	<c-c> :make<CR>
+" 5 ctrl-h jumps to buffer 5
+"map 	<c-h> <C-^>
+map 	- <C-W>-
+map 	+ <C-W>+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ctrl tag-related mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" goto next tag in taglist
+map 	<c-=> :tnext<CR>
+map! 	<c-=> <ESC>:tnext<CR>
+" mapping something to <c-[> breaks function key mappings
+"map 	<c-[> :pop<CR>
+"map! 	<c-[> <ESC>:pop<CR>
+
+" map pageup to something reasonable
+map 	<c-d> <c-b>
+map 	<c-r> :'a,'bs/^/#/<CR>
+nnoremap \sv :source ~/.vimrc<CR>
+
+" toggle highlighting when searching
+nnoremap \th :set invhls hls?<CR>
+" toggle paste mapping to avoid things like autoindent causing 'stepped' text
+nnoremap \tp :set invpaste paste?<CR>
+" remove comment block
+nnoremap \rcb :'a,'bs/^#//<CR>
+set pastetoggle=<F4>
+set showmode
+
+"
+" JAVAC/ANT INTEGRATION (he quickfix)
+" ':' command  what it does
+" cn go to the next error
+" cp go to the previous error
+" cfirst go to the first error
+" clast go to the last error
+" clist list all of the errors
+" copen open split window of errors
+"
+set shell=/bin/bash
+set shellpipe=2>&1\|tee
+set makeef=$TMP/vim.##
+set makeprg=ant\ debug
+"set makeprg=make\ -f\ Makefile
+autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 1 red
+" 2 green
+" 3 brown
+" 4 blue
+" 5 magenta
+" 6 cyan
+" 7 normal
+" 8 white
+
+"hi Comment 		ctermfg=7 guifg=#808080
+"hi Comment 		ctermfg=7 guifg=#ad00ad
+"hi Indentifier 	ctermfg=6 guifg=#00c0c0
+"hi Statement 	ctermfg=3 cterm=bold guifg=#c0c000 gui=bold
+"hi Tqalabype	ctermfg=2 guifg=#00c000
+"hi Special 		term=bold ctermfg=6 guifg=darkcyan
+"hi Todo 		term=bold ctermfg=4 ctermbg=1 guifg=#000080 guibg=#c0c000
+"hi Directory 	ctermfg=2 guifg=#00c000
+"hi StatusLine 	ctermfg=4 ctermbg=7 guifg=blue guibg=white
+"hi Normal 		guifg=#ffffff guibg=#000000
+"hi preproc 		ctermfg=2 ctermbg=0 guifg=green guibg=black
+"hi Cursor 		ctermbg=red ctermfg=NONE guifg=NONE guibg=red
+"hi ErrorMsg 	term=bold ctermfg=1 ctermbg=0 guifg=white guibg=red
+"hi Error 		term=standout ctermfg=8 ctermbg=1 guifg=white guibg=red
+"hi FoldColumn 	guibg=darkblue
+"set background=dark
+"colorscheme solarized
+"highlight Normal guibg=grey90
+"highlight Cursor guibg=Green guifg=NONE
+"highlight NonText guibg=grey80
+"highlight Constant gui=NONE guibg=grey95
+"highlight Special gui=NONE guibg=grey95
+"highlight Normal guibg=lightyellow
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colorschemes
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+
+"jsyntax enable
+colorscheme solarized
+
+map <M-Esc>[62~ <MouseDown>
+map! <M-Esc>[62~ <MouseDown>
+map <M-Esc>[63~ <MouseUp>
+map! <M-Esc>[63~ <MouseUp>
+map <M-Esc>[64~ <S-MouseDown>
+map! <M-Esc>[64~ <S-MouseDown>
+map <M-Esc>[65~ <S-MouseUp>
+map! <M-Esc>[65~ <S-MouseUp>
+
+function! NumberOfWindows()
+	let i = 1
+	while winbufnr(i) != -1
+  		let i = i+1
+	endwhile
+	return i - 1
+endfunction
+
+"Calling ':QFix' will "toggle" the quickfix open and closed.
+command -bang -nargs=? QFix call QFixToggle(<bang>0)
+
+function! QFixToggle(forced)
+	if exists("g:qfix_win") && a:forced == 0
+    	cclose
+    	unlet g:qfix_win
+  	else
+    	copen 10
+    	let g:qfix_win = bufnr("$")
+	endif
+endfunction
+
+nmap <silent> \` :QFix<CR>
+
+" Supertab settings
+" supertab + eclim == java win
+let g:SuperTabDefaultCompletionTypeDiscovery = [
+\ "&completefunc:<c-x><c-u>",
+\ "&omnifunc:<c-x><c-o>",
+\ ]
+let g:SuperTabLongestHighlight = 1
+
+"map \s :silent !screen -X split<CR>:silent !screen -X focus down<CR>:silent !screen -X screen screener.sh<CR>:redraw!<CR>
+
+
+" Eclim settings
+" ,i imports whatever is needed for current line
+nnoremap <silent> <LocalLeader>i :JavaImport<cr>
+" ,d opens javadoc for statement in browser
+nnoremap <silent> <LocalLeader>d :JavaDocSearch -x declarations<cr>
+" ,<enter> searches context for statement
+nnoremap <silent> <LocalLeader><cr> :JavaSearchContext<cr>
+" ,jv validates current java file
+nnoremap <silent> <LocalLeader>jv :Validate<cr>
+" ,jc shows corrections for the current line of java and allows you
+" to select the changes to made
+nnoremap <silent> <LocalLeader>jc :JavaCorrect<cr>
+
+nnoremap <silent> <LocalLeader>nt :NERDTree<cr>
+
+nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
+nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
+nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
+
+"nnoremap <silent> <LocalLeader>r :Ant debug install<cr>:!viz-run<cr>
+"
+" Eclim Settings
+"
+"use default Taglist instead of Eclim, avoid problem
+let g:EclimTaglistEnabled=0
+"if the current file is in a Eclipse project, open project tree automatically
+" TODO: SHAW: this command causes crap to spew out into vim, should fix
+let g:EclimProjectTreeAutoOpen=0
+"let g:EclimProjectTreeExpandPathOnOpen=1
+let g:EclimProjectTreeSharedInstance=1  "share tree instance through all tabs
+
+" Open from the project explorer results in a new tab
+let g:EclimProjectTreeActions = [
+    \ {'pattern': '.*', 'name': 'Split', 'action': 'tabnew'},
+    \ {'pattern': '.*', 'name': 'Tab', 'action': 'tabnew'},
+    \ {'pattern': '.*', 'name': 'Edit', 'action': 'tabnew'},
+  \ ]
+" 'open' on OSX will open the url in the default browser without issue
+"let g:EclimBrowser='open'
+"set cot-=preview
+"let g:EclimProjectTreeAutoOpen=1
+
+"call togglebg#map("<F7>")
+
+let g:Powerline_symbols = 'fancy'
+set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
+
+"set colorcolumn=80
+" Make the 81st column standout, like setting colorcolumn
+"highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+
+"====[ Highlight matches when jumping to next ]====
+" OR ELSE just highlight the match in red... (Damian Conway)
+nnoremap <silent> n     n:call HLNext(0.4)<cr>
+nnoremap <silent> N     N:call HLNext(0.4)<cr>
+highlight WhiteOnRed ctermfg=white ctermbg=red
+function! HLNext (blinktime)
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+    let target_pat = '\c\%#'.@/
+    let ring = matchadd('WhiteOnRed', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
+
+set rtp+=/home/shaw/.local/lib/python2.7/site-packages/powerline/bindings/vim
