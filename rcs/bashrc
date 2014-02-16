@@ -33,10 +33,6 @@ export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
 
-# Setup Gruf to aid working on multiple projects simultaneously 
-# http://github.com/svrana/gruf
-source ~/gruf/gruf.bashrc
-
 export PATH=\
 /usr/local/bin:\
 /usr/local/sbin:\
@@ -44,14 +40,26 @@ export PATH=\
 /usr/sbin:\
 /bin:\
 /sbin:\
-$GRUF_CONFIG:\
 ~/bin:\
+~/gruf:\
 ~/.local/bin
 
 #
-# Source configuration common among all boxen.
+# Source the configuration for these dotfiles of which this file is a part.
 #
-. ~/dotfiles/config.env
+# This assumes the install script has been run and .bashrc is a link pointing
+# into the dotfiles repo.
+#
+bashrc_location=$(readlink -f ~/.bashrc)
+dotfiles_dir=${bashrc_location%/rcs/bashrc}
+. $dotfiles_dir/config.env
+
+# Setup Gruf to aid working on multiple projects simultaneously
+# http://github.com/svrana/gruf
+#
+# Gruf uses MY_TMP which is set in dotfiles config, so setup that has been
+# defined above.
+source ~/gruf/gruf.bashrc
 
 # unbind ctrl-s/-q from konsole
 stty -ixon
