@@ -4,6 +4,8 @@
 " Plugins:
 "   taglisttoo
 "   command-t
+"   powerline
+"   pathogen
 "
 set nocompatible
 syntax on
@@ -72,10 +74,7 @@ vmap * "yy:let @/='\(' . @y . '\'<cr>n
 
 source ${GRUF_CONFIG}/gruf.vimrc
 
-"/home/shaw/.rvm/gems/ruby-1.8.7-p371/gems/tags
-set tags=tags,${GRUF_PROJECT}/tags,/home/shaw/.rvm/gems/ruby-1.9.3-p392@smb/tags,/home/shaw/android-sdk-linux/sources/android-18/tags
-"set tags=tags,${GRUF_PROJECT}/tags,/home/shaw/Projects/security/tags,/home/shaw/Android/sdk-sources/tags,/home/shaw/.rvm/gems/ruby-1.8.7-p371/gems/tags
-"/home/shaw/android-sdk-linux/sources/android-18"
+set tags=tags,${GRUF_PROJECT}/tags
 
 "
 " :cs help
@@ -192,8 +191,6 @@ endif
 set comments=sr:/*,mb:*,exl:*/,://,b:#,:%:XCOMM,n:>,fb:-
 set comments+=b:\"
 
-
-"set verbose=9
 autocmd BufEnter,FileType *.gradle :set cindent
 autocmd BufEnter,FileType *.gradle :set fo+=croql
 autocmd BufEnter,FileType *.gradle :silent call NonKernelCode()
@@ -232,7 +229,6 @@ autocmd BufEnter /tmp/mutt* :set noexpandtab
 autocmd BufEnter /tmp/mutt* :set fo+=aw
 autocmd BufEnter /tmp/mutt* silent call EmailEditMode()
 autocmd BufEnter,BufNewFile /tmp/mutt* :setlocal spell spelllang=en_us
-
 
 autocmd BufRead .git/COMMIT_EDITMSG setlocal spell spelllang=en_US
 autocmd BufRead .git/COMMIT_EDITMSG setlocal textwidth=70
@@ -285,7 +281,6 @@ set helpheight=0
 set visualbell
 set t_vb=
 set ruler
-"set statusline=%<%f%h%m%r%=%b\ 0x%-03.3B\ \ %l\ %P
 set laststatus=2
 set go=ia
 set noequalalways
@@ -305,21 +300,16 @@ map _n :n<Bar>execute "/\\<" . g:word . "\\>"<CR>
 
 " vim -b: edit binary using xxd-format
 augroup Binary
-	au!
-	au BufReadPre  *.bin let &bin=1
-	au BufReadPost *.bin if &bin | %!xxd
-	au BufReadPost *.bin set ft=xxd | endif
-	au BufWritePre *.bin if &bin | %!xxd -r
-	au BufWritePre *.bin endif
-	au BufWritePost *.bin if &bin | %!xxd
-	au BufWritePost *.bin set nomod | endif
+    au!
+    au BufReadPre  *.bin let &bin=1
+    au BufReadPost *.bin if &bin | %!xxd
+    au BufReadPost *.bin set ft=xxd | endif
+    au BufWritePre *.bin if &bin | %!xxd -r
+    au BufWritePre *.bin endif
+    au BufWritePost *.bin if &bin | %!xxd
+    au BufWritePost *.bin set nomod | endif
 augroup END
 
-"
-" Quotes needed if envvar hasn't been defined or vim will throw
-" an error during startup... But the quotes cause it not to work, so that's
-" not a solution.
-"
 function! GotoConfig()
 	cd $CONFIG_DIR
 endfun
@@ -358,26 +348,26 @@ map! <F6> <ESC>:call ToggleCodeMode()<CR>
 
 
 function! EmailEditMode()
-	let g:edit_mode=0
-	call ToggleEditMode()
+    let g:edit_mode=0
+    call ToggleEditMode()
 
-	let g:code_mode=1
-	call ToggleCodeMode()
+    let g:code_mode=1
+    call ToggleCodeMode()
 endfun
 
 function! CodeEditMode()
-	let g:edit_mode=1
-	call ToggleEditMode()
+    let g:edit_mode=1
+    call ToggleEditMode()
 endfun
 
 
 function! NonKernelCode()
-    	call CodeEditMode()
+   call CodeEditMode()
 
-	let g:code_mode=1
-	call ToggleCodeMode()
+    let g:code_mode=1
+    call ToggleCodeMode()
 
-	let g:Tlist_Auto_Open = 0
+    let g:Tlist_Auto_Open = 0
 endfun
 
 function! KernelCode()
@@ -387,7 +377,6 @@ function! KernelCode()
     call ToggleCodeMode()
 
     let g:Tlist_Auto_Open = 0
-
 endfun
 
 function! JavaCode() 
@@ -417,28 +406,15 @@ function! ToggleFold()
     " Clear status line
     echo
 endfunction
+noremap <buffer> <space> :call ToggleFold()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " abbreviations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-ab ljb //------------------------------------------------------------------------<CR><CR>------------------------------------------------------------------------<esc>ka<space>
-ab sjb //---------------------------------------------------------------------<CR><CR>---------------------------------------------------------------------<esc>ka<space>
 ab lvb """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<ESC>
-ab lbb ###############################################################################<ESC>0<CR>
-ab lbd -------------------------------------------------------------------------------<ESC>0<CR>
-
 ab #d #define
 ab #i #include
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" maps
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""nnoremap % :let line=line(".")%:echo line(".") - line
-noremap <buffer> <space> :call ToggleFold()<CR>
-"nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
-"
 
 map     \cf :call GetFile(expand("$CONFIG_DIR"))<CR>
 map!    \cf <ESC>:call GetFile(expand("$CONFIG_DIR"))<CR>
@@ -477,19 +453,12 @@ map! 	\iv <ESC>:!install-viz.sh<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  Function key mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 map 	<F1> :w<CR>
 map!  	<F1> <ESC>:w<CR>
 map 	<F2> :registers<CR>
 map! 	<F2> <ESC>:registers<CR>
-"Avoid Vifm popping up its own window
-if has("gui_running")
-	map <F3> :Explore<CR>
-	map! <F3> <ESC>:Explore<CR>
-else
-	map <F3> :EditVifm<CR>
-	map! <F3> <ESC>:EditVifm<CR>
-endif
+map     <F3> :Explore<CR>
+map!    <F3> <ESC>:Explore<CR>
 "       <F4> is marked for toggling paste below
 "map 	<F6> taken
 "map! 	<F6> taken
@@ -508,15 +477,8 @@ map! 	<F8> <ESC>:ProjectTreeToggle<CR>
 " For toggling file list
 map 	<F9> :TlistToo<CR>
 map! 	<F9> <ESC>:TlistToo<CR>
-
 "map 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 "map! 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
-
-" rot encoding/decoding toggle
-map 	<F10> ggg?G<CR>
-map! 	<F10> <ESC>ggg?G<CR>
-"map 	<F11> :!install-lookout.sh<CR>
-"map! 	<F11> <ESC>:!install-lookout.sh<CR>
 map 	<F11> :CommandTFlush<CR>
 map! 	<F11> <ESC>:CommandTFlush<CR>
 map 	<F12> :q<CR>
@@ -569,11 +531,11 @@ nnoremap \tt :tabnew<CR>
 nnoremap \nt :tabnew<CR>
 
 " comment current line
-map 	<c-k> mzI/* <ESC>A */ <ESC>`z
-map! 	<c-k> <ESC>mzI/* <ESC>A */ <ESC>`z
+"map 	<c-k> mzI/* <ESC>A */ <ESC>`z
+"map! 	<c-k> <ESC>mzI/* <ESC>A */ <ESC>`z
 " uncomment current line
-map 	<c-l> :silent! s/\(.*\)\(\/\* \)\(.*\)\(\*\/\)/\1\3/<CR>
-map! 	<c-l> <ESC>:silent! s/\(.*\)\(\/\* \)\(.*\)\(\*\/\)/\1\3/<CR>
+"map 	<c-l> :silent! s/\(.*\)\(\/\* \)\(.*\)\(\*\/\)/\1\3/<CR>
+"map! 	<c-l> <ESC>:silent! s/\(.*\)\(\/\* \)\(.*\)\(\*\/\)/\1\3/<CR>
 map 	<c-c> :make<CR>
 " 5 ctrl-h jumps to buffer 5
 "map 	<c-h> <C-^>
@@ -624,53 +586,14 @@ set makeprg=ant\ debug
 autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colors
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 1 red
-" 2 green
-" 3 brown
-" 4 blue
-" 5 magenta
-" 6 cyan
-" 7 normal
-" 8 white
-
-"hi Comment 		ctermfg=7 guifg=#808080
-"hi Comment 		ctermfg=7 guifg=#ad00ad
-"hi Indentifier 	ctermfg=6 guifg=#00c0c0
-"hi Statement 	ctermfg=3 cterm=bold guifg=#c0c000 gui=bold
-"hi Tqalabype	ctermfg=2 guifg=#00c000
-"hi Special 		term=bold ctermfg=6 guifg=darkcyan
-"hi Todo 		term=bold ctermfg=4 ctermbg=1 guifg=#000080 guibg=#c0c000
-"hi Directory 	ctermfg=2 guifg=#00c000
-"hi StatusLine 	ctermfg=4 ctermbg=7 guifg=blue guibg=white
-"hi Normal 		guifg=#ffffff guibg=#000000
-"hi preproc 		ctermfg=2 ctermbg=0 guifg=green guibg=black
-"hi Cursor 		ctermbg=red ctermfg=NONE guifg=NONE guibg=red
-"hi ErrorMsg 	term=bold ctermfg=1 ctermbg=0 guifg=white guibg=red
-"hi Error 		term=standout ctermfg=8 ctermbg=1 guifg=white guibg=red
-"hi FoldColumn 	guibg=darkblue
-"set background=dark
-"colorscheme solarized
-"highlight Normal guibg=grey90
-"highlight Cursor guibg=Green guifg=NONE
-"highlight NonText guibg=grey80
-"highlight Constant gui=NONE guibg=grey95
-"highlight Special gui=NONE guibg=grey95
-"highlight Normal guibg=lightyellow
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-
 if has('gui_running')
     set background=light
 else
     set background=dark
 endif
 
-"jsyntax enable
 colorscheme solarized
 
 map <M-Esc>[62~ <MouseDown>
@@ -683,38 +606,12 @@ map <M-Esc>[65~ <S-MouseUp>
 map! <M-Esc>[65~ <S-MouseUp>
 
 function! NumberOfWindows()
-	let i = 1
-	while winbufnr(i) != -1
-  		let i = i+1
-	endwhile
-	return i - 1
+    let i = 1
+    while winbufnr(i) != -1
+  	let i = i+1
+    endwhile
+    return i - 1
 endfunction
-
-"Calling ':QFix' will "toggle" the quickfix open and closed.
-command -bang -nargs=? QFix call QFixToggle(<bang>0)
-
-function! QFixToggle(forced)
-	if exists("g:qfix_win") && a:forced == 0
-    	cclose
-    	unlet g:qfix_win
-  	else
-    	copen 10
-    	let g:qfix_win = bufnr("$")
-	endif
-endfunction
-
-nmap <silent> \` :QFix<CR>
-
-" Supertab settings
-" supertab + eclim == java win
-let g:SuperTabDefaultCompletionTypeDiscovery = [
-\ "&completefunc:<c-x><c-u>",
-\ "&omnifunc:<c-x><c-o>",
-\ ]
-let g:SuperTabLongestHighlight = 1
-
-"map \s :silent !screen -X split<CR>:silent !screen -X focus down<CR>:silent !screen -X screen screener.sh<CR>:redraw!<CR>
-
 
 " Eclim settings
 " ,i imports whatever is needed for current line
@@ -738,8 +635,6 @@ nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 "nnoremap <silent> <LocalLeader>r :Ant debug install<cr>:!viz-run<cr>
 "
-" Eclim Settings
-"
 "use default Taglist instead of Eclim, avoid problem
 let g:EclimTaglistEnabled=0
 "if the current file is in a Eclipse project, open project tree automatically
@@ -754,21 +649,11 @@ let g:EclimProjectTreeActions = [
     \ {'pattern': '.*', 'name': 'Tab', 'action': 'tabnew'},
     \ {'pattern': '.*', 'name': 'Edit', 'action': 'tabnew'},
   \ ]
-" 'open' on OSX will open the url in the default browser without issue
-"let g:EclimBrowser='open'
-"set cot-=preview
-"let g:EclimProjectTreeAutoOpen=1
-
-"call togglebg#map("<F7>")
-
-let g:Powerline_symbols = 'fancy'
-set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 "set colorcolumn=80
 " Make the 81st column standout, like setting colorcolumn
 "highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
-
 
 "====[ Highlight matches when jumping to next ]====
 " OR ELSE just highlight the match in red... (Damian Conway)
@@ -786,4 +671,4 @@ function! HLNext (blinktime)
     redraw
 endfunction
 
-set rtp+=/home/shaw/.local/lib/python2.7/site-packages/powerline/bindings/vim
+set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
