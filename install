@@ -6,6 +6,28 @@
 # This needs to be once.
 #
 
+fetch_repos() {
+    if [ ! -d ~/repos/solarize ]; then
+        git clone https://github.com/gmodarelli/solarize.git ~/repos/solarize
+        estatus "Cloned solarize repo"
+    fi
+
+    if [ ! -d ~/.vim/bundle/command-t ]; then
+        git clone https://github.com/wincent/Command-T.git ~/.vim/bundle/command-t
+        estatus "Cloned Command-t repo"
+    fi
+
+    if [ ! -d ~/.vim/bundle/vim-colors-solarized ]; then
+        git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
+        estatus "Cloned vim-colors-solarized repo"
+    fi
+
+    if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
+        curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+        estatus "Installed pathogen"
+    fi
+}
+
 current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Setup defaults required by these dotfiles
 . ${current_dir}/config.env
@@ -17,6 +39,7 @@ mkdir -p ~/.config/fontconfig/conf.d
 mkdir -p ~/.fonts
 mkdir -p ~/.vim/swp
 mkdir -p ~/.vim/bundle
+mkdir -p ~/.vim/autoload
 
 if [ "${HOME}" != "/root" ]; then
     mkdir -p ~/apps
@@ -64,5 +87,9 @@ do
     ln -sf ${SCRIPT_DIR}/$i ${BIN_DIR}/$i
 done
 egood "Created links in ${BIN_DIR} to scripts in $SCRIPT_DIR"
+
+if [ "${HOME}" != "/root" ]; then
+    fetch_repos
+fi
 
 source ~/.bashrc
