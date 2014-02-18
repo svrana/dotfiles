@@ -13,7 +13,6 @@ current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 mkdir -p $BIN_DIR
 mkdir -p $MY_TMP
 mkdir -p ~/.bak
-mkdir -p ~/.vim/colors
 mkdir -p ~/.config/fontconfig/conf.d
 mkdir -p ~/.fonts
 mkdir -p ~/.vim/swp
@@ -37,9 +36,6 @@ egood "Created default directories as specified in $current_dir/directories.env"
 ln -sf ${RC_DIR}/bash_profile 	    ~/.bash_profile
 ln -sf ${RC_DIR}/bashrc             ~/.bashrc
 ln -sf ${RC_DIR}/vimrc              ~/.vimrc
-ln -sf ${RC_DIR}/shawterm.vim       ~/.vim/colors
-ln -sf ${RC_DIR}/shawgui.vim        ~/.vim/colors
-ln -sf ${RC_DIR}/eclipse.vim 	    ~/.vim/colors
 ln -sf ${RC_DIR}/tmux.conf 	    ~/.tmux.conf
 ln -sf ${RC_DIR}/gitconfig          ~/.gitconfig
 ln -sf ${RC_DIR}/eclimrc            ~/.eclimrc
