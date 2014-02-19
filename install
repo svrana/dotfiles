@@ -22,9 +22,21 @@ fetch_repos() {
         estatus "Cloned vim-colors-solarized repo"
     fi
 
+    if [ ! -d ~/.vim/bundle/vim-fugutive ]; then
+        git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+        estatus "Cloned vim-fugitive repo"
+    fi
+
     if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
         curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
         estatus "Installed pathogen"
+    fi
+
+}
+
+powerline_install() {
+    if [ ! -f ~/.local/bin/powerline ]; then
+        pip install --user git+git://github.com/Lokaltog/powerline
     fi
 }
 
@@ -44,7 +56,6 @@ mkdir -p ~/.vim/autoload
 if [ "${HOME}" != "/root" ]; then
     mkdir -p ~/apps
     mkdir -p ~/repos
-    mkdir -p ~/kernels
 
     mkdir -p $DOCUMENTS
     mkdir -p $MUSIC
@@ -90,6 +101,7 @@ egood "Created links in ${BIN_DIR} to scripts in $SCRIPT_DIR"
 
 if [ "${HOME}" != "/root" ]; then
     fetch_repos
+    powerline_install
 fi
 
 source ~/.bashrc
