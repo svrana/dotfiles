@@ -36,6 +36,11 @@ fetch_repos() {
         git clone https://github.com/vim-scripts/DeleteTrailingWhitespace.git ~/.vim/bundle/DeleteTrailingWhitespace
         estatus "Cloned DeleteTrailingWhitespace"
     fi
+
+    if [ ! -d ~/.vim/bundle/matchit ]; then
+        git clone https://github.com/vim-scripts/matchit.zip.git ~/.vim/bundle/matchit
+        estatus "Cloned matchit"
+    fi
 }
 
 powerline_install() {
