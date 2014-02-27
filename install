@@ -85,11 +85,7 @@ ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
 egood "Created home directory file links"
 
 fc-cache -vf ~/.fonts > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    sbox "Built font cache for powerline"
-else
-    ebox "Failed to build font cache for powerline"
-fi
+estatus "Built font cache for powerline"
 
 for i in $(ls -1 $SCRIPT_DIR)
 do
