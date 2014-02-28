@@ -33,8 +33,9 @@ let g:Tlist_Use_Right_Window = 1
 "
 " To disable showing trailing whitespace:
 " let g:ShowTrailingWhitespace = 0
-" Don't auto-delete whitespace
-let g:DeleteTrailingWhitespace = 0
+" Auto-delete whitespace automatically, no ask
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'
 
 "set fileformat=unix
 set completeopt+=menu
@@ -670,5 +671,12 @@ function! HLNext (blinktime)
     call matchdelete(ring)
     redraw
 endfunction
+
+" Auto-refresh of Command-T
+augroup CommandTExtension
+  autocmd!
+  autocmd FocusGained * CommandTFlush
+  autocmd BufWritePost * CommandTFlush
+augroup END
 
 set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
