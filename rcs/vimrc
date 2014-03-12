@@ -66,7 +66,7 @@ set smartcase
 set incsearch
 
 
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack
 "set list
 "set listchars=tab:▸\ ,eol:¬
 
@@ -380,8 +380,8 @@ function! KernelCode()
     let g:Tlist_Auto_Open = 0
 endfun
 
-function! JavaCode() 
-    call NonKernelCode() 
+function! JavaCode()
+    call NonKernelCode()
     "let g:Tlist_Auto_Open = 2
     ": TlistToo
 endfun
@@ -680,3 +680,7 @@ augroup CommandTExtension
 augroup END
 
 set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
+
+" Don't use vim's keyword completion on <tab>
+let g:SuperTabDefaultCompletionType = 'context'
+
