@@ -520,8 +520,8 @@ map 	<c-n> :bn<CR>
 map! 	<c-n> <esc>:bn<CR>
 map 	<c-j> :buffers<CR>
 map! 	<c-j> <esc>:buffers<CR>
-map 	<c-x> :bdelete<CR>
-map! 	<c-x> <esc>:bdelete<CR>
+"map 	<c-x> :bdelete<CR>
+"map! 	<c-x> <esc>:bdelete<CR>
 map 	<c-/> :bdelete<CR>
 map! 	<c-/> <esc>:bdelete<CR>
 
@@ -685,4 +685,6 @@ set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " Don't use vim's keyword completion on <tab>
 let g:SuperTabDefaultCompletionType = 'context'
-
+let g:SuperTabClosePreviewOnPopupClose = 1
+" Not sure why I need this, but it prevents an extra <cr> after selecting a completion option
+let g:SuperTabCrMapping = 0
