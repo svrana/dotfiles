@@ -270,6 +270,8 @@ autocmd BufNewFile,BufEnter,FileType *.feature set expandtab
 autocmd BufNewFile,BufEnter,FileType *.feature set shiftwidth=2
 autocmd BufNewFile,BufEnter,FileType *.feature set softtabstop=2
 
+autocmd BufNewFile,BufEnter,BufRead *.gradle setf groovy
+
 
 set showmatch
 set backupext=.bak
