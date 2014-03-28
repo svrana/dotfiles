@@ -520,8 +520,8 @@ map 	<c-n> :bn<CR>
 map! 	<c-n> <esc>:bn<CR>
 map 	<c-j> :buffers<CR>
 map! 	<c-j> <esc>:buffers<CR>
-"map 	<c-x> :bdelete<CR>
-"map! 	<c-x> <esc>:bdelete<CR>
+map 	<c-x> :bdelete<CR>
+map! 	<c-x> <esc>:bdelete<CR>
 map 	<c-/> :bdelete<CR>
 map! 	<c-/> <esc>:bdelete<CR>
 
