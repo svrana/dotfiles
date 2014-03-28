@@ -15,6 +15,10 @@ fetch_repos() {
     if [ ! -d ~/.vim/bundle/command-t ]; then
         git clone https://github.com/wincent/Command-T.git ~/.vim/bundle/command-t
         estatus "Cloned Command-t repo"
+        pushd ~/.vim/bundle/command-t/ruby/command-t/
+        ruby extconf.rb
+        make > /dev/null 2>&1
+        popd
     fi
 
     if [ ! -d ~/.vim/bundle/vim-colors-solarized ]; then
