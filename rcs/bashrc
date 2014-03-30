@@ -20,6 +20,9 @@ shopt -s checkwinsize
 shopt -s histappend
 shopt -s cdspell                  # Let bash help you change directories when you can't spell
 
+# F7 sources .bashrc
+bind '"\e[18~":"source ~/.bashrc\n"'
+
 export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
 export HISTCONTROL=ignoredups
 export PROMPT_COMMAND='history -a'
