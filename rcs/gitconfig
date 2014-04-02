@@ -5,10 +5,8 @@
 [credential]
 	helper = cache
 [alias]
-	standup = log --since yesterday --author="shaw@lookout.com" --pretty=oneline
 	rename = commit --reset-author --amend
-	ch = checkout
-	co = commit -v
+	co = checkout
     	ci = commit
 	st = status
 	cat = cat-file
@@ -23,6 +21,7 @@
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
 	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
     	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
 	switch = !legit switch \"$@\"
 	branches = !legit branches
 	sprout = !legit sprout \"$@\"
@@ -61,3 +60,5 @@
   graft = !legit graft \"$@\"
 #[push]
 #	default = simple
+[push]
+	default = simple
