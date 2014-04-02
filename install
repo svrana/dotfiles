@@ -76,8 +76,8 @@ if [ "${HOME}" != "/root" ]; then
     mkdir -p ~/repos
 
     mkdir -p $DOCUMENTS
-    mkdir -p $MUSIC
-    mkdir -p $PHOTOS
+    ln -sf $DROPBOX_ROOT/Music $MUSIC
+    ln -sf $DROPBOX_ROOT/Pictures $PHOTOS
     mkdir -p $DOWNLOADS
 
     ln -Tsf $DOCUMENTS/playlists/ ~/Playlists
