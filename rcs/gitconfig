@@ -1,7 +1,5 @@
 [user]
 	name = Shaw Vrana
-	email = shaw@vranix.com
-	#email = shaw@lookout.com
 [credential]
 	helper = cache
 [alias]
@@ -31,6 +29,8 @@
 	publish = !legit publish \"$@\"
 	graft = !legit graft \"$@\"
 	gerrits = push gerrit HEAD:refs/for/master
+	workprofile = config user.email \"shaw@lookout.com\"
+	homeprofile = config user.email \"shaw@vranix.com\"
 [commit]
 	template = /home/shaw/Documents/lookout/git/commit.template
 [color]
@@ -58,7 +58,5 @@
   sync = !legit sync \"$@\"
   publish = !legit publish \"$@\"
   graft = !legit graft \"$@\"
-#[push]
-#	default = simple
 [push]
 	default = simple
