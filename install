@@ -77,11 +77,9 @@ if [ "${HOME}" != "/root" ]; then
 
     mkdir -p $DOWNLOADS
 
-    ln -sf $DROPBOX_ROOT/Documents $DOCUMENTS
-    ln -sf $DROPBOX_ROOT/Music $MUSIC
-    ln -sf $DROPBOX_ROOT/Pictures $PHOTOS
-
-    ln -Tsf $DROPBOX_ROOT/Documents/playlists/ ~/Playlists
+    ln -Tsf $DROPBOX_ROOT/Documents $DOCUMENTS
+    ln -Tsf $DROPBOX_ROOT/Music $MUSIC
+    ln -Tsf $DROPBOX_ROOT/Pictures $PHOTOS
 fi
 
 egood "Created default directories as specified in $current_dir/directories.env"
