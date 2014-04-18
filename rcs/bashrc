@@ -75,3 +75,5 @@ fi
 
 [[ -s "$RVM_PATH/scripts/rvm" ]] && . "$RVM_PATH/scripts/rvm"
 
+export rvmsudo_secure_path=0
+
