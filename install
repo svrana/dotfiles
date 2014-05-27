@@ -95,6 +95,8 @@ ln -sf ${RC_DIR}/10-powerline-symbols.conf      ~/.config/fontconfig/conf.d/10-p
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
 
+sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+
 egood "Created home directory file links"
 
 fc-cache -vf ~/.fonts > /dev/null 2>&1
