@@ -7,6 +7,11 @@
 #
 
 fetch_repos() {
+    if [ ! -d ~/repos/pidcat ]; then
+        git clone https://github.com/JakeWharton/pidcat.git ~/repos/pidcat
+        estatus "Cloned pidcat"
+    fi
+
     if [ ! -d ~/repos/solarize ]; then
         git clone https://github.com/gmodarelli/solarize.git ~/repos/solarize
         estatus "Cloned solarize repo"
@@ -94,6 +99,7 @@ ln -sf ${RC_DIR}/rvmrc              ~/.rvmrc
 ln -sf ${RC_DIR}/10-powerline-symbols.conf      ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
+ln -sf ~/repos/pidcat/pidcat.py ${BIN_DIR}/pidcat
 
 sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
 
