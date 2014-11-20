@@ -474,9 +474,6 @@ map! 	<F7> <ESC>:!tlc<CR><CR>
 "map 	<F9> :Tlist<CR>
 "map! 	<F9> <ESC>:Tlist<CR>
 
-" For toggling eclim project tree
-map 	<F8> :ProjectTreeToggle<CR>
-map! 	<F8> <ESC>:ProjectTreeToggle<CR>
 " For toggling file list
 map 	<F9> :TlistToo<CR>
 map! 	<F9> <ESC>:TlistToo<CR>
@@ -616,42 +613,12 @@ function! NumberOfWindows()
     return i - 1
 endfunction
 
-" Eclim settings
-" ,i imports whatever is needed for current line
-nnoremap <silent> <LocalLeader>i :JavaImport<cr>
-" ,d opens javadoc for statement in browser
-nnoremap <silent> <LocalLeader>d :JavaDocSearch -x declarations<cr>
-" ,<enter> searches context for statement
-nnoremap <silent> <LocalLeader><cr> :JavaSearchContext<cr>
-" ,jv validates current java file
-nnoremap <silent> <LocalLeader>jv :Validate<cr>
-" ,jc shows corrections for the current line of java and allows you
-" to select the changes to made
-nnoremap <silent> <LocalLeader>jc :JavaCorrect<cr>
-
 nnoremap <silent> <LocalLeader>nt :NERDTree<cr>
 
 nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
 nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
-
-"nnoremap <silent> <LocalLeader>r :Ant debug install<cr>:!viz-run<cr>
-"
-"use default Taglist instead of Eclim, avoid problem
-let g:EclimTaglistEnabled=0
-"if the current file is in a Eclipse project, open project tree automatically
-" TODO: SHAW: this command causes crap to spew out into vim, should fix
-let g:EclimProjectTreeAutoOpen=0
-"let g:EclimProjectTreeExpandPathOnOpen=1
-let g:EclimProjectTreeSharedInstance=1  "share tree instance through all tabs
-
-" Open from the project explorer results in a new tab
-let g:EclimProjectTreeActions = [
-    \ {'pattern': '.*', 'name': 'Split', 'action': 'tabnew'},
-    \ {'pattern': '.*', 'name': 'Tab', 'action': 'tabnew'},
-    \ {'pattern': '.*', 'name': 'Edit', 'action': 'tabnew'},
-  \ ]
 
 "set colorcolumn=80
 " Make the 81st column standout, like setting colorcolumn

@@ -94,7 +94,6 @@ ln -sf ${RC_DIR}/bashrc             ~/.bashrc
 ln -sf ${RC_DIR}/vimrc              ~/.vimrc
 ln -sf ${RC_DIR}/tmux.conf 	    ~/.tmux.conf
 ln -sf ${RC_DIR}/gitconfig          ~/.gitconfig
-ln -sf ${RC_DIR}/eclimrc            ~/.eclimrc
 ln -sf ${RC_DIR}/rvmrc              ~/.rvmrc
 ln -sf ${RC_DIR}/10-powerline-symbols.conf      ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
