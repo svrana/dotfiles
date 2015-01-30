@@ -55,6 +55,11 @@ fetch_repos() {
         git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
         estatus "Cloned supertab"
     fi
+
+    if [ ! -d ~/.vim/bundle/vim-go ]; then
+        git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+        estatus "Cloned vim-go"
+    fi
 }
 
 powerline_install() {
