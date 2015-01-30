@@ -447,9 +447,6 @@ map! 	\eg <ESC>:!gingerbread.sh<CR><CR>
 map 	\ej :!jellybean.sh<CR><CR>
 map! 	\ej <ESC>:!jellybean.sh<CR><CR>
 
-map 	\il :!install-lookout.sh<CR><CR>
-map! 	\il <ESC>:!install-lookout.sh<CR><CR>
-
 map 	\iv :!install-viz.sh<CR><CR>
 map! 	\iv <ESC>:!install-viz.sh<CR><CR>
 

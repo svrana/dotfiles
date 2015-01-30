@@ -1,5 +1,6 @@
 [user]
 	name = Shaw Vrana
+	email = shaw@vranix.com
 [credential]
 	helper = cache
 [alias]
@@ -32,7 +33,7 @@
 	workprofile = config user.email \"shaw@lookout.com\"
 	homeprofile = config user.email \"shaw@vranix.com\"
 [commit]
-	template = /home/shaw/Documents/lookout/git/commit.template
+	;template = /home/shaw/Documents/git/commit.template
 [color]
   ui = true
 [color "branch"]
