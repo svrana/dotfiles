@@ -3,7 +3,7 @@
 # Creates defaults directories setup in directories.env; copies or links
 # configuration files into place as appropriate.
 #
-# This needs to be once.
+# This needs to be run once.
 #
 
 fetch_repos() {
@@ -57,7 +57,7 @@ fetch_repos() {
     fi
 
     if [ ! -d ~/.vim/bundle/vim-go ]; then
-        git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+        git clone https://github.com/fatih/vim-go ~/.vim/bundle/vim-go
         estatus "Cloned vim-go"
     fi
 }
