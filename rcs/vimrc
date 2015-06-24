@@ -8,10 +8,14 @@
 "   pathogen
 "
 set nocompatible
-syntax on
-filetype plugin indent on
 
+filetype off
 call pathogen#infect()
+call pathogen#helptags()
+
+syntax on
+filetype on
+filetype plugin indent on
 
 set mouse=a
 
@@ -50,9 +54,9 @@ set ttimeoutlen=100
 set backspace=indent,eol,start
 set directory=~/.vim/swp
 
-set shiftwidth=4
-set noexpandtab
-set textwidth=78
+"set shiftwidth=4
+"set noexpandtab
+"set textwidth=78
 set nowrap
 set nosol
 " show filename in X window frame
@@ -210,14 +214,14 @@ autocmd BufEnter,FileType sh :silent call NonKernelCode()
 
 autocmd BufEnter,FileType *.h :set cindent
 autocmd BufEnter,FileType *.h :set fo+=croql
-autocmd BufEnter,FileType *.h silent call NonKernelCode()
-"autocmd BufEnter,FileType *.h silent call KernelCode()
+"autocmd BufEnter,FileType *.h silent call NonKernelCode()
+autocmd BufEnter,FileType *.h silent call KernelCode()
 
 autocmd BufEnter,FileType *.cc :set cindent
 autocmd BufEnter,FileType *.cc :set fo+=croql
 autocmd BufEnter,FileType *.cc :silent call NonKernelCode()
 
-"autocmd BufEnter,FileType java :set cindent
+autocmd BufEnter,FileType java :set cindent
 autocmd BufEnter,FileType java :set fo+=croql
 autocmd BufEnter,FileType java :silent call JavaCode()
 
@@ -271,6 +275,10 @@ autocmd BufNewFile,BufEnter,FileType *.feature set softtabstop=2
 
 autocmd BufNewFile,BufEnter,BufRead *.gradle setf groovy
 
+autocmd BufNewFile,BufEnter,FileType javascript set cindent
+autocmd BufNewFile,BufEnter,FileType javascript set expandtab
+autocmd BufNewFile,BufEnter,FileType javascript set shiftwidth=2
+autocmd BufNewFile,BufEnter,FileType javascript set softtabstop=2
 
 set showmatch
 set backupext=.bak

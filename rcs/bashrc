@@ -40,7 +40,8 @@ export PATH=\
 /bin:\
 /sbin:\
 ~/bin:\
-~/.local/bin    # for powerline
+~/.local/bin:\
+~/.rvm/bin
 
 #
 # Source the configuration for these dotfiles of which this file is a part.
@@ -69,9 +70,6 @@ if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.s
     . ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
+# rvm required config
 [[ -s "$RVM_PATH/scripts/rvm" ]] && . "$RVM_PATH/scripts/rvm"
-
 export rvmsudo_secure_path=1
-
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

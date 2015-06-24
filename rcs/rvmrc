@@ -1,2 +1,3 @@
 rvm_autoupdate_flag=2
 export rvm_max_time_flag=20
+create_on_use_flag=1

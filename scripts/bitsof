@@ -56,6 +56,10 @@ loop do
     ARGV.shift
     evaluate = true
     input = ARGV.shift
+    if input.nil?
+      puts "Must provide an expression to evaluate"
+      exit 1
+    end
   when '-g' then
     ARGV.shift
     group = true
@@ -78,4 +82,5 @@ end
 
 input = eval(input) if evaluate
 bitstr = int_to_bitstr(input.to_i)
+print "#{input}: " if evaluate
 display_bitstr(bitstr, group)
