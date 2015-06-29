@@ -7,6 +7,12 @@
 #
 
 fetch_repos() {
+    if [ ! -e /usr/local/bin/pip ]; then
+        sudo apt-get install python-pip python-dev build-essential
+        sudo pip install --upgrade pip
+        sudo pip install --upgrade virtualenv
+    fi
+
     if [ ! -d ~/repos/pidcat ]; then
         git clone https://github.com/JakeWharton/pidcat.git ~/repos/pidcat
         estatus "Cloned pidcat"
