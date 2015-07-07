@@ -7,7 +7,9 @@
 	rename = commit --reset-author --amend
 	co = checkout
     	ci = commit
+    	com = commit
 	st = status
+	f = fetch
 	cat = cat-file
 	br = branch --color -v
 	b = branch --color -v
@@ -30,8 +32,12 @@
 	publish = !legit publish \"$@\"
 	graft = !legit graft \"$@\"
 	gerrits = push gerrit HEAD:refs/for/master
-	workprofile = config user.email \"shaw@lookout.com\"
+	workprofile = config user.email \"shaw@contextlogic.com\"
 	homeprofile = config user.email \"shaw@vranix.com\"
+
+	fom = fetch origin master
+	rom = rebase origin/master
+    	rbop = rebase origin/production
 [commit]
 	;template = /home/shaw/Documents/git/commit.template
 [color]
@@ -60,4 +66,4 @@
   publish = !legit publish \"$@\"
   graft = !legit graft \"$@\"
 [push]
-	default = simple
+  default = simple

@@ -280,6 +280,30 @@ autocmd BufNewFile,BufEnter,FileType javascript set expandtab
 autocmd BufNewFile,BufEnter,FileType javascript set shiftwidth=2
 autocmd BufNewFile,BufEnter,FileType javascript set softtabstop=2
 
+autocmd BufNewFile,BufEnter,FileType python set expandtab
+autocmd BufNewFile,BufEnter,FileType python set shiftwidth=4
+autocmd BufNewFile,BufEnter,FileType python set tabstop=4
+"autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
+
+" format JSON files properly
+au! BufRead,BufNewFile *.json set filetype=json
+
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+  autocmd FileType json set foldmethod=syntax
+augroup END
+
+" When editing a file that requires root, try to save using sudo
+cmap w!! %!sudo tee > /dev/null %
+
+" ignore .pyc, .o, and .git in command-t and :e
+set wildignore+=*.pyc,*.o,.git
+
 set showmatch
 set backupext=.bak
 set backupdir=~/.bak
@@ -469,10 +493,10 @@ map!    <F3> <ESC>:Explore<CR>
 "       <F4> is marked for toggling paste below
 "map 	<F6> taken
 "map! 	<F6> taken
-"map 	<F7> :!ctags *.c *.h *.java *.S<CR><CR>
-"map! 	<F7> <ESC>:!ctags *.c *.h *.java *.S<CR><CR>
-map 	<F7> :!tlc<CR><CR>
-map! 	<F7> <ESC>:!tlc<CR><CR>
+map 	<F7> :!ctags -R<CR><CR>
+map! 	<F7> <ESC>:!ctags -R<CR><CR>
+"map 	<F7> :!tlc<CR><CR>
+"map! 	<F7> <ESC>:!tlc<CR><CR>
 " Spellcheck with F8 if editing mail using `aspell'
 "autocmd FileType mail :nmap <F8> :w<CR>:!aspell -e -c %<CR>:e<CR>
 "map 	<F9> :Tlist<CR>

@@ -71,5 +71,7 @@ if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.s
 fi
 
 # rvm required config
-[[ -s "$RVM_PATH/scripts/rvm" ]] && . "$RVM_PATH/scripts/rvm"
 export rvmsudo_secure_path=1
+[[ -s "$RVM_PATH/scripts/rvm" ]] && . "$RVM_PATH/scripts/rvm"
+#export CL_HOME=/home/shaw/ContextLogic/clroot/
+#export PYTHONPATH=/home/shaw/ContextLogic/clroot/

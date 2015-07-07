@@ -8,7 +8,7 @@
 
 fetch_repos() {
     if [ ! -e /usr/local/bin/pip ]; then
-        sudo apt-get install python-pip python-dev build-essential
+        sudo apt-get install curl python-pip python-dev build-essential
         sudo pip install --upgrade pip
         sudo pip install --upgrade virtualenv
     fi
@@ -20,6 +20,7 @@ fetch_repos() {
 
     if [ ! -d ~/repos/solarize ]; then
         git clone https://github.com/gmodarelli/solarize.git ~/repos/solarize
+        ~/repos/solarize/soliarize.sh dark
         estatus "Cloned solarize repo"
     fi
 
@@ -91,6 +92,11 @@ fetch_repos() {
         git clone https://github.com/fs111/pydoc.vim.git ~/.vim/bundle/pydoc.vim
 	estatus "Cloned pydoc"
     fi
+
+    if [ ! -d ~/.vim/bundle/jedi-vim ]; then
+        git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+        estatus "Cloned jedi-vim"
+    fi
 }
 
 powerline_install() {
@@ -131,6 +137,7 @@ ln -sf ${RC_DIR}/vimrc              ~/.vimrc
 ln -sf ${RC_DIR}/tmux.conf 	    ~/.tmux.conf
 ln -sf ${RC_DIR}/gitconfig          ~/.gitconfig
 ln -sf ${RC_DIR}/rvmrc              ~/.rvmrc
+ln -sf ${RC_DIR}/ackrc              ~/.ackrc
 ln -sf ${RC_DIR}/10-powerline-symbols.conf      ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
