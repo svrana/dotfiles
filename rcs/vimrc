@@ -493,10 +493,10 @@ map!    <F3> <ESC>:Explore<CR>
 "       <F4> is marked for toggling paste below
 "map 	<F6> taken
 "map! 	<F6> taken
-map 	<F7> :!ctags -R<CR><CR>
-map! 	<F7> <ESC>:!ctags -R<CR><CR>
-"map 	<F7> :!tlc<CR><CR>
-"map! 	<F7> <ESC>:!tlc<CR><CR>
+"map 	<F7> :!ctags -R<CR><CR>
+"map! 	<F7> <ESC>:!ctags -R<CR><CR>
+map 	<F7> :!tlc<CR><CR>
+map! 	<F7> <ESC>:!tlc<CR><CR>
 " Spellcheck with F8 if editing mail using `aspell'
 "autocmd FileType mail :nmap <F8> :w<CR>:!aspell -e -c %<CR>:e<CR>
 "map 	<F9> :Tlist<CR>

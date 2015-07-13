@@ -31,6 +31,7 @@ export EDITOR=vim
 export GEDITOR=gvim
 export LESS=mqeisz-2XR 		            # -R is important for escape sequences
 export TERM=xterm-256color                  # this is for solarized
+export GOPATH=~/.gocode
 
 export PATH=\
 /usr/local/bin:\
@@ -41,7 +42,8 @@ export PATH=\
 /sbin:\
 ~/bin:\
 ~/.local/bin:\
-~/.rvm/bin
+~/.rvm/bin:\
+$GOPATH/bin
 
 #
 # Source the configuration for these dotfiles of which this file is a part.
@@ -73,5 +75,3 @@ fi
 # rvm required config
 export rvmsudo_secure_path=1
 [[ -s "$RVM_PATH/scripts/rvm" ]] && . "$RVM_PATH/scripts/rvm"
-#export CL_HOME=/home/shaw/ContextLogic/clroot/
-#export PYTHONPATH=/home/shaw/ContextLogic/clroot/
