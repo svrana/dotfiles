@@ -22,6 +22,7 @@
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
 	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
     	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	latest = diff HEAD~1 HEAD
 
 	switch = !legit switch \"$@\"
 	branches = !legit branches
@@ -67,3 +68,5 @@
   graft = !legit graft \"$@\"
 [push]
   default = simple
+[core]
+	excludesfile = /home/shaw/dotfiles/rcs/gitignore_global
