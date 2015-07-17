@@ -2,3 +2,4 @@ tags
 .gruf.*
 cscope.out
 .lint.pot
+.virtualenv

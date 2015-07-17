@@ -31,8 +31,8 @@ export EDITOR=vim
 export GEDITOR=gvim
 export LESS=mqeisz-2XR 		            # -R is important for escape sequences
 export TERM=xterm-256color                  # this is for solarized
-export GOPATH=~/.gocode
 
+# Add potentially box specific directories in default.env
 export PATH=\
 /usr/local/bin:\
 /usr/local/sbin:\
@@ -41,9 +41,7 @@ export PATH=\
 /bin:\
 /sbin:\
 ~/bin:\
-~/.local/bin:\
-~/.rvm/bin:\
-$GOPATH/bin
+~/.local/bin
 
 #
 # Source the configuration for these dotfiles of which this file is a part.
@@ -75,3 +73,17 @@ fi
 # rvm required config
 export rvmsudo_secure_path=1
 [[ -s "$RVM_PATH/scripts/rvm" ]] && . "$RVM_PATH/scripts/rvm"
+
+
+# Make virtualenvwrapper use the .virtualenv file to find the current
+# python virtual environment.
+function prompt()
+{
+    if [ "$PWD" != "$MYOLDPWD" ]; then
+        MYOLDPWD="$PWD"
+        test -e .virtualenv && workon `cat .virtualenv`
+    fi
+}
+
+OLD_PC=$PROMPT_COMMAND # hack to keep bash powerline working
+PROMPT_COMMAND='prompt ; $OLD_PC'

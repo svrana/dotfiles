@@ -11,6 +11,7 @@ fetch_repos() {
         sudo apt-get install curl python-pip python-dev build-essential
         sudo pip install --upgrade pip
         sudo pip install --upgrade virtualenv
+        sudo pip install --upgrade virtualenvwrapper
     fi
 
     if [ ! -d ~/repos/pidcat ]; then
