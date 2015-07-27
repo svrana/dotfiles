@@ -196,6 +196,11 @@ endif
 set comments=sr:/*,mb:*,exl:*/,://,b:#,:%:XCOMM,n:>,fb:-
 set comments+=b:\"
 
+" Turn on continuation of comment characters for all file types
+"autocmd FileType * setlocal formatoptions+=caroq
+
+autocmd FileType * setlocal formatoptions+=croq
+
 autocmd BufEnter,FileType *.gradle :set cindent
 autocmd BufEnter,FileType *.gradle :set fo+=croql
 autocmd BufEnter,FileType *.gradle :silent call NonKernelCode()
@@ -231,16 +236,17 @@ autocmd BufEnter,FileType perl silent call NonKernelCode()
 
 autocmd BufEnter,BufNewFile /tmp/mutt* :set textwidth=72
 autocmd BufEnter /tmp/mutt* :set noexpandtab
-autocmd BufEnter /tmp/mutt* :set fo+=aw
+autocmd BufEnter /tmp/mutt* :set fo+=awt
 autocmd BufEnter /tmp/mutt* silent call EmailEditMode()
 autocmd BufEnter,BufNewFile /tmp/mutt* :setlocal spell spelllang=en_us
 
 autocmd BufRead gitcommit setlocal spell spelllang=en_US textwidth=72
+autocmd BufRead gitcommit setlocal fo+=t
 
 autocmd BufEnter *.txt :set spell
 autocmd BufEnter *.txt :set textwidth=72
 autocmd BufEnter *.txt :set noexpandtab
-autocmd BufEnter *.txt :set fo+=aw
+autocmd BufEnter *.txt :set fo+=awt
 autocmd BufEnter *.txt call EmailEditMode()
 
 autocmd BufEnter,FileType xml silent call NonKernelCode()
@@ -263,6 +269,7 @@ autocmd BufRead,BufNewFile java :silent call JavaCode()
 
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
+autocmd BufNewFile,BufRead *.erb setf ruby
 autocmd BufNewFile,BufEnter,FileType ruby set cindent
 autocmd BufNewFile,BufEnter,FileType ruby set expandtab
 autocmd BufNewFile,BufEnter,FileType ruby set shiftwidth=2

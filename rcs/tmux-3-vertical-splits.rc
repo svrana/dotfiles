@@ -1,0 +1,5 @@
+splitw -h
+splitw -h
+select-layout even-horizontal
+
+selectp -t 1
