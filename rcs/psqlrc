@@ -1,0 +1,10 @@
+\set HISTFILE ~/.psql/history- :DBNAME
+\pset null '[null]'
+\set HISTCONTROL ignoredups
+\timing
+\set COMP_KEYWORD_CASE upper
+
+
+
+\set conninfo   'SELECT usename, count(*) FROM pg_stat_activity GROUP BY usename;'
+\set tablesize  `cat ~/dotfiles/rcs/psql-table-sizes.sql`

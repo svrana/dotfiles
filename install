@@ -144,6 +144,7 @@ ln -sf ${RC_DIR}/tmux.conf 	    ~/.tmux.conf
 ln -sf ${RC_DIR}/gitconfig          ~/.gitconfig
 ln -sf ${RC_DIR}/rvmrc              ~/.rvmrc
 ln -sf ${RC_DIR}/ackrc              ~/.ackrc
+ln -sf ${RC_DIR}/psqlrc             ~/.psqlrc
 ln -sf ${RC_DIR}/10-powerline-symbols.conf      ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
