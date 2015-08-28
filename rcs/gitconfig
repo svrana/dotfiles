@@ -7,6 +7,8 @@
 	rename = commit --reset-author --amend
 	co = checkout
     	ci = commit
+	ciaa = commit -a --amend
+	cia = commit --amend
     	com = commit
 	st = status
 	f = fetch

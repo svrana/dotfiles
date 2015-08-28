@@ -290,6 +290,11 @@ autocmd BufNewFile,BufEnter,FileType javascript set softtabstop=2
 autocmd BufNewFile,BufEnter,FileType python set expandtab
 autocmd BufNewFile,BufEnter,FileType python set shiftwidth=4
 autocmd BufNewFile,BufEnter,FileType python set tabstop=4
+
+autocmd BufNewFile,BufEnter,FileType yaml set expandtab
+autocmd BufNewFile,BufEnter,FileType yaml set shiftwidth=4
+autocmd BufNewFile,BufEnter,FileType yaml set tabstop=4
+
 "autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 
 " format JSON files properly
