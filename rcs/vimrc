@@ -52,7 +52,7 @@ set notimeout
 set ttimeout
 set ttimeoutlen=100
 set backspace=indent,eol,start
-set directory=~/.vim/swp
+set directory=.
 
 "set shiftwidth=4
 "set noexpandtab
