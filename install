@@ -19,6 +19,11 @@ fetch_repos() {
         estatus "Cloned pidcat"
     fi
 
+    if [ ! -d ~/repos/gruf ]; then
+        git clone https://github.com/svrana/gruf.git ~/repos/gruf
+        estatus "Cloned gruf"
+    fi
+
     if [ ! -d ~/repos/solarize ]; then
         git clone https://github.com/gmodarelli/solarize.git ~/repos/solarize
         ~/repos/solarize/soliarize.sh dark
