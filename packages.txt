@@ -1,0 +1,16 @@
+compizconfig-settings-manager
+pidgin
+gnome-tweak-tool
+git
+vim-gtk
+vim-doc
+ctags
+cscope
+tmux
+ruby-dev
+libcap-dev
+libcurl4-openssl-dev
+ack-grep
+libevent-dev
+openvpn
+network-manager-openvpn
