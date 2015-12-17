@@ -41,6 +41,7 @@
 	fom = fetch origin master
 	rom = rebase origin/master
     	rbop = rebase origin/production
+	hg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [commit]
 	;template = /home/shaw/Documents/git/commit.template
 [color]
