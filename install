@@ -125,14 +125,9 @@ fetch_repos() {
         estatus "Cloned vim fireplace"
     fi
 
-    if [ ! -d ~/.vim/bundle/vim-clojure-static ]; then
-        git clone https://github.com/guns/vim-clojure-static.git ~/.vim/bundle/vim-clojure-static
-        estatus "Cloned vim-clojure-static"
-    fi
-
-    if [ ! -d ~/.vim/bundle/rainbow_parentheses ]; then
-        git clone https://github.com/kien/rainbow_parentheses.vim.git ~/.vim/bundle/rainbow_parentheses
-        estatus "Cloned rainbow-parenthesis"
+    if [ ! -d ~/.vim/bundle/vim-classpath ]; then
+        git clone https://github.com/tpope/vim-classpath.git ~/.vim/bundle/vim-classpath
+        estatus "Cloned vim-classpath"
     fi
 }
 
