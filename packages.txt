@@ -1,3 +1,4 @@
+
 compizconfig-settings-manager
 pidgin
 gnome-tweak-tool
@@ -14,3 +15,6 @@ ack-grep
 libevent-dev
 openvpn
 network-manager-openvpn
+python-pip
+python-dev
+build-essentials
