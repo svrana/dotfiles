@@ -99,11 +99,6 @@ fetch_repos() {
 	estatus "Cloned pydoc"
     fi
 
-    if [ ! -d ~/.vim/bundle/jedi-vim ]; then
-        git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
-        estatus "Cloned jedi-vim"
-    fi
-
     if [ ! -d ~/.vim/bundle/vim-python-pep8-indent ]; then
         git clone https://github.com/hynek/vim-python-pep8-indent.git ~/.vim/bundle/vim-python-pep8-indent
         estatus "Cloned vim-python-pep8-indent"
