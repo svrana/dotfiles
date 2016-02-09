@@ -6,4 +6,6 @@
 \echo '\t:tablesize\tTable sizes'
 \echo '\t:usergroups\tShow users and their groups'
 \echo '\t:groupprivs\tShow group priveleges'
+\echo '\t:showtables\tShow all tables'
+\echo '\t:showviews\tShow all views'
 \echo

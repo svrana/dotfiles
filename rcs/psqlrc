@@ -14,3 +14,5 @@
 \set usergroups `cat $RC_DIR/psql-user-groups.sql`
 \set groupprivs `cat $RC_DIR/psql-group-privs.sql`
 \set aliases 	`cat $RC_DIR/psql-aliases.sql`
+\set showtables 'select table_name FROM information_schema.tables WHERE table_type=\'BASE TABLE\' and table_schema=\'public\' ;'
+\set showviews  'select table_name FROM information_schema.tables WHERE table_type=\'VIEW\' and table_schema=\'public\' ;'
