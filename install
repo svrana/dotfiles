@@ -30,100 +30,21 @@ fetch_repos() {
         estatus "Cloned solarize repo"
     fi
 
+
+    if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        estatus "Cloned Vundle"
+    fi
+
     if [ ! -d ~/.vim/bundle/command-t ]; then
         git clone https://github.com/wincent/Command-T.git ~/.vim/bundle/command-t
         estatus "Cloned Command-t repo"
         pushd ~/.vim/bundle/command-t/ruby/command-t/
-        ruby extconf.rb
-        make > /dev/null 2>&1
+        rake make
         popd
     fi
 
-    if [ ! -d ~/.vim/bundle/vim-colors-solarized ]; then
-        git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
-        estatus "Cloned vim-colors-solarized repo"
-    fi
-
-    if [ ! -d ~/.vim/bundle/vim-javascript-syntax ]; then
-        git clone https://github.com/jelera/vim-javascript-syntax.git ~/.vim/bundle/vim-javascript-syntax
-        estatus "Cloned vim-javascript-syntax repo"
-    fi
-
-    if [ ! -d ~/.vim/bundle/vim-javascript ]; then
-        git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
-        estatus "Cloned vim-javascript repo"
-    fi
-
-    if [ ! -d ~/.vim/bundle/vim-fugitive ]; then
-        git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
-        estatus "Cloned vim-fugitive repo"
-    fi
-
-    if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
-        curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-        estatus "Installed pathogen"
-    fi
-
-    if [ ! -d ~/.vim/bundle/DeleteTrailingWhitespace ]; then
-        git clone https://github.com/vim-scripts/DeleteTrailingWhitespace.git ~/.vim/bundle/DeleteTrailingWhitespace
-        estatus "Cloned DeleteTrailingWhitespace"
-    fi
-
-    if [ ! -d ~/.vim/bundle/matchit ]; then
-        git clone https://github.com/vim-scripts/matchit.zip.git ~/.vim/bundle/matchit
-        estatus "Cloned matchit"
-    fi
-
-    if [ ! -d ~/.vim/bundle/supertab ]; then
-        git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
-        estatus "Cloned supertab"
-    fi
-
-    if [ ! -d ~/.vim/bundle/vim-go ]; then
-        git clone https://github.com/fatih/vim-go ~/.vim/bundle/vim-go
-        estatus "Cloned vim-go"
-    fi
-
-    if [ ! -d ~/.vim/bundle/html5.vim ]; then
-        git clone https://github.com/othree/html5.vim.git ~/.vim/bundle/html5.vim
-        estatus "Cloned html5.vim"
-    fi
-
-    if [ ! -d ~/.vim/bundle/pyflakes-pathogen ]; then
-        git clone https://github.com/mitechie/pyflakes-pathogen.git ~/.vim/bundle/pyflakes-pathogen
-        estatus "Cloned pyflakes"
-    fi
-
-    if [ ! -d ~/.vim/bundle/pydoc.vim ]; then
-        git clone https://github.com/fs111/pydoc.vim.git ~/.vim/bundle/pydoc.vim
-	estatus "Cloned pydoc"
-    fi
-
-    if [ ! -d ~/.vim/bundle/vim-python-pep8-indent ]; then
-        git clone https://github.com/hynek/vim-python-pep8-indent.git ~/.vim/bundle/vim-python-pep8-indent
-        estatus "Cloned vim-python-pep8-indent"
-    fi
-
-    if [ ! -d ~/.vim/bundle/yaml-vim ]; then
-        git clone https://github.com/ingydotnet/yaml-vim ~/.vim/bundle/yaml-vim
-        estatus "Clonsed yaml-vim"
-    fi
-
-    if [ ! -d ~/.tmux/plugins/tpm ]; then
-        mkdir -p ~/.tmux/plugins
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-        estatus "Cloned Tmux Plugin Manger"
-    fi
-
-    if [ ! -d ~/.vim/bundle/vim-fireplace ]; then
-        git clone https://github.com/tpope/vim-fireplace.git ~/.vim/bundle/vim-fireplace
-        estatus "Cloned vim fireplace"
-    fi
-
-    if [ ! -d ~/.vim/bundle/vim-classpath ]; then
-        git clone https://github.com/tpope/vim-classpath.git ~/.vim/bundle/vim-classpath
-        estatus "Cloned vim-classpath"
-    fi
+    vim +PluginInstall +qall
 }
 
 powerline_install() {
