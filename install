@@ -30,20 +30,11 @@ fetch_repos() {
         estatus "Cloned solarize repo"
     fi
 
-
     if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         estatus "Cloned Vundle"
     fi
-
-    if [ ! -d ~/.vim/bundle/command-t ]; then
-        git clone https://github.com/wincent/Command-T.git ~/.vim/bundle/command-t
-        estatus "Cloned Command-t repo"
-        pushd ~/.vim/bundle/command-t/ruby/command-t/
-        rake make
-        popd
-    fi
-
+   
     vim +PluginInstall +qall
 }
 

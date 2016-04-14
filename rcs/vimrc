@@ -12,8 +12,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'wincent/command-t'
 Plugin 'gmodarelli/solarize'
-Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
