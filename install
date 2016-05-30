@@ -34,7 +34,7 @@ fetch_repos() {
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         estatus "Cloned Vundle"
     fi
-   
+
     vim +PluginInstall +qall
 }
 

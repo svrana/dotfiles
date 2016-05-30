@@ -4,8 +4,8 @@
 " Plugins:
 "   taglisttoo
 "   command-t
-"   powerline
-"   pathogen
+"   powerline/airline
+"   vundle
 "
 set nocompatible
 filetype off
@@ -30,31 +30,25 @@ Plugin 'ingydotnet/yaml-vim'
 Plugin 'tmux-plugins/tpm'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-classpath'
-
-
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " All of your Plugins must be added before the following line
 call vundle#end()
-"call pathogen#infect()
-"#call pathogen#helptags()
 syntax on
 filetype on
 filetype plugin indent on
 
 set mouse=a
 
-"let c_space_errors=1
 let g:edit_modes = [ "code", "email" ]
 let g:edit_mode = 0
 let g:code_modes = [ "rbt", "kernel" ]
 let g:code_mode = 0
-
 let mapleader = ","
 let maplocalleader = ","
-
 let g:CommandTMaxHeight = 15
-"let g:TaglistTooEnabled = 1
-"let g:Tlist_Auto_Open = 2
 let g:Tlist_Use_Right_Window = 1
+let g:airline_powerline_fonts = 1
 
 " Whitespace related
 "
@@ -66,20 +60,11 @@ let g:DeleteTrailingWhitespace_Action = 'delete'
 
 "set fileformat=unix
 set completeopt+=menu
-"setlocal spell spelllang=en_us
-
-" sometimes the following block helps with (F1) mapping problems.
-"set cpoptions-=K
-"set <F1>=[A
 set notimeout
 set ttimeout
 set ttimeoutlen=100
 set backspace=indent,eol,start
 set directory=.
-
-"set shiftwidth=4
-"set noexpandtab
-"set textwidth=78
 set nowrap
 set nosol
 " show filename in X window frame
@@ -89,7 +74,6 @@ set titleold=
 set scrollopt=ver
 set ic
 set smartcase
-"set nohlsearch
 set incsearch
 
 
@@ -321,6 +305,10 @@ autocmd BufNewFile,BufEnter,FileType yaml set tabstop=4
 autocmd BufNewFile,BufEnter,FileType html set expandtab
 autocmd BufNewFile,BufEnter,FileType html set shiftwidth=2
 autocmd BufNewFile,BufEnter,FileType html set tabstop=2
+autocmd BufNewFile,BufEnter,FileType *.html set expandtab
+autocmd BufNewFile,BufEnter,FileType *.html set shiftwidth=2
+autocmd BufNewFile,BufEnter,FileType *.html set tabstop=2
+
 
 "autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 
@@ -348,7 +336,7 @@ set backupext=.bak
 set backupdir=~/.bak
 set sessionoptions=buffers,options,winpos,winsize,help,blank,globals,resize
 set noerrorbells
-set showmode
+set noshowmode "airline/powerline shows mode, so no need to show it
 set showcmd
 set helpheight=0
 set visualbell
@@ -363,10 +351,10 @@ set mousemodel=extend
 
 " requires GNU id-utils
 function! ID_search()
-	let g:word = expand("<cword>")
-	let x = system("lid --key=none ". g:word)
-	let x = substitute(x, "\n", " ", "g")
-	execute "next " . x
+    let g:word = expand("<cword>")
+    let x = system("lid --key=none ". g:word)
+    let x = substitute(x, "\n", " ", "g")
+    execute "next " . x
 endfunction
 map _u :call ID_search()<Bar>execute "/\\<" . g:word . "\\>"<CR>
 map _n :n<Bar>execute "/\\<" . g:word . "\\>"<CR>
@@ -384,7 +372,7 @@ augroup Binary
 augroup END
 
 function! GotoConfig()
-	cd $CONFIG_DIR
+    cd $CONFIG_DIR
 endfun
 
 function! ToggleEditMode()
@@ -633,7 +621,6 @@ nnoremap \tp :set invpaste paste?<CR>
 " remove comment block
 nnoremap \rcb :'a,'bs/^#//<CR>
 set pastetoggle=<F4>
-set showmode
 
 "
 " JAVAC/ANT INTEGRATION (he quickfix)
@@ -675,7 +662,7 @@ map! <M-Esc>[65~ <S-MouseUp>
 function! NumberOfWindows()
     let i = 1
     while winbufnr(i) != -1
-  	let i = i+1
+        let i = i+1
     endwhile
     return i - 1
 endfunction
@@ -715,10 +702,11 @@ augroup CommandTExtension
   autocmd BufWritePost * CommandTFlush
 augroup END
 
-set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
+"set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " Don't use vim's keyword completion on <tab>
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabClosePreviewOnPopupClose = 1
-" Not sure why I need this, but it prevents an extra <cr> after selecting a completion option
+" Not sure why I need this, but it prevents an extra <cr> after selecting a
+" completion option
 let g:SuperTabCrMapping = 0
