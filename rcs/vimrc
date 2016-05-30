@@ -1,18 +1,11 @@
 "
 " .vimrc (shaw@vranix.com)
 "
-" Plugins:
-"   taglisttoo
-"   command-t
-"   powerline/airline
-"   vundle
-"
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'wincent/command-t'
 Plugin 'gmodarelli/solarize'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jelera/vim-javascript-syntax'
@@ -32,6 +25,7 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-classpath'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 syntax on
@@ -39,6 +33,8 @@ filetype on
 filetype plugin indent on
 
 set mouse=a
+
+set rtp+=~/repos/fzf
 
 let g:edit_modes = [ "code", "email" ]
 let g:edit_mode = 0
@@ -75,11 +71,7 @@ set scrollopt=ver
 set ic
 set smartcase
 set incsearch
-
-
-nnoremap <leader>a :Ack
-"set list
-"set listchars=tab:▸\ ,eol:¬
+set nohlsearch
 
 " make asterick search work in visual mode
 vmap * "yy:let @/='\(' . @y . '\'<cr>n
@@ -309,9 +301,6 @@ autocmd BufNewFile,BufEnter,FileType *.html set expandtab
 autocmd BufNewFile,BufEnter,FileType *.html set shiftwidth=2
 autocmd BufNewFile,BufEnter,FileType *.html set tabstop=2
 
-
-"autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
-
 " format JSON files properly
 au! BufRead,BufNewFile *.json set filetype=json
 
@@ -330,7 +319,6 @@ cmap w!! %!sudo tee > /dev/null %
 
 " ignore .pyc, .o, and .git in command-t and :e
 set wildignore+=*.pyc,*.o,.git
-
 set showmatch
 set backupext=.bak
 set backupdir=~/.bak
@@ -348,16 +336,6 @@ set noequalalways
 set mousehide
 set mousefocus
 set mousemodel=extend
-
-" requires GNU id-utils
-function! ID_search()
-    let g:word = expand("<cword>")
-    let x = system("lid --key=none ". g:word)
-    let x = substitute(x, "\n", " ", "g")
-    execute "next " . x
-endfunction
-map _u :call ID_search()<Bar>execute "/\\<" . g:word . "\\>"<CR>
-map _n :n<Bar>execute "/\\<" . g:word . "\\>"<CR>
 
 " vim -b: edit binary using xxd-format
 augroup Binary
@@ -530,12 +508,12 @@ map! 	<F7> <ESC>:!tlc<CR><CR>
 "map! 	<F9> <ESC>:Tlist<CR>
 
 " For toggling file list
-map 	<F9> :TlistToo<CR>
-map! 	<F9> <ESC>:TlistToo<CR>
+"map 	<F9> :TlistToo<CR>
+"map! 	<F9> <ESC>:TlistToo<CR>
 "map 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 "map! 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
-map 	<F11> :CommandTFlush<CR>
-map! 	<F11> <ESC>:CommandTFlush<CR>
+"map 	<F11> :CommandTFlush<CR>
+"map! 	<F11> <ESC>:CommandTFlush<CR>
 map 	<F12> :q<CR>
 map! 	<F12> <ESC>:q<CR>
 
@@ -668,6 +646,7 @@ function! NumberOfWindows()
 endfunction
 
 nnoremap <silent> <LocalLeader>nt :NERDTree<cr>
+nnoremap <silent> <LocalLeader>t :FZF<cr>
 
 nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
@@ -696,11 +675,11 @@ function! HLNext (blinktime)
 endfunction
 
 " Auto-refresh of Command-T
-augroup CommandTExtension
-  autocmd!
-  autocmd FocusGained * CommandTFlush
-  autocmd BufWritePost * CommandTFlush
-augroup END
+"augroup CommandTExtension
+"  autocmd!
+"  autocmd FocusGained * CommandTFlush
+"  autocmd BufWritePost * CommandTFlush
+"augroup END
 
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 

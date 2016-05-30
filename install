@@ -35,6 +35,14 @@ fetch_repos() {
         estatus "Cloned Vundle"
     fi
 
+    if [ ! -d ~/.config/nvim ]; then
+        mkdir ~/.config/nvim
+        ln ~/.vimrc ~/.config/nvim/init.vim
+        sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+        sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+        sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+    fi
+
     vim +PluginInstall +qall
 }
 
@@ -79,12 +87,13 @@ ln -sf ${RC_DIR}/gitconfig          ~/.gitconfig
 ln -sf ${RC_DIR}/rvmrc              ~/.rvmrc
 ln -sf ${RC_DIR}/ackrc              ~/.ackrc
 ln -sf ${RC_DIR}/psqlrc             ~/.psqlrc
-ln -sf ${RC_DIR}/10-powerline-symbols.conf      ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
+ln -sf ${RC_DIR}/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 ln -sf ${RC_DIR}/kitchen-config.yml ~/.kitchen/config.yml
 
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
 ln -sf ~/repos/pidcat/pidcat.py ${BIN_DIR}/pidcat
+ln -sf ~/repos/fzf/fzf ${BIN_DIR}/fzf
 
 egood "Created home directory file links"
 
