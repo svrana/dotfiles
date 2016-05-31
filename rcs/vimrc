@@ -297,9 +297,14 @@ autocmd BufNewFile,BufEnter,FileType yaml set tabstop=4
 autocmd BufNewFile,BufEnter,FileType html set expandtab
 autocmd BufNewFile,BufEnter,FileType html set shiftwidth=2
 autocmd BufNewFile,BufEnter,FileType html set tabstop=2
-autocmd BufNewFile,BufEnter,FileType *.html set expandtab
-autocmd BufNewFile,BufEnter,FileType *.html set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType *.html set tabstop=2
+
+autocmd BufNewFile,BufEnter,FileType sccs set expandtab
+autocmd BufNewFile,BufEnter,FileType sccs set shiftwidth=2
+autocmd BufNewFile,BufEnter,FileType sccs set tabstop=2
+
+
+"autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
+>>>>>>> Misc silliness
 
 " format JSON files properly
 au! BufRead,BufNewFile *.json set filetype=json
@@ -507,9 +512,8 @@ map! 	<F7> <ESC>:!tlc<CR><CR>
 "map 	<F9> :Tlist<CR>
 "map! 	<F9> <ESC>:Tlist<CR>
 
-" For toggling file list
-"map 	<F9> :TlistToo<CR>
-"map! 	<F9> <ESC>:TlistToo<CR>
+map 	<F9> :'a,'bs/^/\/\//<CR>
+map! 	<F9> <ESC>:a,'bs/^/\/\//<CR>
 "map 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 "map! 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 "map 	<F11> :CommandTFlush<CR>
