@@ -43,6 +43,13 @@ fetch_repos() {
         sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
     fi
 
+    if [ ! -d ~/repos/fzf ]; then
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/repos/fzf
+        ln -sf ~/repos/fzf/fzf ${BIN_DIR}/fzf
+        mkdir -p ~/.config/fzf
+        ln -sf ${RC_DIR}/fzf.bash ~/.config/fzf/fzf.bash
+    fi
+
     vim +PluginInstall +qall
 }
 
@@ -93,7 +100,7 @@ ln -sf ${RC_DIR}/kitchen-config.yml ~/.kitchen/config.yml
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
 ln -sf ~/repos/pidcat/pidcat.py ${BIN_DIR}/pidcat
-ln -sf ~/repos/fzf/fzf ${BIN_DIR}/fzf
+
 
 egood "Created home directory file links"
 

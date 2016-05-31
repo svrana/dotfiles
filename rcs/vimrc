@@ -304,7 +304,6 @@ autocmd BufNewFile,BufEnter,FileType sccs set tabstop=2
 
 
 "autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
->>>>>>> Misc silliness
 
 " format JSON files properly
 au! BufRead,BufNewFile *.json set filetype=json
