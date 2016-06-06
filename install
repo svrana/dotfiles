@@ -96,6 +96,7 @@ ln -sf ${RC_DIR}/ackrc              ~/.ackrc
 ln -sf ${RC_DIR}/psqlrc             ~/.psqlrc
 ln -sf ${RC_DIR}/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 ln -sf ${RC_DIR}/kitchen-config.yml ~/.kitchen/config.yml
+ln -sf ${RC_DIR}/ctags              ~/.ctags
 
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf

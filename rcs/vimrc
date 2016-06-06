@@ -65,7 +65,7 @@ set directory=.
 set nowrap
 set nosol
 " show filename in X window frame
-set title
+"set title
 " show nothing in window frame on exit
 set titleold=
 set scrollopt=ver
