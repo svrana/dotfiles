@@ -1,6 +1,5 @@
-# Shaw: improve on this to ignore directories (node_modules, etc)
-# FZF_DEFAULT_COMMAND=find * -path '*/\.*' -prune -o -type f -print -o -type l -print 2> /dev/nullefine('pg_user', type=str, default='silverwing')
-
+# Ignore some extra directories
+FZF_DEFAULT_COMMAND=find * -path '*/\.*' -prune -o -type d \( -path node_modules \) -prune -o -type f -print -o -type l -print 2> /dev/null
 
 # Setup fzf
 # ---------
