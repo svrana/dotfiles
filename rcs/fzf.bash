@@ -1,5 +1,5 @@
 # Ignore some extra directories
-FZF_DEFAULT_COMMAND=find * -path '*/\.*' -prune -o -type d \( -path node_modules \) -prune -o -type f -print -o -type l -print 2> /dev/null
+#export FZF_DEFAULT_COMMAND="find * -path */\.* -prune -o -type d \( -path node_modules \) -prune -o -type f -print -o -type l -print 2> /dev/null"
 
 # Setup fzf
 # ---------
