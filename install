@@ -102,6 +102,9 @@ ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
 ln -sf ~/repos/pidcat/pidcat.py ${BIN_DIR}/pidcat
 
+mkdir -p ~/.ipython/profile_default
+ln -sf ${RC_DIR}/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+
 
 egood "Created home directory file links"
 
