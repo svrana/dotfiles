@@ -25,6 +25,8 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-classpath'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'neomake/neomake'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -40,12 +42,16 @@ let g:edit_modes = [ "code", "email" ]
 let g:edit_mode = 0
 let g:code_modes = [ "rbt", "kernel" ]
 let g:code_mode = 0
+
 let mapleader = ","
 let maplocalleader = ","
 
 let g:airline_powerline_fonts = 1
 let g:airline_section_b='' " Disable showing branch cause it crowds the filename
 let g:airline_section_y='' " Disable filetype cause it's mostly useless
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_verbose = 0
 
 " Whitespace related
 "
@@ -306,6 +312,7 @@ autocmd BufNewFile,BufEnter,FileType sccs set expandtab
 autocmd BufNewFile,BufEnter,FileType sccs set shiftwidth=2
 autocmd BufNewFile,BufEnter,FileType sccs set tabstop=2
 
+autocmd BufWritePost,BufEnter * Neomake
 
 "autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 
@@ -319,7 +326,7 @@ augroup json_autocmd
   autocmd FileType json set textwidth=78 shiftwidth=2
   autocmd FileType json set softtabstop=2 tabstop=8
   autocmd FileType json set expandtab
-  autocmd FileType json set foldmethod=syntax
+  "autocmd FileType json set foldmethod=syntax
 augroup END
 
 " When editing a file that requires root, try to save using sudo
