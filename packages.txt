@@ -18,3 +18,4 @@ network-manager-openvpn
 python-pip
 python-dev
 build-essentials
+pip3

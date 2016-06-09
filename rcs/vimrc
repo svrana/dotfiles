@@ -26,6 +26,7 @@ Plugin 'tpope/vim-classpath'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'neomake/neomake'
+Plugin 'Shougo/deoplete.nvim'
 
 
 " All of your Plugins must be added before the following line
@@ -60,6 +61,10 @@ let g:neomake_verbose = 0
 " Auto-delete whitespace automatically, no ask
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
+
+let g:deoplete#enable_at_startup = 1
+" let g:deoplete#disable_auto_complete = 1
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "set fileformat=unix
 set completeopt+=menu
@@ -698,10 +703,9 @@ endfunction
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " Don't use vim's keyword completion on <tab>
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabClosePreviewOnPopupClose = 1
+"let g:SuperTabDefaultCompletionType = 'context'
 " Not sure why I need this, but it prevents an extra <cr> after selecting a
 " completion option
 let g:SuperTabCrMapping = 0
-
-
+let g:SuperTabDefaultCompletionType = '<c-n>'
+let g:SuperTabClosePreviewOnPopupClose = 1

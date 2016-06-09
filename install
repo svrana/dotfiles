@@ -37,7 +37,7 @@ fetch_repos() {
 
     if [ ! -d ~/.config/nvim ]; then
         mkdir ~/.config/nvim
-        ln ~/.vimrc ~/.config/nvim/init.vim
+        ln -sf ${RC_DIR}/.vimrc ~/.config/nvim/init.vim
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
         sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
         sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
