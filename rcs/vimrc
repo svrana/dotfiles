@@ -27,6 +27,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'neomake/neomake'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'ternjs/tern_for_vim'
 
 
 " All of your Plugins must be added before the following line
@@ -313,9 +314,12 @@ autocmd BufNewFile,BufEnter,FileType *.html set expandtab
 autocmd BufNewFile,BufEnter,FileType *.html set shiftwidth=2
 autocmd BufNewFile,BufEnter,FileType *.html set tabstop=2
 
-autocmd BufNewFile,BufEnter,FileType sccs set expandtab
-autocmd BufNewFile,BufEnter,FileType sccs set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType sccs set tabstop=2
+autocmd BufNewFile,BufEnter,FileType *.scss set expandtab
+autocmd BufNewFile,BufEnter,FileType *.scss set shiftwidth=2
+autocmd BufNewFile,BufEnter,FileType *.scss set tabstop=2
+autocmd BufNewFile,BufEnter,FileType *.ccs set expandtab
+autocmd BufNewFile,BufEnter,FileType *.ccs set shiftwidth=2
+autocmd BufNewFile,BufEnter,FileType *.ccs set tabstop=2
 
 autocmd BufWritePost,BufEnter * Neomake
 
