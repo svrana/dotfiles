@@ -55,10 +55,10 @@ let g:airline_section_y='' " Disable filetype cause it's mostly useless
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_verbose = 0
 
-if $GRUF_PROJECT =~ 'silverwing'
+if $GRUF_PROJECT =~ 'monorepo'
     let g:neomake_python_pylint_maker = {
         \ 'args': [
-            \ '--rcfile=' . $GRUF_PROJECT . '/.pylintrc',
+            \ '--rcfile=' . $BOMMIE_HOME . '/.pylintrc',
             \ '--output-format=text',
             \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
             \ '--reports=no'
