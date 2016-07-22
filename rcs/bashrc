@@ -32,6 +32,8 @@ export GEDITOR=gvim
 export LESS=mqeisz-2XR 		            # -R is important for escape sequences
 export TERM=xterm-256color                  # this is for solarized
 export PYTHONDONTWRITEBYTECODE=1            # stop littering
+#export FZF_DEFAULT_COMMAND='ag -l -g""'     # ag for showing only interesting files
+#export FZF_CTRL_T_COMAMAND=$FZF_DEFAULT_COMMAND
 
 # Add potentially box specific directories in default.env
 export PATH=\

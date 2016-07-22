@@ -20,3 +20,6 @@ python-dev
 build-essentials
 pip3
 libfreetype6-dev
+silversearcher-ag
+
+
