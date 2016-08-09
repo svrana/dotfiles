@@ -37,7 +37,7 @@ fetch_repos() {
 
     if [ ! -d ~/.config/nvim ]; then
         mkdir ~/.config/nvim
-        ln -sf ${RC_DIR}/.vimrc ~/.config/nvim/init.vim
+        ln -sf ${RC_DIR}/vimrc ~/.config/nvim/init.vim
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
         sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
         sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
@@ -46,6 +46,7 @@ fetch_repos() {
     if [ ! -d ~/repos/fzf ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/repos/fzf
         ln -sf ~/repos/fzf/fzf ${BIN_DIR}/fzf
+        ln -sf ~/repos/fzf/bin/fzf-tmux ${BIN_DIR}/fzf-tmux
         mkdir -p ~/.config/fzf
         ln -sf ${RC_DIR}/fzf.bash ~/.config/fzf/fzf.bash
     fi

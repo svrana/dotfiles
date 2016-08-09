@@ -3,9 +3,9 @@
 
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */home/shaw/repos/fzf/bin* ]]; then
-  export PATH="$PATH:/home/shaw/repos/fzf/bin"
-fi
+#if [[ ! "$PATH" == */home/shaw/repos/fzf/bin* ]]; then
+#  export PATH="$PATH:/home/shaw/repos/fzf/bin"
+#fi
 
 # Man path
 # --------

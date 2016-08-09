@@ -90,3 +90,6 @@ function prompt()
 
 OLD_PC=$PROMPT_COMMAND # hack to keep bash powerline working
 PROMPT_COMMAND='prompt ; $OLD_PC'
+
+export DIRENV_LOG_FORMAT=
+eval "$(direnv hook bash)"

@@ -11,6 +11,7 @@ tmux
 ruby-dev
 libcap-dev
 libcurl4-openssl-dev
+libncurses5-dev
 ack-grep
 libevent-dev
 openvpn
@@ -21,5 +22,8 @@ build-essentials
 pip3
 libfreetype6-dev
 silversearcher-ag
+direnv
+
+gem install curses
 
 
