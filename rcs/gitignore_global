@@ -4,3 +4,4 @@ cscope.out
 .lint.pot
 .virtualenv
 .ruby-version
+.envrc
