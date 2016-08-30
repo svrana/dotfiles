@@ -5,3 +5,4 @@ cscope.out
 .virtualenv
 .ruby-version
 .envrc
+.direnv
