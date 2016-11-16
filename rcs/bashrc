@@ -93,3 +93,5 @@ PROMPT_COMMAND='prompt ; $OLD_PC'
 
 export DIRENV_LOG_FORMAT=
 eval "$(direnv hook bash)"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

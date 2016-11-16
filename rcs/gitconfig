@@ -72,4 +72,4 @@
 [push]
   default = simple
 [core]
-	excludesfile = /home/shaw/dotfiles/rcs/gitignore_global
+  excludesfile = /home/shaw/dotfiles/rcs/gitignore_global
