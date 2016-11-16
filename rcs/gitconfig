@@ -13,7 +13,6 @@
 	st = status
 	f = fetch
 	cat = cat-file
-	br = branch --color -v
 	b = branch --color -v
 	ffwd = pull --rebase
 	changes = diff --name-status -r
@@ -25,25 +24,13 @@
 	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
     	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	latest = diff HEAD~1 HEAD
-
-	switch = !legit switch \"$@\"
-	branches = !legit branches
-	sprout = !legit sprout \"$@\"
-	unpublish = !legit unpublish \"$@\"
-	harvest = !legit harvest \"$@\"
-	sync = !legit sync \"$@\"
-	publish = !legit publish \"$@\"
-	graft = !legit graft \"$@\"
 	gerrits = push gerrit HEAD:refs/for/master
 	workprofile = config user.email \"shaw@contextlogic.com\"
 	homeprofile = config user.email \"shaw@vranix.com\"
-
 	fom = fetch origin master
 	rom = rebase origin/master
     	rbop = rebase origin/production
 	hg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-[commit]
-	;template = /home/shaw/Documents/git/commit.template
 [color]
   ui = true
 [color "branch"]
