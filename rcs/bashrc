@@ -44,7 +44,8 @@ export PATH=\
 /bin:\
 /sbin:\
 ~/bin:\
-~/.local/bin
+~/.local/bin:\
+~/.rvm/bin
 
 #
 # Source the configuration for these dotfiles of which this file is a part.
@@ -93,5 +94,3 @@ PROMPT_COMMAND='prompt ; $OLD_PC'
 
 export DIRENV_LOG_FORMAT=
 eval "$(direnv hook bash)"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
