@@ -102,6 +102,7 @@ set ic
 set smartcase
 set incsearch
 set nohlsearch
+set inccommand=split
 " placed here for webpack hmr
 set backupcopy=yes
 
