@@ -570,7 +570,7 @@ nmap * *mzz.`z
 nmap # #mzz.`z
 nmap g* g*mzz.`z
 nmap g# g#mzz.`z
-nmap gn :set invnu<CR>
+"nmap gn :set invnu<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " alt mappings
@@ -644,7 +644,7 @@ nnoremap \th :set invhls hls?<CR>
 nnoremap \tp :set invpaste paste?<CR>
 " remove comment block
 nnoremap \rcb :'a,'bs/^#//<CR>
-set pastetoggle=<F4>
+"set pastetoggle=<F4>
 
 "
 " JAVAC/ANT INTEGRATION (he quickfix)
