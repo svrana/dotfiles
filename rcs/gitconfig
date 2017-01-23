@@ -27,28 +27,26 @@
 	gerrits = push gerrit HEAD:refs/for/master
 	workprofile = config user.email \"shaw@contextlogic.com\"
 	homeprofile = config user.email \"shaw@vranix.com\"
-	fom = fetch origin master
-	rom = rebase origin/master
-    	rbop = rebase origin/production
 	hg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	fr = "!f() { git fetch origin master && git rebase origin/master; }; f"
 [color]
-ui = true
+  	ui = true
 [color "branch"]
-  current = yellow black
-  local = yellow
-  remote = magenta
+  	current = yellow black
+  	local = yellow
+  	remote = magenta
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red reverse
-  new = green reverse
-  whitespace = white reverse
+  	meta = yellow bold
+  	frag = magenta bold
+  	old = red reverse
+  	new = green reverse
+  	whitespace = white reverse
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan reverse
-  branch = magenta
+  	added = yellow
+  	changed = green
+  	untracked = cyan reverse
+  	branch = magenta
 [push]
-  default = simple
+  	default = simple
 [core]
-  excludesfile = /home/shaw/dotfiles/rcs/gitignore_global
+  	excludesfile = /home/shaw/dotfiles/rcs/gitignore_global
