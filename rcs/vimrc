@@ -30,6 +30,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'neomake/neomake'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'zchee/deoplete-go'
 Plugin 'ternjs/tern_for_vim'
 
 
@@ -241,6 +242,10 @@ autocmd BufEnter,FileType c :set cindent
 autocmd BufEnter,FileType c :set fo+=croql
 autocmd BufEnter,FileType c :silent call NonKernelCode()
 
+autocmd BufEnter,FileType go :set cindent
+autocmd BufEnter,FileType go :set fo+=croql
+autocmd BufEnter,FileType go :silent call NonKernelCode()
+
 autocmd BufEnter,FileType vim :set cindent
 autocmd BufEnter,FileType vim :set fo+=croql
 autocmd BufEnter,FileType vim :silent call NonKernelCode()
@@ -322,6 +327,10 @@ autocmd BufNewFile,BufEnter,FileType javascript set softtabstop=2
 autocmd BufNewFile,BufEnter,FileType python set expandtab
 autocmd BufNewFile,BufEnter,FileType python set shiftwidth=4
 autocmd BufNewFile,BufEnter,FileType python set tabstop=4
+
+autocmd BufNewFile,BufEnter,FileType go set expandtab
+autocmd BufNewFile,BufEnter,FileType go set shiftwidth=4
+autocmd BufNewFile,BufEnter,FileType go set tabstop=4
 
 autocmd BufNewFile,BufEnter,FileType yaml set expandtab
 autocmd BufNewFile,BufEnter,FileType yaml set shiftwidth=4
