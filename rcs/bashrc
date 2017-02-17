@@ -61,7 +61,7 @@ dotfiles_dir=${bashrc_location%/rcs/bashrc}
 # Setup Gruf to aid working on multiple projects simultaneously
 # http://github.com/svrana/gruf
 if [ -d ~/repos/gruf ]; then
-    source ~/repos/gruf/gruf.bashrc
+    source ~/repos/gruf/gruf.rc
 fi
 
 # unbind ctrl-s/-q from konsole
@@ -90,7 +90,7 @@ function prompt()
     fi
 }
 
-OLD_PC=$PROMPT_COMMAND # hack to keep bash powerline working
+OLD_PC=$PROMPT_COMMAND # hack to keep powerline working
 PROMPT_COMMAND='prompt ; $OLD_PC'
 
 export DIRENV_LOG_FORMAT=
