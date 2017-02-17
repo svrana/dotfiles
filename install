@@ -89,6 +89,7 @@ egood "Created default directories as specified in $current_dir/directories.env"
 
 ln -sf ${RC_DIR}/bash_profile 	    ~/.bash_profile
 ln -sf ${RC_DIR}/bashrc             ~/.bashrc
+ln -sf ${RC_DIR}/zshrc              ~/.zshrc
 ln -sf ${RC_DIR}/vimrc              ~/.vimrc
 ln -sf ${RC_DIR}/tmux.conf 	    ~/.tmux.conf
 ln -sf ${RC_DIR}/gitconfig          ~/.gitconfig
