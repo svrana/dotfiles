@@ -86,7 +86,7 @@ function prompt()
 {
     if [ "$PWD" != "$MYOLDPWD" ]; then
         MYOLDPWD="$PWD"
-        test -e .virtualenv && workon `cat .virtualenv`
+        test -e .venv && workon `cat .venv`
     fi
 }
 
