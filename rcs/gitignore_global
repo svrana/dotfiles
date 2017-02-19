@@ -2,7 +2,7 @@ tags
 .gruf.*
 cscope.out
 .lint.pot
-.virtualenv
+.venv
 .ruby-version
 .envrc
 .direnv
