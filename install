@@ -1,3 +1,4 @@
+#!/bin/zsh
 #
 # Creates defaults directories setup in directories.env; copies or links
 # configuration files into place as appropriate.
@@ -50,7 +51,7 @@ fetch_repos() {
         ln -sf ${RC_DIR}/fzf.bash ~/.config/fzf/fzf.bash
     fi
 
-    vim +PluginInstall +qall +GoInstallBinaries
+    nvim +PluginInstall +qall +GoInstallBinaries
 }
 
 powerline_install() {
@@ -60,7 +61,6 @@ powerline_install() {
 }
 
 [[ $ZSH_VERSION ]]; current_dir=${0:a:h}
-[[ $BASH_VERSION ]]; current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Setup defaults required by these dotfiles
 . ${current_dir}/config.env
@@ -132,5 +132,4 @@ if [ "${HOME}" != "/root" ]; then
     $GOPATH/src/github.com/nsf/gocode/nvim/symlink.sh > /dev/null 2>&1
 fi
 
-[[ $ZSH_VERSION ]]; source ~/.zshrc
-[[ $BASH_VERSION ]]; source ~/.bashrc
+#[[ $ZSH_VERSION ]]; source ~/.zshrc
