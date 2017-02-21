@@ -33,7 +33,6 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-go'
 Plugin 'ternjs/tern_for_vim'
 
-
 " All of your Plugins must be added before the following line
 call vundle#end()
 syntax on
@@ -44,17 +43,12 @@ set mouse=a
 
 set rtp+=~/repos/fzf
 
-let g:edit_modes = [ "code", "email" ]
-let g:edit_mode = 0
-let g:code_modes = [ "rbt", "kernel" ]
-let g:code_mode = 0
-
 let mapleader = ","
 let maplocalleader = ","
 
 let g:airline_powerline_fonts = 1
-let g:airline_section_b='' " Disable showing branch cause it crowds the filename
-let g:airline_section_y='' " Disable filetype cause it's mostly useless
+let g:airline_section_b='' "Disable showing branch cause it crowds the filename
+let g:airline_section_y='' "Disable filetype cause it's mostly useless
 
 " virtualenv for neovim, has neovim python package installed
 let g:python3_host_prog = '/home/shaw/.virtualenvs/neovim/bin/python'
@@ -85,7 +79,6 @@ let g:deoplete#enable_at_startup = 1
 " let g:deoplete#disable_auto_complete = 1
 " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-"set fileformat=unix
 set completeopt+=menu
 set notimeout
 set ttimeout
@@ -94,8 +87,6 @@ set backspace=indent,eol,start
 set directory=.
 set nowrap
 set nosol
-" show filename in X window frame
-"set title
 " show nothing in window frame on exit
 set titleold=
 set scrollopt=ver
@@ -113,118 +104,6 @@ vmap * "yy:let @/='\(' . @y . '\'<cr>n
 source ${GRUF_CONFIG}/gruf.vimrc
 
 set tags=tags,${GRUF_PROJECT}/tags
-
-"
-" :cs help
-"
-"   's'	  symbol: find all references to the token under cursor
-"   'g'   global: find global definition(s) of the token under cursor
-"   'c'   calls:  find all calls to the function name under cursor
-"   't'   text:   find all instances of the text under cursor
-"   'e'   egrep:  egrep search for the word under cursor
-"   'f'   file:   open the filename under cursor
-"   'i'   includes: find files that include the filename under cursor
-"   'd'   called: find functions that function under cursor calls
-"
-"   <c-\>  same window
-"   <c-spacebar> horiz split
-"   <c-spacebar> <c-spacebar> vert split
-"
-
-if has("cscope")
-    set nocscopetag
-    set nocsverb
-
-    if filereadable("cscope.out")
-        cs add cscope.out
-    elseif filereadable("ncscope.out")
-        cs add ncscope.out
-    endif
-
-    if filereadable(expand("$KERN/cscope.out"))
-        cs add $KERN/cscope.out
-    elseif filereadable("$KERN/ncscope.out")
-        cs add $KERN/ncscope.out
-    endif
-
-    "
-    " The following maps all invoke one of the following cscope search types:
-    "
-    "   's'   symbol: find all references to the token under cursor
-    "   'g'   global: find global definition(s) of the token under cursor
-    "   'c'   calls:  find all calls to the function name under cursor
-    "   't'   text:   find all instances of the text under cursor
-    "   'e'   egrep:  egrep search for the word under cursor
-    "   'f'   file:   open the filename under cursor
-    "   'i'   includes: find files that include the filename under cursor
-    "   'd'   called: find functions that function under cursor calls
-    "
-    " Below are three sets of the maps: one set that just jumps to your
-    " search result, one that splits the existing vim window horizontally and
-    " diplays your search result in the new window, and one that does the same
-    " thing, but does a vertical split instead (vim 6 only).
-    "
-    " I've used CTRL-\ and CTRL-@ as the starting keys for these maps, as it's
-    " unlikely that you need their default mappings (CTRL-\'s default use is
-    " as part of CTRL-\ CTRL-N typemap, which basically just does the same
-    " thing as hitting 'escape': CTRL-@ doesn't seem to have any default use).
-    " If you don't like using 'CTRL-@' or CTRL-\, , you can change some or all
-    " of these maps to use other keys.  One likely candidate is 'CTRL-_'
-    " (which also maps to CTRL-/, which is easier to type).  By default it is
-    " used to switch between Hebrew and English keyboard mode.
-    "
-    " All of the maps involving the <cfile> macro use '^<cfile>$': this is so
-    " that searches over '#include <time.h>" return only references to
-    " 'time.h', and not 'sys/time.h', etc. (by default cscope will return all
-    " files that contain 'time.h' as part of their name).
-    "
-    " To do the first type of search, hit 'CTRL-\', followed by one of the
-    " cscope search types above (s,g,c,t,e,f,i,d).  The result of your cscope
-    " search will be displayed in the current window.  You can use CTRL-T to
-    " go back to where you were before the search.
-    "
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-    " Using 'CTRL-spacebar' (intepreted as CTRL-@ by vim) then a search type
-    " makes the vim window split horizontally, with search result displayed in
-    " the new window.
-    "
-    " (Note: earlier versions of vim may not have the :scs command, but it
-    " can be simulated roughly via:
-    "    nmap <C-@>s <C-W><C-S> :cs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>
-
-    " Hitting CTRL-space *twice* before the search type does a vertical
-    " split instead of a horizontal one (vim 6 and up only)
-    "
-    " (Note: you may wish to put a 'set splitright' in your .vimrc
-    " if you prefer the new window on the right instead of the left
-    nmap <C-@><C-@>s :vert scs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>g :vert scs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>t :vert scs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>e :vert scs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-@><C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-@><C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
-
-endif
 
 set comments=sr:/*,mb:*,exl:*/,://,b:#,:%:XCOMM,n:>,fb:-
 set comments+=b:\"
@@ -288,36 +167,9 @@ function! GotoConfig()
     cd $CONFIG_DIR
 endfun
 
-"
-" Toggle fold state between closed and opened
-" with the space bar. If there is no fold at
-" current line, just moves forward.  If it is present,
-" reverse its state. Use zf<move action> to create fold.
-" zf% to create fold on function, for example.
-"
-function! ToggleFold()
-    if foldlevel('.') == 0
-        normal! l
-    else
-        if foldclosed('.') < 0
-            . foldclose
-        else
-            . foldopen
-        endif
-    endif
-    " Clear status line
-    echo
-endfunction
-noremap <buffer> <space> :call ToggleFold()<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " abbreviations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-ab lvb """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<ESC>
-ab #d #define
-ab #i #include
-
 map     \cf :call GetFile(expand("$CONFIG_DIR"))<CR>
 map!    \cf <ESC>:call GetFile(expand("$CONFIG_DIR"))<CR>
 
@@ -330,25 +182,6 @@ map     \yrs :YRShow<CR>
 map! 	\yrs <ESC>:YRShow<CR>
 nmap <silent> \ts :ts<CR>
 
-" Launch Eclair (2.1) emulator
-map 	\ee :!eclair.sh<CR><CR>
-map! 	\ee <ESC>:!eclair.sh<CR><CR>
-
-" Launch Froyo (2.2) emulator
-map 	\ef :!froyo.sh<CR><CR>
-map! 	\ef <ESC>:!froyo.sh<CR><CR>
-
-" Launch Gingerbread (2.3) emulator
-map 	\eg :!gingerbread.sh<CR><CR>
-map! 	\eg <ESC>:!gingerbread.sh<CR><CR>
-
-" Launch Jellybean (4.1) emulator
-map 	\ej :!jellybean.sh<CR><CR>
-map! 	\ej <ESC>:!jellybean.sh<CR><CR>
-
-map 	\iv :!install-viz.sh<CR><CR>
-map! 	\iv <ESC>:!install-viz.sh<CR><CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  Function key mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -358,24 +191,12 @@ map 	<F2> :registers<CR>
 map! 	<F2> <ESC>:registers<CR>
 map     <F3> :Explore<CR>
 map!    <F3> <ESC>:Explore<CR>
-"       <F4> is marked for toggling paste below
-"map 	<F6> taken
-"map! 	<F6> taken
-"map 	<F7> :!ctags -R<CR><CR>
-"map! 	<F7> <ESC>:!ctags -R<CR><CR>
 map 	<F7> :!tlc<CR><CR>
 map! 	<F7> <ESC>:!tlc<CR><CR>
-" Spellcheck with F8 if editing mail using `aspell'
-"autocmd FileType mail :nmap <F8> :w<CR>:!aspell -e -c %<CR>:e<CR>
-"map 	<F9> :Tlist<CR>
-"map! 	<F9> <ESC>:Tlist<CR>
-
 map 	<F9> :'a,'bs/^/\/\//<CR>
 map! 	<F9> <ESC>:a,'bs/^/\/\//<CR>
 "map 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 "map! 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
-"map 	<F11> :CommandTFlush<CR>
-"map! 	<F11> <ESC>:CommandTFlush<CR>
 map 	<F12> :q<CR>
 map! 	<F12> <ESC>:q<CR>
 
