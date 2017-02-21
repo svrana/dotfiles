@@ -37,7 +37,7 @@ Plugin 'ternjs/tern_for_vim'
 " All of your Plugins must be added before the following line
 call vundle#end()
 syntax on
-filetype on
+"filetype on
 filetype plugin indent on
 
 set mouse=a
@@ -234,137 +234,20 @@ set comments+=b:\"
 
 autocmd FileType * setlocal formatoptions+=croq
 
-autocmd BufEnter,FileType *.gradle :set cindent
-autocmd BufEnter,FileType *.gradle :set fo+=croql
-autocmd BufEnter,FileType *.gradle :silent call NonKernelCode()
-
-autocmd BufEnter,FileType c :set cindent
-autocmd BufEnter,FileType c :set fo+=croql
-autocmd BufEnter,FileType c :silent call NonKernelCode()
-
-autocmd BufEnter,FileType vim :set cindent
-autocmd BufEnter,FileType vim :set fo+=croql
-autocmd BufEnter,FileType vim :silent call NonKernelCode()
-
-autocmd BufEnter,FileType sh :set cindent
-autocmd BufEnter,FileType sh :set fo+=croql
-autocmd BufEnter,FileType sh :silent call NonKernelCode()
-
-autocmd BufEnter,FileType *.h :set cindent
-autocmd BufEnter,FileType *.h :set fo+=croql
-"autocmd BufEnter,FileType *.h silent call NonKernelCode()
-autocmd BufEnter,FileType *.h silent call KernelCode()
-
-autocmd BufEnter,FileType *.cc :set cindent
-autocmd BufEnter,FileType *.cc :set fo+=croql
-autocmd BufEnter,FileType *.cc :silent call NonKernelCode()
-
-autocmd BufEnter,FileType java :set cindent
-autocmd BufEnter,FileType java :set fo+=croql
-autocmd BufEnter,FileType java :silent call JavaCode()
-
-autocmd BufEnter,FileType perl :set cindent
-autocmd BufEnter,FileType perl :set fo+=croql
-autocmd BufEnter,FileType perl silent call NonKernelCode()
-
-autocmd BufEnter,BufNewFile /tmp/mutt* :set textwidth=72
-autocmd BufEnter /tmp/mutt* :set noexpandtab
-autocmd BufEnter /tmp/mutt* :set fo+=awt
-autocmd BufEnter /tmp/mutt* silent call EmailEditMode()
-autocmd BufEnter,BufNewFile /tmp/mutt* :setlocal spell spelllang=en_us
-
 autocmd BufRead gitcommit setlocal spell spelllang=en_US textwidth=72
 autocmd BufRead gitcommit setlocal fo+=t
-
-autocmd BufEnter *.txt :set spell
-autocmd BufEnter *.txt :set textwidth=72
-autocmd BufEnter *.txt :set noexpandtab
-autocmd BufEnter *.txt :set fo+=awt
-autocmd BufEnter *.txt call EmailEditMode()
-
-autocmd BufEnter,FileType xml silent call NonKernelCode()
 
 autocmd BufEnter svn-commit.* :set textwidth=60
 autocmd BufEnter svn-commit.* :set spell
 autocmd BufEnter svn-commit.* :set noexpandtab
 autocmd BufEnter svn-commit.* call EmailEditMode()
 
-autocmd BufNewFile,BufRead *.pl compiler perl
-autocmd BufNewFile,BufRead *.pl setf perl
-autocmd BufNewFile,BufRead *.pl let g:perldoc_program='perldoc'
-autocmd BufNewFile,BufRead *.pl map \pd :Perldoc<cword><CR>
-
-autocmd BufRead,BufNewFile Makefile set noexpandtab
-autocmd BufRead,BufNewFile makefile set noexpandtab
-autocmd BufRead,BufNewFile *.mak    set noexpandtab
-
-autocmd BufRead,BufNewFile java :silent call JavaCode()
-
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-
-autocmd BufNewFile,BufRead *.erb setf ruby
-autocmd BufNewFile,BufEnter,FileType ruby set cindent
-autocmd BufNewFile,BufEnter,FileType ruby set expandtab
-autocmd BufNewFile,BufEnter,FileType ruby set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType ruby set softtabstop=2
-
-autocmd BufNewFile,BufEnter,FileType *.feature set cindent
-autocmd BufNewFile,BufEnter,FileType *.feature set expandtab
-autocmd BufNewFile,BufEnter,FileType *.feature set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType *.feature set softtabstop=2
-
-autocmd BufNewFile,BufEnter,BufRead *.gradle setf groovy
-
-autocmd BufNewFile,BufEnter,FileType javascript set cindent
-autocmd BufNewFile,BufEnter,FileType javascript set expandtab
-autocmd BufNewFile,BufEnter,FileType javascript set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType javascript set softtabstop=2
-
-autocmd BufNewFile,BufEnter,FileType python set expandtab
-autocmd BufNewFile,BufEnter,FileType python set shiftwidth=4
-autocmd BufNewFile,BufEnter,FileType python set tabstop=4
-
-autocmd BufNewFile,BufEnter,FileType go set expandtab
-autocmd BufNewFile,BufEnter,FileType go set shiftwidth=4
-autocmd BufNewFile,BufEnter,FileType go set tabstop=4
-
-autocmd BufNewFile,BufEnter,FileType yaml set expandtab
-autocmd BufNewFile,BufEnter,FileType yaml set shiftwidth=4
-autocmd BufNewFile,BufEnter,FileType yaml set tabstop=4
-
-autocmd BufNewFile,BufEnter,FileType html set expandtab
-autocmd BufNewFile,BufEnter,FileType html set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType html set tabstop=2
-autocmd BufNewFile,BufEnter,FileType *.html set expandtab
-autocmd BufNewFile,BufEnter,FileType *.html set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType *.html set tabstop=2
-
-autocmd BufNewFile,BufEnter,FileType *.scss set expandtab
-autocmd BufNewFile,BufEnter,FileType *.scss set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType *.scss set tabstop=2
-autocmd BufNewFile,BufEnter,FileType *.ccs set expandtab
-autocmd BufNewFile,BufEnter,FileType *.ccs set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType *.ccs set tabstop=2
-autocmd BufNewFile,BufEnter,FileType scss set expandtab
-autocmd BufNewFile,BufEnter,FileType scss set shiftwidth=2
-autocmd BufNewFile,BufEnter,FileType scss set tabstop=2
+autocmd BufNewFile,BufRead,BufEnter *.erb setf ruby
+autocmd BufNewFile,BufRead,BufEnter *.feature setf ruby
+autocmd BufNewFile,BufRead,BufEnter *.gradle setf groovy
+autocmd BufNewFile,BufRead,BufEnter *.json setf json
 
 autocmd BufWritePost,BufEnter * Neomake
-
-"autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
-
-" format JSON files properly
-au! BufRead,BufNewFile *.json set filetype=json
-
-augroup json_autocmd
-  autocmd!
-  autocmd FileType json set autoindent
-  autocmd FileType json set formatoptions=tcq2l
-  autocmd FileType json set textwidth=78 shiftwidth=2
-  autocmd FileType json set softtabstop=2 tabstop=8
-  autocmd FileType json set expandtab
-  "autocmd FileType json set foldmethod=syntax
-augroup END
 
 " When editing a file that requires root, try to save using sudo
 cmap w!! %!sudo tee > /dev/null %
@@ -404,78 +287,6 @@ augroup END
 function! GotoConfig()
     cd $CONFIG_DIR
 endfun
-
-function! ToggleEditMode()
-    let g:edit_mode = g:edit_mode + 1
-    if g:edit_mode >= len(g:edit_modes)
-        let g:edit_mode = 0
-    endif
-    if g:edit_mode == 0 | set fo-=t | endif
-    if g:edit_mode == 1 | set fo+=t | endif
-    echo "entry mode:" g:edit_modes[g:edit_mode]
-endfun
-map <F5> :call ToggleEditMode()<CR>
-map! <F5> <ESC>:call ToggleEditMode()<CR>
-
-function! ToggleCodeMode()
-    let g:code_mode = g:code_mode + 1
-    if g:code_mode >= len(g:code_modes)
-        let g:code_mode = 0
-    endif
-    if g:code_mode == 0
-        set shiftwidth=4
-        set softtabstop=4
-        set expandtab
-    endif
-    if g:code_mode == 1
-        set shiftwidth=8
-        set softtabstop=8
-        set noexpandtab
-    endif
-    echo "code mode:"g:code_modes[g:code_mode]
-endfun
-map <F6> :call ToggleCodeMode()<CR>
-map! <F6> <ESC>:call ToggleCodeMode()<CR>
-
-
-function! EmailEditMode()
-    let g:edit_mode=0
-    call ToggleEditMode()
-
-    let g:code_mode=1
-    call ToggleCodeMode()
-endfun
-
-function! CodeEditMode()
-    let g:edit_mode=1
-    call ToggleEditMode()
-endfun
-
-
-function! NonKernelCode()
-   call CodeEditMode()
-
-    let g:code_mode=1
-    call ToggleCodeMode()
-
-    let g:Tlist_Auto_Open = 0
-endfun
-
-function! KernelCode()
-    call CodeEditMode()
-
-    let g:code_mode=0
-    call ToggleCodeMode()
-
-    let g:Tlist_Auto_Open = 0
-endfun
-
-function! JavaCode()
-    call NonKernelCode()
-    "let g:Tlist_Auto_Open = 2
-    ": TlistToo
-endfun
-
 
 "
 " Toggle fold state between closed and opened
@@ -688,15 +499,6 @@ map! <M-Esc>[64~ <S-MouseDown>
 map <M-Esc>[65~ <S-MouseUp>
 map! <M-Esc>[65~ <S-MouseUp>
 
-function! NumberOfWindows()
-    let i = 1
-    while winbufnr(i) != -1
-        let i = i+1
-    endwhile
-    return i - 1
-endfunction
-
-nnoremap <silent> <LocalLeader>nt :NERDTree<cr>
 nnoremap <silent> <LocalLeader>t :FZF<cr>
 
 nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>

@@ -132,4 +132,8 @@ if [ "${HOME}" != "/root" ]; then
     $GOPATH/src/github.com/nsf/gocode/nvim/symlink.sh > /dev/null 2>&1
 fi
 
-#[[ $ZSH_VERSION ]]; source ~/.zshrc
+mkdir -p ~/.config/nvim/ftplugin
+for i in $(ls -1 ftplugin)
+do
+    ln -sf $current_dir/ftplugin/$i ~/.config/nvim/ftplugin/$i
+done
