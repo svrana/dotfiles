@@ -53,6 +53,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 set -o vi # vi on the command line
 setopt +o nomatch # no warn on no globs
+unsetopt correct
 
 export EDITOR=vim
 export LS_DFLT_ARGS="--color=auto"
