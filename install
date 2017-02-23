@@ -60,7 +60,7 @@ powerline_install() {
     fi
 }
 
-[[ $ZSH_VERSION ]]; current_dir=${0:a:h}
+current_dir=${0:a:h}
 
 # Setup defaults required by these dotfiles
 . ${current_dir}/config.env
