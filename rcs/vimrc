@@ -210,7 +210,7 @@ nmap g* g*mzz.`z
 nmap g# g#mzz.`z
 "nmap gn :set invnu<CR>
 
-noremap <silent> <leader>tt :TagbarToggle<CR>
+noremap <silent> <leader>zz :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " alt mappings
@@ -296,10 +296,10 @@ nnoremap \rcb :'a,'bs/^#//<CR>
 " clist list all of the errors
 " copen open split window of errors
 "
-set shell=/bin/bash
-set shellpipe=2>&1\|tee
-set makeef=$TMP/vim.##
-set makeprg=ant\ debug
+"set shell=/bin/bash
+"set shellpipe=2>&1\|tee
+"set makeef=$TMP/vim.##
+"set makeprg=ant\ debug
 "set makeprg=make\ -f\ Makefile
 autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 
@@ -369,8 +369,13 @@ function! s:build_go_files()
   endif
 endfunction
 
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>r :GoTest<CR>
+au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+au FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+au FileType go nmap <leader>e <Plug>(go-rename)
+au FileType go nmap <leader>r :GoTest<CR>
+au FileType go nmap <leader>s <Plug>(go-implements)
+au FileType go nmap <leader>t <Plug>(go-test)
+
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_auto_type_info = 1
