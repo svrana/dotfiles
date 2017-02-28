@@ -117,11 +117,6 @@ autocmd FileType * setlocal formatoptions+=croq
 autocmd BufRead gitcommit setlocal spell spelllang=en_US textwidth=72
 autocmd BufRead gitcommit setlocal fo+=t
 
-autocmd BufEnter svn-commit.* :set textwidth=60
-autocmd BufEnter svn-commit.* :set spell
-autocmd BufEnter svn-commit.* :set noexpandtab
-autocmd BufEnter svn-commit.* call EmailEditMode()
-
 autocmd BufNewFile,BufRead,BufEnter *.erb setf ruby
 autocmd BufNewFile,BufRead,BufEnter *.feature setf ruby
 autocmd BufNewFile,BufRead,BufEnter *.gradle setf groovy
