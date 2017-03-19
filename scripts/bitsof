@@ -23,22 +23,22 @@ end
 # @param [Fixnum|Bignum] int
 # @return String of 0s and 1s representing positions of bits of int
 def int_to_bitstr(int)
-  if int.bit_length < 32
-    length = 31
-  else
-    length = 63
-  end
+  length = if int.bit_length < 3
+             31
+           else
+             63
+           end
 
   length.downto(0).map { |i| int[i] }.join
 end
 
-def display_bitstr(bitstr, group=false)
+def display_bitstr(bitstr, group = false)
   formatted_str = ''
   length = bitstr.length - 1
 
   0.upto(length) do |i|
     if group
-      formatted_str << ' 'if (i != 0 && i % 8 == 0)
+      formatted_str << ' ' if i != 0 && i % 8 == 0
     end
     formatted_str << bitstr[i]
   end
@@ -57,7 +57,7 @@ loop do
     evaluate = true
     input = ARGV.shift
     if input.nil?
-      puts "Must provide an expression to evaluate"
+      puts 'Must provide an expression to evaluate'
       exit 1
     end
   when '-g' then
@@ -71,8 +71,8 @@ loop do
   end
 end
 
-if !evaluate
-  if ARGV.length < 1
+unless evaluate
+  if ARGV.empty?
     usage
     exit 1
   else
