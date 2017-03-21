@@ -61,8 +61,8 @@ export LS_DFLT_ARGS="--color=auto"
 export LESS=mqeisz-2XR                      # -R is important for escape sequences
 export TERM=xterm-256color                  # this is for solarized/powerline in tmux
 export PYTHONDONTWRITEBYTECODE=1            # stop littering
-export FZF_DEFAULT_COMMAND='ag -l -g""'     # ag for showing only interesting files
-export FZF_CTRL_T_COMAMAND=$FZF_DEFAULT_COMMAND
+export FZF_DEFAULT_COMMAND='ag -l -g ""'    # ag for showing only interesting files
+#export FZF_CTRL_T_COMMAND='ag -g ""'       # dont work
 
 export PATH=\
 /usr/local/bin:\
