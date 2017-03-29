@@ -1,7 +1,5 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export WORKON_HOME=~/.virtualenvs
-export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -104,3 +102,23 @@ export rvmsudo_secure_path=1
 
 export DIRENV_LOG_FORMAT=
 eval "$(direnv hook zsh)"
+
+
+# Make virtualenvwrapper use the .virtualenv file to find the current
+# python virtual environment.
+function prompt()
+{
+    if [ "$PWD" != "$MYOLDPWD" ]; then
+        MYOLDPWD="$PWD"
+	if [[ -f ".venv" ]]; then
+		ENV_NAME="$(cat ".venv")"
+		workon $ENV_NAME
+	else
+		if [ ! -z $ENV_NAME ]; then
+			deactivate
+		fi
+		unset ENV_NAME
+	fi
+    fi
+}
+precmd() { eval prompt }
