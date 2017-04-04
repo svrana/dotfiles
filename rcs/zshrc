@@ -103,7 +103,6 @@ export rvmsudo_secure_path=1
 export DIRENV_LOG_FORMAT=
 eval "$(direnv hook zsh)"
 
-
 # Make virtualenvwrapper use the .virtualenv file to find the current
 # python virtual environment.
 function prompt()
