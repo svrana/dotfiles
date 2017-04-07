@@ -69,7 +69,6 @@ export PATH=\
 /usr/sbin:\
 /bin:\
 /sbin:\
-~/bin:\
 ~/.local/bin
 
 #

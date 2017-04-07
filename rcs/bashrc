@@ -23,15 +23,12 @@ shopt -s cdspell                  # Let bash help you change directories when yo
 # F7 sources .bashrc
 bind '"\e[18~":"source ~/.bashrc\n"'
 
-export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
 export HISTCONTROL=ignoredups
 export PROMPT_COMMAND='history -a'
 export LS_DFLT_ARGS="--color=auto"
 export EDITOR=vim
-export GEDITOR=gvim
 export LESS=mqeisz-2XR 		            # -R is important for escape sequences
 export TERM=xterm-256color                  # this is for solarized
-#export TERM=screen-256color                  # this is for solarized
 export PYTHONDONTWRITEBYTECODE=1            # stop littering
 export FZF_DEFAULT_COMMAND='ag -l -g ""'     # ag for showing only interesting files
 #export FZF_CTRL_T_COMAMAND=$FZF_DEFAULT_COMMAND
@@ -44,7 +41,6 @@ export PATH=\
 /usr/sbin:\
 /bin:\
 /sbin:\
-~/bin:\
 ~/.local/bin:\
 ~/.rvm/bin
 
@@ -82,7 +78,7 @@ export rvmsudo_secure_path=1
 
 # Make virtualenvwrapper use the .virtualenv file to find the current
 # python virtual environment.
-function prompt()
+function prompt
 {
     if [ "$PWD" != "$MYOLDPWD" ]; then
         MYOLDPWD="$PWD"
