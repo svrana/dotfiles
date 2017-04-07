@@ -45,7 +45,7 @@ fetch_repos() {
 
     if [ ! -d ~/repos/fzf ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/repos/fzf
-        ln -sf ~/repos/fzf/fzf ${BIN_DIR}/fzf
+        ln -sf ~/repos/fzf/bin/fzf ${BIN_DIR}/fzf
         ln -sf ~/repos/fzf/bin/fzf-tmux ${BIN_DIR}/fzf-tmux
         mkdir -p ~/.config/fzf
         ln -sf ${RC_DIR}/fzf.bash ~/.config/fzf/fzf.bash
@@ -79,6 +79,7 @@ mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.kitchen
 mkdir -p ~/.config/alacritty
+mkdir -p ~/.local/share/applications
 
 if [ "${HOME}" != "/root" ]; then
     mkdir -p ~/apps
@@ -107,7 +108,7 @@ ln -sf ${RC_DIR}/kitchen-config.yml ~/.kitchen/config.yml
 ln -sf ${RC_DIR}/ctags              ~/.ctags
 ln -sf ${RC_DIR}/alacritty.yml 	    ~/.config/alacritty/alacritty.yml
 
-sudo desktop-file-install $CONFIG_DIR/misc/alacritty.desktop
+ln -sf $CONFIG_DIR/misc/alacritty.desktop ~/.local/share/applications
 
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf

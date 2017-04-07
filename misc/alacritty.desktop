@@ -2,7 +2,7 @@
 Type=Application
 TryExec=/home/shaw/apps/alacritty/target/release/alacritty
 Exec=/home/shaw/apps/alacritty/target/release/alacritty -t ""
-Icon=utilities-terminal
+Icon=terminal
 Terminal=false
 
 Name=Alacritty
