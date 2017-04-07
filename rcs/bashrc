@@ -89,6 +89,7 @@ function prompt
       # not going to have a .venv in HOME and don't bother or above it
       while [[ "$PROJECT_ROOT" != "$HOME" &&
                "$PROJECT_ROOT" != "/" &&
+               "$PROJECT_ROOT" != "" &&
                ! -e "$PROJECT_ROOT/.venv" &&
                ! -d "$PROJECT_ROOT/.git" ]]; do
         PROJECT_ROOT=${PROJECT_ROOT%/*}
