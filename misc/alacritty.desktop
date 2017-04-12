@@ -13,4 +13,4 @@ Actions=New;
 
 [Desktop Action New]
 Name=New Terminal
-Exec=/home/shaw/apps/alacritty/target/release/alacritty -t ""
+Exec=/home/shaw/apps/alacritty/target/release/alacritty -t "Alacritty"
