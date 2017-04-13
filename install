@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 #
 # Creates defaults directories setup in directories.env; copies or links
 # configuration files into place as appropriate.
@@ -7,6 +7,11 @@
 #
 
 fetch_repos() {
+    if [ ! -e ~/.tmux/plugins/tpm ]; then
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+        tmux source ~/.tmux.conf
+    fi
+
     if [ ! -e /usr/local/bin/pip ]; then
         sudo apt-get install curl python-pip python-dev build-essential
         sudo pip install --upgrade pip
@@ -45,6 +50,7 @@ fetch_repos() {
 
     if [ ! -d ~/repos/fzf ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/repos/fzf
+        pushd ~/repos/fzf && ./install && popd
         ln -sf ~/repos/fzf/bin/fzf ${BIN_DIR}/fzf
         ln -sf ~/repos/fzf/bin/fzf-tmux ${BIN_DIR}/fzf-tmux
         mkdir -p ~/.config/fzf
@@ -65,7 +71,7 @@ powerline_install() {
     fi
 }
 
-current_dir=${0:a:h}
+current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Setup defaults required by these dotfiles
 . ${current_dir}/config.env
@@ -80,6 +86,7 @@ mkdir -p ~/.vim/autoload
 mkdir -p ~/.kitchen
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.local/share/applications
+mkdir -p ~/.tmux/plugins
 
 if [ "${HOME}" != "/root" ]; then
     mkdir -p ~/apps
