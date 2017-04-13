@@ -58,7 +58,7 @@ font:
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 3.0
+    x: 2.4
     y: -9.0
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
