@@ -23,7 +23,7 @@ pip3
 libfreetype6-dev
 silversearcher-ag
 direnv
+xclip
 
 gem install curses
-
 

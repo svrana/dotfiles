@@ -133,7 +133,7 @@ cmap w!! %!sudo tee > /dev/null %
 set wildignore+=*.pyc,*.o,.git
 set showmatch
 set backupext=.bak
-set backupdir=~/.bak
+set backupdir=~/.config/nvim/bak
 set sessionoptions=buffers,options,winpos,winsize,help,blank,globals,resize
 set noerrorbells
 set noshowmode "airline/powerline shows mode, so no need to show it

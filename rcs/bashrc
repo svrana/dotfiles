@@ -20,9 +20,6 @@ shopt -s checkwinsize
 shopt -s histappend
 shopt -s cdspell                  # Let bash help you change directories when you can't spell
 
-# F7 sources .bashrc
-bind '"\e[18~":"source ~/.bashrc\n"'
-
 export HISTCONTROL=ignoredups
 export PROMPT_COMMAND='history -a'
 export LS_DFLT_ARGS="--color=auto"
@@ -60,15 +57,16 @@ if [ -d ~/repos/gruf ]; then
     source ~/repos/gruf/gruf.rc
 fi
 
-# unbind ctrl-s/-q from konsole
-stty -ixon
-
 # Powerline setup (I like it pretty)
 #
 # Include powerline in path, it's installed via pip
 eval `dircolors ~/.dircolors`
-if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
-    . ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+powerline_bash=~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+if [ -f $powerline_bash ]; then
+    if [ -f `which powerline-daemon` ]; then
+        powerline-daemon -q
+        . $powerline_bash
+    fi
 fi
 
 # rvm required config

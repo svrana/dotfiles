@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # Creates defaults directories setup in directories.env; copies or links
 # configuration files into place as appropriate.
@@ -6,22 +6,14 @@
 # This needs to be run once.
 #
 
-fetch_repos() {
+function fetch_repos() {
     if [ ! -e ~/.tmux/plugins/tpm ]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
         tmux source ~/.tmux.conf
     fi
 
-    if [ ! -e /usr/local/bin/pip ]; then
+    if [ ! -e /usr/bin/pip ]; then
         sudo apt-get install curl python-pip python-dev build-essential
-        sudo pip install --upgrade pip
-        sudo pip install --upgrade virtualenv
-        sudo pip install --upgrade virtualenvwrapper
-    fi
-
-    if [ ! -d ~/repos/pidcat ]; then
-        git clone https://github.com/JakeWharton/pidcat.git ~/repos/pidcat
-        estatus "Cloned pidcat"
     fi
 
     if [ ! -d ~/repos/gruf ]; then
@@ -40,7 +32,7 @@ fetch_repos() {
         estatus "Cloned Vundle"
     fi
 
-    if [ ! -d ~/.config/nvim ]; then
+    if [ ! -f ~/.config/nvim/init.vim ]; then
         mkdir ~/.config/nvim
         ln -sf ${RC_DIR}/vimrc ~/.config/nvim/init.vim
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
@@ -65,9 +57,9 @@ fetch_repos() {
     nvim +PluginInstall +qall +GoInstallBinaries
 }
 
-powerline_install() {
+function powerline_install() {
     if [ ! -f ~/.local/bin/powerline ]; then
-        pip install --user git+git://github.com/Lokaltog/powerline
+        pip install --user git+git://github.com/powerline/powerline
     fi
 }
 
@@ -76,8 +68,9 @@ current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Setup defaults required by these dotfiles
 . ${current_dir}/config.env
 
+
 mkdir -p $BIN_DIR
-mkdir -p ~/.bak
+mkdir -p ~/.config/nvim/bak
 mkdir -p ~/.config/fontconfig/conf.d
 mkdir -p ~/.fonts
 mkdir -p ~/.vim/swp
