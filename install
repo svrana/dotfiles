@@ -78,6 +78,7 @@ mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.kitchen
 mkdir -p ~/.config/alacritty
+mkdir -p ~/.config/powerline
 mkdir -p ~/.local/share/applications
 mkdir -p ~/.tmux/plugins
 
@@ -103,15 +104,16 @@ ln -sf ${RC_DIR}/gitconfig          ~/.gitconfig
 ln -sf ${RC_DIR}/rvmrc              ~/.rvmrc
 ln -sf ${RC_DIR}/ackrc              ~/.ackrc
 ln -sf ${RC_DIR}/psqlrc             ~/.psqlrc
-ln -sf ${RC_DIR}/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 ln -sf ${RC_DIR}/kitchen-config.yml ~/.kitchen/config.yml
 ln -sf ${RC_DIR}/ctags              ~/.ctags
 ln -sf ${RC_DIR}/alacritty.yml 	    ~/.config/alacritty/alacritty.yml
+ln -sf ${RC_DIR}/powerline-shell.json ~/.config/powerline
 
 ln -sf $CONFIG_DIR/misc/alacritty.desktop ~/.local/share/applications
 
 ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
 ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
+ln -sf ${CONFIG_DIR}/misc/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d/
 ln -sf ~/repos/pidcat/pidcat.py ${BIN_DIR}/pidcat
 
 mkdir -p ~/.ipython/profile_default
