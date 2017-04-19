@@ -1,5 +1,5 @@
 # Configuration file for ipython.
-
+c = get_config()
 #------------------------------------------------------------------------------
 # Configurable configuration
 #------------------------------------------------------------------------------
@@ -53,9 +53,9 @@
 # c.InteractiveShellApp.pylab_import_all = True
 
 # A list of dotted module names of IPython extensions to load.
-c.InteractiveShellApp.extensions = ['autoreload']
-c.InteractiveShellApp.exec_lines = ['%autoreload 2']
-c.InteractiveShellApp.exec_lines.append('print("Warning: disable autoreload in ipython_config.py to improve performance.")')
+#c.InteractiveShellApp.extensions = ['autoreload']
+#c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+#c.InteractiveShellApp.exec_lines.append('print("Warning: disable autoreload in ipython_config.py to improve performance.")')
 
 # Run the module as a script.
 # c.InteractiveShellApp.module_to_run = ''
