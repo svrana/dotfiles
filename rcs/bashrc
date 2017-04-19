@@ -65,6 +65,8 @@ powerline_bash=~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powe
 if [ -f $powerline_bash ]; then
     if [ -f `which powerline-daemon` ]; then
         powerline-daemon -q
+        POWERLINE_BASH_CONTINUATION=1
+        POWERLINE_BASH_SELECT=1
         . $powerline_bash
     fi
 fi
