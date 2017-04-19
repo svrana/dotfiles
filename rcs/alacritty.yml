@@ -34,31 +34,32 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Ubuntu Mono
+    family: Ubuntu Mono derivative Powerline
       #family: monospace # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
-    # style: Regular
+    style: Regular
 
   # The bold font face
   bold:
-    family: Ubuntu Mono
+    family: Ubuntu Mono derivative Powerline
     #family: monospace # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
-    # style: Bold
+    style: Bold
 
   # The italic font face
   italic:
-    family: Ubuntu Mono
+    family: Ubuntu Mono derivative Powerline
     #family: monospace # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
-    # style: Italic
+    style: Italic
 
   # Point size of the font
   size: 13.0
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 2.4
+    #x: 2.4 # dashed lines on tmux become solid, but a little squished
+    x: 3.0
     y: -9.0
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
