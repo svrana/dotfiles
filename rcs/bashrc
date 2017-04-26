@@ -38,8 +38,7 @@ export PATH=\
 /usr/sbin:\
 /bin:\
 /sbin:\
-~/.local/bin:\
-~/.rvm/bin
+~/.local/bin
 
 #
 # Source the configuration for these dotfiles of which this file is a part.
