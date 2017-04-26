@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 TryExec=/home/shaw/apps/alacritty/target/release/alacritty
-Exec=/home/shaw/apps/alacritty/target/release/alacritty -t ""
+Exec=/home/shaw/apps/alacritty/target/release/alacritty -t "Alacritty"
 Icon=terminal
 Terminal=false
 
