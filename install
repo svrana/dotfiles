@@ -107,7 +107,7 @@ ln -sf ${RC_DIR}/psqlrc             ~/.psqlrc
 ln -sf ${RC_DIR}/kitchen-config.yml ~/.kitchen/config.yml
 ln -sf ${RC_DIR}/ctags              ~/.ctags
 ln -sf ${RC_DIR}/alacritty.yml 	    ~/.config/alacritty/alacritty.yml
-ln -sf ${RC_DIR}/powerline-shell.json ~/.config/powerline
+ln -sf ${RC_DIR}/powerline-shell.json ~/.config/powerline/config.json
 
 ln -sf $CONFIG_DIR/misc/alacritty.desktop ~/.local/share/applications
 
