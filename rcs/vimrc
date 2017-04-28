@@ -14,6 +14,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'ervandew/supertab'
@@ -23,9 +24,6 @@ Plugin 'mitechie/pyflakes-pathogen'
 Plugin 'fs111/pydoc.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'ingydotnet/yaml-vim'
-Plugin 'tmux-plugins/tpm'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-classpath'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'neomake/neomake'
@@ -166,9 +164,6 @@ function! GotoConfig()
     cd $CONFIG_DIR
 endfun
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" abbreviations
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map     \cf :call GetFile(expand("$CONFIG_DIR"))<CR>
 map!    \cf <ESC>:call GetFile(expand("$CONFIG_DIR"))<CR>
 
@@ -177,8 +172,6 @@ map!    \gc <ESC>:call GotoConfig()<CR>
 
 map 	\sp :split<CR>
 map!	\sp <ESC>:split<CR>
-map     \yrs :YRShow<CR>
-map! 	\yrs <ESC>:YRShow<CR>
 nmap <silent> \ts :ts<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -194,8 +187,6 @@ map 	<F7> :!tlc<CR><CR>
 map! 	<F7> <ESC>:!tlc<CR><CR>
 map 	<F9> :'a,'bs/^/\/\//<CR>
 map! 	<F9> <ESC>:a,'bs/^/\/\//<CR>
-"map 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
-"map! 	<F9> :execute " grep -srnw binary-files=without-match --exclude-dir=.git,Android/App/bin,Android/App/gen,Android/App/tests/ --exclude-from=/home/shaw/config/rcs/lookout.exclude.list.txt . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 map 	<F12> :q<CR>
 map! 	<F12> <ESC>:q<CR>
 
