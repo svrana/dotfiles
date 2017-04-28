@@ -35,7 +35,6 @@ Plugin 'majutsushi/tagbar'
 " All of your Plugins must be added before the following line
 call vundle#end()
 syntax on
-"filetype on
 filetype plugin indent on
 
 set mouse=a

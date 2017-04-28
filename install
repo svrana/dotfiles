@@ -6,7 +6,22 @@
 # This needs to be run once.
 #
 
-function fetch_repos() {
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+function powerline_install() {
+    if [ ! -f ~/.local/bin/powerline ]; then
+        pip install --user git+git://github.com/powerline/powerline
+    fi
+}
+
+function go_config() {
+    if [ -n "$GOPATH" ]; then
+	go get -u github.com/nsf/gocode
+	"$GOPATH/src/github.com/nsf/gocode/nvim/symlink.sh" > /dev/null 2>&1
+    fi
+}
+
+function fetch_apps() {
     if [ ! -e ~/.tmux/plugins/tpm ]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
         tmux source ~/.tmux.conf
@@ -34,7 +49,7 @@ function fetch_repos() {
 
     if [ ! -f ~/.config/nvim/init.vim ]; then
         mkdir ~/.config/nvim
-        ln -sf ${RC_DIR}/vimrc ~/.config/nvim/init.vim
+        ln -sf "${RC_DIR}/vimrc" ~/.config/nvim/init.vim
         sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
         sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
         sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
@@ -43,10 +58,10 @@ function fetch_repos() {
     if [ ! -d ~/repos/fzf ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/repos/fzf
         pushd ~/repos/fzf && ./install && popd
-        ln -sf ~/repos/fzf/bin/fzf ${BIN_DIR}/fzf
-        ln -sf ~/repos/fzf/bin/fzf-tmux ${BIN_DIR}/fzf-tmux
+        ln -sf ~/repos/fzf/bin/fzf "${BIN_DIR}/fzf"
+        ln -sf ~/repos/fzf/bin/fzf-tmux "${BIN_DIR}/fzf-tmux"
         mkdir -p ~/.config/fzf
-        ln -sf ${RC_DIR}/fzf.bash ~/.config/fzf/fzf.bash
+        ln -sf "${RC_DIR}/fzf.bash" ~/.config/fzf/fzf.bash
     fi
 
     if [ ! -d ~/repos/fonts ]; then
@@ -55,97 +70,99 @@ function fetch_repos() {
     fi
 
     nvim +PluginInstall +qall +GoInstallBinaries
+
+    powerline_install
+    go_config
 }
 
-function powerline_install() {
-    if [ ! -f ~/.local/bin/powerline ]; then
-        pip install --user git+git://github.com/powerline/powerline
-    fi
-}
-
-current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-# Setup defaults required by these dotfiles
-. ${current_dir}/config.env
-
-
-mkdir -p $BIN_DIR
-mkdir -p ~/.config/nvim/bak
-mkdir -p ~/.config/fontconfig/conf.d
-mkdir -p ~/.fonts
-mkdir -p ~/.vim/swp
-mkdir -p ~/.vim/bundle
-mkdir -p ~/.vim/autoload
-mkdir -p ~/.kitchen
-mkdir -p ~/.config/alacritty
-mkdir -p ~/.config/powerline
-mkdir -p ~/.local/share/applications
-mkdir -p ~/.tmux/plugins
-
-if [ "${HOME}" != "/root" ]; then
+function make_dirs() {
+    mkdir -p "$BIN_DIR"
+    mkdir -p "$DOWNLOADS"
     mkdir -p ~/apps
     mkdir -p ~/repos
+    mkdir -p ~/.config/nvim/bak
+    mkdir -p ~/.config/nvim/after/ftplugin
+    mkdir -p ~/.config/fontconfig/conf.d
+    mkdir -p ~/.fonts
+    mkdir -p ~/.vim/swp
+    mkdir -p ~/.vim/bundle
+    mkdir -p ~/.vim/autoload
+    mkdir -p ~/.kitchen
+    mkdir -p ~/.config/alacritty
+    mkdir -p ~/.config/powerline
+    mkdir -p ~/.local/share/applications
+    mkdir -p ~/.tmux/plugins
+    mkdir -p ~/.ipython/profile_default
 
-    mkdir -p $DOWNLOADS
+    egood "Created default directories as specified in $CURRENT_DIR/directories.env"
+}
 
-    ln -Tsf $DROPBOX_ROOT/Documents $DOCUMENTS
-    ln -Tsf $DROPBOX_ROOT/Music $MUSIC
-    ln -Tsf $DROPBOX_ROOT/Pictures $PHOTOS
-fi
+function link_dirs() {
+    ln -Tsf "$DROPBOX_ROOT/Documents" "$DOCUMENTS"
+    ln -Tsf "$DROPBOX_ROOT/Music" "$MUSIC"
+    ln -Tsf "$DROPBOX_ROOT/Pictures" "$PHOTOS"
+}
 
-egood "Created default directories as specified in $current_dir/directories.env"
+function link_ftplugins() {
+    for i in $(dolisting ftplugin/*)
+    do
+	i=$(basename "$i")
+	ln -sf "$CURRENT_DIR/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
+    done
+}
 
-ln -sf ${RC_DIR}/bash_profile 	    ~/.bash_profile
-ln -sf ${RC_DIR}/bashrc             ~/.bashrc
-ln -sf ${RC_DIR}/zshrc              ~/.zshrc
-ln -sf ${RC_DIR}/vimrc              ~/.vimrc
-ln -sf ${RC_DIR}/tmux.conf 	    ~/.tmux.conf
-ln -sf ${RC_DIR}/gitconfig          ~/.gitconfig
-ln -sf ${RC_DIR}/rvmrc              ~/.rvmrc
-ln -sf ${RC_DIR}/ackrc              ~/.ackrc
-ln -sf ${RC_DIR}/psqlrc             ~/.psqlrc
-ln -sf ${RC_DIR}/kitchen-config.yml ~/.kitchen/config.yml
-ln -sf ${RC_DIR}/ctags              ~/.ctags
-ln -sf ${RC_DIR}/alacritty.yml 	    ~/.config/alacritty/alacritty.yml
-ln -sf ${RC_DIR}/powerline-shell.json ~/.config/powerline/config.json
+function link_configs() {
+    ln -sf "${RC_DIR}/bash_profile" ~/.bash_profile
+    ln -sf "${RC_DIR}/bashrc" ~/.bashrc
+    ln -sf "${RC_DIR}/zshrc" ~/.zshrc
+    ln -sf "${RC_DIR}/vimrc" ~/.vimrc
+    ln -sf "${RC_DIR}/tmux.conf" ~/.tmux.conf
+    ln -sf "${RC_DIR}/gitconfig" ~/.gitconfig
+    ln -sf "${RC_DIR}/rvmrc" ~/.rvmrc
+    ln -sf "${RC_DIR}/ackrc" ~/.ackrc
+    ln -sf "${RC_DIR}/psqlrc" ~/.psqlrc
+    ln -sf "${RC_DIR}/kitchen-config.yml" ~/.kitchen/config.yml
+    ln -sf "${RC_DIR}/ctags" ~/.ctags
+    ln -sf "${RC_DIR}/alacritty.yml" ~/.config/alacritty/alacritty.yml
+    ln -sf "${RC_DIR}/powerline-shell.json" ~/.config/powerline/config.json
+    ln -sf "${RC_DIR}/ipython_config.py" ~/.ipython/profile_default/ipython_config.py
 
-ln -sf $CONFIG_DIR/misc/alacritty.desktop ~/.local/share/applications
+    ln -sf "${CONFIG_DIR}/misc/alacritty.desktop" ~/.local/share/applications
+    ln -sf "${CONFIG_DIR}/misc/dircolors.ansi-dark" ~/.dircolors
+    ln -sf "${CONFIG_DIR}/misc/PowerlineSymbols.otf" ~/.fonts/PowerlineSymbols.otf
+    ln -sf "${CONFIG_DIR}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfig/conf.d/
 
-ln -sf ${CONFIG_DIR}/misc/dircolors.ansi-dark   ~/.dircolors
-ln -sf ${CONFIG_DIR}/misc/PowerlineSymbols.otf  ~/.fonts/PowerlineSymbols.otf
-ln -sf ${CONFIG_DIR}/misc/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d/
-ln -sf ~/repos/pidcat/pidcat.py ${BIN_DIR}/pidcat
+    egood "Created home directory file links"
 
-mkdir -p ~/.ipython/profile_default
-ln -sf ${RC_DIR}/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+    link_ftplugins
+}
 
-egood "Created home directory file links"
+function prep_scripts() {
+    for i in $(dolisting "$SCRIPT_DIR"/*)
+    do
+	chmod +x "$i"
+    done
+    egood "Added execute permission to scripts in $SCRIPT_DIR"
 
+    for i in $(dolisting "$SCRIPT_DIR/*")
+    do
+	i=$(basename "$i")
+	ln -sf "${SCRIPT_DIR}/$i" "${BIN_DIR}/$i"
+    done
+    egood "Created links in ${BIN_DIR} to scripts in $SCRIPT_DIR"
+}
 
-fc-cache -vf ~/.fonts > /dev/null 2>&1
-estatus "Built font cache for powerline"
+function prep_fonts() {
+    fc-cache -vf ~/.fonts > /dev/null 2>&1
+    estatus "Built font cache for powerline"
+}
 
-for i in $(ls -1 $SCRIPT_DIR)
-do
-    chmod +x ${SCRIPT_DIR}/$i
-done
-egood "Added execute permission to scripts in $SCRIPT_DIR"
+# Setup defaults required by these dotfiles
+. "${CURRENT_DIR}/config.env"
 
-for i in $(ls -1 $SCRIPT_DIR)
-do
-    ln -sf ${SCRIPT_DIR}/$i ${BIN_DIR}/$i
-done
-egood "Created links in ${BIN_DIR} to scripts in $SCRIPT_DIR"
-
-if [ "${HOME}" != "/root" ]; then
-    fetch_repos
-    powerline_install
-    go get -u github.com/nsf/gocode
-    $GOPATH/src/github.com/nsf/gocode/nvim/symlink.sh > /dev/null 2>&1
-fi
-
-mkdir -p ~/.config/nvim/after/ftplugin
-for i in $(ls -1 ftplugin)
-do
-    ln -sf $current_dir/ftplugin/$i ~/.config/nvim/after/ftplugin/$i
-done
+make_dirs
+link_dirs
+link_configs
+prep_scripts
+prep_fonts
+fetch_apps
