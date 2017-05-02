@@ -178,8 +178,6 @@ nmap <silent> \ts :ts<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map 	<F1> :w<CR>
 map!  	<F1> <ESC>:w<CR>
-map 	<F2> :registers<CR>
-map! 	<F2> <ESC>:registers<CR>
 map     <F3> :Explore<CR>
 map!    <F3> <ESC>:Explore<CR>
 map 	<F7> :!tlc<CR><CR>
@@ -235,12 +233,6 @@ map!  	<c-h> <ESC>tabn<CR>
 nnoremap \tt :tabnew<CR>
 nnoremap \nt :tabnew<CR>
 
-" comment current line
-"map 	<c-k> mzI/* <ESC>A */ <ESC>`z
-"map! 	<c-k> <ESC>mzI/* <ESC>A */ <ESC>`z
-" uncomment current line
-"map 	<c-l> :silent! s/\(.*\)\(\/\* \)\(.*\)\(\*\/\)/\1\3/<CR>
-"map! 	<c-l> <ESC>:silent! s/\(.*\)\(\/\* \)\(.*\)\(\*\/\)/\1\3/<CR>
 map 	<c-c> :make<CR>
 " 5 ctrl-h jumps to buffer 5
 "map 	<c-h> <C-^>
