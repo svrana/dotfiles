@@ -162,8 +162,10 @@ function _chef_bootstrap() {
 
     first_run=$(which chef-solo)
     if [ -z "$first_run" ]; then
-	curl -L https://omnitruck.chef.io/install.sh -P chefdk | sudo bash
+	curl -L https://omnitruck.chef.io/install.sh -o /tmp/install.sh
+	sudo bash /tmp/install.sh -P chefdk
 	estatus "Installed chefdk"
+	rm /tmp/install.sh > /dev/null 2>&1
     fi
 
     if [[ -z "$first_run" || "$force" = "true" ]]; then
