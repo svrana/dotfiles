@@ -157,9 +157,20 @@ function prep_fonts() {
     estatus "Built font cache for powerline"
 }
 
+function chef_bootstrap() {
+    if [ -z "$(which chef-solo)" ]; then
+	curl -L https://omnitruck.chef.io/install.sh -P chefdk | sudo bash
+	"$CURRENT_DIR/scripts/chef-up"
+	estatus "Ran chef-solo"
+    else
+	egood "Skipping chef-solo run"
+    fi
+}
+
 # Setup defaults required by these dotfiles
 . "${CURRENT_DIR}/config.env"
 
+chef_bootstrap
 make_dirs
 link_dirs
 link_configs
