@@ -1,6 +1,6 @@
 # Loaded for each terminal and sourced at login by .bash_profile.
 #
-# vi: set ft=sh
+# vi:ft=sh
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
