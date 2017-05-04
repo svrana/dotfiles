@@ -22,30 +22,25 @@ function _go_config() {
 }
 
 function _fetch_apps() {
-    if [ ! -e ~/.tmux/plugins/tpm ]; then
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-        tmux source ~/.tmux.conf
-    fi
+    #if [ ! -e /usr/bin/pip ]; then
+    #    sudo apt-get install curl python-pip python-dev build-essential
+    #fi
 
-    if [ ! -e /usr/bin/pip ]; then
-        sudo apt-get install curl python-pip python-dev build-essential
-    fi
-
-    if [ ! -d ~/repos/gruf ]; then
-        git clone https://github.com/svrana/gruf.git ~/repos/gruf
-        estatus "Cloned gruf"
-    fi
+    #if [ ! -d ~/repos/gruf ]; then
+    #    git clone https://github.com/svrana/gruf.git ~/repos/gruf
+    #    estatus "Cloned gruf"
+    #fi
 
     if [ ! -d ~/repos/solarize ]; then
-        git clone https://github.com/gmodarelli/solarize.git ~/repos/solarize
+        #git clone https://github.com/gmodarelli/solarize.git ~/repos/solarize
         ~/repos/solarize/solarize.sh dark
         estatus "Cloned solarize repo"
     fi
 
-    if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-        estatus "Cloned Vundle"
-    fi
+    #if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+    #    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    #    estatus "Cloned Vundle"
+    #fi
 
     if [ ! -f ~/.config/nvim/init.vim ]; then
         mkdir ~/.config/nvim
@@ -169,7 +164,7 @@ function _chef_bootstrap() {
     fi
 
     if [[ -z "$first_run" || "$force" = "true" ]]; then
-	pushd chef && BERKSFILE_PATH=../.berkshelf berks install && popd
+	pushd chef && berks vendor ../.berkshelf && popd
 	"$CURRENT_DIR/scripts/chef-up"
 	estatus "Ran chef-solo"
     else

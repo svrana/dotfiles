@@ -1,1 +1,2 @@
+#sudo chef-solo -l debug -c ~/dotfiles/chef/solo.rb -j ~/dotfiles/chef/solo.json
 sudo chef-solo -c ~/dotfiles/chef/solo.rb -j ~/dotfiles/chef/solo.json

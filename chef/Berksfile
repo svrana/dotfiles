@@ -12,3 +12,5 @@ Dir.glob('./cookbooks/*').each do |path|
   dependencies path
   cookbook File.basename(path), path => path
 end
+
+cookbook 'golang', '~> 1.7.0'
