@@ -1,6 +1,4 @@
 # vi:ft=ruby
-ENV['BERKSHELF_PATH'] = File.expand_path('../.berkshelf', __FILE__)
-
 source 'https://supermarket.chef.io'
 
 def dependencies(path)
@@ -10,7 +8,7 @@ end
 
 Dir.glob('./cookbooks/*').each do |path|
   dependencies path
-  cookbook File.basename(path), path => path
+  cookbook File.basename(path), path: path
 end
 
 cookbook 'golang', '~> 1.7.0'

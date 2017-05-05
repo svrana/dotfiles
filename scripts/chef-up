@@ -1,2 +1,5 @@
+pushd $CONFIG_DIR && \
+berks vendor -b $CONFIG_DIR/chef/Berksfile $CONFIG_DIR/.berkshelf && \
 #sudo chef-solo -l debug -c ~/dotfiles/chef/solo.rb -j ~/dotfiles/chef/solo.json
 sudo chef-solo -c ~/dotfiles/chef/solo.rb -j ~/dotfiles/chef/solo.json
+popd

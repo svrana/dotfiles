@@ -52,7 +52,6 @@ function _fetch_apps() {
 
     if [ ! -d ~/repos/fzf ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/repos/fzf
-        pushd ~/repos/fzf && ./install && popd
         ln -sf ~/repos/fzf/bin/fzf "${BIN_DIR}/fzf"
         ln -sf ~/repos/fzf/bin/fzf-tmux "${BIN_DIR}/fzf-tmux"
         mkdir -p ~/.config/fzf
@@ -164,7 +163,6 @@ function _chef_bootstrap() {
     fi
 
     if [[ -z "$first_run" || "$force" = "true" ]]; then
-	pushd chef && berks vendor ../.berkshelf && popd
 	"$CURRENT_DIR/scripts/chef-up"
 	estatus "Ran chef-solo"
     else
