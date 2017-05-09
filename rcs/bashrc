@@ -20,6 +20,7 @@ shopt -s checkwinsize
 shopt -s histappend
 shopt -s cdspell                  # Let bash help you change directories when you can't spell
 
+export MANPAGER="nvim -c 'set ft=man' -"
 export HISTCONTROL=ignoredups
 export HISTSIZE=100000
 export PROMPT_COMMAND='history -a'

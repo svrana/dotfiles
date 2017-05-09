@@ -31,6 +31,7 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-go'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'farmergreg/vim-lastplace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
