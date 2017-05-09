@@ -33,8 +33,8 @@ function _fetch_apps() {
         estatus "Cloned solarize repo"
     fi
 
-    if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
         estatus "Cloned Vundle"
     fi
 
@@ -71,13 +71,15 @@ function _make_dirs() {
     mkdir -p "$DOWNLOADS"
     mkdir -p ~/apps
     mkdir -p ~/repos
-    mkdir -p ~/.config/nvim/bak
+
+    mkdir -p ~/.config/nvim/{bak,swp}
     mkdir -p ~/.config/nvim/after/ftplugin
+    mkdir -p ~/.config/nvim/bundle
+    mkdir -p ~/.config/nvim/autoload
+
     mkdir -p ~/.config/fontconfig/conf.d
     mkdir -p ~/.fonts
-    mkdir -p ~/.vim/swp
-    mkdir -p ~/.vim/bundle
-    mkdir -p ~/.vim/autoload
+
     mkdir -p ~/.kitchen
     mkdir -p ~/.config/alacritty
     mkdir -p ~/.config/powerline

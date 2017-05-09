@@ -3,8 +3,8 @@
 "
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/bundle')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -13,8 +13,8 @@ Plugin 'gmodarelli/solarize'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'   " fgit
+Plugin 'tpope/vim-commentary' " auto-commenting
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'ervandew/supertab'
@@ -31,7 +31,7 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-go'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'farmergreg/vim-lastplace'
+Plugin 'farmergreg/vim-lastplace' " open file at last position
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -103,7 +103,9 @@ set backupcopy=yes
 " make asterick search work in visual mode
 vmap * "yy:let @/='\(' . @y . '\'<cr>n
 
-source ${GRUF_CONFIG}/gruf.vimrc
+if !empty($GRUF_CONFIG)
+    source ${GRUF_CONFIG}/gruf.vimrc
+end
 
 set tags=tags,${GRUF_PROJECT}/tags
 
@@ -359,3 +361,5 @@ let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_auto_type_info = 1
 let g:go_fmt_autosave = 1
+
+set directory^=.config/nvim/swap
