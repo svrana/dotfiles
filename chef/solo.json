@@ -5,6 +5,5 @@
   },
   "run_list": [
     "recipe[devbox]",
-    "recipe[golang]"
   ]
 }
