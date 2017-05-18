@@ -4,5 +4,6 @@ cscope.out
 .lint.pot
 .venv
 .ruby-version
+.ruby-gemset
 .envrc
 .direnv
