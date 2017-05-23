@@ -86,7 +86,7 @@ set notimeout
 set ttimeout
 set ttimeoutlen=100
 set backspace=indent,eol,start
-set directory=.
+set directory^=.config/nvim/swp
 set nowrap
 set nosol
 " show nothing in window frame on exit
@@ -361,5 +361,3 @@ let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_auto_type_info = 1
 let g:go_fmt_autosave = 1
-
-set directory^=.config/nvim/swap
