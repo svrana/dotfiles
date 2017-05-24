@@ -29,4 +29,5 @@ package %w(
   swig
   network-manager-openvpn
   network-manager-openvpn-gnome
+  shellcheck
 )
