@@ -33,6 +33,7 @@ Plugin 'zchee/deoplete-go'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'farmergreg/vim-lastplace' " open file at last position
+Plugin 'jreybert/vimagit'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
