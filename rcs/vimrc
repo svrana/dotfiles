@@ -50,6 +50,8 @@ let maplocalleader = ","
 let g:airline_powerline_fonts = 1
 let g:airline_section_b='' "Disable showing branch cause it crowds the filename
 let g:airline_section_y='' "Disable filetype cause it's mostly useless
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t' "no path,only filename
 
 let g:tagbar_autofocus = 0
 
