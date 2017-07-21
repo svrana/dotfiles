@@ -1,9 +1,5 @@
 {
-  "go": {
-    "version": "1.8.1",
-    "scm": false
-  },
   "run_list": [
-    "recipe[devbox]",
+    "recipe[devbox]"
   ]
 }

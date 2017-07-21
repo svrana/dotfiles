@@ -1,5 +1,4 @@
 # vi:ft=ruby
 source 'https://supermarket.chef.io'
 
-cookbook 'golang', '~> 1.7.0'
 cookbook 'devbox', :path => 'cookbooks/devbox'

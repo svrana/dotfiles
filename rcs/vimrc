@@ -34,6 +34,7 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'farmergreg/vim-lastplace' " open file at last position
 Plugin 'jreybert/vimagit'
+Plugin 'junegunn/vim-peekaboo'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -69,6 +70,8 @@ let g:python_host_prog  = '/home/shaw/.virtualenvs/neovim2/bin/python'
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_verbose = 0
+
+let g:peekaboo_delay=300
 
 if $GRUF_PROJECT =~ 'monorepo'
     let g:neomake_python_pylint_maker = {
