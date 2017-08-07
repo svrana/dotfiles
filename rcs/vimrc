@@ -21,7 +21,7 @@ Plugin 'vim-scripts/matchit.zip'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'othree/html5.vim'
-Plugin 'mitechie/pyflakes-pathogen'
+"Plugin 'mitechie/pyflakes-pathogen'
 Plugin 'fs111/pydoc.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'ingydotnet/yaml-vim'
@@ -75,14 +75,25 @@ let g:peekaboo_delay=300
 
 if $GRUF_PROJECT =~ 'monorepo'
     let g:neomake_python_pylint_maker = {
-        \ 'args': [
+ 	\ 'args': [
             \ '--rcfile=' . $MONOREPO . '/.pylintrc',
             \ '--output-format=text',
-            \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
+            \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
             \ '--reports=no'
-        \ ]
-    \ }
+        \ ],
+        \ 'errorformat':
+            \ '%A%f:%l:%c:%t: %m,' .
+            \ '%A%f:%l: %m,' .
+            \ '%A%f:(%l): %m,' .
+            \ '%-Z%p^%.%#,' .
+            \ '%-G%.%#',
+        \ 'output_stream': 'stdout',
+        \ 'postprocess': [
+        \   function('neomake#postprocess#GenericLengthPostprocess'),
+        \   function('neomake#makers#ft#python#PylintEntryProcess'),
+        \ ]}
 endif
+
 
 " Whitespace related
 "
