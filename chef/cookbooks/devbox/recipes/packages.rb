@@ -8,6 +8,8 @@ package %w(
   build-essential
   python-pip
   python-dev
+  python3-dev
+  python3-pip
   git
   tmux
   xclip
