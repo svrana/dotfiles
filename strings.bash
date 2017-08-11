@@ -9,6 +9,15 @@
 # where
 #	0 <= a <= b <= size  and  a + n = b
 #
+# Allows for specification of a substring for strcat(), strcpy(), and strcmp()
+# using Python-style [a:b] range as the third parameter, like this:
+#
+#    b=0123456789
+#    strcpy x $b :3		# x=012
+#    strcpy y $b -3:		# y=789
+#    strcpy z $b 1:-1		# z=12345678
+#    echo $x $y $z
+#
 function python_to_shell_range() {
     local -i size=$3
     local -i b=${2:-$size}
