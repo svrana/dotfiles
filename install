@@ -97,10 +97,10 @@ function _link_dirs() {
 }
 
 function _link_ftplugins() {
-    for i in $(dolisting ftplugin/*)
+    for i in $(dolisting rcs/ftplugin/*)
     do
 	i=$(basename "$i")
-	ln -sf "$CURRENT_DIR/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
+	ln -sf "$CURRENT_DIR/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
     done
 }
 
