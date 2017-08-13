@@ -1,5 +1,3 @@
-#!/bin/bash
-
 powerline_bash=~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 if [ -f $powerline_bash ]; then
     if [ -f "$(which powerline-daemon)" ]; then

@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 #
 # Collection of functions and aliases
 #
@@ -238,33 +237,6 @@ function cores() {
 
 alias perlinc='perl -le "print for @INC"'
 
-function colors() {
-    iter=16
-    while [ $iter -lt 52 ]
-    do
-	two=$((iter+36))
-	three=$((two+36))
-	four=$((three+36))
-	five=$((four+36))
-	six=$((five+36))
-	seven=$((six+36))
-        if [ $seven -gt 250 ]; then
-	    seven=$((seven-251));
-	fi
-
-	printf "\033[38;5;${iter}m█ %03d" "$iter"
-	printf "  \033[38;5;${two}m█ %03d" "$two"
-        printf "  \033[38;5;${three}m█ %03d" "$three"
-	printf "  \033[38;5;${four}m█ %03d" "$four"
-	printf "  \033[38;5;${five}m█ %03d" "$five"
-	printf "  \033[38;5;${six}m█ %03d" "$six"
-	printf "  \033[38;5;${seven}m█ %03d" "$seven"
-
-	iter=$((iter+1))
-        printf '\r\n'
-    done
-}
-
 function s() {
     if [[ $# == 0 ]]; then
         sudo $(history -p '!!')
@@ -325,7 +297,7 @@ function cleaned_path() {
 
 alias diskspace="du -S | sort -n -r |less"
 
-push_to_master() {
+function push_to_master() {
     current_branch="$(git branch | grep ^* | cut -d' ' -f2)"
     cmd="git push origin $current_branch:master"
     ask Run \""$cmd"\"?
@@ -342,4 +314,14 @@ push_to_master() {
 
 function docker_rm_dangling() {
     docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
+}
+
+function PATH_prepend() {
+    [ -z "$1" ] && return
+    export PATH=$1:$PATH
+}
+
+function PATH_append() {
+    [ -z "$1" ] && return
+    export PATH=$PATH:$1
 }

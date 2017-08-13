@@ -1,5 +1,6 @@
 #
-# An enumeration of useful colors.
+# An enumeration of useful colors and other color related
+# utilities.
 #
 
 tty -s
@@ -52,6 +53,34 @@ else
     export HILITE='\E[36;01m'
     export BRACKET='\E[34;01m'
 fi
+
+
+function colors() {
+    iter=16
+    while [ $iter -lt 52 ]
+    do
+	two=$((iter+36))
+	three=$((two+36))
+	four=$((three+36))
+	five=$((four+36))
+	six=$((five+36))
+	seven=$((six+36))
+        if [ $seven -gt 250 ]; then
+	    seven=$((seven-251));
+	fi
+
+	printf "\033[38;5;${iter}m█ %03d" "$iter"
+	printf "  \033[38;5;${two}m█ %03d" "$two"
+        printf "  \033[38;5;${three}m█ %03d" "$three"
+	printf "  \033[38;5;${four}m█ %03d" "$four"
+	printf "  \033[38;5;${five}m█ %03d" "$five"
+	printf "  \033[38;5;${six}m█ %03d" "$six"
+	printf "  \033[38;5;${seven}m█ %03d" "$seven"
+
+	iter=$((iter+1))
+        printf '\r\n'
+    done
+}
 
 
 # LESS_TERMCAP_mb=$(printf '%s' "$red") # enter blinking mode - red

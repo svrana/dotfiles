@@ -1,6 +1,6 @@
+#
 # Loaded for each terminal and sourced at login by .bash_profile.
 #
-# vi:ft=sh
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -29,21 +29,40 @@ export EDITOR=vim
 export LESS=mqeisz-2XR 		            # -R is important for escape sequences
 export TERM=xterm-256color                  # this is for solarized
 export PYTHONDONTWRITEBYTECODE=1            # stop littering
-export FZF_DEFAULT_COMMAND='ag -l -g ""'     # ag for showing only interesting files
-#export FZF_CTRL_T_COMAMAND=$FZF_DEFAULT_COMMAND
+
+export TMP=/tmp
+export CLOUD_ROOT=~/Cloud
+export PHOTOS=~/Pictures
+export BIN_DIR=~/.local/bin
+export DOCUMENTS=~/Documents
+export DOWNLOADS=~/Downloads
+export MUSIC=~/Music
+export PROJECTS=~/Projects
+export APPS=~/Apps
 
 export PATH=$PATH:~/.local/bin
+
+#
+# Set the dotfile plugins to load.
+#
+# shellcheck disable=SC2034
+export DOTFILE_PLUGINS=(
+    dircolors
+    direnv
+    fzf
+    git
+    gruf
+    powerline
+    rvm
+    virtualenvwrapper
+    wish
+)
 
 #
 # Source the configuration for these dotfiles of which this file is a part.
 #
 # This assumes the install script has been run and .bashrc is a link pointing
 # into the dotfiles repo.
-#
 bashrc_location=$(readlink -f ~/.bashrc)
 dotfiles_dir=${bashrc_location%/rcs/bashrc}
-. "$dotfiles_dir/config.env"
-
-export DOTFILE_PLUGINS=(gruf dircolors powerline rvm virtualenvwrapper direnv)
-dotfiles_activate_plugins
-
+. "$dotfiles_dir/activate.sh"

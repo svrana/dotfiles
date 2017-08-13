@@ -1,4 +1,8 @@
-#!/bin/bash
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && . /usr/local/bin/virtualenvwrapper.sh
+[ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ] && . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+export WORKON_HOME=~/.virtualenvs
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Make virtualenvwrapper use the .venv file to find the current
 # python virtual environment. (Stolen from the virtualenvwrapper

@@ -1,3 +1,5 @@
+export CL_HOME=~/Projects/clroot
+
 alias bogo="/home/shaw/Projects/clroot/sweeper/bogo.py"
 alias run-tests='arc unit `find -type d | grep __tests__`'
 
@@ -7,8 +9,6 @@ alias metrics-server='cdp && cd td_metrics && python server.py --mongo_host=10.1
 
 alias sweeper-tests='cd $CL_HOME/sweeper && arc unit `find -type d | grep __tests__ | grep -v merchant_dashboard`'
 alias merchant-tests='cd $CL_HOME/sweeper/merchant_dashyboard ; arc unit `find -type d | grep __tests__`'
-
-alias bad-host-check="knife ssh 'role:wish-tornado' 'grep \"Could not get\" /production/sweeper/persistent/logs/sweeper.stderr.log' -a ipaddress"
 
 function sshfe() {
     ssh -o "StrictHostKeyChecking=no" $USER@`~/Projects/clroot/sweeper/scripts/infra/get_hostname.py fe $*`
@@ -83,16 +83,6 @@ function sshcanary() {
 }
 
 
-function findip() {
-    if [ -z "$1"]; then
-        local search_str="campaign"
-    else
-        local search_str=$1
-    fi
-
-    knife node list | grep camp | xargs -d'\n' -L1 knife node show -a ipaddress
-}
-
 function run_sweeper_tests() {
     arc unit $(find . -name merchant_dashboard -prune -o -type d -print | grep __tests__)
 }
@@ -100,3 +90,4 @@ function run_sweeper_tests() {
 function run_merchant_tests() {
     arc unit $(find . -type d | grep __tests__)
 }
+

@@ -1,5 +1,4 @@
-#!bin/bash
-
+#
 # Set up commonly used functions, aliases and environment variables used
 # throughout these dotfiles.
 #
@@ -15,36 +14,8 @@ export SCRIPT_DIR="${CONFIG_DIR}/scripts"
 export RC_DIR="${CONFIG_DIR}/rcs"
 export MACHINE_DIR="${CONFIG_DIR}/boxen"
 
-export TMP=/tmp
-export CLOUD_ROOT=~/Cloud
-export PHOTOS=~/Pictures
-export BIN_DIR=~/.local/bin
-export DOCUMENTS=~/Documents
-export DOWNLOADS=~/Downloads
-export MUSIC=~/Music
-export PROJECTS=~/Projects
-export REPOS=~/Repos
-export APPS=~/Apps
-
-source "$CONFIG_DIR/colors.env"
-source "$CONFIG_DIR/functions.env"
-
-function dotfiles_activate_plugins() {
-    [ -z "$DOTFILE_PLUGINS" ] && return
-
-    for plugin in ${DOTFILE_PLUGINS[*]}
-    do
-	if [ ! -d "$CONFIG_DIR/plugins/${plugin}" ]; then
-	    echo "Invalid plugin $plugin could not be loaded"
-	    continue
-	fi
-	if [ ! -f "$CONFIG_DIR/plugins/$plugin/activate.sh" ]; then
-	    echo "Plugin $plugin is missing activate.sh script"
-	    continue
-	fi
-	source "$CONFIG_DIR/plugins/${plugin}/activate.sh"
-    done
-}
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/functions.sh"
 
 #
 # Source default configuration for all boxen
@@ -58,10 +29,6 @@ overrides=${MACHINE_DIR}/${HOSTNAME}.env
 if [ -e "$overrides" ]; then
     . "$overrides"
 fi
-
-# Cleanup any invalid paths in PATH
-PATH=$(cleaned_path)
-export PATH
 
 #
 # Source machine specific private config if available
@@ -78,3 +45,27 @@ for file in $(dolisting "$CONFIG_DIR"/private/*.env)
 do
     . "$file"
 done
+
+function dotfiles_activate_plugins() {
+    [ -z "$DOTFILE_PLUGINS" ] && return
+
+    for plugin in ${DOTFILE_PLUGINS[*]}
+    do
+	if [ ! -d "$CONFIG_DIR/plugins/${plugin}" ]; then
+	    echo "Invalid plugin $plugin could not be loaded"
+	    continue
+	fi
+	if [ ! -f "$CONFIG_DIR/plugins/$plugin/activate.sh" ]; then
+	    echo "Plugin $plugin is missing activate.sh script"
+	    continue
+	fi
+	#echo "Activating $plugin plugin"
+	source "$CONFIG_DIR/plugins/${plugin}/activate.sh"
+    done
+}
+
+dotfiles_activate_plugins
+
+# Cleanup any invalid paths in PATH
+PATH=$(cleaned_path)
+export PATH

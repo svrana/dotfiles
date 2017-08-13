@@ -22,14 +22,14 @@ function _go_config() {
 }
 
 function _fetch_apps() {
-    if [ ! -d "$REPOS/gruf" ]; then
-        git clone https://github.com/svrana/gruf.git "$REPOS/gruf"
+    if [ ! -d "$APPS/gruf" ]; then
+        git clone https://github.com/svrana/gruf.git "$APPS/gruf"
         estatus "Cloned gruf"
     fi
 
-    if [ ! -d "$REPOS/solarize" ]; then
-        git clone https://github.com/gmodarelli/solarize.git "$REPOS/solarize"
-        "$REPOS/solarize/solarize.sh" dark
+    if [ ! -d "$APPS/solarize" ]; then
+        git clone https://github.com/gmodarelli/solarize.git "$APPS/solarize"
+        "$APPS/solarize/solarize.sh" dark
         estatus "Cloned solarize repo"
     fi
 
@@ -46,21 +46,27 @@ function _fetch_apps() {
         sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
     fi
 
-    if [ ! -d "$REPOS/fzf" ]; then
-        git clone --depth 1 https://github.com/junegunn/fzf.git "$REPOS/fzf"
-	"$REPOS/fzf/install" --bin
-        ln -sf "$REPOS/fzf/bin/fzf" "${BIN_DIR}/fzf"
-        ln -sf "$REPOS/fzf/bin/fzf-tmux" "${BIN_DIR}/fzf-tmux"
+    if [ ! -d "$APPS/fzf" ]; then
+        git clone --depth 1 https://github.com/junegunn/fzf.git "$APPS/fzf"
+	"$APPS/fzf/install" --bin
+        ln -sf "$APPS/fzf/bin/fzf" "${BIN_DIR}/fzf"
+        ln -sf "$APPS/fzf/bin/fzf-tmux" "${BIN_DIR}/fzf-tmux"
         mkdir -p ~/.config/fzf
         ln -sf "${RC_DIR}/fzf.bash" ~/.config/fzf/fzf.bash
     fi
 
-    if [ ! -d "$REPOS/fonts" ]; then
-        git clone https://github.com/powerline/fonts.git "$REPOS/fonts"
-        "$REPOS/fonts/install.sh"
+    if [ ! -d "$APPS/fonts" ]; then
+        git clone https://github.com/powerline/fonts.git "$APPS/fonts"
+        "$APPS/fonts/install.sh"
+    fi
+
+    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
 
     nvim +PluginInstall +qall +GoInstallBinaries
+    ~/.tmux/plugins/tpm/bin/install_plugins
+    ~/.tmux/plugins/tpm/bin/clean_plugins
 
     _powerline_install
     _go_config
@@ -70,7 +76,6 @@ function _make_dirs() {
     mkdir -p "$BIN_DIR"
     mkdir -p "$DOWNLOADS"
     mkdir -p "$APPS"
-    mkdir -p "$REPOS"
 
     mkdir -p ~/.config/nvim/{bak,swp}
     mkdir -p ~/.config/nvim/after/ftplugin
@@ -87,7 +92,7 @@ function _make_dirs() {
     mkdir -p ~/.tmux/plugins
     mkdir -p ~/.ipython/profile_default
 
-    egood "Created default directories as specified in $CURRENT_DIR/config.env"
+    egood "Created default directories"
 }
 
 function _link_dirs() {
@@ -170,7 +175,7 @@ function _chef_bootstrap() {
 }
 
 # Setup defaults required by these dotfiles
-. "${CURRENT_DIR}/config.env"
+. "${CURRENT_DIR}/activate.sh"
 
 
 force_chef_run="false"

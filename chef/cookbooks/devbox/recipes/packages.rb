@@ -32,4 +32,5 @@ package %w(
   network-manager-openvpn
   network-manager-openvpn-gnome
   shellcheck
+  ruby
 )
