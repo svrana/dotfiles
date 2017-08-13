@@ -22,14 +22,14 @@ function _go_config() {
 }
 
 function _fetch_apps() {
-    if [ ! -d ~/repos/gruf ]; then
-        git clone https://github.com/svrana/gruf.git ~/repos/gruf
+    if [ ! -d "$REPOS/gruf" ]; then
+        git clone https://github.com/svrana/gruf.git "$REPOS/gruf"
         estatus "Cloned gruf"
     fi
 
-    if [ ! -d ~/repos/solarize ]; then
-        git clone https://github.com/gmodarelli/solarize.git ~/repos/solarize
-        ~/repos/solarize/solarize.sh dark
+    if [ ! -d "$REPOS/solarize" ]; then
+        git clone https://github.com/gmodarelli/solarize.git "$REPOS/solarize"
+        "$REPOS/solarize/solarize.sh" dark
         estatus "Cloned solarize repo"
     fi
 
@@ -46,18 +46,18 @@ function _fetch_apps() {
         sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
     fi
 
-    if [ ! -d ~/repos/fzf ]; then
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/repos/fzf
-	~/repos/fzf/install --bin
-        ln -sf ~/repos/fzf/bin/fzf "${BIN_DIR}/fzf"
-        ln -sf ~/repos/fzf/bin/fzf-tmux "${BIN_DIR}/fzf-tmux"
+    if [ ! -d "$REPOS/fzf" ]; then
+        git clone --depth 1 https://github.com/junegunn/fzf.git "$REPOS/fzf"
+	"$REPOS/fzf/install" --bin
+        ln -sf "$REPOS/fzf/bin/fzf" "${BIN_DIR}/fzf"
+        ln -sf "$REPOS/fzf/bin/fzf-tmux" "${BIN_DIR}/fzf-tmux"
         mkdir -p ~/.config/fzf
         ln -sf "${RC_DIR}/fzf.bash" ~/.config/fzf/fzf.bash
     fi
 
-    if [ ! -d ~/repos/fonts ]; then
-        git clone https://github.com/powerline/fonts.git ~/repos/fonts
-        ~/repos/fonts/install.sh
+    if [ ! -d "$REPOS/fonts" ]; then
+        git clone https://github.com/powerline/fonts.git "$REPOS/fonts"
+        "$REPOS/fonts/install.sh"
     fi
 
     nvim +PluginInstall +qall +GoInstallBinaries
@@ -69,8 +69,8 @@ function _fetch_apps() {
 function _make_dirs() {
     mkdir -p "$BIN_DIR"
     mkdir -p "$DOWNLOADS"
-    mkdir -p ~/apps
-    mkdir -p ~/repos
+    mkdir -p "$APPS"
+    mkdir -p "$REPOS"
 
     mkdir -p ~/.config/nvim/{bak,swp}
     mkdir -p ~/.config/nvim/after/ftplugin
@@ -87,7 +87,7 @@ function _make_dirs() {
     mkdir -p ~/.tmux/plugins
     mkdir -p ~/.ipython/profile_default
 
-    egood "Created default directories as specified in $CURRENT_DIR/directories.env"
+    egood "Created default directories as specified in $CURRENT_DIR/config.env"
 }
 
 function _link_dirs() {

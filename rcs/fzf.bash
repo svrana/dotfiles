@@ -9,15 +9,15 @@
 
 # Man path
 # --------
-if [[ ! "$MANPATH" == */home/shaw/repos/fzf/man* && -d "/home/shaw/repos/fzf/man" ]]; then
-  export MANPATH="$MANPATH:/home/shaw/repos/fzf/man"
+if [[ ! "$MANPATH" == *$REPOS/fzf/man* && -d "$REPOS/fzf/man" ]]; then
+  export MANPATH="$MANPATH:$REPOS/fzf/man"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/home/shaw/repos/fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "$REPOS/fzf/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/home/shaw/repos/fzf/shell/key-bindings.bash"
+source "$REPOS/fzf/shell/key-bindings.bash"
 

@@ -43,7 +43,7 @@ filetype plugin indent on
 
 set mouse=a
 
-set rtp+=~/repos/fzf
+set rtp+=$REPOS/fzf
 
 let mapleader = ","
 let maplocalleader = ","
