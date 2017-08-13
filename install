@@ -91,9 +91,9 @@ function _make_dirs() {
 }
 
 function _link_dirs() {
-    ln -Tsf "$DROPBOX_ROOT/Documents" "$DOCUMENTS"
-    ln -Tsf "$DROPBOX_ROOT/Music" "$MUSIC"
-    ln -Tsf "$DROPBOX_ROOT/Pictures" "$PHOTOS"
+    ln -Tsf "$CLOUD_ROOT/Documents" "$DOCUMENTS"
+    ln -Tsf "$CLOUD_ROOT/Music" "$MUSIC"
+    ln -Tsf "$CLOUD_ROOT/Pictures" "$PHOTOS"
 }
 
 function _link_ftplugins() {
