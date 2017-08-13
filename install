@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Creates defaults directories setup in directories.env; copies or links
-# configuration files into place as appropriate.
+# Creates defaults directories configured in config.env; copies or links
+# configuration files into place as appropriate, installs packages.
 #
 # This needs to be run once.
 #
