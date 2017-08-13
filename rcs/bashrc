@@ -32,14 +32,7 @@ export PYTHONDONTWRITEBYTECODE=1            # stop littering
 export FZF_DEFAULT_COMMAND='ag -l -g ""'     # ag for showing only interesting files
 #export FZF_CTRL_T_COMAMAND=$FZF_DEFAULT_COMMAND
 
-export PATH=\
-/usr/local/bin:\
-/usr/local/sbin:\
-/usr/bin:\
-/usr/sbin:\
-/bin:\
-/sbin:\
-~/.local/bin
+export PATH=$PATH:~/.local/bin
 
 #
 # Source the configuration for these dotfiles of which this file is a part.
