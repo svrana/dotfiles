@@ -40,7 +40,14 @@ export MUSIC=~/Music
 export PROJECTS=~/Projects
 export APPS=~/Apps
 
-export PATH=$PATH:~/.local/bin
+export PATH=\
+/usr/local/bin:\
+/usr/local/sbin:\
+/usr/bin:\
+/usr/sbin:\
+/bin:\
+/sbin:\
+~/.local/bin
 
 #
 # Set the dotfile plugins to load.
