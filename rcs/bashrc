@@ -55,7 +55,6 @@ export PATH=\
 # shellcheck disable=SC2034
 export DOTFILE_PLUGINS=(
     dircolors
-    direnv
     fzf
     git
     gruf
@@ -63,6 +62,7 @@ export DOTFILE_PLUGINS=(
     rvm
     virtualenvwrapper
     wish
+    direnv # direnv must be initiliazed last
 )
 
 #
