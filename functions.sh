@@ -267,19 +267,6 @@ function extract() {
      fi
 }
 
-function install_apk() {
-    if [ -z "$1" ]; then
-        echo "Requires filename"
-        return 1
-    fi
-
-    APK_FILENAME=$1
-
-    id=$(adb devices | grep device$ | awk -F '\\t' '{ print $1}')
-    echo "Installing $APK_FILENAME to device $id"
-    adb install -r "$APK_FILENAME"
-}
-
 # Remove all invalid directories from PATH
 #
 # @return String PATH
@@ -296,21 +283,6 @@ function cleaned_path() {
 }
 
 alias diskspace="du -S | sort -n -r |less"
-
-function push_to_master() {
-    current_branch="$(git branch | grep ^* | cut -d' ' -f2)"
-    cmd="git push origin $current_branch:master"
-    ask Run \""$cmd"\"?
-    if [ $? -eq 0 ]; then
-	if [ "${BASH_VERSION}" ]; then
-           ${cmd}
-	else
-	    eval "${cmd}"
-	fi
-    else
-        echo "push aborted"
-    fi
-}
 
 function docker_rm_dangling() {
     docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
