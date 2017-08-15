@@ -30,16 +30,6 @@ export LESS=mqeisz-2XR 		            # -R is important for escape sequences
 export TERM=xterm-256color                  # this is for solarized
 export PYTHONDONTWRITEBYTECODE=1            # stop littering
 
-export TMP=/tmp
-export CLOUD_ROOT=~/Cloud
-export PHOTOS=~/Pictures
-export BIN_DIR=~/.local/bin
-export DOCUMENTS=~/Documents
-export DOWNLOADS=~/Downloads
-export MUSIC=~/Music
-export PROJECTS=~/Projects
-export APPS=~/Apps
-
 export PATH=\
 /usr/local/bin:\
 /usr/local/sbin:\

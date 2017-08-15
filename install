@@ -33,6 +33,12 @@ function _fetch_apps() {
         estatus "Cloned solarize repo"
     fi
 
+    if [ ! -d "$GOPATH/src/github.com/direnv" ]; then
+	go get -u github.com/direnv/direnv
+	cd "$GOPATH/src/github.com/direnv/direnv"
+	make && sudo make install
+    fi
+
     if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
         estatus "Cloned Vundle"
@@ -76,6 +82,7 @@ function _make_dirs() {
     mkdir -p "$BIN_DIR"
     mkdir -p "$DOWNLOADS"
     mkdir -p "$APPS"
+    mkdir -p "$GOPATH"
 
     mkdir -p ~/.config/nvim/{bak,swp}
     mkdir -p ~/.config/nvim/after/ftplugin
@@ -174,9 +181,8 @@ function _chef_bootstrap() {
     fi
 }
 
-# Setup defaults required by these dotfiles
-. "${CURRENT_DIR}/activate.sh"
-
+# Must have directories set so applications no where to be installed
+. "${CURRENT_DIR}/directories.sh"
 
 force_chef_run="false"
 while getopts f opt

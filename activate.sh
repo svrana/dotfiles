@@ -16,6 +16,7 @@ export MACHINE_DIR="${CONFIG_DIR}/boxen"
 
 source "$CONFIG_DIR/colors.sh"
 source "$CONFIG_DIR/functions.sh"
+source "$CONFIG_DIR/directories.sh"
 
 #
 # Source default configuration for all boxen
