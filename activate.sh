@@ -52,16 +52,12 @@ function dotfiles_activate_plugins() {
 
     for plugin in ${DOTFILE_PLUGINS[*]}
     do
-	if [ ! -d "$CONFIG_DIR/plugins/${plugin}" ]; then
-	    echo "Invalid plugin $plugin could not be loaded"
-	    continue
-	fi
-	if [ ! -f "$CONFIG_DIR/plugins/$plugin/activate.sh" ]; then
-	    echo "Plugin $plugin is missing activate.sh script"
+	if [ ! -f "$CONFIG_DIR/plugins/${plugin}.sh" ]; then
+	    echo "Plugin $plugin is missing"
 	    continue
 	fi
 	#echo "Activating $plugin plugin"
-	source "$CONFIG_DIR/plugins/${plugin}/activate.sh"
+	source "$CONFIG_DIR/plugins/${plugin}.sh"
     done
 }
 

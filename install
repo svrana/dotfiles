@@ -182,7 +182,10 @@ function _chef_bootstrap() {
 }
 
 # Must have directories set so applications no where to be installed
-. "${CURRENT_DIR}/directories.sh"
+for dependency in directories.sh colors.sh functions.sh
+do
+    . "$CURRENT_DIR/$dependency"
+done
 
 force_chef_run="false"
 while getopts f opt

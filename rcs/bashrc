@@ -24,7 +24,6 @@ export MANPAGER="nvim -c 'set ft=man' -"
 export HISTCONTROL=ignoredups
 export HISTSIZE=100000
 export PROMPT_COMMAND='history -a'
-export LS_DFLT_ARGS="--color=auto"
 export EDITOR=vim
 export LESS=mqeisz-2XR 		            # -R is important for escape sequences
 export TERM=xterm-256color                  # this is for solarized
@@ -48,6 +47,7 @@ export DOTFILE_PLUGINS=(
     fzf
     git
     gruf
+    ls
     powerline
     rvm
     virtualenvwrapper

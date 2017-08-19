@@ -129,40 +129,6 @@ function iss() {
     ps -ef | grep -v grep | grep "$@" -i --color=auto;
 }
 
-alias ls="ls \$LS_DFLT_ARGS"
-
-#
-# ls long listing
-#
-alias ll='ls -al'
-
-#
-# ls directories
-#
-alias lsd='ls -d */'
-
-#
-# ls directories long mode
-#
-alias lsdl='ll -d */'
-
-#
-# ls hidden
-#
-function lsh() {
-    ll | awk '{print $9}' | grep '^\.'
-}
-
-#
-# ls links (short listing)
-#
-function lsl() {
-    lsll | gawk '{print $9}'
-}
-
-alias p='pushd'
-alias P='popd'
-
 # Add newlines to path for readability
 alias path='echo -e ${PATH//:/\\n}'
 alias classpath='echo -e ${CLASSPATH//:/\\n}'
@@ -178,10 +144,6 @@ function rpass() {
     tr -cd '[:graph:]' < /dev/urandom | head -c "${1:-12}" && echo
 
 }
-
-# Git aliases
-alias gco='git checkout'
-alias g='git'
 
 # find
 alias drmo='find . -name "*.o" -delete'
