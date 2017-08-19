@@ -149,7 +149,7 @@ function rpass() {
 alias drmo='find . -name "*.o" -delete'
 
 # cd
-alias cdc='cd $CONFIG_DIR'
+alias cdc='cd $DOTFILES_DIR'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ..='cd ..'

@@ -132,10 +132,10 @@ function _link_configs() {
     ln -sf "${RC_DIR}/powerline-shell.json" ~/.config/powerline/config.json
     ln -sf "${RC_DIR}/ipython_config.py" ~/.ipython/profile_default/ipython_config.py
 
-    ln -sf "${CONFIG_DIR}/misc/alacritty.desktop" ~/.local/share/applications
-    ln -sf "${CONFIG_DIR}/misc/dircolors.ansi-dark" ~/.dircolors
-    ln -sf "${CONFIG_DIR}/misc/PowerlineSymbols.otf" ~/.fonts/PowerlineSymbols.otf
-    ln -sf "${CONFIG_DIR}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfig/conf.d/
+    ln -sf "${DOTFILES_DIR}/misc/alacritty.desktop" ~/.local/share/applications
+    ln -sf "${DOTFILES_DIR}/misc/dircolors.ansi-dark" ~/.dircolors
+    ln -sf "${DOTFILES_DIR}/misc/PowerlineSymbols.otf" ~/.fonts/PowerlineSymbols.otf
+    ln -sf "${DOTFILES_DIR}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfig/conf.d/
 
     egood "Created home directory file links"
 

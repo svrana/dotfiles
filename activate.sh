@@ -9,14 +9,14 @@ elif [ -n "${BASH_VERSION}" ]; then
     current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 fi
 
-export CONFIG_DIR="${current_dir}"
-export SCRIPT_DIR="${CONFIG_DIR}/scripts"
-export RC_DIR="${CONFIG_DIR}/rcs"
-export MACHINE_DIR="${CONFIG_DIR}/boxen"
+export DOTFILES_DIR="${current_dir}"
+export SCRIPT_DIR="${DOTFILES_DIR}/scripts"
+export RC_DIR="${DOTFILES_DIR}/rcs"
+export MACHINE_DIR="${DOTFILES_DIR}/boxen"
 
-source "$CONFIG_DIR/colors.sh"
-source "$CONFIG_DIR/functions.sh"
-source "$CONFIG_DIR/directories.sh"
+source "$DOTFILES_DIR/colors.sh"
+source "$DOTFILES_DIR/functions.sh"
+source "$DOTFILES_DIR/directories.sh"
 
 #
 # Source default configuration for all boxen
@@ -34,7 +34,7 @@ fi
 #
 # Source machine specific private config if available
 #
-private_box_override="$CONFIG_DIR/private/boxen/${HOSTNAME}.env"
+private_box_override="$DOTFILES_DIR/private/boxen/${HOSTNAME}.env"
 if [ -e "$private_box_override" ]; then
     . "$private_box_override"
 fi
@@ -42,7 +42,7 @@ fi
 #
 # Source private configs that cannot be added to the public repo
 #
-for file in $(dolisting "$CONFIG_DIR"/private/*.env)
+for file in $(dolisting "$DOTFILES_DIR"/private/*.env)
 do
     . "$file"
 done
@@ -52,12 +52,12 @@ function dotfiles_activate_plugins() {
 
     for plugin in ${DOTFILE_PLUGINS[*]}
     do
-	if [ ! -f "$CONFIG_DIR/plugins/${plugin}.sh" ]; then
+	if [ ! -f "$DOTFILES_DIR/plugins/${plugin}.sh" ]; then
 	    echo "Plugin $plugin is missing"
 	    continue
 	fi
 	#echo "Activating $plugin plugin"
-	source "$CONFIG_DIR/plugins/${plugin}.sh"
+	source "$DOTFILES_DIR/plugins/${plugin}.sh"
     done
 }
 

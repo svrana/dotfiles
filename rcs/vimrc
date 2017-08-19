@@ -188,15 +188,15 @@ augroup Binary
     au BufWritePost *.bin set nomod | endif
 augroup END
 
-function! GotoConfig()
-    cd $CONFIG_DIR
+function! GotoDotfiles()
+    cd $DOTFILES_DIR
 endfun
 
-map     \cf :call GetFile(expand("$CONFIG_DIR"))<CR>
-map!    \cf <ESC>:call GetFile(expand("$CONFIG_DIR"))<CR>
+map     \cf :call GetFile(expand("$DOTFILES_DIR"))<CR>
+map!    \cf <ESC>:call GetFile(expand("$DOTFILES_DIR"))<CR>
 
-map     \gc :call GotoConfig()<CR>
-map!    \gc <ESC>:call GotoConfig()<CR>
+map     \gc :call GotoDotfiles()<CR>
+map!    \gc <ESC>:call GotoDotfile()<CR>
 
 map 	\sp :split<CR>
 map!	\sp <ESC>:split<CR>
