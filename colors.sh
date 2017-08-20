@@ -56,15 +56,15 @@ fi
 
 
 function colors() {
-    iter=16
+    local iter=16
     while [ $iter -lt 52 ]
     do
-	two=$((iter+36))
-	three=$((two+36))
-	four=$((three+36))
-	five=$((four+36))
-	six=$((five+36))
-	seven=$((six+36))
+	local two=$((iter+36))
+	local three=$((two+36))
+	local four=$((three+36))
+	local five=$((four+36))
+	local six=$((five+36))
+	local seven=$((six+36))
         if [ $seven -gt 250 ]; then
 	    seven=$((seven-251));
 	fi
@@ -81,19 +81,3 @@ function colors() {
         printf '\r\n'
     done
 }
-
-
-# LESS_TERMCAP_mb=$(printf '%s' "$red") # enter blinking mode - red
-# export LESS_TERMCAP_mb
-# LESS_TERMCAP_md=$(printf '%s' "$BLUE") # enter double-bright mode
-# export LESS_TERMCAP_md
-# LESS_TERMCAP_me=$(printf '%s' "$NORMAL") # turn off all appearance modes (mb, md, so, us)
-# export LESS_TERMCAP_me
-# LESS_TERMCAP_se=$(printf '%s' "$NORMAL") # leave standout mode
-# export LESS_TERMCAP_se
-# LESS_TERMCAP_so=$(printf '%s' "$yellow") # enter standout mode - yellow
-# export LESS_TERMCAP_so
-# LESS_TERMCAP_ue=$(printf '%s' "$NORMAL") # leave underline mode
-# export LESS_TERMCAP_ue
-# LESS_TERMCAP_us=$(printf '%s' "$CYAN") # enter underline mode - cyan
-# export LESS_TERMCAP_us

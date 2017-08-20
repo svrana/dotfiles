@@ -10,7 +10,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 function _powerline_install() {
     if [ ! -f ~/.local/bin/powerline ]; then
-        pip install --user git+git://github.com/powerline/powerline
+        pip install --user powerline-status
     fi
 }
 
@@ -82,7 +82,6 @@ function _make_dirs() {
     mkdir -p "$BIN_DIR"
     mkdir -p "$DOWNLOADS"
     mkdir -p "$APPS"
-    mkdir -p "$GOPATH"
 
     mkdir -p ~/.config/nvim/{bak,swp}
     mkdir -p ~/.config/nvim/after/ftplugin
@@ -163,9 +162,9 @@ function _prep_fonts() {
 }
 
 function _chef_bootstrap() {
-    force=${1:-"false"}
+    local force=${1:-"false"}
 
-    first_run=$(which chef-solo)
+    local first_run=$(which chef-solo)
     if [ -z "$first_run" ]; then
 	curl -L https://omnitruck.chef.io/install.sh -o "$TMP/install.sh"
 	sudo bash /tmp/install.sh -P chefdk
@@ -182,10 +181,11 @@ function _chef_bootstrap() {
 }
 
 # Must have directories set so applications no where to be installed
-for dependency in directories.sh colors.sh functions.sh
+for dependency in directories.sh colors.sh functions.sh plugins/go.sh
 do
     . "$CURRENT_DIR/$dependency"
 done
+unset dependency
 
 force_chef_run="false"
 while getopts f opt
@@ -207,3 +207,6 @@ _link_configs
 _prep_scripts
 _prep_fonts
 _fetch_apps
+
+unset force_chef_run
+unset CURRENT_DIR

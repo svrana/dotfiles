@@ -1,12 +1,9 @@
 #
-# Loaded for each terminal and sourced at login by .bash_profile.
+# Loaded for each terminal and sourced at login by ~/.bash_profile.
 #
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-
-# Make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh /usr/bin/lesspipe)"
 
 # Enable programmable completion features (you don't need to enable this, if
 # it's already enabled in /etc/bash.bashrc and /etc/profile sources
@@ -24,10 +21,8 @@ export MANPAGER="nvim -c 'set ft=man' -"
 export HISTCONTROL=ignoredups
 export HISTSIZE=100000
 export PROMPT_COMMAND='history -a'
-export EDITOR=vim
-export LESS=mqeisz-2XR 		            # -R is important for escape sequences
+export EDITOR=nvim
 export TERM=xterm-256color                  # this is for solarized
-export PYTHONDONTWRITEBYTECODE=1            # stop littering
 
 export PATH=\
 /usr/local/bin:\
@@ -39,27 +34,42 @@ export PATH=\
 ~/.local/bin
 
 #
-# Set the dotfile plugins to load.
+# Set the dotfile plugins to load. These correspond to files in
+# $DOTFILES_DIR/plugins
 #
 # shellcheck disable=SC2034
 export DOTFILE_PLUGINS=(
+    bommie
+    cd
     dircolors
+    find
     fzf
     git
+    go
     gruf
+    less
     ls
-    powerline
-    rvm
-    virtualenvwrapper
+    powerline		# half-second startup time
+    ps
+    python
+    ruby
+    tmux
     wish
-    direnv # direnv must be initiliazed last
+    direnv		# direnv must be initiliazed last
 )
 
 #
-# Source the configuration for these dotfiles of which this file is a part.
+# Activate ocd dotfiles, load plugins, etc.
 #
-# This assumes the install script has been run and .bashrc is a link pointing
-# into the dotfiles repo.
-bashrc_location=$(readlink -f ~/.bashrc)
-dotfiles_dir=${bashrc_location%/rcs/bashrc}
-. "$dotfiles_dir/activate.sh"
+# Find out where the dotfiles repo is on disk by following the .bashrc link.
+# This assumes the dotfiles `install' script has been run which makes the .bashrc
+# link.
+#
+if [ -L ~/.bashrc ]; then
+    bashrc_location=$(readlink -f ~/.bashrc)
+    dotfiles_dir=${bashrc_location%/rcs/bashrc}
+    source "$dotfiles_dir/activate.sh"
+
+    unset bashrc_location
+    unset dotfiles_dir
+fi

@@ -85,119 +85,28 @@ function ask() {
     esac
 }
 
-# ff dogbutt
-# 	Find a file with case insensitive pattern in name, removing fluff.
-function ff() {
-    find . -iname '*'$1'*' -printf "%P\n" 2>/dev/null
-}
-
-# ff dogbutt rm
-# 	Find a file with case insensitive pattern $1 in name and execute $2 on it.
-function fe() {
-    find . -type f -iname '*'"$1"'*' -exec "${2:-file}" {} \;
-}
-
-# ff client
-# 	Find any type of file, removing fluff.
-function fa() {
-    find . -iname '*'"$1"'*' -printf "%P\n" 2>/dev/null
-}
-
-#
-# Living without this is just silly.
-#
-# unless you like pgrep
-#
-function is() {
-    if [ -z "$1" ]; then
-        return
-    fi
-
-    ps -ef | head -n1 ;\
-        ps -ef | grep -v grep | grep "$@" -i --color=auto;
-}
-
-#
-# Just like is but without the header which makes it easier to use when
-# scripting or piping output to other commands.
-#
-function iss() {
-    if [ -z "$1" ]; then
-        return
-    fi
-
-    ps -ef | grep -v grep | grep "$@" -i --color=auto;
-}
-
 # Add newlines to path for readability
 alias path='echo -e ${PATH//:/\\n}'
-alias classpath='echo -e ${CLASSPATH//:/\\n}'
-alias gopath='echo -e ${GOPATH//:/\\n}'
-alias pythonpath='echo -e ${PYTHONPATH//:/\\n}'
+alias perlinc='perl -le "print for @INC"'
 
-#
-# Create a random password
-#
-# @param length  default 12
-#
-function rpass() {
-    tr -cd '[:graph:]' < /dev/urandom | head -c "${1:-12}" && echo
-
-}
-
-# find
-alias drmo='find . -name "*.o" -delete'
-
-# cd
-alias cdc='cd $DOTFILES_DIR'
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-
-alias kvswap='find . -iregex ^.*.swp?o? -delete'
 alias svi='sudo vi'
 alias rvi='vi -R'
-
 alias bzip='bzip2'
 alias bunzip='bunzip2'
 alias diff='diff -u'
-
 alias ack='ack-grep'
-
-### ruby ###
-alias br='bundle exec rake'
-alias be='bundle exec'
-
-### tmux ###
-alias tma='tmux attach -d -t'
-alias tmux='deactivate 2>/dev/null 1>&2 ; direnv exec / tmux'
-
-# create named tmux session, i.e., tmux new -s dev
-function tmn() {
-    if [ -z "$1" ]; then
-        tmux
-    else
-        tmux new-session -s "$1"
-    fi
-}
-
 alias rmkey='ssh-keygen -f "~/.ssh/known_hosts" -R'
-
-alias upgrade='sudo apt-get update && sudo apt-get upgrade && sudo apt-get clean && sudo apt autoremove'
+alias upgrade='sudo apt update && sudo apt upgrade && sudo apt clean && sudo apt autoremove'
+alias diskspace="du -S | sort -n -r |less"
 
 function md() {
-    mkdir "$1"
-    cd "$1"
+    [ -z "$1" ] && return
+    mkdir "$1" && cd "$1"
 }
 
 function cores() {
     grep -c ^processor /proc/cpuinfo
 }
-
-alias perlinc='perl -le "print for @INC"'
 
 function s() {
     if [[ $# == 0 ]]; then
@@ -210,15 +119,15 @@ function s() {
 function extract() {
     if [ -f "$1" ] ; then
       case $1 in
-        *.tar.bz2)   tar xjf "$1"     ;;
-        *.tar.gz)    tar xzf "$1"     ;;
-        *.tar.xz)    tar xf "$1"      ;;
+        *.tar.bz2)   tar xjvf "$1"     ;;
+        *.tar.gz)    tar xzvf "$1"     ;;
+        *.tar.xz)    tar xvf "$1"      ;;
         *.bz2)       bunzip2 "$1"     ;;
         *.rar)       unrar e "$1"     ;;
         *.gz)        gunzip "$1"      ;;
-        *.tar)       tar xf "$1"      ;;
-        *.tbz2)      tar xjf "$1"     ;;
-        *.tgz)       tar xzf "$1"     ;;
+        *.tar)       tar xvf "$1"      ;;
+        *.tbz2)      tar xvjf "$1"     ;;
+        *.tgz)       tar xvzf "$1"     ;;
         *.zip)       unzip "$1"       ;;
         *.Z)         uncompress "$1"  ;;
         *.7z)        7z x "$1"        ;;
@@ -232,8 +141,8 @@ function extract() {
 # Remove all invalid directories from PATH
 #
 # @return String PATH
-function cleaned_path() {
-    ruby_path=$(which ruby)
+function PATH_clean() {
+    local ruby_path=$(which ruby)
     if [ -z "$ruby_path" ]; then
 	ebad "Could not find ruby!!" >&2
 	return
@@ -244,12 +153,6 @@ function cleaned_path() {
                              .join(':')"
 }
 
-alias diskspace="du -S | sort -n -r |less"
-
-function docker_rm_dangling() {
-    docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
-}
-
 function PATH_prepend() {
     [ -z "$1" ] && return
     export PATH=$1:$PATH
@@ -258,4 +161,8 @@ function PATH_prepend() {
 function PATH_append() {
     [ -z "$1" ] && return
     export PATH=$PATH:$1
+}
+
+function docker_rm_dangling() {
+    docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
 }
