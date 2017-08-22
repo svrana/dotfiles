@@ -111,7 +111,7 @@ function _link_ftplugins() {
     for i in $(dolisting rcs/ftplugin/*)
     do
 	i=$(basename "$i")
-	ln -sf "$CURRENT_DIR/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
+	ln -sf "$DOTFILES_DIR/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
     done
 }
 
@@ -173,7 +173,7 @@ function _chef_bootstrap() {
     fi
 
     if [[ -z "$first_run" || "$force" = "true" ]]; then
-	"$CURRENT_DIR/scripts/chef-up"
+	"$DOTFILES_DIR/scripts/chef-up"
 	estatus "Ran chef-solo"
     else
 	egood "Skipped chef-solo run"

@@ -3,21 +3,13 @@
 # and user specified plugins.
 #
 
-if [ -n "${ZSH_VERSION}" ]; then
-    current_dir=${0:a:h}
-elif [ -n "${BASH_VERSION}" ]; then
-    current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-fi
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-export DOTFILES_DIR="${current_dir}"
-export SCRIPT_DIR="${DOTFILES_DIR}/scripts"
-export RC_DIR="${DOTFILES_DIR}/rcs"
-export MACHINE_DIR="${DOTFILES_DIR}/boxen"
-unset current_dir
+source "$CURRENT_DIR/directories.sh"
+source "$CURRENT_DIR/colors.sh"
+source "$CURRENT_DIR/functions.sh"
 
-source "$DOTFILES_DIR/colors.sh"
-source "$DOTFILES_DIR/functions.sh"
-source "$DOTFILES_DIR/directories.sh"
+unset CURRENT_DIR
 
 #
 # Source machine specific configuration if available
