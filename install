@@ -181,7 +181,7 @@ function _chef_bootstrap() {
 }
 
 # Must have directories set so applications no where to be installed
-for dependency in directories.sh colors.sh functions.sh plugins/go.sh
+for dependency in directories.sh functions.sh plugins/go.sh
 do
     . "$CURRENT_DIR/$dependency"
 done

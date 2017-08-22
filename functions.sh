@@ -1,6 +1,10 @@
 #
-# Collection of functions and aliases
+# Many of these from gentoo @
+#   https://github.com/gentoo/gentoo-functions/blob/master/functions.sh
 #
+
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$CURRENT_DIR/colors.sh"
 
 # Safer way to list the contents of a directory as it doesn't have the 'empty
 # dir bug'.

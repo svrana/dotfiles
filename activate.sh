@@ -6,7 +6,6 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source "$CURRENT_DIR/directories.sh"
-source "$CURRENT_DIR/colors.sh"
 source "$CURRENT_DIR/functions.sh"
 
 unset CURRENT_DIR
