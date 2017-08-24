@@ -122,6 +122,7 @@ function _link_configs() {
     ln -sf "${RC_DIR}/vimrc" ~/.vimrc
     ln -sf "${RC_DIR}/tmux.conf" ~/.tmux.conf
     ln -sf "${RC_DIR}/gitconfig" ~/.gitconfig
+    ln -sf "${RC_DIR}/gitignore_global" ~/.gitignore_global
     ln -sf "${RC_DIR}/rvmrc" ~/.rvmrc
     ln -sf "${RC_DIR}/ackrc" ~/.ackrc
     ln -sf "${RC_DIR}/psqlrc" ~/.psqlrc
