@@ -87,6 +87,7 @@ function _make_dirs() {
     mkdir -p ~/.config/nvim/after/ftplugin
     mkdir -p ~/.config/nvim/bundle
     mkdir -p ~/.config/nvim/autoload
+    mkdir -p ~/.config/psql
 
     mkdir -p ~/.config/fontconfig/conf.d
     mkdir -p ~/.fonts

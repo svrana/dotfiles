@@ -1,11 +1,14 @@
-\set HISTFILE ~/.psql/history- :DBNAME
+\set HISTFILE ~/.config/psql/history- :HOST - :DBNAME
 \pset null '[null]'
 \set HISTCONTROL ignoredups
 \set HISTCONTROL ignorespace
 \timing
 \set COMP_KEYWORD_CASE upper
 \set IGNOREEOF 5
+\set PROMPT1 '(%n@%m) [%/] > '
+\set PROMPT2 '->'
 
+-- To run these aliases, prepend :, i.e., :showtables
 \set users 	'SELECT * from pg_user;'
 \set conninfo   'SELECT usename, count(*) FROM pg_stat_activity GROUP BY usename;'
 \set showlocks  'select table_id, last_update, lock_owner, lock_owner_pid, lock_status from stv_locks ;'
