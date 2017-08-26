@@ -7,4 +7,4 @@ if [ -f $powerline_bash ]; then
         . $powerline_bash
     fi
 fi
-
+unset powerline_bash

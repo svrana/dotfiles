@@ -7,8 +7,8 @@ alias gco='git checkout'
 alias g='git'
 
 function push_to_master() {
-    current_branch="$(git branch | grep ^* | cut -d' ' -f2)"
-    cmd="git push origin $current_branch:master"
+    local current_branch="$(git branch | grep ^* | cut -d' ' -f2)"
+    local cmd="git push origin $current_branch:master"
     ask Run \""$cmd"\"?
     if [ $? -eq 0 ]; then
 	if [ "${BASH_VERSION}" ]; then
