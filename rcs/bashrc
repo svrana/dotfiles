@@ -42,6 +42,7 @@ export DOTFILE_PLUGINS=(
     bommie
     cd
     dircolors
+    dotfiles
     find
     fzf
     git
