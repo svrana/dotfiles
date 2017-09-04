@@ -27,6 +27,12 @@ function _fetch_apps() {
         estatus "Cloned gruf"
     fi
 
+    if [ ! -d "$GOPATH/src/github.com/svrana/powerline-go" ]; then
+	go get -u github.com/svrana/powerline-go
+	cd "$GOPATH/src/github.com/svrana/powerline-go"
+	go install
+    fi
+
     if [ ! -d "$APPS/solarize" ]; then
         git clone https://github.com/gmodarelli/solarize.git "$APPS/solarize"
         "$APPS/solarize/solarize.sh" dark

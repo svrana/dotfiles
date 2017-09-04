@@ -61,6 +61,7 @@ let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline_skip_empty_sections = 1
 
 let g:tagbar_autofocus = 0
 

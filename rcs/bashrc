@@ -50,7 +50,7 @@ export DOTFILE_PLUGINS=(
     gruf
     less
     ls
-    powerline		# half-second startup time
+    powerline-go
     ps
     python
     ruby
