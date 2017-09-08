@@ -170,3 +170,18 @@ function PATH_append() {
 function docker_rm_dangling() {
     docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
 }
+
+function loopit() {
+    if [ -z "$1" ]; then
+	echo 'Must provide command to loop'
+	return 1
+    fi
+
+    while true; do
+	("$@")
+	if [ $? -eq 0 ]; then
+	    break
+	fi
+	sleep .05 # allow ctrl-c out
+    done
+}
