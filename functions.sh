@@ -178,10 +178,7 @@ function loopit() {
     fi
 
     while true; do
-	("$@")
-	if [ $? -eq 0 ]; then
-	    break
-	fi
+	"$@" && break
 	sleep .05 # allow ctrl-c out
     done
 }
