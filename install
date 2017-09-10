@@ -16,8 +16,8 @@ function _powerline_install() {
 
 function _go_config() {
     if [ -n "$GOPATH" ]; then
-	go get -u github.com/nsf/gocode
-	"$GOPATH/src/github.com/nsf/gocode/nvim/symlink.sh" > /dev/null 2>&1
+        go get -u github.com/nsf/gocode
+        "$GOPATH/src/github.com/nsf/gocode/nvim/symlink.sh" > /dev/null 2>&1
     fi
 }
 
@@ -28,9 +28,9 @@ function _fetch_apps() {
     fi
 
     if [ ! -d "$GOPATH/src/github.com/svrana/powerline-go" ]; then
-	go get -u github.com/svrana/powerline-go
-	pushd $GOPATH/src/github.com/svrana/powerline-go
-	go install
+        go get -u github.com/svrana/powerline-go
+        pushd $GOPATH/src/github.com/svrana/powerline-go
+        go install
         popd
     fi
 
@@ -41,9 +41,9 @@ function _fetch_apps() {
     fi
 
     if [ ! -d "$GOPATH/src/github.com/direnv" ]; then
-	go get -u github.com/direnv/direnv
-	cd "$GOPATH/src/github.com/direnv/direnv"
-	make && sudo make install
+        go get -u github.com/direnv/direnv
+        cd "$GOPATH/src/github.com/direnv/direnv"
+        make && sudo make install
     fi
 
     if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
@@ -61,7 +61,7 @@ function _fetch_apps() {
 
     if [ ! -d "$APPS/fzf" ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git "$APPS/fzf"
-	"$APPS/fzf/install" --bin
+        "$APPS/fzf/install" --bin
         ln -sf "$APPS/fzf/bin/fzf" "${BIN_DIR}/fzf"
         ln -sf "$APPS/fzf/bin/fzf-tmux" "${BIN_DIR}/fzf-tmux"
         mkdir -p ~/.config/fzf
@@ -74,7 +74,7 @@ function _fetch_apps() {
     fi
 
     if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
 
     nvim +PluginInstall +qall +GoInstallBinaries
@@ -118,8 +118,8 @@ function _link_dirs() {
 function _link_ftplugins() {
     for i in $(dolisting rcs/ftplugin/*)
     do
-	i=$(basename "$i")
-	ln -sf "$DOTFILES_DIR/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
+        i=$(basename "$i")
+        ln -sf "$DOTFILES_DIR/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
     done
 }
 
@@ -154,14 +154,14 @@ function _link_configs() {
 function _prep_scripts() {
     for i in $(dolisting "$SCRIPT_DIR"/*)
     do
-	chmod +x "$i"
+        chmod +x "$i"
     done
     egood "Added execute permission to scripts in $SCRIPT_DIR"
 
     for i in $(dolisting "$SCRIPT_DIR/*")
     do
-	i=$(basename "$i")
-	ln -sf "${SCRIPT_DIR}/$i" "${BIN_DIR}/$i"
+        i=$(basename "$i")
+        ln -sf "${SCRIPT_DIR}/$i" "${BIN_DIR}/$i"
     done
     egood "Created links in ${BIN_DIR} to scripts in $SCRIPT_DIR"
 }
@@ -176,17 +176,17 @@ function _chef_bootstrap() {
 
     local first_run=$(which chef-solo)
     if [ -z "$first_run" ]; then
-	curl -L https://omnitruck.chef.io/install.sh -o "$TMP/install.sh"
-	sudo bash /tmp/install.sh -P chefdk
-	estatus "Installed chefdk"
-	rm /tmp/install.sh > /dev/null 2>&1
+        curl -L https://omnitruck.chef.io/install.sh -o "$TMP/install.sh"
+        sudo bash /tmp/install.sh -P chefdk
+        estatus "Installed chefdk"
+        rm /tmp/install.sh > /dev/null 2>&1
     fi
 
     if [[ -z "$first_run" || "$force" = "true" ]]; then
-	"$DOTFILES_DIR/scripts/chef-up"
-	estatus "Ran chef-solo"
+        "$DOTFILES_DIR/scripts/chef-up"
+        estatus "Ran chef-solo"
     else
-	egood "Skipped chef-solo run"
+        egood "Skipped chef-solo run"
     fi
 }
 
@@ -200,13 +200,13 @@ unset dependency
 force_chef_run="false"
 while getopts f opt
 do
-  case "$opt" in
-    f)  force_chef_run="true";;
-    \?)   # unknown flag
-      echo >&2 \
-      "usage: $0 [-f force chef-solo run ]"
-      exit 1;;
-  esac
+    case "$opt" in
+        f)  force_chef_run="true";;
+        \?)   # unknown flag
+            echo >&2 \
+                "usage: $0 [-f force chef-solo run ]"
+            exit 1;;
+    esac
 done
 shift "$((OPTIND-1))"
 

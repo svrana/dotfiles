@@ -10,11 +10,9 @@ else
     use_color=false
 fi
 
-
 # Setup COLS and ENDCOL so eend can line up the [ ok ]
 COLS="${COLUMNS:-0}"            # bash's internal COLUMNS variable
-[ "$COLS" -eq 0 ] && \
-        COLS="$(set -- $(stty size 2>/dev/null) ; printf "$2\n")"
+[ "$COLS" -eq 0 ] && COLS="$(set -- $(stty size 2>/dev/null) ; printf "$2\n")"
 [ -z "$COLS" ] && COLS=80
 [ "$COLS" -gt 0 ] || COLS=80	# width of [ ok ] == 7
 
@@ -74,25 +72,25 @@ function colors() {
     local iter=16
     while [ $iter -lt 52 ]
     do
-	local two=$((iter+36))
-	local three=$((two+36))
-	local four=$((three+36))
-	local five=$((four+36))
-	local six=$((five+36))
-	local seven=$((six+36))
+        local two=$((iter+36))
+        local three=$((two+36))
+        local four=$((three+36))
+        local five=$((four+36))
+        local six=$((five+36))
+        local seven=$((six+36))
         if [ $seven -gt 250 ]; then
-	    seven=$((seven-251));
-	fi
+            seven=$((seven-251));
+        fi
 
-	printf "\033[38;5;${iter}m█ %03d" "$iter"
-	printf "  \033[38;5;${two}m█ %03d" "$two"
+        printf "\033[38;5;${iter}m█ %03d" "$iter"
+        printf "  \033[38;5;${two}m█ %03d" "$two"
         printf "  \033[38;5;${three}m█ %03d" "$three"
-	printf "  \033[38;5;${four}m█ %03d" "$four"
-	printf "  \033[38;5;${five}m█ %03d" "$five"
-	printf "  \033[38;5;${six}m█ %03d" "$six"
-	printf "  \033[38;5;${seven}m█ %03d" "$seven"
+        printf "  \033[38;5;${four}m█ %03d" "$four"
+        printf "  \033[38;5;${five}m█ %03d" "$five"
+        printf "  \033[38;5;${six}m█ %03d" "$six"
+        printf "  \033[38;5;${seven}m█ %03d" "$seven"
 
-	iter=$((iter+1))
+        iter=$((iter+1))
         printf '\r\n'
     done
 }

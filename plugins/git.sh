@@ -11,11 +11,11 @@ function push_to_master() {
     local cmd="git push origin $current_branch:master"
     ask Run \""$cmd"\"?
     if [ $? -eq 0 ]; then
-	if [ "${BASH_VERSION}" ]; then
-           ${cmd}
-	else
-	    eval "${cmd}"
-	fi
+        if [ "${BASH_VERSION}" ]; then
+            ${cmd}
+        else
+            eval "${cmd}"
+        fi
     else
         echo "push aborted"
     fi

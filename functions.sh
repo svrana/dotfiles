@@ -122,24 +122,24 @@ function s() {
 
 function extract() {
     if [ -f "$1" ] ; then
-      case $1 in
-        *.tar.bz2)   tar xjvf "$1"     ;;
-        *.tar.gz)    tar xzvf "$1"     ;;
-        *.tar.xz)    tar xvf "$1"      ;;
-        *.bz2)       bunzip2 "$1"     ;;
-        *.rar)       unrar e "$1"     ;;
-        *.gz)        gunzip "$1"      ;;
-        *.tar)       tar xvf "$1"      ;;
-        *.tbz2)      tar xvjf "$1"     ;;
-        *.tgz)       tar xvzf "$1"     ;;
-        *.zip)       unzip "$1"       ;;
-        *.Z)         uncompress "$1"  ;;
-        *.7z)        7z x "$1"        ;;
-        *)     echo "'$1' cannot be extracted via extract()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
+        case $1 in
+            *.tar.bz2)   tar xjvf "$1"     ;;
+            *.tar.gz)    tar xzvf "$1"     ;;
+            *.tar.xz)    tar xvf "$1"      ;;
+            *.bz2)       bunzip2 "$1"     ;;
+            *.rar)       unrar e "$1"     ;;
+            *.gz)        gunzip "$1"      ;;
+            *.tar)       tar xvf "$1"      ;;
+            *.tbz2)      tar xvjf "$1"     ;;
+            *.tgz)       tar xvzf "$1"     ;;
+            *.zip)       unzip "$1"       ;;
+            *.Z)         uncompress "$1"  ;;
+            *.7z)        7z x "$1"        ;;
+            *)     echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
 }
 
 # Remove all invalid directories from PATH
@@ -148,13 +148,13 @@ function extract() {
 function PATH_clean() {
     local ruby_path=$(which ruby)
     if [ -z "$ruby_path" ]; then
-	ebad "Could not find ruby!!" >&2
-	return
+        ebad "Could not find ruby!!" >&2
+        return
     fi
 
     ruby -e "puts ENV['PATH'].split(':') \
-                             .inject([]) { |r,k| r << k if File.exist?(k) ; r } \
-                             .join(':')"
+        .inject([]) { |r,k| r << k if File.exist?(k) ; r } \
+        .join(':')"
 }
 
 function PATH_prepend() {
@@ -173,12 +173,12 @@ function docker_rm_dangling() {
 
 function loopit() {
     if [ -z "$1" ]; then
-	echo 'Must provide command to loop'
-	return 1
+        echo 'Must provide command to loop'
+        return 1
     fi
 
     while true; do
-	"$@" && break
-	sleep .05 # allow ctrl-c out
+        "$@" && break
+        sleep .05 # allow ctrl-c out
     done
 }

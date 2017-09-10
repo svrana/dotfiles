@@ -42,12 +42,12 @@ function dotfiles_activate_plugins() {
 
     for plugin in ${DOTFILE_PLUGINS[*]}
     do
-	if [ ! -f "$DOTFILES_DIR/plugins/${plugin}.sh" ]; then
-	    echo "Plugin $plugin is missing"
-	    continue
-	fi
-	#echo "Activating $plugin plugin"
-	source "$DOTFILES_DIR/plugins/${plugin}.sh"
+        if [ ! -f "$DOTFILES_DIR/plugins/${plugin}.sh" ]; then
+            echo "Plugin $plugin is missing"
+            continue
+        fi
+        #echo "Activating $plugin plugin"
+        source "$DOTFILES_DIR/plugins/${plugin}.sh"
     done
     unset plugin
 }

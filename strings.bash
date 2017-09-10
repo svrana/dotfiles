@@ -24,8 +24,8 @@ function python_to_shell_range() {
     local -i a=${1:-0}
 
     if [ $# -ne 3 ]; then
-	echo "Usage: python_to_shell_range a b size"
-	return 2
+        echo "Usage: python_to_shell_range a b size"
+        return 2
     fi
 
     [[ $a -lt 0 ]] && a=$((a+size))
@@ -47,14 +47,14 @@ function strcat() {
     local b
 
     case $#.$3 in
-	2.) ;;
-	3.*:*) a=${3%:*} b=${3#*:}
-	    set -- `python_to_shell_range "$a" "$b" ${#STRING}`
-	    STRING=${STRING:$1:$2}
-	    ;;
-	*)  echo "Usage: strcat var string [a:b]"
-	    return 2
-	    ;;
+        2.) ;;
+        3.*:*) a=${3%:*} b=${3#*:}
+            set -- `python_to_shell_range "$a" "$b" ${#STRING}`
+            STRING=${STRING:$1:$2}
+            ;;
+        *)  echo "Usage: strcat var string [a:b]"
+            return 2
+            ;;
     esac
     eval "$VAR=\${$VAR}\$STRING"
 }
@@ -66,21 +66,21 @@ function strcpy() {
     local b
 
     case $#.$3 in
-	2.) ;;
-	3.*:*) a=${3%:*} b=${3#*:}
-	    set -- `python_to_shell_range "$a" "$b" ${#STRING}`
-	    STRING=${STRING:$1:$2}
-	    ;;
-	*)  echo "Usage: strcpy var string [a:b]"
-	    return 2
-	    ;;
+        2.) ;;
+        3.*:*) a=${3%:*} b=${3#*:}
+            set -- `python_to_shell_range "$a" "$b" ${#STRING}`
+            STRING=${STRING:$1:$2}
+            ;;
+        *)  echo "Usage: strcpy var string [a:b]"
+            return 2
+            ;;
     esac
     eval "$VAR=\$STRING"
 }
 
 function strlen() {
     for i in "$@"; do
-	echo ${#i}
+        echo ${#i}
     done
 }
 
@@ -91,16 +91,16 @@ function strcmp() {
     local b
 
     case $#.$3 in
-	2.) ;;
-	3.*:*) a=${3%:*} b=${3#*:}
-	    set -- `python_to_shell_range "$a" "$b" ${#STRING1}`
-	    STRING1=${STRING1:$1:$2}
-	    set -- `python_to_shell_range "$a" "$b" ${#STRING2}`
-	    STRING2=${STRING2:$1:$2}
-	    ;;
-	*)  echo "Usage: strcmp string1 string2 [a:b]"
-	    return 2
-	    ;;
+        2.) ;;
+        3.*:*) a=${3%:*} b=${3#*:}
+            set -- `python_to_shell_range "$a" "$b" ${#STRING1}`
+            STRING1=${STRING1:$1:$2}
+            set -- `python_to_shell_range "$a" "$b" ${#STRING2}`
+            STRING2=${STRING2:$1:$2}
+            ;;
+        *)  echo "Usage: strcmp string1 string2 [a:b]"
+            return 2
+            ;;
     esac
     [ "$STRING1" == "$STRING2" ]
 }
