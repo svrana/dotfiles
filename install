@@ -29,8 +29,9 @@ function _fetch_apps() {
 
     if [ ! -d "$GOPATH/src/github.com/svrana/powerline-go" ]; then
 	go get -u github.com/svrana/powerline-go
-	cd "$GOPATH/src/github.com/svrana/powerline-go"
+	pushd $GOPATH/src/github.com/svrana/powerline-go
 	go install
+        popd
     fi
 
     if [ ! -d "$APPS/solarize" ]; then
@@ -100,7 +101,7 @@ function _make_dirs() {
 
     mkdir -p ~/.kitchen
     mkdir -p ~/.config/alacritty
-    mkdir -p ~/.config/powerline/themes/shell
+    mkdir -p ~/.config/powerline/themes/{shell,tmux}
     mkdir -p ~/.local/share/applications
     mkdir -p ~/.tmux/plugins
     mkdir -p ~/.ipython/profile_default
@@ -137,6 +138,7 @@ function _link_configs() {
     ln -sf "${RC_DIR}/ctags" ~/.ctags
     ln -sf "${RC_DIR}/alacritty.yml" ~/.config/alacritty/alacritty.yml
     ln -sf "${RC_DIR}/powerline-shell.json" ~/.config/powerline/themes/shell/default.json
+    ln -sf "${RC_DIR}/powerline-tmux.json" ~/.config/powerline/themes/tmux/default.json
     ln -sf "${RC_DIR}/ipython_config.py" ~/.ipython/profile_default/ipython_config.py
 
     ln -sf "${DOTFILES_DIR}/misc/alacritty.desktop" ~/.local/share/applications
