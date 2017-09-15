@@ -32,6 +32,7 @@ function _fetch_apps() {
         pushd $GOPATH/src/github.com/svrana/powerline-go
         go install
         popd
+        ln -sf $GOPATH/src/github.com/svrana/powerline-go $HOME/Projects/powerline-go
     fi
 
     if [ ! -d "$APPS/solarize" ]; then
