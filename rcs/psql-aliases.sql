@@ -8,4 +8,6 @@
 \echo '\t:groupprivs\tShow group priveleges'
 \echo '\t:showtables\tShow all tables'
 \echo '\t:showviews\tShow all views'
+\echo '\t:gen_view_ddl\tCreates view admin.v_generate_tbl_ddl'
+\echo '\t:gen_view_ext\tCreates view admin.v_extended_table_info'
 \echo

@@ -19,3 +19,5 @@
 \set aliases 	`cat $RC_DIR/psql-aliases.sql`
 \set showtables 'select table_name FROM information_schema.tables WHERE table_type=\'BASE TABLE\' and table_schema=\'public\' ;'
 \set showviews  'select table_name FROM information_schema.tables WHERE table_type=\'VIEW\' and table_schema=\'public\' ;'
+\set gen_view_ddl `cat $RC_DIR/psql-v-generate-tbl-ddl.sql`
+\set gen_view_ext `cat $RC_DIR/psql-v-generate-ext-tbl-info.sql`
