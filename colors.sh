@@ -3,8 +3,7 @@
 # utilities.
 #
 
-tty -s
-if [ "0" == "$?" ]; then
+if tty -s ; then
     use_color=true
 else
     use_color=false
