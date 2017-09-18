@@ -167,6 +167,11 @@ function PATH_append() {
     export PATH=$PATH:$1
 }
 
+function CDPATH_append() {
+    [ -z "$1" ] && return
+    export CDPATH=$CDPATH:$1
+}
+
 function docker_rm_dangling() {
     docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
 }

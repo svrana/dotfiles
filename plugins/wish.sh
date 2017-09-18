@@ -1,4 +1,5 @@
 export CL_HOME=~/Projects/clroot
+CDPATH_append $CL_HOME
 
 alias bogo="/home/shaw/Projects/clroot/sweeper/bogo.py"
 alias run-tests='arc unit `find -type d | grep __tests__`'
