@@ -141,6 +141,7 @@ function _link_configs() {
     ln -sf "${RC_DIR}/powerline-shell.json" ~/.config/powerline/themes/shell/default.json
     ln -sf "${RC_DIR}/powerline-tmux.json" ~/.config/powerline/themes/tmux/default.json
     ln -sf "${RC_DIR}/ipython_config.py" ~/.ipython/profile_default/ipython_config.py
+    ln -sf "${RC_DIR}/direnvrc"  ~/.config/direnv/direnvrc
 
     ln -sf "${DOTFILES_DIR}/misc/alacritty.desktop" ~/.local/share/applications
     ln -sf "${DOTFILES_DIR}/misc/dircolors.ansi-dark" ~/.dircolors
