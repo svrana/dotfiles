@@ -29,7 +29,7 @@
 	homeprofile = config user.email \"shaw@vranix.com\"
 	hg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	fr = "!f() { git fetch origin master && git rebase origin/master; }; f"
-	cgrep = "!f() { git grep -I "$@" -- './*' ':!**/build-js-en/**' ':!*.min.js' ':!**/MobileWebsiteCore.js' ':!*.html' ':!*.json' ':!*.xml' ':!*.map' ':!*.pkl' ; }; f"
+	cgrep = "!f() { git grep -I "$@" -- './*' ':!**/build-js-en/**' ':!**/static/js/**' ':!**/static/css/**' ':!**/js/modules/**' ':!**/quality/static/**' ':!**/lib/highcharts/**' ':!*.min.js' ':!**/MobileWebsiteCore.js' ':!*.html' ':!*.json' ':!*.xml' ':!*.map' ':!*.pkl' ; }; f"
 [color]
   	ui = true
 [color "branch"]
