@@ -51,4 +51,5 @@ fi
 }
 
 OLD_PC=$PROMPT_COMMAND # hack to keep powerline working
-PROMPT_COMMAND='prompt ; $OLD_PC'
+# Using direnv to autoload virtualenvs..
+#PROMPT_COMMAND='prompt ; $OLD_PC'
