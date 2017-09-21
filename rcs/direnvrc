@@ -1,18 +1,14 @@
-layout_python() {
-  local python=${1:-python}
-  local subdir=${2:-$PWD}
+# vim:filetype=sh
 
-  [[ $# -gt 0 ]] && shift
-  local old_env=$PWD/.direnv/virtualenv
-  unset PYTHONHOME
-  if [[ -d $old_env && $python = python ]]; then
-    export VIRTUAL_ENV=$old_env
-  else
+layout_python() {
+    local python=${1:-python}
+    local subdir=${2:-$PWD}
+
+    unset PYTHONHOME
     export VIRTUAL_ENV=${WORKON_HOME}/${subdir##*/}
     if [[ ! -d $VIRTUAL_ENV ]]; then
-      "$python" -m virtualenv "$@" "$VIRTUAL_ENV"
+        "$python" -m virtualenv "$VIRTUAL_ENV"
     fi
     PATH_add "$VIRTUAL_ENV/bin"
- fi
 }
 
