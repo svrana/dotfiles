@@ -1,7 +1,7 @@
 export CL_HOME=~/Projects/clroot
 CDPATH_append $CL_HOME
 
-alias bogo="/home/shaw/$CL_HOME/sweeper/bogo.py"
+alias bogo="$CL_HOME/sweeper/bogo.py"
 alias run-tests='arc unit `find -type d | grep __tests__`'
 
 alias dashy='cdp && cd dashy && python server.py --api_host=http://localhost:8885 --port=9002'
