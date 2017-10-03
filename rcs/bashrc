@@ -42,6 +42,7 @@ export PATH=\
 #
 # shellcheck disable=SC2034
 export DOTFILE_PLUGINS=(
+    aws
     bommie
     cd
     dircolors
