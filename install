@@ -98,7 +98,7 @@ function _make_dirs() {
     mkdir -p ~/.config/psql
 
     mkdir -p ~/.config/fontconfig/conf.d
-    mkdir -p ~/.fonts
+    mkdir -p ~/.local/share/fonts
 
     mkdir -p ~/.kitchen
     mkdir -p ~/.config/alacritty
@@ -145,7 +145,7 @@ function _link_configs() {
 
     ln -sf "${DOTFILES_DIR}/misc/alacritty.desktop" ~/.local/share/applications
     ln -sf "${DOTFILES_DIR}/misc/dircolors.ansi-dark" ~/.dircolors
-    ln -sf "${DOTFILES_DIR}/misc/PowerlineSymbols.otf" ~/.fonts/PowerlineSymbols.otf
+    ln -sf "${DOTFILES_DIR}/misc/PowerlineSymbols.otf" ~/.local/share/fonts/PowerlineSymbols.otf
     ln -sf "${DOTFILES_DIR}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfig/conf.d/
 
     egood "Created home directory file links"
@@ -169,7 +169,7 @@ function _prep_scripts() {
 }
 
 function _prep_fonts() {
-    fc-cache -vf ~/.fonts > /dev/null 2>&1
+    fc-cache -vf ~/.local/share/fonts > /dev/null 2>&1
     estatus "Built font cache for powerline"
 }
 
