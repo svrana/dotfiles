@@ -10,3 +10,14 @@ function tmn() {
     fi
 }
 
+function __dotfiles_tmux_install() {
+    ln -sf "${RC_DIR}/tmux.conf" ~/.tmux.conf
+
+    mkdir -p ~/.tmux/plugins
+    if [ ! -d ~/.tmux/plugins/tpm ]; then
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
+
+    ~/.tmux/plugins/tpm/bin/install_plugins
+    ~/.tmux/plugins/tpm/bin/clean_plugins
+}

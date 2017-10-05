@@ -37,9 +37,10 @@ do
 done
 unset file
 
-function dotfiles_activate_plugins() {
+function __dotfiles_activate_plugins() {
     [ -z "$DOTFILE_PLUGINS" ] && return
 
+    local plugin
     for plugin in ${DOTFILE_PLUGINS[*]}
     do
         if [ ! -f "$DOTFILES_DIR/plugins/${plugin}.sh" ]; then
@@ -49,7 +50,6 @@ function dotfiles_activate_plugins() {
         #echo "Activating $plugin plugin"
         source "$DOTFILES_DIR/plugins/${plugin}.sh"
     done
-    unset plugin
 }
 
-dotfiles_activate_plugins
+__dotfiles_activate_plugins

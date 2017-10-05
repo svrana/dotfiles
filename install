@@ -15,10 +15,23 @@ function _powerline_install() {
 }
 
 function _go_config() {
-    if [ -n "$GOPATH" ]; then
+    if [ -n "$GOPATH" -a ! -d $GOPATH/src/github.com/nsf/gocode ]; then
         go get -u github.com/nsf/gocode
         "$GOPATH/src/github.com/nsf/gocode/nvim/symlink.sh" > /dev/null 2>&1
     fi
+}
+
+function _install_plugins() {
+    local plugins=$(sed -rn '/export DOTFILE_PLUGINS=\(.*/','/\)/'p "$RC_DIR/bashrc" | \
+        sed 's/#.*//' | sed 's/export DOTFILE_PLUGINS=(//' | tr -d ')\n')
+    for plugin in $plugins
+    do
+        source "$DOTFILES_DIR/plugins/${plugin}.sh"
+        if type "__dotfiles_${plugin}_install" > /dev/null 2>&1; then
+            eval "__dotfiles_${plugin}_install"
+            estatus "Ran install for $plugin plugin"
+        fi
+    done
 }
 
 function _fetch_apps() {
@@ -41,11 +54,16 @@ function _fetch_apps() {
         estatus "Cloned solarize repo"
     fi
 
-    if [ ! -d "$GOPATH/src/github.com/direnv" ]; then
-        go get -u github.com/direnv/direnv
-        cd "$GOPATH/src/github.com/direnv/direnv"
-        make && sudo make install
-    fi
+    # if [ ! -d "$GOPATH/src/github.com/direnv" ]; then
+    #     go get -u github.com/direnv/direnv
+    #     cd "$GOPATH/src/github.com/direnv/direnv"
+    #     make && sudo make install
+    # fi
+    #source "$PLUGIN_DIR/direnv.sh"
+    #__dotfiles_direnv_install
+
+    #source "PLUGIN_DIR/dircolors.sh"
+    #__dotfiles_direnv_dircolors
 
     if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
@@ -60,27 +78,27 @@ function _fetch_apps() {
         sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
     fi
 
-    if [ ! -d "$APPS/fzf" ]; then
-        git clone --depth 1 https://github.com/junegunn/fzf.git "$APPS/fzf"
-        "$APPS/fzf/install" --bin
-        ln -sf "$APPS/fzf/bin/fzf" "${BIN_DIR}/fzf"
-        ln -sf "$APPS/fzf/bin/fzf-tmux" "${BIN_DIR}/fzf-tmux"
-        mkdir -p ~/.config/fzf
-        ln -sf "${RC_DIR}/fzf.bash" ~/.config/fzf/fzf.bash
-    fi
+    #source "$PLUGIN_DIR/fzf.sh"
+    #__dotfiles_fzf_install
+
+    # if [ ! -d "$APPS/fzf" ]; then
+    #     git clone --depth 1 https://github.com/junegunn/fzf.git "$APPS/fzf"
+    #     "$APPS/fzf/install" --bin
+    #     ln -sf "$APPS/fzf/bin/fzf" "${BIN_DIR}/fzf"
+    #     ln -sf "$APPS/fzf/bin/fzf-tmux" "${BIN_DIR}/fzf-tmux"
+    #     mkdir -p ~/.config/fzf
+    #     ln -sf "${RC_DIR}/fzf.bash" ~/.config/fzf/fzf.bash
+    # fi
 
     if [ ! -d "$APPS/fonts" ]; then
         git clone https://github.com/powerline/fonts.git "$APPS/fonts"
         "$APPS/fonts/install.sh"
     fi
 
-    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    fi
+    #source $CURRENT_DIR/plugins/tmux.sh
+    #__dotfiles_tmux_install
 
     nvim +PluginInstall +qall +GoInstallBinaries
-    ~/.tmux/plugins/tpm/bin/install_plugins
-    ~/.tmux/plugins/tpm/bin/clean_plugins
 
     _powerline_install
     _go_config
@@ -104,7 +122,6 @@ function _make_dirs() {
     mkdir -p ~/.config/alacritty
     mkdir -p ~/.config/powerline/themes/{shell,tmux}
     mkdir -p ~/.local/share/applications
-    mkdir -p ~/.tmux/plugins
     mkdir -p ~/.ipython/profile_default
 
     egood "Created default directories"
@@ -129,7 +146,7 @@ function _link_configs() {
     ln -sf "${RC_DIR}/bashrc" ~/.bashrc
     ln -sf "${RC_DIR}/zshrc" ~/.zshrc
     ln -sf "${RC_DIR}/vimrc" ~/.vimrc
-    ln -sf "${RC_DIR}/tmux.conf" ~/.tmux.conf
+
     ln -sf "${RC_DIR}/gitconfig" ~/.gitconfig
     ln -sf "${RC_DIR}/gitignore_global" ~/.gitignore_global
     ln -sf "${RC_DIR}/rvmrc" ~/.rvmrc
@@ -141,10 +158,10 @@ function _link_configs() {
     ln -sf "${RC_DIR}/powerline-shell.json" ~/.config/powerline/themes/shell/default.json
     ln -sf "${RC_DIR}/powerline-tmux.json" ~/.config/powerline/themes/tmux/default.json
     ln -sf "${RC_DIR}/ipython_config.py" ~/.ipython/profile_default/ipython_config.py
-    ln -sf "${RC_DIR}/direnvrc"  ~/.config/direnv/direnvrc
+    #ln -sf "${RC_DIR}/direnvrc"  ~/.config/direnv/direnvrc
 
     ln -sf "${DOTFILES_DIR}/misc/alacritty.desktop" ~/.local/share/applications
-    ln -sf "${DOTFILES_DIR}/misc/dircolors.ansi-dark" ~/.dircolors
+    #ln -sf "${DOTFILES_DIR}/misc/dircolors.ansi-dark" ~/.dircolors
     ln -sf "${DOTFILES_DIR}/misc/PowerlineSymbols.otf" ~/.local/share/fonts/PowerlineSymbols.otf
     ln -sf "${DOTFILES_DIR}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfig/conf.d/
 
@@ -218,6 +235,7 @@ _link_dirs
 _link_configs
 _prep_scripts
 _prep_fonts
+_install_plugins
 _fetch_apps
 
 unset force_chef_run
