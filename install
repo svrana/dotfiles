@@ -1,25 +1,13 @@
 #!/bin/bash
 #
-# Creates defaults directories configured in config.env; copies or links
-# configuration files into place as appropriate, installs packages.
+# Creates defaults directories configured in config.env; runs
+# plugin install functions and install scripts.
 #
 # This needs to be run once.
 #
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-function _powerline_install() {
-    if [ ! -f ~/.local/bin/powerline ]; then
-        pip install --user powerline-status
-    fi
-}
-
-function _go_config() {
-    if [ -n "$GOPATH" -a ! -d $GOPATH/src/github.com/nsf/gocode ]; then
-        go get -u github.com/nsf/gocode
-        "$GOPATH/src/github.com/nsf/gocode/nvim/symlink.sh" > /dev/null 2>&1
-    fi
-}
 
 function _install_plugins() {
     local plugins
@@ -35,35 +23,14 @@ function _install_plugins() {
     done
 }
 
-function _fetch_apps() {
-    if [ ! -d "$APPS/solarize" ]; then
-        git clone https://github.com/gmodarelli/solarize.git "$APPS/solarize"
-        "$APPS/solarize/solarize.sh" dark
-        estatus "Cloned solarize repo"
-    fi
-
-    if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-        estatus "Cloned Vundle"
-    fi
-
-    if [ ! -f ~/.config/nvim/init.vim ]; then
-        mkdir ~/.config/nvim
-        ln -sf "${RC_DIR}/vimrc" ~/.config/nvim/init.vim
-        sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-        sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-        sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-    fi
-
-    if [ ! -d "$APPS/fonts" ]; then
-        git clone https://github.com/powerline/fonts.git "$APPS/fonts"
-        "$APPS/fonts/install.sh"
-    fi
-
-    nvim +PluginInstall +qall +GoInstallBinaries
-
-    _powerline_install
-    _go_config
+function _run_installers() {
+     local i
+     for installer in $(dolisting "$CURRENT_DIR"/installers/*); do
+         source "$installer"
+         local name
+         name=$(basename "$installer")
+         estatus "Configured ${name/.sh/}"
+     done
 }
 
 function _make_dirs() {
@@ -71,18 +38,9 @@ function _make_dirs() {
     mkdir -p "$DOWNLOADS"
     mkdir -p "$APPS"
 
-    mkdir -p ~/.config/nvim/{bak,swp}
-    mkdir -p ~/.config/nvim/after/ftplugin
-    mkdir -p ~/.config/nvim/bundle
-    mkdir -p ~/.config/nvim/autoload
     mkdir -p ~/.config/psql
-
     mkdir -p ~/.config/fontconfig/conf.d
-    mkdir -p ~/.local/share/fonts
-
     mkdir -p ~/.kitchen
-    mkdir -p ~/.config/alacritty
-    mkdir -p ~/.config/powerline/themes/{shell,tmux}
     mkdir -p ~/.local/share/applications
     mkdir -p ~/.ipython/profile_default
 
@@ -95,20 +53,10 @@ function _link_dirs() {
     ln -Tsf "$CLOUD_ROOT/Pictures" "$PHOTOS"
 }
 
-function _link_ftplugins() {
-    local i
-    for i in $(dolisting rcs/ftplugin/*); do
-        i=$(basename "$i")
-        ln -sf "$DOTFILES_DIR/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
-    done
-}
-
 function _link_configs() {
     ln -sf "${RC_DIR}/bash_profile" ~/.bash_profile
     ln -sf "${RC_DIR}/bashrc" ~/.bashrc
     ln -sf "${RC_DIR}/zshrc" ~/.zshrc
-    ln -sf "${RC_DIR}/vimrc" ~/.vimrc
-
     ln -sf "${RC_DIR}/gitconfig" ~/.gitconfig
     ln -sf "${RC_DIR}/gitignore_global" ~/.gitignore_global
     ln -sf "${RC_DIR}/rvmrc" ~/.rvmrc
@@ -116,18 +64,9 @@ function _link_configs() {
     ln -sf "${RC_DIR}/psqlrc" ~/.psqlrc
     ln -sf "${RC_DIR}/kitchen-config.yml" ~/.kitchen/config.yml
     ln -sf "${RC_DIR}/ctags" ~/.ctags
-    ln -sf "${RC_DIR}/alacritty.yml" ~/.config/alacritty/alacritty.yml
-    ln -sf "${RC_DIR}/powerline-shell.json" ~/.config/powerline/themes/shell/default.json
-    ln -sf "${RC_DIR}/powerline-tmux.json" ~/.config/powerline/themes/tmux/default.json
     ln -sf "${RC_DIR}/ipython_config.py" ~/.ipython/profile_default/ipython_config.py
 
-    ln -sf "${DOTFILES_DIR}/misc/alacritty.desktop" ~/.local/share/applications
-    ln -sf "${DOTFILES_DIR}/misc/PowerlineSymbols.otf" ~/.local/share/fonts/PowerlineSymbols.otf
-    ln -sf "${DOTFILES_DIR}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfig/conf.d/
-
     egood "Created home directory file links"
-
-    _link_ftplugins
 }
 
 function _prep_scripts() {
@@ -143,11 +82,6 @@ function _prep_scripts() {
         ln -sf "${SCRIPT_DIR}/$i" "${BIN_DIR}/$i"
     done
     egood "Created links in ${BIN_DIR} to scripts in $SCRIPT_DIR"
-}
-
-function _prep_fonts() {
-    fc-cache -vf ~/.local/share/fonts > /dev/null 2>&1
-    estatus "Built font cache for powerline"
 }
 
 function _chef_bootstrap() {
@@ -193,9 +127,8 @@ _make_dirs
 _link_dirs
 _link_configs
 _prep_scripts
-_prep_fonts
+_run_installers
 _install_plugins
-_fetch_apps
 
 unset force_chef_run
 unset CURRENT_DIR
