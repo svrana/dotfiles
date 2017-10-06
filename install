@@ -22,10 +22,11 @@ function _go_config() {
 }
 
 function _install_plugins() {
-    local plugins=$(sed -rn '/export DOTFILE_PLUGINS=\(.*/','/\)/'p "$RC_DIR/bashrc" | \
+    local plugins
+    plugins=$(sed -rn '/export DOTFILE_PLUGINS=\(.*/','/\)/'p "$RC_DIR/bashrc" | \
         sed 's/#.*//' | sed 's/export DOTFILE_PLUGINS=(//' | tr -d ')\n')
-    for plugin in $plugins
-    do
+
+    for plugin in $plugins ; do
         source "$DOTFILES_DIR/plugins/${plugin}.sh"
         if type "__dotfiles_${plugin}_install" > /dev/null 2>&1; then
             eval "__dotfiles_${plugin}_install"
@@ -35,35 +36,11 @@ function _install_plugins() {
 }
 
 function _fetch_apps() {
-    if [ ! -d "$APPS/gruf" ]; then
-        git clone https://github.com/svrana/gruf.git "$APPS/gruf"
-        estatus "Cloned gruf"
-    fi
-
-    if [ ! -d "$GOPATH/src/github.com/svrana/powerline-go" ]; then
-        go get -u github.com/svrana/powerline-go
-        pushd $GOPATH/src/github.com/svrana/powerline-go
-        go install
-        popd
-        ln -sf $GOPATH/src/github.com/svrana/powerline-go $HOME/Projects/powerline-go
-    fi
-
     if [ ! -d "$APPS/solarize" ]; then
         git clone https://github.com/gmodarelli/solarize.git "$APPS/solarize"
         "$APPS/solarize/solarize.sh" dark
         estatus "Cloned solarize repo"
     fi
-
-    # if [ ! -d "$GOPATH/src/github.com/direnv" ]; then
-    #     go get -u github.com/direnv/direnv
-    #     cd "$GOPATH/src/github.com/direnv/direnv"
-    #     make && sudo make install
-    # fi
-    #source "$PLUGIN_DIR/direnv.sh"
-    #__dotfiles_direnv_install
-
-    #source "PLUGIN_DIR/dircolors.sh"
-    #__dotfiles_direnv_dircolors
 
     if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
@@ -78,25 +55,10 @@ function _fetch_apps() {
         sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
     fi
 
-    #source "$PLUGIN_DIR/fzf.sh"
-    #__dotfiles_fzf_install
-
-    # if [ ! -d "$APPS/fzf" ]; then
-    #     git clone --depth 1 https://github.com/junegunn/fzf.git "$APPS/fzf"
-    #     "$APPS/fzf/install" --bin
-    #     ln -sf "$APPS/fzf/bin/fzf" "${BIN_DIR}/fzf"
-    #     ln -sf "$APPS/fzf/bin/fzf-tmux" "${BIN_DIR}/fzf-tmux"
-    #     mkdir -p ~/.config/fzf
-    #     ln -sf "${RC_DIR}/fzf.bash" ~/.config/fzf/fzf.bash
-    # fi
-
     if [ ! -d "$APPS/fonts" ]; then
         git clone https://github.com/powerline/fonts.git "$APPS/fonts"
         "$APPS/fonts/install.sh"
     fi
-
-    #source $CURRENT_DIR/plugins/tmux.sh
-    #__dotfiles_tmux_install
 
     nvim +PluginInstall +qall +GoInstallBinaries
 
@@ -134,8 +96,8 @@ function _link_dirs() {
 }
 
 function _link_ftplugins() {
-    for i in $(dolisting rcs/ftplugin/*)
-    do
+    local i
+    for i in $(dolisting rcs/ftplugin/*); do
         i=$(basename "$i")
         ln -sf "$DOTFILES_DIR/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
     done
@@ -158,10 +120,8 @@ function _link_configs() {
     ln -sf "${RC_DIR}/powerline-shell.json" ~/.config/powerline/themes/shell/default.json
     ln -sf "${RC_DIR}/powerline-tmux.json" ~/.config/powerline/themes/tmux/default.json
     ln -sf "${RC_DIR}/ipython_config.py" ~/.ipython/profile_default/ipython_config.py
-    #ln -sf "${RC_DIR}/direnvrc"  ~/.config/direnv/direnvrc
 
     ln -sf "${DOTFILES_DIR}/misc/alacritty.desktop" ~/.local/share/applications
-    #ln -sf "${DOTFILES_DIR}/misc/dircolors.ansi-dark" ~/.dircolors
     ln -sf "${DOTFILES_DIR}/misc/PowerlineSymbols.otf" ~/.local/share/fonts/PowerlineSymbols.otf
     ln -sf "${DOTFILES_DIR}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfig/conf.d/
 
@@ -171,14 +131,14 @@ function _link_configs() {
 }
 
 function _prep_scripts() {
-    for i in $(dolisting "$SCRIPT_DIR"/*)
-    do
+    local i
+
+    for i in $(dolisting "$SCRIPT_DIR"/*) ; do
         chmod +x "$i"
     done
     egood "Added execute permission to scripts in $SCRIPT_DIR"
 
-    for i in $(dolisting "$SCRIPT_DIR/*")
-    do
+    for i in $(dolisting "$SCRIPT_DIR/*") ; do
         i=$(basename "$i")
         ln -sf "${SCRIPT_DIR}/$i" "${BIN_DIR}/$i"
     done
@@ -210,8 +170,7 @@ function _chef_bootstrap() {
 }
 
 # Must have directories set so applications no where to be installed
-for dependency in directories.sh functions.sh plugins/go.sh
-do
+for dependency in directories.sh functions.sh plugins/go.sh ; do
     . "$CURRENT_DIR/$dependency"
 done
 unset dependency
