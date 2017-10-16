@@ -183,7 +183,7 @@ function loopit() {
     fi
 
     while true; do
-        "$@" && break
+        $(echo "$@") && break
         sleep .05 # allow ctrl-c out
     done
 }
