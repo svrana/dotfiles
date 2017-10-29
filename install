@@ -37,6 +37,7 @@ function _make_dirs() {
     mkdir -p "$BIN_DIR"
     mkdir -p "$DOWNLOADS"
     mkdir -p "$APPS"
+    mkdir -p "$PROJECTS"
 
     mkdir -p ~/.config/psql
     mkdir -p ~/.config/fontconfig/conf.d

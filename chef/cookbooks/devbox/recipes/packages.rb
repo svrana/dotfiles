@@ -33,4 +33,7 @@ package %w(
   network-manager-openvpn-gnome
   shellcheck
   ruby
+  neovim
+  virtualenvwrapper
+  libpq-dev
 )
