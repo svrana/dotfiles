@@ -36,4 +36,5 @@ package %w(
   neovim
   virtualenvwrapper
   libpq-dev
+  laptop-mode-tools
 )
