@@ -50,6 +50,7 @@ export DOTFILE_PLUGINS=(
     git
     go
     gruf
+    opsdb
     less
     ls
     powerline-go
