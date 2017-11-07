@@ -8,8 +8,14 @@ function opsdb-reload() {
         return 1
     fi
 
-    psql -U postgres -h 127.0.0.1 -c 'drop database opsdb'
-    psql -U postgres -h 127.0.0.1 -c 'create database opsdb'
+    if ! psql -U postgres -h 127.0.0.1 -c 'drop database opsdb' ; then
+        echo "Failed to drop opsdb database"
+        return 1
+    fi
+    if ! psql -U postgres -h 127.0.0.1 -c 'create database opsdb' ; then
+        echo "Failed to create opsdb database"
+        return 1
+    fi
 
     opsdb-psql < "${load_file}"
     return 0
