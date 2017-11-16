@@ -1,5 +1,11 @@
 # vim:filetype=sh
 
+PATH_prepend() {
+    [ -z "$1" ] && return
+    export PATH=$1:$PATH
+}
+
+
 layout_python() {
     local python=${1:-python}
     local subdir=${2:-$PWD}
@@ -12,3 +18,10 @@ layout_python() {
     PATH_add "$VIRTUAL_ENV/bin"
 }
 
+layout_golang() {
+    local project=${1:-$(basename "$PWD")}
+    local virtualgodir="$HOME/.virtualgo"
+
+    PATH_prepend "$virtualgodir/$project/bin"
+    export GOPATH="$virtualgodir/$project:$GOPATH"
+}
