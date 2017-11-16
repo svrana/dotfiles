@@ -19,7 +19,7 @@ layout_python() {
 }
 
 layout_golang() {
-    local project=${1:-$(basename "$PWD")}
+    local project=${1:-${PWD##*/}}
     local virtualgodir="$HOME/.virtualgo"
 
     PATH_prepend "$virtualgodir/$project/bin"
