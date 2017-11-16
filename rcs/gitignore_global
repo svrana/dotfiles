@@ -7,3 +7,4 @@ cscope.out
 .ruby-gemset
 .envrc
 .direnv
+.idea/
