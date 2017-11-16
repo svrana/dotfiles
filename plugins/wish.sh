@@ -1,5 +1,4 @@
 export CL_HOME=~/Projects/clroot
-CDPATH_append $CL_HOME
 
 if [ -f /usr/local/arcanist/resources/shell/bash-completion ] ; then
     source /usr/local/arcanist/resources/shell/bash-completion
