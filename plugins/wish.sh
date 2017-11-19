@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export CL_HOME=~/Projects/clroot
 
 if [ -f /usr/local/arcanist/resources/shell/bash-completion ] ; then

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export GOPATH=~/.gocode
 export GOROOT=/usr/local/go
 

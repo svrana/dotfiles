@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias tma='tmux attach -d -t'
 alias tmux='deactivate 2>/dev/null 1>&2 ; direnv exec / tmux'
 

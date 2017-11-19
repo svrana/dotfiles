@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # solarized ls colors
 #
 location=~/.config/dircolors

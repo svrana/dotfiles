@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function _update_ps1() {
     local priority='root,user,perms,virtualenv,git-branch,cwd'
     local modules='perms,user,venv,gitlite,ssh,cwd'

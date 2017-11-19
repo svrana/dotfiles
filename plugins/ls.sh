@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export LS_DFLT_ARGS="--color=auto"
 
 alias ls="ls \$LS_DFLT_ARGS"

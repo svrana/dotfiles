@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Load dotfile dependencies, including functions and environment variables,
 # and user specified plugins.

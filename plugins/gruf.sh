@@ -1,3 +1,5 @@
+#!/bin/bash
+
 [ -d "$APPS/gruf" ] && . "$APPS/gruf/gruf.rc"
 
 function __dotfiles_gruf_install() {

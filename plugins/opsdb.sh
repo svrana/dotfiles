@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias opsdb-psql='psql opsdb -h 127.0.0.1 -d opsdb'
 
 function opsdb-reload() {

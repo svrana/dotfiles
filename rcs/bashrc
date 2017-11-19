@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Loaded for each terminal and sourced at login by ~/.bash_profile.
 #

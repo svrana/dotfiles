@@ -1,3 +1,6 @@
+#!/bin/bash
+
+#
 # ff dogbutt
 # 	Find a file with case insensitive pattern in name, removing fluff.
 function ff() {

@@ -1,4 +1,5 @@
-#
+#!/bin/bash
+
 # This file exists so that it can be sourced in the install script, where
 # sourcing the .bashrc or activate.sh is not appropriate b/c the dotfiles
 # have not been installed yet. These must be set prior to install so that

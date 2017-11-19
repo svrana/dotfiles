@@ -34,6 +34,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'farmergreg/vim-lastplace' " open file at last position
 Plugin 'jreybert/vimagit'
 Plugin 'junegunn/vim-peekaboo'
+Plugin 'kopischke/vim-fetch'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -389,3 +390,6 @@ let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 set updatetime=1000
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 let g:go_fmt_autosave = 1
+
+" Enables debug logging
+"let g:neomake_logfile = '/tmp/neomake.log'

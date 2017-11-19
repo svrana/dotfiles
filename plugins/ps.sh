@@ -1,4 +1,5 @@
-#
+#!/bin/bash
+
 # Living without this is just silly.
 #
 # Kind of like pgrep -fa except better output imo
