@@ -34,7 +34,6 @@ package %w(
   shellcheck
   ruby
   neovim
-  virtualenvwrapper
   libpq-dev
   laptop-mode-tools
 )
