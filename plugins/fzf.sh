@@ -2,6 +2,7 @@
 
 export FZF_DEFAULT_COMMAND='ag -l -g ""'    # ag for showing only interesting files
 export FZF_CTRL_T_COMAMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS='--bind=ctrl-f:page-down,ctrl-d:page-up'
 
 [ -f "$RC_DIR/fzf.bash" ] && . "$RC_DIR/fzf.bash"
 
