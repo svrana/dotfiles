@@ -9,13 +9,13 @@ call vundle#begin('~/.config/nvim/bundle')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'gmodarelli/solarize'
+Plugin 'gmodarelli/solarize' 		" the colorscheme
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-fugitive'   " fgit
-Plugin 'tpope/vim-rhubarb.git' " viewing in github w/ Gbrowse
-Plugin 'tpope/vim-commentary' " auto-commenting
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb.git' 		" viewing in github w/ Gbrowse
+Plugin 'tpope/vim-commentary' 		" auto-commenting
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'ervandew/supertab'
@@ -31,10 +31,10 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-go'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'farmergreg/vim-lastplace' " open file at last position
+Plugin 'farmergreg/vim-lastplace' 	" open file at last position
 Plugin 'jreybert/vimagit'
 Plugin 'junegunn/vim-peekaboo'
-Plugin 'kopischke/vim-fetch'
+Plugin 'kopischke/vim-fetch' 		" open file:lineno:colno see sf()
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -338,10 +338,11 @@ nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
 nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
-"set colorcolumn=80
-" Make the 81st column standout, like setting colorcolumn
-"highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+" Make the 81st column standout
+" Used by all ftplugins
+function FTPluginSetupCommands()
+    call matchadd('ColorColumn', '\%81v', 100)
+endfunction
 
 "====[ Highlight matches when jumping to next ]====
 " OR ELSE just highlight the match in red... (Damian Conway)
