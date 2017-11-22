@@ -6,7 +6,7 @@ export FZF_DEFAULT_OPTS='--bind=ctrl-f:page-down,ctrl-b:page-up,ctrl-d:page-up'
 
 [ -f "$RC_DIR/fzf.bash" ] && . "$RC_DIR/fzf.bash"
 
-bind -x '"\C-p": f() { local file=$(fzf --height 80% --reverse) && [[ -n $file ]] && nvim $file ; }; f'
+bind -x '"\C-p": f() { local file=$(fzf -m --height 80% --reverse) && [[ -n $file ]] && nvim $file ; }; f'
 
 function __dotfiles_fzf_install() {
     if [ ! -d "$APPS/fzf" ]; then
