@@ -58,6 +58,7 @@ export DOTFILE_PLUGINS=(
     python
     ruby
     tmux
+    virtualgo
     wish
     direnv		# direnv must be initiliazed last
 )
