@@ -6,6 +6,10 @@
 
 # Man path
 # --------
+
+[ -d "$APPS/fzf" ] || return 0
+
+
 if [[ ! "$MANPATH" == *$APPS/fzf/man* && -d "$APPS/fzf/man" ]]; then
   export MANPATH="$MANPATH:$APPS/fzf/man"
 fi
@@ -17,4 +21,3 @@ fi
 # Key bindings
 # ------------
 source "$APPS/fzf/shell/key-bindings.bash"
-
