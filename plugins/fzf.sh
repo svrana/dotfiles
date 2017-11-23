@@ -11,6 +11,10 @@ if [ ! -z "$PS1" ]; then
     bind -x '"\C-p": f() { local file=$(fzf -m --height 80% --reverse) && [[ -n $file ]] && nvim $file ; }; f'
 fi
 
+function fzf-down() {
+  fzf --height 50% "$@" --border
+}
+
 function __dotfiles_fzf_install() {
     if [ ! -d "$APPS/fzf" ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git "$APPS/fzf"
