@@ -22,3 +22,5 @@ function push_to_master() {
         echo "push aborted"
     fi
 }
+
+alias git-push-to-master='push_to_master'
