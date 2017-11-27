@@ -58,7 +58,7 @@ show-workspace-labels=false
 
 [dash-to-dock]
 preferred-monitor=0
-shortcut-timeout=0.5
+shortcut-timeout=0.25
 force-straight-corner=false
 intellihide=false
 intellihide-mode='FOCUS_APPLICATION_WINDOWS'
