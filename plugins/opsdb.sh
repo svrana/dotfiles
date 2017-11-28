@@ -1,6 +1,8 @@
 #!/bin/bash
 
 alias opsdb-psql='psql opsdb -h 127.0.0.1 -d opsdb'
+alias web6='cd ~/.go/src/github.com/ghowland/web6.0'
+alias yudien='cd ~/.go/src/github.com/ghowland/yudien'
 
 function opsdb-reload() {
     local load_file
