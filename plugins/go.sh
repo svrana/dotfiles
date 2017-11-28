@@ -1,9 +1,9 @@
 #!/bin/bash
 
-export GOPATH=~/.gocode
+export GOPATH="$HOME/go"
 export GOROOT=/usr/local/go
 
-[ ! -d $GOPATH ] && mkdir $GOPATH
+[ ! -d "$GOPATH" ] && mkdir "$GOPATH"
 
 alias gopath='echo -e ${GOPATH//:/\\n}'
 
