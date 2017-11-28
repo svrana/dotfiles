@@ -22,3 +22,7 @@ function opsdb-reload() {
     opsdb-psql < "${load_file}"
     return 0
 }
+
+function opsdb-dump() {
+    pg_dump --username=opsdb --dbname=opsdb --host=localhost > opsdb.dump
+}
