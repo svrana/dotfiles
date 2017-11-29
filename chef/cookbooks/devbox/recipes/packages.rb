@@ -1,7 +1,7 @@
 #apt_repository 'neovim' do
-#  uri 'https://launchpad.net/~neovim-ppa/stable/ubuntu'
+#  uri 'ppa:neovim-ppa'
+#  uri 'https://launchpad.net/~neovim-ppa/+archive/ubuntu/stable'
 #  distribution node['lsb']['codename']
-#  components ['main']
 #end
 
 apt_repository 'rvm' do
