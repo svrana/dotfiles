@@ -160,17 +160,23 @@ function PATH_clean() {
 
 function PATH_prepend() {
     [ -z "$1" ] && return
-    export PATH=$1:$PATH
+    if [ "${PATH#*${1}}" = "${PATH}" ]; then
+        export PATH=$1:$PATH
+    fi
 }
 
 function PATH_append() {
     [ -z "$1" ] && return
-    export PATH=$PATH:$1
+    if [ "${PATH#*${1}}" = "${PATH}" ]; then
+        export PATH=$PATH:$1
+    fi
 }
 
 function CDPATH_append() {
     [ -z "$1" ] && return
-    export CDPATH=$CDPATH:$1
+    if [ "${CDPATH#*${1}}" = "${CDPATH}" ]; then
+        export CDPATH=$CDPATH:$1
+    fi
 }
 
 function docker_rm_dangling() {

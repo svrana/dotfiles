@@ -23,16 +23,6 @@ export EDITOR=nvim
 export TERM=xterm-256color                  # this is for solarized
 export COLUMNS=$COLUMNS
 
-export PATH=\
-/usr/local/bin:\
-/usr/local/sbin:\
-/usr/bin:\
-/usr/sbin:\
-/bin:\
-/sbin:\
-~/.local/bin
-
-
 #
 # Set the dotfile plugins to load. These correspond to files in
 # $DOTFILES_DIR/plugins

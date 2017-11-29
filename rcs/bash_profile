@@ -1,6 +1,5 @@
+[ -f ~/.profile ] && . ~/.profile
 [ -f ~/.bashrc ] && . ~/.bashrc
-
-# rm -f ~/.bash_history
 
 # Warning: Color name "S_base03" is not defined (to remove the above warning
 # message)

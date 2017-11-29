@@ -56,8 +56,8 @@ function _link_dirs() {
 
 function _link_configs() {
     ln -sf "${RC_DIR}/bash_profile" ~/.bash_profile
+    ln -sf "${RC_DIR}/profile" ~/.profile
     ln -sf "${RC_DIR}/bashrc" ~/.bashrc
-    ln -sf "${RC_DIR}/zshrc" ~/.zshrc
     ln -sf "${RC_DIR}/gitconfig" ~/.gitconfig
     ln -sf "${RC_DIR}/gitignore_global" ~/.gitignore_global
     ln -sf "${RC_DIR}/rvmrc" ~/.rvmrc
