@@ -24,4 +24,5 @@ layout_golang() {
 
     PATH_prepend "$virtualgodir/$project/bin"
     export GOPATH="$virtualgodir/$project:$GOPATH"
+    export VIRTUALGO="$project"
 }
