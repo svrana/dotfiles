@@ -1,5 +1,5 @@
 export rvmsudo_secure_path=1
-export RVM_PATH=~/.rvm
+export RVM_PATH=/usr/share/rvm
 
 PATH_append $RVM_PATH/bin
 
