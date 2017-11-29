@@ -4,6 +4,11 @@
 #  components ['main']
 #end
 
+apt_repository 'rvm' do
+  uri 'ppa:rael-gc/rvm'
+  distribution node['lsb']['codename']
+end
+
 package %w(
   build-essential
   python-pip
@@ -36,4 +41,5 @@ package %w(
   neovim
   libpq-dev
   laptop-mode-tools
+  rvm
 )
