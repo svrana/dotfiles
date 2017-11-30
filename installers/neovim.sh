@@ -8,7 +8,7 @@ function _link_ftplugins() {
     local i
     for i in $(dolisting rcs/ftplugin/*); do
         i=$(basename "$i")
-        ln -sf "$DOTFILES_DIR/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
+        ln -sf "$DOTFILES/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
     done
 }
 _link_ftplugins

@@ -3,8 +3,8 @@
 # source bashrc with F7
 [ ! -z "$PS1" ] && bind '"\e[18~":"source ~/.bashrc && direnv reload > /dev/null 2>&1\n"'
 
-alias cdd='cd $DOTFILES_DIR'
-alias cvi='vi $DOTFILES_DIR'
+alias cdd='cd $DOTFILES'
+alias cvi='vi $DOTFILES'
 
 function plugin() {
     local path_request=false
@@ -21,7 +21,7 @@ function plugin() {
         return 1
     fi
 
-    local location="$DOTFILES_DIR/plugins/${name}.sh"
+    local location="$DOTFILES/plugins/${name}.sh"
     if [ ! -f "$location" ]; then
         echo "Plugin $name does not exist"
         return 1

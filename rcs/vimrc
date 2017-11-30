@@ -190,11 +190,11 @@ augroup Binary
 augroup END
 
 function! GotoDotfiles()
-    cd $DOTFILES_DIR
+    cd $DOTFILES
 endfun
 
-map     \cf :call GetFile(expand("$DOTFILES_DIR"))<CR>
-map!    \cf <ESC>:call GetFile(expand("$DOTFILES_DIR"))<CR>
+map     \cf :call GetFile(expand("$DOTFILES"))<CR>
+map!    \cf <ESC>:call GetFile(expand("$DOTFILES"))<CR>
 
 map     \gc :call GotoDotfiles()<CR>
 map!    \gc <ESC>:call GotoDotfile()<CR>

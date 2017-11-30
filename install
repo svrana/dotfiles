@@ -15,7 +15,7 @@ function _install_plugins() {
         sed 's/#.*//' | sed 's/export DOTFILE_PLUGINS=(//' | tr -d ')\n')
 
     for plugin in $plugins ; do
-        source "$DOTFILES_DIR/plugins/${plugin}.sh"
+        source "$DOTFILES/plugins/${plugin}.sh"
         if type "__dotfiles_${plugin}_install" > /dev/null 2>&1; then
             eval "__dotfiles_${plugin}_install"
             estatus "Ran install for $plugin plugin"
@@ -97,7 +97,7 @@ function _chef_bootstrap() {
     fi
 
     if [[ -z "$first_run" || "$force" = "true" ]]; then
-        "$DOTFILES_DIR/scripts/chef-up"
+        "$DOTFILES/scripts/chef-up"
         estatus "Ran chef-solo"
     else
         egood "Skipped chef-solo run"

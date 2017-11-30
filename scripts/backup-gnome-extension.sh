@@ -37,7 +37,7 @@ do
 	then
 		echo ""
 	else
-		echo "${ID_ARRAY[$cnt]}:${i}" >> "$DOTFILES_DIR/misc/gnome_shell_extensions_id.txt"
+		echo "${ID_ARRAY[$cnt]}:${i}" >> "$DOTFILES/misc/gnome_shell_extensions_id.txt"
 	fi
 
 	cnt=$((cnt + 1))
@@ -50,4 +50,4 @@ done
 # dconf reset -f /org/gnome/shell/extensions/
 
 # 备份 Gnome Shell Extensions 所有设定
-dconf dump /org/gnome/shell/extensions/ > "$DOTFILES_DIR/misc/gnome_shell_extensions_conf.txt"
+dconf dump /org/gnome/shell/extensions/ > "$DOTFILES/misc/gnome_shell_extensions_conf.txt"

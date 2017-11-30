@@ -19,9 +19,9 @@ export APPS=~/Apps
 
 current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-export DOTFILES_DIR="${current_dir}"
-export SCRIPT_DIR="${DOTFILES_DIR}/scripts"
-export RC_DIR="${DOTFILES_DIR}/rcs"
-export MACHINE_DIR="${DOTFILES_DIR}/boxen"
+export DOTFILES="${current_dir}"
+export SCRIPT_DIR="${DOTFILES}/scripts"
+export RC_DIR="${DOTFILES}/rcs"
+export MACHINE_DIR="${DOTFILES}/boxen"
 
 unset current_dir

@@ -25,7 +25,7 @@ export COLUMNS=$COLUMNS
 
 #
 # Set the dotfile plugins to load. These correspond to files in
-# $DOTFILES_DIR/plugins
+# $DOTFILES/plugins
 #
 # shellcheck disable=SC2034
 export DOTFILE_PLUGINS=(

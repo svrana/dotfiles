@@ -23,7 +23,7 @@ unset overrides
 #
 # Source machine specific private config if available
 #
-private_box_override="$DOTFILES_DIR/private/boxen/${HOSTNAME}.env"
+private_box_override="$DOTFILES/private/boxen/${HOSTNAME}.env"
 if [ -e "$private_box_override" ]; then
     . "$private_box_override"
 fi
@@ -32,7 +32,7 @@ unset private_box_override
 #
 # Source private configs that cannot be added to the public repo
 #
-for file in $(dolisting "$DOTFILES_DIR"/private/*.env)
+for file in $(dolisting "$DOTFILES"/private/*.env)
 do
     . "$file"
 done
@@ -44,12 +44,12 @@ function __dotfiles_activate_plugins() {
     local plugin
     for plugin in ${DOTFILE_PLUGINS[*]}
     do
-        if [ ! -f "$DOTFILES_DIR/plugins/${plugin}.sh" ]; then
+        if [ ! -f "$DOTFILES/plugins/${plugin}.sh" ]; then
             echo "Plugin $plugin is missing"
             continue
         fi
         #echo "Activating $plugin plugin"
-        source "$DOTFILES_DIR/plugins/${plugin}.sh"
+        source "$DOTFILES/plugins/${plugin}.sh"
     done
 }
 
