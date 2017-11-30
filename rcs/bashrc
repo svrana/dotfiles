@@ -33,6 +33,7 @@ export DOTFILE_PLUGINS=(
     bommie
     cd
     dircolors
+    docker
     dotfiles
     find
     fzf

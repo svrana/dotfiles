@@ -192,10 +192,6 @@ function CDPATH_append() {
     done
 }
 
-function docker_rm_dangling() {
-    docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
-}
-
 function loopit() {
     if [ -z "$1" ]; then
         echo 'Must provide command to loop'
