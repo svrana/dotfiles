@@ -7,7 +7,13 @@ export GOROOT=/usr/local/go
 
 alias gopath='echo -e ${GOPATH//:/\\n}'
 
-PATH_append $GOPATH/bin:$GOROOT/bin
+function cdg() {
+    [ -z "$1" ] && return
+    local project="$1"
+    cd "$(fd --max-depth 3 "$project" "$HOME/go/src")"
+}
+
+PATH_append "$GOPATH/bin:$GOROOT/bin"
 
 function __install_golang() {
     [ -d $GOROOT ] && return 0
