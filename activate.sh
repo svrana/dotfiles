@@ -1,58 +1,100 @@
 #!/bin/bash
 #
-# Load dotfile dependencies, including functions and environment variables,
-# and user specified plugins.
+# Load dotfile dependencies, functions, environment variables and user
+# specified plugins in $DOTFILES_PLUGINS.
 #
 
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-source "$CURRENT_DIR/directories.sh"
-source "$CURRENT_DIR/functions.sh"
-
-unset CURRENT_DIR
-
-PATH_append "$BIN_DIR"
 
 #
-# Source machine specific configuration if available
+# Source dependencies required for all plugins.
 #
-overrides=${MACHINE_DIR}/${HOSTNAME}.env
-if [ -e "$overrides" ]; then
-    . "$overrides"
-fi
-unset overrides
+function dotfiles_load_deps() {
+    local cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+    source "$cwd/directories.sh"
+    source "$cwd/functions.sh"
+
+    PATH_append "$BIN_DIR"
+}
 
 #
-# Source machine specific private config if available
+# Source machine specific configuration if available.
 #
-private_box_override="$DOTFILES/private/boxen/${HOSTNAME}.env"
-if [ -e "$private_box_override" ]; then
-    . "$private_box_override"
-fi
-unset private_box_override
+function dotfiles_source_box_config() {
+    overrides=${MACHINE_DIR}/${HOSTNAME}.env
+    if [ -e "$overrides" ]; then
+        . "$overrides"
+    fi
+}
 
 #
-# Source private configs that cannot be added to the public repo
+# Source private configs that cannot be added to the public repo.
 #
-for file in $(dolisting "$DOTFILES"/private/*.env)
-do
-    . "$file"
-done
-unset file
-
-function __dotfiles_activate_plugins() {
-    [ -z "$DOTFILE_PLUGINS" ] && return
-
-    local plugin
-    for plugin in ${DOTFILE_PLUGINS[*]}
+dotfiles_source_private_config() {
+    for file in $(dolisting "$DOTFILES"/private/*.env)
     do
-        if [ ! -f "$DOTFILES/plugins/${plugin}.sh" ]; then
-            echo "Plugin $plugin is missing"
-            continue
-        fi
-        #echo "Activating $plugin plugin"
-        source "$DOTFILES/plugins/${plugin}.sh"
+        . "$file"
     done
 }
 
-__dotfiles_activate_plugins
+#
+# Loads the specified plugin or shows information about it.
+#
+#   --quiet : silence output related to loading plugin
+#   --path  : print the plugin path only (do not load plugin)
+#
+function dotfiles_plugin() {
+    local path_request=false
+    local quiet=false
+
+    while [ $# -gt 1 ] ; do
+        if [ "$1" == "--path" ]; then
+            path_request=true
+            shift
+        elif [ "$1" == "--quiet" ]; then
+            quiet=true
+            shift
+        fi
+    done
+
+    local name="$1"
+    if [ -z "$name" ]; then
+        echo "Missing plugin name"
+        return 1
+    fi
+
+    local location="$DOTFILES/plugins/${name}.sh"
+    if [ ! -f "$location" ]; then
+        echo "Plugin $name is missing"
+        return 1
+    fi
+
+    if [ "$path_request" = true ]; then
+        echo "$location"
+    else
+        if [ "$quiet" = false ]; then
+            echo -n "Activating plugin $name"
+        fi
+        source "$location"
+        if [ "$quiet" = false ]; then
+            estatus
+        fi
+    fi
+}
+
+#
+# Load user specified plugins.
+#
+function dotfiles_activate_plugins() {
+    [ -z "$DOTFILE_PLUGINS" ] && return
+
+    local plugin
+    for plugin in ${DOTFILE_PLUGINS[*]} ; do
+        dotfiles_plugin --quiet "$plugin"
+    done
+}
+
+dotfiles_load_deps
+dotfiles_source_box_config
+dotfiles_source_private_config
+dotfiles_activate_plugins
