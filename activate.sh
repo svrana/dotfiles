@@ -11,6 +11,8 @@ source "$CURRENT_DIR/functions.sh"
 
 unset CURRENT_DIR
 
+PATH_append "$BIN_DIR"
+
 #
 # Source machine specific configuration if available
 #
