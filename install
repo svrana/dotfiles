@@ -17,8 +17,9 @@ function _install_plugins() {
     for plugin in $plugins ; do
         source "$DOTFILES/plugins/${plugin}.sh"
         if type "__dotfiles_${plugin}_install" > /dev/null 2>&1; then
+            echo -n "Running install for $plugin plugin"
             eval "__dotfiles_${plugin}_install"
-            estatus "Ran install for $plugin plugin"
+            estatus
         fi
     done
 }
@@ -26,10 +27,10 @@ function _install_plugins() {
 function _run_installers() {
      local i
      for installer in $(dolisting "$CURRENT_DIR"/installers/*); do
-         source "$installer"
-         local name
          name=$(basename "$installer")
-         estatus "Configured ${name/.sh/}"
+         echo -n "Configuring ${name/.sh/}"
+         source "$installer"
+         estatus
      done
 }
 

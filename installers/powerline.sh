@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir -p ~/.config/fontconfig/conf.d
 mkdir -p ~/.config/powerline/themes/{shell,tmux}
 mkdir -p ~/.local/share/fonts
@@ -14,7 +16,6 @@ ln -sf "${DOTFILES}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfi
 
 function _prep_fonts() {
     fc-cache -vf ~/.local/share/fonts > /dev/null 2>&1
-    estatus "Built font cache for powerline"
 }
 _prep_fonts
 
@@ -24,4 +25,4 @@ function _powerline_install() {
         estatus "Installed powerline-status via pip --user"
     fi
 }
-return $(_powerline_install)
+_powerline_install

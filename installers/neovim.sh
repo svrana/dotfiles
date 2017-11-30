@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir -p ~/.config/nvim/{bak,swp}
 mkdir -p ~/.config/nvim/after/ftplugin
 mkdir -p ~/.config/nvim/bundle
