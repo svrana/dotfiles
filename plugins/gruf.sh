@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ -d "$APPS/gruf" ] && . "$APPS/gruf/gruf.rc"
+[ -d "$APPS/gruf" ] && . "$APPS/gruf/gruf.sh"
 
 function __dotfiles_gruf_install() {
     if [ ! -d "$APPS/gruf" ]; then
