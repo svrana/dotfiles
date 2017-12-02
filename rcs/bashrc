@@ -61,11 +61,11 @@ export DOTFILE_PLUGINS=(
 # This assumes the dotfiles `install' script has been run which makes the .bashrc
 # link.
 #
-dotfiles_activate() {
+dotfiles_load() {
     if [ -L ~/.bashrc ]; then
         local bashrc_location=$(readlink -f ~/.bashrc)
         local dotfiles_dir=${bashrc_location%/rcs/bashrc}
-        source "$dotfiles_dir/activate.sh"
+        source "$dotfiles_dir/load.sh"
     fi
 }
-dotfiles_activate
+dotfiles_load

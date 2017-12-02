@@ -23,6 +23,7 @@ function cdp() {
     if [ -n "$dir" ]; then
         cd "$dir"
     else
-        echo "Could not find $project in \$PROJECTS directory"
+        # maybe it's a go project
+        cdg "$project"
     fi
 }

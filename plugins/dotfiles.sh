@@ -5,3 +5,12 @@
 
 alias cdd='cd $DOTFILES'
 alias cvi='vi $DOTFILES'
+
+
+#
+# Load a dotfiles plugin into editor
+#
+function vip() {
+    [ -z "$1" ] && return
+    $EDITOR $(dotfiles_plugin --path "$1")
+}
