@@ -3,7 +3,7 @@ eval "$(direnv hook bash)"
 
 function __dotfiles_direnv_install() {
     mkdir -p ~/.config/direnv
-    ln -sf "${RC_DIR}/direnvrc"  ~/.config/direnv/direnvrc
+    ln -sf "${RCS}/direnvrc"  ~/.config/direnv/direnvrc
 
     if [ ! -d "$GOPATH/src/github.com/direnv" ]; then
         go get -u github.com/direnv/direnv

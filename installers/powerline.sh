@@ -9,8 +9,8 @@ if [ ! -d "$APPS/fonts" ]; then
     "$APPS/fonts/install.sh"
 fi
 
-ln -sf "${RC_DIR}/powerline-shell.json" ~/.config/powerline/themes/shell/default.json
-ln -sf "${RC_DIR}/powerline-tmux.json" ~/.config/powerline/themes/tmux/default.json
+ln -sf "${RCS}/powerline-shell.json" ~/.config/powerline/themes/shell/default.json
+ln -sf "${RCS}/powerline-tmux.json" ~/.config/powerline/themes/tmux/default.json
 ln -sf "${DOTFILES}/misc/PowerlineSymbols.otf" ~/.local/share/fonts/PowerlineSymbols.otf
 ln -sf "${DOTFILES}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfig/conf.d/
 

@@ -6,12 +6,74 @@
 # This needs to be run once.
 #
 
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+_install_deps=(
+    directories.sh  # directory names are used throughout
+    functions.sh    # used for helper functions
+    plugins/go.sh   # neovim installer uses go
+)
+
+# Must have directories set so applications no where to be installed
+cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+for dep in "${_install_deps[@]}" ; do
+    . "$cwd/$dep"
+done
+
+# A list of installers in $DOTFILES/installers that will be sourced during
+# install. These are typically actions that need only be done once and for
+# which there might not be a corresponding plugin.
+INSTALLERS=(
+    alacritty
+    fd
+    neovim
+    powerline
+    ripgrep
+    solarize
+)
+
+# A list of directories that should be created.
+CREATE_DIRS=(
+    $BIN_DIR
+    $DOWNLOADS
+    $APPS
+    $PROJECTS
+
+    ~/.config/psql
+    ~/.config/fontconfig/conf.d
+    ~/.kitchen
+    ~/.local/share/applications
+    ~/.ipython/profile_default
+)
+
+# A list of symbolic links that point to directories that should be created.
+DIR_LINKS=(
+    # Target                        Link name
+    "$CLOUD_ROOT/Documents          $DOCUMENTS"
+    "$CLOUD_ROOT/Music              $MUSIC"
+    "$CLOUD_ROOT/Pictures           $PHOTOS"
+)
+
+# A list of symbolic links pointing to files that should be created.
+FILE_LINKS=(
+    # Target                        Link name
+    "${RCS}/bash_profile         ~/.bash_profile"
+    "${RCS}/bashrc               ~/.bashrc"
+    "${RCS}/gitconfig            ~/.gitconfig"
+    "${RCS}/gitignore_global     ~/.gitignore_global"
+    "${RCS}/rvmrc                ~/.rvmrc"
+    "${RCS}/ackrc                ~/.ackrc"
+    "${RCS}/psqlrc               ~/.psqlrc"
+    "${RCS}/kitchen-config.yml   ~/.kitchen/config.yml"
+    "${RCS}/ctags                ~/.ctags"
+    "${RCS}/ipython_config.py    ~/.ipython/profile_default/ipython_config.py"
+)
 
 
+#
+# Run the install function for each plugin in use.
+#
 function _install_plugins() {
     local plugins
-    plugins=$(sed -rn '/export DOTFILE_PLUGINS=\(.*/','/\)/'p "$RC_DIR/bashrc" | \
+    plugins=$(sed -rn '/export DOTFILE_PLUGINS=\(.*/','/\)/'p "$RCS/bashrc" | \
         sed 's/#.*//' | sed 's/export DOTFILE_PLUGINS=(//' | tr -d ')\n')
 
     for plugin in $plugins ; do
@@ -24,68 +86,45 @@ function _install_plugins() {
     done
 }
 
+#
+# Runs each of the installers specified in the INSTALLERS array.
+#
 function _run_installers() {
-     local i
-     for installer in $(dolisting "$CURRENT_DIR"/installers/*); do
-         name=$(basename "$installer")
-         echo -n "Configuring ${name/.sh/}"
-         source "$installer"
-         estatus
-     done
+    for installer in ${INSTALLERS[*]}; do
+        local location="$DOTFILES/installers/${installer}.sh"
+        if [ ! -f "$location" ]; then
+            echo "Installer $installer missing"
+            return 1
+        fi
+        echo -n "Configuring $installer"
+        source "$location"
+        estatus
+    done
 }
 
-function _make_dirs() {
-    mkdir -p "$BIN_DIR"
-    mkdir -p "$DOWNLOADS"
-    mkdir -p "$APPS"
-    mkdir -p "$PROJECTS"
-
-    mkdir -p ~/.config/psql
-    mkdir -p ~/.config/fontconfig/conf.d
-    mkdir -p ~/.kitchen
-    mkdir -p ~/.local/share/applications
-    mkdir -p ~/.ipython/profile_default
-
-    egood "Created default directories"
-}
-
-function _link_dirs() {
-    ln -Tsf "$CLOUD_ROOT/Documents" "$DOCUMENTS"
-    ln -Tsf "$CLOUD_ROOT/Music" "$MUSIC"
-    ln -Tsf "$CLOUD_ROOT/Pictures" "$PHOTOS"
-}
-
-function _link_configs() {
-    ln -sf "${RC_DIR}/bash_profile" ~/.bash_profile
-    ln -sf "${RC_DIR}/profile" ~/.profile
-    ln -sf "${RC_DIR}/bashrc" ~/.bashrc
-    ln -sf "${RC_DIR}/gitconfig" ~/.gitconfig
-    ln -sf "${RC_DIR}/gitignore_global" ~/.gitignore_global
-    ln -sf "${RC_DIR}/rvmrc" ~/.rvmrc
-    ln -sf "${RC_DIR}/ackrc" ~/.ackrc
-    ln -sf "${RC_DIR}/psqlrc" ~/.psqlrc
-    ln -sf "${RC_DIR}/kitchen-config.yml" ~/.kitchen/config.yml
-    ln -sf "${RC_DIR}/ctags" ~/.ctags
-    ln -sf "${RC_DIR}/ipython_config.py" ~/.ipython/profile_default/ipython_config.py
-
-    egood "Created home directory file links"
-}
-
+#
+# Link each script in ./scripts to a directory in your path specified by
+# $BIN_DIR.
+#
 function _prep_scripts() {
     local i
+    local scripts="$DOTFILES/scripts"
 
-    for i in $(dolisting "$SCRIPT_DIR"/*) ; do
+    for i in $(dolisting "$scripts"/*) ; do
         chmod +x "$i"
     done
-    egood "Added execute permission to scripts in $SCRIPT_DIR"
+    egood "Added execute permission to scripts in $scripts"
 
-    for i in $(dolisting "$SCRIPT_DIR/*") ; do
+    for i in $(dolisting "$scripts/*") ; do
         i=$(basename "$i")
-        ln -sf "${SCRIPT_DIR}/$i" "${BIN_DIR}/$i"
+        ln -sf "${scripts}/$i" "${BIN_DIR}/$i"
     done
-    egood "Created links in ${BIN_DIR} to scripts in $SCRIPT_DIR"
+    egood "Created links in ${BIN_DIR} to scripts in $scripts"
 }
 
+#
+# Run chef solo. Only for package installation at this time.
+#
 function _chef_bootstrap() {
     local force=${1:-"false"}
 
@@ -105,32 +144,61 @@ function _chef_bootstrap() {
     fi
 }
 
-# Must have directories set so applications no where to be installed
-for dependency in directories.sh functions.sh plugins/go.sh ; do
-    . "$CURRENT_DIR/$dependency"
-done
-unset dependency
+#
+# Create a symbolic link for each entry speciied in the FILE_LINKS and
+# DIR_LINKS arrays.
+#
+function _make_links() {
+    local spec
+    for link_spec in "${DIR_LINKS[@]}" ; do
+        spec=$(echo "$link_spec" | tr -s ' ')
+        local target=${spec%% *}
+        local link=${spec#* }
+        ln -Tsf "$target" "$link"
+    done
+    egood "Created directory links"
 
-force_chef_run="false"
-while getopts f opt
-do
-    case "$opt" in
-        f)  force_chef_run="true";;
-        \?)   # unknown flag
-            echo >&2 \
-                "usage: $0 [-f force chef-solo run ]"
-            exit 1;;
-    esac
-done
-shift "$((OPTIND-1))"
+    for link_spec in "${FILE_LINKS[@]}" ; do
+        spec=$(echo "$link_spec" | tr -s ' ')
+        local target=${spec%% *}
+        local link=${spec#* }
+        ln -sf "$target" "${link/#~/$HOME}" # expand ~/ to $HOME
+    done
 
-_chef_bootstrap "$force_chef_run"
-_make_dirs
-_link_dirs
-_link_configs
-_prep_scripts
-_run_installers
-_install_plugins
+    egood "Created file links"
+}
 
-unset force_chef_run
-unset CURRENT_DIR
+#
+# Create each direcctory specified in the CREATE_DIRS array.
+#
+function _make_dirs() {
+    for dir in "${CREATE_DIRS[@]}" ; do
+        mkdir -p "${dir/#~/$HOME}"
+    done
+
+    egood "Created default directories"
+}
+
+main() {
+    local force_chef_run="false"
+    while getopts f opt
+    do
+        case "$opt" in
+            f)  force_chef_run="true";;
+            \?)   # unknown flag
+                echo >&2 \
+                    "usage: $0 [-f force chef-solo run ]"
+                exit 1;;
+        esac
+    done
+    shift "$((OPTIND-1))"
+
+    _chef_bootstrap "$force_chef_run"
+    _make_dirs
+    _make_links
+    _prep_scripts
+    _run_installers
+    _install_plugins
+}
+
+main

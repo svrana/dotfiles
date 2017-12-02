@@ -13,11 +13,11 @@
 \set conninfo   'SELECT usename, count(*) FROM pg_stat_activity GROUP BY usename;'
 \set showlocks  'select table_id, last_update, lock_owner, lock_owner_pid, lock_status from stv_locks ;'
 \set showrunning 'select pid, trim(user_name), starttime, substring(query,1,40) from stv_recents where status=\'Running\';'
-\set tablesize  `cat $RC_DIR/psql-table-sizes.sql`
-\set usergroups `cat $RC_DIR/psql-user-groups.sql`
-\set groupprivs `cat $RC_DIR/psql-group-privs.sql`
-\set aliases 	`cat $RC_DIR/psql-aliases.sql`
+\set tablesize  `cat $RCS/psql-table-sizes.sql`
+\set usergroups `cat $RCS/psql-user-groups.sql`
+\set groupprivs `cat $RCS/psql-group-privs.sql`
+\set aliases 	`cat $RCS/psql-aliases.sql`
 \set showtables 'select table_name FROM information_schema.tables WHERE table_type=\'BASE TABLE\' and table_schema=\'public\' ;'
 \set showviews  'select table_name FROM information_schema.tables WHERE table_type=\'VIEW\' and table_schema=\'public\' ;'
-\set gen_view_ddl `cat $RC_DIR/psql-v-generate-tbl-ddl.sql`
-\set gen_view_ext `cat $RC_DIR/psql-v-generate-ext-tbl-info.sql`
+\set gen_view_ddl `cat $RCS/psql-v-generate-tbl-ddl.sql`
+\set gen_view_ext `cat $RCS/psql-v-generate-ext-tbl-info.sql`

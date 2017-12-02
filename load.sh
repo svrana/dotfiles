@@ -4,15 +4,13 @@
 # specified plugins in $DOTFILES_PLUGINS.
 #
 
-
 #
 # Source dependencies required for all plugins.
 #
 function dotfiles_load_deps() {
-    local cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-    source "$cwd/directories.sh"
-    source "$cwd/functions.sh"
+    CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    source "$CURRENT_DIR/directories.sh"
+    source "$CURRENT_DIR/functions.sh"
 
     PATH_append "$BIN_DIR"
 }
@@ -21,7 +19,7 @@ function dotfiles_load_deps() {
 # Source machine specific configuration if available.
 #
 function dotfiles_load_box_config() {
-    overrides=${MACHINE_DIR}/${HOSTNAME}.env
+    overrides="$DOTFILES/boxen/$HOSTNAME.env"
     if [ -e "$overrides" ]; then
         . "$overrides"
     fi

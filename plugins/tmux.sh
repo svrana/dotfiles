@@ -13,7 +13,7 @@ function tmn() {
 }
 
 function __dotfiles_tmux_install() {
-    ln -sf "${RC_DIR}/tmux.conf" ~/.tmux.conf
+    ln -sf "${RCS}/tmux.conf" ~/.tmux.conf
 
     mkdir -p ~/.tmux/plugins
     if [ ! -d ~/.tmux/plugins/tpm ]; then
