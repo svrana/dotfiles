@@ -175,25 +175,21 @@ function _make_dirs() {
     egood "Created default directories"
 }
 
-main() {
-    local force_chef_run="false"
-    while getopts f opt
-    do
-        case "$opt" in
-            f)  force_chef_run="true";;
-            \?)   # unknown flag
-                echo >&2 \
-                    "usage: $0 [-f force chef-solo run ]"
-                exit 1;;
-        esac
-    done
-    shift "$((OPTIND-1))"
+force_chef_run="false"
+while getopts f opt
+do
+    case "$opt" in
+        f)  force_chef_run="true";;
+        \?)   # unknown flag
+            echo >&2 \
+                "usage: $0 [-f force chef-solo run ]"
+            exit 1;;
+    esac
+done
+shift "$((OPTIND-1))"
 
-    _chef_bootstrap "$force_chef_run"
-    _make_dirs
-    _make_links
-    _prep_scripts
-    _run_installers
-}
-
-main
+_chef_bootstrap "$force_chef_run"
+_make_dirs
+_make_links
+_prep_scripts
+_run_installers
