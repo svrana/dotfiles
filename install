@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# Creates defaults directories configured in config.env; runs
-# plugin install functions and install scripts.
+# Links configuration files to their correct places.
+# Runs installers.
 #
-# This needs to be run once.
-#
+
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 _install_deps=(
     directories.sh  # directory names are used throughout
@@ -13,14 +13,16 @@ _install_deps=(
 )
 
 # Must have directories set so applications no where to be installed
-cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 for dep in "${_install_deps[@]}" ; do
-    . "$cwd/$dep"
+    . "$CURRENT_DIR/$dep"
 done
 
 # A list of installers in $DOTFILES/installers that will be sourced during
 # install. These are typically actions that need only be done once and for
 # which there might not be a corresponding plugin.
+#
+# All installers with the same name of a plugin in your DOTFILES_PLUGINS
+# are sourced automatically.
 INSTALLERS=(
     alacritty
     fd
@@ -67,29 +69,23 @@ FILE_LINKS=(
     "${RCS}/ipython_config.py    ~/.ipython/profile_default/ipython_config.py"
 )
 
-
 #
-# Run the install function for each plugin in use.
+# Runs each of the installers specified in the INSTALLERS array.
 #
-function _install_plugins() {
+function _run_installers() {
     local plugins
     plugins=$(sed -rn '/export DOTFILE_PLUGINS=\(.*/','/\)/'p "$RCS/bashrc" | \
         sed 's/#.*//' | sed 's/export DOTFILE_PLUGINS=(//' | tr -d ')\n')
 
     for plugin in $plugins ; do
-        source "$DOTFILES/plugins/${plugin}.sh"
-        if type "__dotfiles_${plugin}_install" > /dev/null 2>&1; then
-            echo -n "Running install for $plugin plugin"
-            eval "__dotfiles_${plugin}_install"
+        local installer="$DOTFILES/installers/$plugin.sh"
+        if [ -f "$installer" ]; then
+            echo -n "Configuring $plugin"
+            source "$installer"
             estatus
         fi
     done
-}
 
-#
-# Runs each of the installers specified in the INSTALLERS array.
-#
-function _run_installers() {
     for installer in ${INSTALLERS[*]}; do
         local location="$DOTFILES/installers/${installer}.sh"
         if [ ! -f "$location" ]; then
@@ -198,7 +194,6 @@ main() {
     _make_links
     _prep_scripts
     _run_installers
-    _install_plugins
 }
 
 main

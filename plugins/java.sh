@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export JAVA_HOME=$APPS/java
 
 if [ -d "$JAVA_HOME" ]; then

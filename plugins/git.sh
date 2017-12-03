@@ -13,7 +13,7 @@ function is_in_git_repo() {
     git rev-parse HEAD > /dev/null 2>&1
 }
 
-function push_to_master() {
+function git-push-to-master() {
     local current_branch="$(git branch | grep ^* | cut -d' ' -f2)"
     local cmd="git push origin $current_branch:master"
     if ask Run \""$cmd"\"? ; then
@@ -22,5 +22,3 @@ function push_to_master() {
         echo "push aborted"
     fi
 }
-
-alias git-push-to-master='push_to_master'

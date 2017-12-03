@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ -d "$APPS/google-cloud-sdk" ]; then
     # Updates PATH for the Google Cloud SDK.
     source "$APPS/google-cloud-sdk/path.bash.inc"

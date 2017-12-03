@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function docker_rm_dangling() {
+function docker-rm-dangling() {
     docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
 }
 

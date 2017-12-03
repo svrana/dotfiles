@@ -96,4 +96,3 @@ function run_sweeper_tests() {
 function run_merchant_tests() {
     arc unit $(find . -type d | grep __tests__)
 }
-

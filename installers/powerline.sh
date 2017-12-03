@@ -14,10 +14,7 @@ ln -sf "${RCS}/powerline-tmux.json" ~/.config/powerline/themes/tmux/default.json
 ln -sf "${DOTFILES}/misc/PowerlineSymbols.otf" ~/.local/share/fonts/PowerlineSymbols.otf
 ln -sf "${DOTFILES}/misc/50-enable-terminess-powerline.conf" ~/.config/fontconfig/conf.d/
 
-function _powerline_install() {
-    if [ ! -f ~/.local/bin/powerline ]; then
-        pip install --user powerline-status
-        estatus "Installed powerline-status via pip --user"
-    fi
-}
-_powerline_install
+if [ ! -f ~/.local/bin/powerline ]; then
+    pip install --user powerline-status
+    estatus "Installed powerline-status via pip --user"
+fi

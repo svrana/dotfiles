@@ -29,8 +29,7 @@ function dotfiles_load_box_config() {
 # Source private configs that cannot be added to the public repo.
 #
 function dotfiles_load_private_config() {
-    for file in $(dolisting "$DOTFILES"/private/*.env)
-    do
+    for file in $(dolisting "$DOTFILES"/private/*.env) ; do
         . "$file"
     done
 }

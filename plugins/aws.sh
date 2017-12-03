@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function unset-delete-on-terminate() {
+function aws-unset-delete-on-terminate() {
     if [ -z "$1" ]; then
         echo "Must specify an instance id"
         return 1
