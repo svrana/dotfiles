@@ -19,11 +19,20 @@ function cdp() {
         return
     fi
 
-    dir="$(fd --max-depth 2 "$project" "$PROJECTS")"
+    local project_root="${project%%/*}"
+    local dir
+    dir="$(fd --max-depth 2 "$project_root" "$PROJECTS")"
+
     if [ -n "$dir" ]; then
-        cd "$dir"
+        local subdirs="${project#$project_root/*}"
+        if [ "$project" != "$project_root" ]; then
+            cd "$dir" && cd "$subdirs"
+        else
+            cd "$dir"
+        fi
     else
         # maybe it's a go project
         cdg "$project"
     fi
+
 }
