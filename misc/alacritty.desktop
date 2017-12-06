@@ -1,11 +1,9 @@
 [Desktop Entry]
+Name=Alacritty
 Type=Application
-TryExec=alacritty
 Exec=alacritty -t "Alacritty"
 Icon=terminal
 Terminal=false
-
-Name=Alacritty
 GenericName=Terminal
 Comment=A cross-platform, GPU enhanced terminal emulator
 StartupWMClass=Alacritty

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=Postgresql database GUI
+Terminal=false
+Name=DBGlass
+Exec=.local/bin/dbglass
+Type=Application
+Icon=Apps/DBGlass/resources/app/logo/logo.png
