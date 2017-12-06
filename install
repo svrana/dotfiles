@@ -41,6 +41,7 @@ CREATE_DIRS=(
 
     ~/.config/psql
     ~/.config/fontconfig/conf.d
+    ~/.config/git
     ~/.kitchen
     ~/.local/share/applications
     ~/.ipython/profile_default
@@ -57,16 +58,15 @@ DIR_LINKS=(
 # A list of symbolic links pointing to files that should be created.
 FILE_LINKS=(
     # Target                        Link name
-    "${RCS}/bash_profile         ~/.bash_profile"
-    "${RCS}/bashrc               ~/.bashrc"
-    "${RCS}/gitconfig            ~/.gitconfig"
-    "${RCS}/gitignore_global     ~/.gitignore_global"
-    "${RCS}/rvmrc                ~/.rvmrc"
-    "${RCS}/ackrc                ~/.ackrc"
-    "${RCS}/psqlrc               ~/.psqlrc"
-    "${RCS}/kitchen-config.yml   ~/.kitchen/config.yml"
-    "${RCS}/ctags                ~/.ctags"
-    "${RCS}/ipython_config.py    ~/.ipython/profile_default/ipython_config.py"
+    "${RCS}/bash_profile            ~/.bash_profile"
+    "${RCS}/bashrc                  ~/.bashrc"
+    "${RCS}/gitconfig               ~/.config/git/config"
+    "${RCS}/gitignore_global        ~/.config/git/ignore"
+    "${RCS}/rvmrc                   ~/.rvmrc"
+    "${RCS}/psqlrc                  ~/.psqlrc"
+    "${RCS}/kitchen-config.yml      ~/.kitchen/config.yml"
+    "${RCS}/ctags                   ~/.ctags"
+    "${RCS}/ipython_config.py       ~/.ipython/profile_default/ipython_config.py"
 )
 
 #
