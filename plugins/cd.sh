@@ -34,5 +34,4 @@ function cdp() {
         # maybe it's a go project
         cdg "$project"
     fi
-
 }
