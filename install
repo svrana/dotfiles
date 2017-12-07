@@ -30,6 +30,7 @@ INSTALLERS=(
     powerline
     ripgrep
     solarize
+    dbglass
 )
 
 # A list of directories that should be created.
@@ -106,17 +107,22 @@ function _run_installers() {
 function _prep_scripts() {
     local i
     local scripts="$DOTFILES/scripts"
+    local -i count=0
 
     for i in $(dolisting "$scripts"/*) ; do
         chmod +x "$i"
+        count=$((count+1))
     done
-    egood "Added execute permission to scripts in $scripts"
+    egood "Added execute permission to $count scripts in ${scripts/$HOME\//\~/}"
+    count=0
 
     for i in $(dolisting "$scripts/*") ; do
         i=$(basename "$i")
         ln -sf "${scripts}/$i" "${BIN_DIR}/$i"
+        count=$((count+1))
     done
-    egood "Created links in ${BIN_DIR} to scripts in $scripts"
+
+    egood "Created $count links to scripts in ${scripts/$HOME\//\~/} in ${BIN_DIR/$HOME\//\~/}"
 }
 
 #
