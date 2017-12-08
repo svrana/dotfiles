@@ -211,10 +211,10 @@ function sf() {
   printf -v search "%q" "$*"
 
   #include="yml,js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst,sh,toml"
-  exclude=".config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist,.berkshelf"
+  exclude="tags,.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist,.berkshelf"
   #rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
   #rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
-  rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --color "always" -g "!{'$exclude'}/*"'
+  rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --color "always" -g "!{'$exclude'}/*"'
   files=$(eval "$rg_command" "$search" 2>/dev/null | fzf --height 80% --ansi --multi --reverse | awk -F ':' '{print $1":"$2":"$3}')
   files=$(echo "$files" | tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
   #shellcheck disable=SC2086

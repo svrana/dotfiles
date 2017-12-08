@@ -21,4 +21,4 @@ function fa() {
 
 
 alias drmo='find . -name "*.o" -delete'
-alias kvswap='find . -iregex ^.*.swp?o? -delete'
+alias kvswap='rm ~/.local/share/nvim/swap/*'
