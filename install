@@ -25,6 +25,7 @@ done
 # are sourced automatically.
 INSTALLERS=(
     alacritty
+    cargo
     fd
     neovim
     powerline

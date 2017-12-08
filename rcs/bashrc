@@ -47,6 +47,7 @@ export DOTFILE_PLUGINS=(
     ps
     python
     ruby
+    rust
     rvm
     tmux
     virtualgo
