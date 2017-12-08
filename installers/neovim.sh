@@ -15,9 +15,11 @@ function _link_ftplugins() {
 }
 _link_ftplugins
 
-if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-    estatus "Cloned Vundle"
+PLUG_DIR="$HOME/.local/share/nvim/site/autoload"
+if [ ! -f "$PLUG_DIR/plug.vim" ]; then
+    curl -fLo "$PLUG_DIR/plug.vim" --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    estatus "Cloned Plug"
 fi
 
 if [ ! -f ~/.config/nvim/init.vim ]; then
@@ -39,4 +41,4 @@ function _go_config() {
 }
 _go_config
 
-nvim +PluginInstall +qall +GoInstallBinaries
+nvim +PlugInstall +qall +GoInstallBinaries
