@@ -6,4 +6,5 @@ if [ ! -d "$HOME/.cargo/bin" ]; then
     sh "$DOWNLOADS/rustup.sh" -y --no-modify-path
     rm "$DOWNLOADS/rustup.sh"
     "$HOME/.cargo/bin/rustup" update
+    PATH_add "$HOME/.cargo/bin" # for immediate use.. markup vim plugin uses it
 fi

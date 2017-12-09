@@ -60,4 +60,5 @@ package %w(
   zeal
   insync
   firefox
+  virtualenv
 )

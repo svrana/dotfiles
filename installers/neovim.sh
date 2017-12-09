@@ -30,7 +30,6 @@ if [ ! -f ~/.config/nvim/init.vim ]; then
     sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 fi
 
-
 ln -sf "${RCS}/vimrc" ~/.vimrc
 
 function _go_config() {
@@ -40,5 +39,17 @@ function _go_config() {
     fi
 }
 _go_config
+
+WORKON_HOME=${WORKON_HOME-~/.virtualenvs/}
+if [ ! -d ~/.virtualenvs/neovim3 ]; then
+    virtualenv -p /usr/bin/python3 "$WORKON_HOME/neovim3"
+    "$WORKON_HOME/neovim3/bin/pip3" install neovim
+    "$WORKON_HOME/neovim3/bin/pip3" install jedi
+fi
+
+if [ ! -d ~/.virtualenvs/neovim2 ]; then
+    virtualenv -p /usr/bin/python2 "$WORKON_HOME/neovim2"
+    "$WORKON_HOME/neovim2/bin/pip2" install neovim
+fi
 
 nvim +PlugInstall +qall +GoInstallBinaries
