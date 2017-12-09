@@ -35,16 +35,18 @@ Plug 'jreybert/vimagit'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kopischke/vim-fetch' 		" open file:lineno:colno see sf()
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+Plug 'wellle/tmux-complete.vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()
 
 set mouse=a
-
 set rtp+=$APPS/fzf
 
 let mapleader = ","
 let maplocalleader = ","
+
+"let g:markdown_composer_autostart = 0
 
 let g:airline_powerline_fonts = 1
 let g:airline_section_b='' "Disable showing branch cause it crowds the filename
@@ -201,6 +203,8 @@ nmap g# g#mzz.`z
 "nmap gn :set invnu<CR>
 
 noremap <silent> <leader>zz :TagbarToggle<CR>
+"noremap <leader>md :ComposerStart<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " alt mappings
