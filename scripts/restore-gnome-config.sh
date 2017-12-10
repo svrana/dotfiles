@@ -15,17 +15,14 @@ if [ ! -f "$DOTFILES/misc/gnome_shell_extensions_id.txt" ]; then
 fi
 
 GNOME_SHELL_EXTENSION_ID_LIST=`cat $DOTFILES/misc/gnome_shell_extensions_id.txt | sed -e "s/:.*//g" | tr "\n" " "`
-
 GID=""
-
 VERSION=`gnome-shell --version | sed 's/GNOME Shell //g'`
 VER=`echo ${VERSION:0:4}`
 echo ${VER}
 
 LOCAL_PATH="${HOME}/.local/share/gnome-shell/extensions"
 
-function getDownUrl()
-{
+function getDownUrl() {
 	local URL=`curl "https://extensions.gnome.org/extension-info/?pk=${GID}&shell_version=${VER}" | sed 's/^.*download_url": "//g' | sed 's/", "pk".*//g'`
 	local FULL_URL="https://extensions.gnome.org${URL}"
 	local FOLDER_NAME=`echo ${URL} | sed 's/\/download-extension\///g' | sed 's/.shell-extension.zip.*//g'`
@@ -43,14 +40,12 @@ function getDownUrl()
 	fi
 }
 
-for ix in ${GNOME_SHELL_EXTENSION_ID_LIST}
-do
+for ix in ${GNOME_SHELL_EXTENSION_ID_LIST} ; do
 	GID="${ix}"
 	getDownUrl
 done
 
-if [ "${ENABLE_ALL_GNOME_SHELL_EXTENSIONS}" = "1" ]
-then
+if [ "${ENABLE_ALL_GNOME_SHELL_EXTENSIONS}" = "1" ]; then
 	# Enable all of GNOME Shell Extensions
 	GNOME_SHELL_EXTENSION_UUID_LIST=`cat $DOTFILES/misc/gnome_shell_extensions_id.txt | sed -e "s/^.*://g" | tr "\n" " "`
 	for ix in ${GNOME_SHELL_EXTENSION_UUID_LIST}
@@ -59,8 +54,6 @@ then
 	done
 fi
 
-# 恢复 Gnome Shell Extensions 所有设定
-dconf load /org/gnome/shell/extensions/ < $DOTFILES/misc/gnome_shell_extensions_conf.txt
-
+dconf load < "$DOTFILES/misc/gnome3-config-dump.txt"
 # restart gnome-shell
 # dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'

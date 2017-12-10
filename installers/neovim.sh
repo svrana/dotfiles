@@ -30,7 +30,7 @@ if [ ! -f ~/.config/nvim/init.vim ]; then
     sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 fi
 
-ln -sf "${RCS}/vimrc" ~/.vimrc
+#ln -sf "${RCS}/vimrc" ~/.vimrc
 
 function _go_config() {
     if [ -n "$GOPATH" -a ! -d "$GOPATH/src/github.com/nsf/gocode" ]; then
@@ -52,4 +52,4 @@ if [ ! -d ~/.virtualenvs/neovim2 ]; then
     "$WORKON_HOME/neovim2/bin/pip2" install neovim
 fi
 
-nvim +PlugInstall +qall +GoInstallBinaries
+nvim +PlugInstall +qall

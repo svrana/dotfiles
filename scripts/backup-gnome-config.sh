@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+#
+# https://jasonmun.blogspot.my
+# https://github.com/yomun
+#
+# Copyright (C) 2017 Jason Mun
+#
+
+re='^[0-9]+$'
+
+ID_ARRAY=()
+
+LIST_GNOME_SHELL_EXTENSIONS=$(ls "/home/${USER}/.local/share/gnome-shell/extensions" | tr "\n" " ")
+
+for i in ${LIST_GNOME_SHELL_EXTENSIONS}
+do
+	ID=`curl "https://extensions.gnome.org/extension-query/?page=1&shell_version=all&search=${i}" | sed -e "s/^.*\/extension\///g" | sed -e "s/\/.*//g"`
+	if ! [[ ${ID} =~ ${re} ]]
+	then
+		ID_ARRAY+=("0")
+	else
+		ID_ARRAY+=("${ID}")
+	fi
+done
+
+rm "$DOTFILES/misc/gnome_shell_extensions_id.txt"
+
+cnt=0
+
+for i in ${LIST_GNOME_SHELL_EXTENSIONS}
+do
+	if [ "${ID_ARRAY[$cnt]}" = "0" ]
+	then
+		echo ""
+	else
+		echo "${ID_ARRAY[$cnt]}:${i}" >> "$DOTFILES/misc/gnome_shell_extensions_id.txt"
+	fi
+
+	cnt=$((cnt + 1))
+done
+
+dconf dump / > "$DOTFILES/misc/gnome3-config-dump.txt"

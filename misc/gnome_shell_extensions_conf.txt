@@ -1,6 +1,3 @@
-[web-search-dialog]
-search-history-data='[{"query":"hello","type":"QUERY"},{"query":"st","type":"QUERY"},{"query":"vranix","type":"QUERY"}]'
-
 [activities-config]
 transparent-panel=40
 activities-config-button-removed=true
@@ -33,24 +30,6 @@ application-list=['slack.desktop:5', 'spotify.desktop:4', 'google-chrome.desktop
 
 [topicons]
 tray-pos='right'
-
-[openweather]
-weather-provider='openweathermap'
-days-forecast=2
-unit='fahrenheit'
-geolocation-provider='openstreetmaps'
-actual-city=0
-use-default-owm-key=true
-show-text-in-panel=true
-wind-speed-unit='mph'
-use-symbolic-icons=true
-position-in-panel='right'
-translate-condition=true
-city='37.7647993,-122.4629897>SF, California, United States of America >-1'
-wind-direction=true
-pressure-unit='inHg'
-show-comment-in-forecast=true
-decimal-places=1
 
 [workspace-grid]
 num-columns=3
