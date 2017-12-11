@@ -191,7 +191,7 @@ function _maybe_source_bashrc() {
         link=${spec#* }
         # shellcheck disable=SC2088
         if [ "$link" = "~/.bashrc" ]; then
-            echo -e "Sourcing .bashrc"
+            echo -n "Sourcing .bashrc"
             . ~/.bashrc
             estatus
         fi
