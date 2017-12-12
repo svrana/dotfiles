@@ -13,7 +13,7 @@ layout_python() {
     unset PYTHONHOME
     export VIRTUAL_ENV=${WORKON_HOME}/${subdir##*/}
     if [[ ! -d $VIRTUAL_ENV ]]; then
-        "$python" -m virtualenv "$VIRTUAL_ENV"
+        virtualenv -p "$python" "$VIRTUAL_ENV"
     fi
     PATH_add "$VIRTUAL_ENV/bin"
 }
