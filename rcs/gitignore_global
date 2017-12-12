@@ -8,3 +8,5 @@ cscope.out
 .envrc
 .direnv
 .idea/
+
+.*@neomake*
