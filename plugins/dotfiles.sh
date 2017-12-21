@@ -12,5 +12,14 @@ alias cvi='vi $DOTFILES'
 #
 function vip() {
     [ -z "$1" ] && return
-    $EDITOR $(dotfiles_plugin --path "$1")
+    local plugin="${1%.sh}"
+    local plugin_path
+
+    plugin_path=$(dotfiles_plugin --path "$plugin")
+    if [ $? -ne 0 ]; then
+        echo "$plugin_path"
+        return 1
+    fi
+
+    $EDITOR "$plugin_path"
 }
