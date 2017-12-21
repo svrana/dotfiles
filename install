@@ -26,6 +26,7 @@ done
 INSTALLERS=(
     cargo
     alacritty
+    dbeaver
     fd
     neovim
     powerline
@@ -131,8 +132,9 @@ function _prep_scripts() {
 #
 function _chef_bootstrap() {
     local force=${1:-"false"}
+    local first_run
 
-    local first_run=$(which chef-solo)
+    first_run=$(which chef-solo)
     if [ -z "$first_run" ]; then
         curl -L https://omnitruck.chef.io/install.sh -o "$TMP/install.sh"
         sudo bash /tmp/install.sh -P chefdk
