@@ -1,7 +1,15 @@
 #!/bin/bash
 
 alias tma='tmux attach -d -t'
-alias tmux='deactivate 2>/dev/null 1>&2 ; direnv exec / tmux'
+
+function tmux {
+    if [ -z "$VIRTUAL_ENV" ]; then
+        direnv exec / tmux
+    else
+        echo "Get out of virtualenv"
+        return 1
+    fi
+}
 
 # create named tmux session, i.e., tmux new -s dev
 function tmn() {
