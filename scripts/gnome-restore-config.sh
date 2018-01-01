@@ -1,59 +1,75 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #
-# https://jasonmun.blogspot.my
-# https://github.com/yomun
-#
-# Copyright (C) 2017 Jason Mun
+# Based on work done by Jason Mun @ https://github.com/yomun
 #
 
-ENABLE_ALL_GNOME_SHELL_EXTENSIONS="0"
 
-if [ ! -f "$DOTFILES/misc/gnome_shell_extensions_id.txt" ]; then
-    echo "No extensions list found in $DOTFILES/misc"
+if [ -f "$RCS/gnome-backup-env.sh" ]; then
+    source "$RCS/gnome-backup-env.sh"
+else
+    echo "Could not locate config file"
     exit 1
 fi
 
-GNOME_SHELL_EXTENSION_ID_LIST=`cat $DOTFILES/misc/gnome_shell_extensions_id.txt | sed -e "s/:.*//g" | tr "\n" " "`
-GID=""
-VERSION=`gnome-shell --version | sed 's/GNOME Shell //g'`
-VER=`echo ${VERSION:0:4}`
-echo ${VER}
+if [ ! -f "$EXT_DUMP_FILE" ]; then
+    echo "Could not find $EXT_DUMP_FILE"
+    exit 1
+fi
 
-LOCAL_PATH="${HOME}/.local/share/gnome-shell/extensions"
+ENABLE_ALL_GNOME_SHELL_EXTENSIONS="0"
+VERSION=$(gnome-shell --version | sed 's/GNOME Shell //g')
+VER=${VERSION:0:4}
 
-function getDownUrl() {
-	local URL=`curl "https://extensions.gnome.org/extension-info/?pk=${GID}&shell_version=${VER}" | sed 's/^.*download_url": "//g' | sed 's/", "pk".*//g'`
-	local FULL_URL="https://extensions.gnome.org${URL}"
-	local FOLDER_NAME=`echo ${URL} | sed 's/\/download-extension\///g' | sed 's/.shell-extension.zip.*//g'`
 
-	echo [${GID}]${FULL_URL}
-	echo [${GID}]${FOLDER_NAME}
+function get_ext_ids() {
+    local ext_ids
+    ext_ids=$(sed -e "s/:.*//g" "$EXT_DUMP_FILE" | tr "\n" " ")
+    echo "$ext_ids"
+}
 
-	if [ -d "${LOCAL_PATH}/${FOLDER_NAME}" ]
+function fetch_extension() {
+    local gid="$1"
+	local url
+    url=$(curl "https://extensions.gnome.org/extension-info/?pk=${gid}&shell_version=${VER}" | sed 's/^.*download_url": "//g' | sed 's/", "pk".*//g')
+	local full_url
+    full_url="https://extensions.gnome.org${url}"
+	local folder_name
+    folder_name=`echo "$url" | sed 's/\/download-extension\///g' | sed 's/.shell-extension.zip.*//g'`
+
+	echo "[$gid] $full_url"
+	echo "[$gid] $folder_name"
+
+	if [ -d "${GNOME3_EXT_PATH}/${folder_name}" ]
 	then
-		echo "${FOLDER_NAME} installed already.."
+		echo "${folder_name} installed already.."
 	else
-		wget -O /tmp/extension.zip "${FULL_URL}"
-		mkdir -p "${LOCAL_PATH}/${FOLDER_NAME}"
-		unzip /tmp/extension.zip -d "${LOCAL_PATH}/${FOLDER_NAME}"
+		wget -O /tmp/extension.zip "$full_url"
+		mkdir -p "${GNOME3_EXT_PATH}/$folder_name"
+		unzip /tmp/extension.zip -d "${GNOME3_EXT_PATH}/$folder_name"
+		echo "Installed ${folder_name}"
 	fi
 }
 
-for ix in ${GNOME_SHELL_EXTENSION_ID_LIST} ; do
-	GID="${ix}"
-	getDownUrl
-done
+function download_extensions() {
+    for eid in $(get_ext_ids); do
+        fetch_extension	 "$eid"
+    done
 
-if [ "${ENABLE_ALL_GNOME_SHELL_EXTENSIONS}" = "1" ]; then
-	# Enable all of GNOME Shell Extensions
-	GNOME_SHELL_EXTENSION_UUID_LIST=`cat $DOTFILES/misc/gnome_shell_extensions_id.txt | sed -e "s/^.*://g" | tr "\n" " "`
-	for ix in ${GNOME_SHELL_EXTENSION_UUID_LIST}
-	do
-		gnome-shell-extension-tool -e ${ix}
-	done
-fi
+    if [ "$ENABLE_ALL_GNOME_SHELL_EXTENSIONS" = "1" ]; then
+        for eid in $(get_ext_ids) ; do
+            gnome-shell-extension-tool -e "$eid"
+        done
+    fi
+}
 
-dconf load < "$DOTFILES/misc/gnome3-config-dump.txt"
-# restart gnome-shell
-# dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'
+function gnome_config_load() {
+    dconf load / < "$GNOME3_DUMP_FILE"
+}
+
+download_extensions
+gnome_config_load
+
+unset ENABLE_ALL_GNOME_SHELL_EXTENSIONS
+unset VERSION
+unset VER

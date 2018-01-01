@@ -1,43 +1,50 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #
-# https://jasonmun.blogspot.my
-# https://github.com/yomun
-#
-# Copyright (C) 2017 Jason Mun
+# Based on work done by Jason Mun @ https://github.com/yomun
 #
 
-re='^[0-9]+$'
 
-ID_ARRAY=()
+if [ -f "$RCS/gnome-backup-env.sh" ]; then
+    source "$RCS/gnome-backup-env.sh"
+else
+    echo 'Could not locate config file'
+    exit 1
+fi
 
-LIST_GNOME_SHELL_EXTENSIONS=$(ls "/home/${USER}/.local/share/gnome-shell/extensions" | tr "\n" " ")
 
-for i in ${LIST_GNOME_SHELL_EXTENSIONS}
-do
-	ID=`curl "https://extensions.gnome.org/extension-query/?page=1&shell_version=all&search=${i}" | sed -e "s/^.*\/extension\///g" | sed -e "s/\/.*//g"`
-	if ! [[ ${ID} =~ ${re} ]]
-	then
-		ID_ARRAY+=("0")
-	else
-		ID_ARRAY+=("${ID}")
-	fi
-done
+function dump_gnome_shell_extenstions() {
+    local re='^[0-9]+$'
+    local id_array=()
+    local extensions
 
-rm "$DOTFILES/misc/gnome_shell_extensions_id.txt"
+    extensions=$(fd --print0 --max-depth=1 '' ~/.local/share/gnome-shell/extensions --exec echo '{/.}')
+    for ext in ${extensions}; do
+        local id
+        local url
 
-cnt=0
+        url="${GNOME3_EXT_QUERY_URL}=${ext}"
+        id=$(curl "$url" | sed -e "s/^.*\/extension\///g" | sed -e "s/\/.*//g")
+        if ! [[ ${id} =~ ${re} ]]; then
+            id_array+=("0")
+        else
+            id_array+=("${id}")
+        fi
+    done
 
-for i in ${LIST_GNOME_SHELL_EXTENSIONS}
-do
-	if [ "${ID_ARRAY[$cnt]}" = "0" ]
-	then
-		echo ""
-	else
-		echo "${ID_ARRAY[$cnt]}:${i}" >> "$DOTFILES/misc/gnome_shell_extensions_id.txt"
-	fi
+    [ -f "$EXT_DUMP_FILE" ] && rm "$EXT_DUMP_FILE"
 
-	cnt=$((cnt + 1))
-done
+    local cnt=0
+    for ext in ${extensions}; do
+        if [ "${id_array[$cnt]}" = "0" ]; then
+            echo ""
+        else
+            echo "${id_array[$cnt]}:${ext}" >> "$EXT_DUMP_FILE"
+        fi
 
-dconf dump / > "$DOTFILES/misc/gnome3-config-dump.txt"
+        cnt=$((cnt + 1))
+    done
+}
+
+dump_gnome_shell_extenstions
+dconf dump / > "$GNOME3_DUMP_FILE"
