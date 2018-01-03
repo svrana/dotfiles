@@ -42,6 +42,7 @@ CREATE_DIRS=(
     $APPS
     $PROJECTS
 
+    ~/.config/alacritty
     ~/.config/psql
     ~/.config/fontconfig/conf.d
     ~/.config/git
@@ -60,17 +61,19 @@ DIR_LINKS=(
 
 # A list of symbolic links pointing to files that should be created.
 FILE_LINKS=(
-    # Target                        Link name
-    "${RCS}/bash_profile            ~/.bash_profile"
-    "${RCS}/bashrc                  ~/.bashrc"
-    "${RCS}/gitconfig               ~/.config/git/config"
-    "${RCS}/gitignore_global        ~/.config/git/ignore"
-    "${RCS}/rvmrc                   ~/.rvmrc"
-    "${RCS}/psqlrc                  ~/.psqlrc"
-    "${RCS}/kitchen-config.yml      ~/.kitchen/config.yml"
-    "${RCS}/ctags                   ~/.ctags"
-    "${RCS}/ipython_config.py       ~/.ipython/profile_default/ipython_config.py"
-    "$DOTFILES/misc/dbglass.desktop ~/.local/share/applications/dbglass.desktop"
+    # Target                                    Link name
+    "${RCS}/bash_profile                        ~/.bash_profile"
+    "${RCS}/bashrc                              ~/.bashrc"
+    "${RCS}/gitconfig                           ~/.config/git/config"
+    "${RCS}/gitignore_global                    ~/.config/git/ignore"
+    "${RCS}/rvmrc                               ~/.rvmrc"
+    "${RCS}/psqlrc                              ~/.psqlrc"
+    "${RCS}/kitchen-config.yml                  ~/.kitchen/config.yml"
+    "${RCS}/ctags                               ~/.ctags"
+    "${RCS}/ipython_config.py                   ~/.ipython/profile_default/ipython_config.py"
+    "${RCS}/alacritty.yaml                      ~/.config/alacritty/alacritty.yml"
+    "${DOTFILES}/misc/Alacritty.desktop         ~/.local/share/applications"
+    "$APPS/alacritty/target/release/alacritty   $BIN_DIR/alacritty"
 )
 
 #
