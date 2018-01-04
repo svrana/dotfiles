@@ -61,4 +61,7 @@ package %w(
   insync
   firefox
   virtualenv
+  cmake
+  libfreetype6-dev
+  libfontconfig1-dev
 )

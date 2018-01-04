@@ -24,15 +24,14 @@ done
 # All installers with the same name of a plugin in your DOTFILES_PLUGINS
 # are sourced automatically.
 INSTALLERS=(
-    alacritty
     cargo
+    alacritty
     fd
     neovim
     powerline
     ripgrep
     slack
     solarize
-    dbglass
 )
 
 # A list of directories that should be created.
