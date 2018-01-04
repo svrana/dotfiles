@@ -12,4 +12,5 @@ if [ ! -d "$APPS/alacritty" ]; then
     rustup update stable
     cargo build --release
     popd
+    ln -sf "$APPS/alacritty/target/release/alacritty" "$BIN_DIR/alacritty"
 fi
