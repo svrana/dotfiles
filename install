@@ -71,7 +71,7 @@ FILE_LINKS=(
     "${RCS}/kitchen-config.yml                  ~/.kitchen/config.yml"
     "${RCS}/ctags                               ~/.ctags"
     "${RCS}/ipython_config.py                   ~/.ipython/profile_default/ipython_config.py"
-    "${RCS}/alacritty.yaml                      ~/.config/alacritty/alacritty.yml"
+    "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
     "${DOTFILES}/misc/Alacritty.desktop         ~/.local/share/applications"
     "$APPS/alacritty/target/release/alacritty   $BIN_DIR/alacritty"
 )
