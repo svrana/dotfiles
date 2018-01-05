@@ -54,7 +54,6 @@ package %w(
   ruby
   neovim
   libpq-dev
-  laptop-mode-tools
   rvm
   spotify-client
   zeal
