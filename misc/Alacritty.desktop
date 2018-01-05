@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-TryExec=alacritty
-Exec=alacritty
+TryExec=.local/bin/alacritty
+Exec=.local/bin/alacritty
 Icon=utilities-terminal
 Terminal=false
 Categories=System;TerminalEmulator;
@@ -14,4 +14,4 @@ Actions=New;
 
 [Desktop Action New]
 Name=New Terminal
-Exec=alacritty
+Exec=.local/bin/alacritty
