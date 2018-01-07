@@ -28,6 +28,8 @@ INSTALLERS=(
     alacritty
     dbeaver
     fd
+    go
+    hugo
     neovim
     powerline
     ripgrep
