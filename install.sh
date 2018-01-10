@@ -75,7 +75,7 @@ FILE_LINKS=(
     "${RCS}/ipython_config.py                   ~/.ipython/profile_default/ipython_config.py"
     "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
     "${DOTFILES}/misc/Alacritty.desktop         ~/.local/share/applications"
-    "$APPS/alacritty/target/release/alacritty   $BIN_DIR/alacritty"
+    "$APPS/alacritty/target/release/alacritty   /usr/local/bin/alacritty"
 )
 
 #
@@ -173,7 +173,13 @@ function _make_links() {
         spec=$(echo "$link_spec" | tr -s ' ')
         local target=${spec%% *}
         local link=${spec#* }
-        ln -sf "$target" "${link/#~/$HOME}" # expand ~/ to $HOME
+        link=${link/#~/$HOME} # expand ~/ to $HOME
+        local len=${#HOME}
+        if [ "$HOME" = "${link:0:len}" ]; then
+            ln -sf "$target" "$link"
+        else
+            sudo ln -sf "$target" "$link"
+        fi
     done
 
     egood "Created file links"
