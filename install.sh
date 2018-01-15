@@ -160,14 +160,18 @@ function _chef_bootstrap() {
 # DIR_LINKS arrays.
 #
 function _make_links() {
+    local -i count=0
+
     local spec
     for link_spec in "${DIR_LINKS[@]}" ; do
         spec=$(echo "$link_spec" | tr -s ' ')
         local target=${spec%% *}
         local link=${spec#* }
         ln -Tsf "$target" "$link"
+        count=$((count+1))
     done
-    egood "Created directory links"
+    egood "Created $count directory links"
+    count=0
 
     for link_spec in "${FILE_LINKS[@]}" ; do
         spec=$(echo "$link_spec" | tr -s ' ')
@@ -180,20 +184,23 @@ function _make_links() {
         else
             sudo ln -sf "$target" "$link"
         fi
+        count=$((count+1))
     done
 
-    egood "Created file links"
+    egood "Created $count file links"
 }
 
 #
 # Create each direcctory specified in the CREATE_DIRS array.
 #
 function _make_dirs() {
+    local -i count=0
     for dir in "${CREATE_DIRS[@]}" ; do
         mkdir -p "${dir/#~/$HOME}"
+        count=$((count+1))
     done
 
-    egood "Created default directories"
+    egood "Created $count default directories"
 }
 
 #
