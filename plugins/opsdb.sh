@@ -28,3 +28,9 @@ function opsdb-reload() {
 function opsdb-dump() {
     pg_dump --username=opsdb --dbname=opsdb --host=localhost > opsdb.dump
 }
+
+function opsdb-schema-regen() {
+    pushd ~/go/src/github.com/jacksontj/dataman/src/schemaexport
+    ./schemaexport --databases=opsdb > ~/go/src/github.com/ghowland/web6.0/data/schema.json
+    popd
+}
