@@ -14,7 +14,7 @@ function cdg() {
     local project_root="${project%%/*}"
     local dir
 
-    dir="$(fd --max-depth 3 "$project_root" "$HOME/go/src")"
+    dir="$(fd --type d --max-depth 3 "$project_root" "$HOME/go/src" | head -n1)"
     if [ -n "$dir" ]; then
         local subdirs="${project#$project_root/*}"
         if [ "$project" != "$project_root" ]; then

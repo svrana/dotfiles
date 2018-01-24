@@ -21,7 +21,7 @@ function cdp() {
 
     local project_root="${project%%/*}"
     local dir
-    dir="$(fd --max-depth 2 "$project_root" "$PROJECTS")"
+    local dir="$(fd --max-depth 2 "$project_root" "$PROJECTS" | head -n1 )"
 
     if [ -n "$dir" ]; then
         local subdirs="${project#$project_root/*}"
