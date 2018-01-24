@@ -377,3 +377,11 @@ let g:go_fmt_autosave = 1
 
 " Enables debug logging
 "let g:neomake_logfile = '/tmp/neomake.log'
+"
+
+" For macros
+"
+" only rerender at the end of the macro
+set lazyredraw
+" repeat last macro
+nnoremap Q @@
