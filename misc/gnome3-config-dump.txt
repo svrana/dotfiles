@@ -50,6 +50,7 @@ history-size=10
 notify-on-copy=false
 next-entry=['<Primary>Up']
 prev-entry=['<Primary>Down']
+topbar-preview-size=10
 
 [org/gnome/shell/extensions/auto-move-windows]
 application-list=['slack.desktop:5', 'spotify.desktop:4', 'google-chrome.desktop:3', 'evolution.desktop:1', 'rhythmbox.desktop:4', 'firefox.desktop:3', 'zeal.desktop:6']
@@ -90,6 +91,7 @@ force-straight-corner=false
 intellihide=false
 intellihide-mode='FOCUS_APPLICATION_WINDOWS'
 show-show-apps-button=false
+hot-keys=false
 custom-theme-running-dots=false
 unity-backlit-items=false
 custom-theme-shrink=false
@@ -140,42 +142,9 @@ prompt-check='2018-01-01T04:49:41.524481Z'
 [org/gnome/deja-dup/file]
 path='/home/shaw/deja-dup'
 
-[org/gnome/desktop/a11y/keyboard]
-slowkeys-beep-press=true
-mousekeys-accel-time=1200
-bouncekeys-beep-reject=true
-slowkeys-beep-reject=false
-togglekeys-enable=false
-disable-timeout=120
-enable=false
-bouncekeys-enable=false
-stickykeys-enable=false
-feature-state-change-beep=false
-slowkeys-beep-accept=true
-bouncekeys-delay=300
-mousekeys-max-speed=750
-mousekeys-enable=false
-timeout-enable=false
-slowkeys-delay=300
-stickykeys-modifier-beep=true
-stickykeys-two-key-off=true
-mousekeys-init-delay=160
-slowkeys-enable=false
-
-[org/gnome/desktop/app-folders]
-folder-children=['Utilities', 'Sundry']
-
-[org/gnome/desktop/app-folders/folders/Utilities]
-translate=true
-categories=['X-GNOME-Utilities']
-apps=['org.gnome.baobab.desktop', 'deja-dup-preferences.desktop', 'eog.desktop', 'evince.desktop', 'org.gnome.FileRoller.desktop', 'gnome-calculator.desktop', 'gnome-dictionary.desktop', 'org.gnome.Characters.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Screenshot.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gnome-tweak-tool.desktop', 'gucharmap.desktop', 'seahorse.desktop', 'vinagre.desktop', 'yelp.desktop']
-name='X-GNOME-Utilities.directory'
-
-[org/gnome/desktop/app-folders/folders/Sundry]
-translate=true
-categories=['X-GNOME-Sundry']
-apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop', 'fedora-release-notes.desktop', 'firewall-config.desktop', 'flash-player-properties.desktop', 'gconf-editor.desktop', 'gnome-abrt.desktop', 'gnome-power-statistics.desktop', 'ibus-setup-anthy.desktop', 'ibus-setup.desktop', 'ibus-setup-hangul.desktop', 'ibus-setup-libbopomofo.desktop', 'ibus-setup-libpinyin.desktop', 'ibus-setup-m17n.desktop', 'ibus-setup-typing-booster.desktop', 'im-chooser.desktop', 'itweb-settings.desktop', 'jhbuild.desktop', 'javaws.desktop', 'java-1.7.0-openjdk-jconsole.desktop', 'java-1.7.0-openjdk-policytool.desktop', 'log4j-chainsaw.desktop', 'log4j-logfactor5.desktop', 'nm-connection-editor.desktop', 'orca.desktop', 'setroubleshoot.desktop', 'system-config-date.desktop', 'system-config-firewall.desktop', 'system-config-keyboard.desktop', 'system-config-language.desktop', 'system-config-printer.desktop', 'system-config-users.desktop', 'vino-preferences.desktop']
-name='X-GNOME-Sundry.directory'
+[org/gnome/desktop/interface]
+clock-show-date=true
+gtk-im-module='gtk-im-context-simple'
 
 [org/gnome/desktop/notifications]
 application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution']
@@ -201,6 +170,21 @@ application-id='org.gnome.Software.desktop'
 [org/gnome/desktop/notifications/application/rhythmbox]
 application-id='rhythmbox.desktop'
 
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'Sundry']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+translate=true
+categories=['X-GNOME-Utilities']
+apps=['org.gnome.baobab.desktop', 'deja-dup-preferences.desktop', 'eog.desktop', 'evince.desktop', 'org.gnome.FileRoller.desktop', 'gnome-calculator.desktop', 'gnome-dictionary.desktop', 'org.gnome.Characters.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Screenshot.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gnome-tweak-tool.desktop', 'gucharmap.desktop', 'seahorse.desktop', 'vinagre.desktop', 'yelp.desktop']
+name='X-GNOME-Utilities.directory'
+
+[org/gnome/desktop/app-folders/folders/Sundry]
+translate=true
+categories=['X-GNOME-Sundry']
+apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop', 'fedora-release-notes.desktop', 'firewall-config.desktop', 'flash-player-properties.desktop', 'gconf-editor.desktop', 'gnome-abrt.desktop', 'gnome-power-statistics.desktop', 'ibus-setup-anthy.desktop', 'ibus-setup.desktop', 'ibus-setup-hangul.desktop', 'ibus-setup-libbopomofo.desktop', 'ibus-setup-libpinyin.desktop', 'ibus-setup-m17n.desktop', 'ibus-setup-typing-booster.desktop', 'im-chooser.desktop', 'itweb-settings.desktop', 'jhbuild.desktop', 'javaws.desktop', 'java-1.7.0-openjdk-jconsole.desktop', 'java-1.7.0-openjdk-policytool.desktop', 'log4j-chainsaw.desktop', 'log4j-logfactor5.desktop', 'nm-connection-editor.desktop', 'orca.desktop', 'setroubleshoot.desktop', 'system-config-date.desktop', 'system-config-firewall.desktop', 'system-config-keyboard.desktop', 'system-config-language.desktop', 'system-config-printer.desktop', 'system-config-users.desktop', 'vino-preferences.desktop']
+name='X-GNOME-Sundry.directory'
+
 [org/gnome/desktop/peripherals/touchpad]
 click-method='default'
 tap-to-click=true
@@ -214,24 +198,52 @@ repeat=true
 [org/gnome/desktop/peripherals/mouse]
 speed=0.4336283185840708
 
-[org/gnome/desktop/interface]
-clock-show-date=true
-gtk-im-module='gtk-im-context-simple'
-
-[org/gnome/desktop/input-sources]
-sources=[('xkb', 'us')]
-xkb-options=['caps:ctrl_modifier']
-
 [org/gnome/desktop/wm/preferences]
 num-workspaces=6
 
 [org/gnome/desktop/wm/keybindings]
-switch-to-workspace-right=@as []
+switch-to-workspace-1=['<Super>1']
+switch-to-workspace-2=['<Super>2']
+switch-to-workspace-3=['<Super>3']
+switch-to-workspace-4=['<Super>4']
+switch-to-workspace-5=['<Super>5']
+switch-to-workspace-6=['<Super>6']
 switch-to-workspace-left=@as []
-switch-to-workspace-down=@as []
-maximize-horizontally=['<Primary><Alt>h']
 maximize-vertically=['<Primary><Alt>v']
+switch-to-workspace-right=@as []
+switch-to-workspace-down=@as []
+switch-to-workspace-last=@as []
+maximize-horizontally=['<Primary><Alt>h']
 switch-to-workspace-up=@as []
+
+[org/gnome/desktop/a11y/keyboard]
+slowkeys-beep-press=true
+mousekeys-accel-time=1200
+bouncekeys-beep-reject=true
+slowkeys-beep-reject=false
+togglekeys-enable=false
+disable-timeout=120
+enable=false
+bouncekeys-enable=false
+stickykeys-enable=false
+feature-state-change-beep=false
+slowkeys-beep-accept=true
+bouncekeys-delay=300
+mousekeys-max-speed=750
+mousekeys-enable=false
+timeout-enable=false
+slowkeys-delay=300
+stickykeys-modifier-beep=true
+stickykeys-two-key-off=true
+mousekeys-init-delay=160
+slowkeys-enable=false
+
+[org/gnome/desktop/background]
+picture-options='zoom'
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'us')]
+xkb-options=['caps:ctrl_modifier']
 
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
@@ -271,6 +283,11 @@ show-browser=true
 [org/gnome/rhythmbox/rhythmdb]
 locations=['file:///home/shaw/Music']
 
+[org/gnome/evolution]
+disabled-eplugins=['org.gnome.evolution.mail_notification']
+default-address-book='system-address-book'
+version='3.18.5'
+
 [org/gnome/evolution/plugin/autocontacts]
 addressbook-source='system-address-book'
 enable=true
@@ -297,10 +314,6 @@ attachment-view=0
 toolbar-visible=true
 statusbar-visible=true
 
-[org/gnome/evolution]
-default-address-book='system-address-book'
-version='3.18.5'
-
 [org/gnome/evolution/calendar]
 work-day-friday=true
 confirm-purge=true
@@ -311,7 +324,7 @@ use-24hour-format=true
 work-day-sunday=false
 work-day-thursday=true
 recur-events-italic=false
-last-notification-time=1516294800
+last-notification-time=1516834200
 prefer-new-item=''
 primary-calendar='1492034716.1460.0@bonview'
 work-day-saturday=false
@@ -419,7 +432,7 @@ scrollbar-policy='never'
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1516371494
+check-timestamp=int64 1516814026
 
 [org/gtk/settings/file-chooser]
 sort-column='name'
@@ -436,7 +449,7 @@ location-mode='path-bar'
 [ca/desrt/dconf-editor]
 window-is-fullscreen=false
 window-height=600
-window-width=800
+window-width=1104
 window-is-maximized=false
 
 [desktop/ibus/general]
