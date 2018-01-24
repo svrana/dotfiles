@@ -6,7 +6,17 @@ alias yudien='cd ~/.go/src/github.com/ghowland/yudien'
 
 function opsdb-reload() {
     local load_file
-    load_file=$(dolisting "$DOWNLOADS/wish_opsdb_*.sql" | tr ' ' '\n' | sort -nrt _ -k2 | head -1)
+
+    if [ -z "$1" ]; then
+        load_file=$(dolisting "$DOWNLOADS/wish_opsdb_*.sql" | tr ' ' '\n' | sort -nrt _ -k2 | head -1)
+    else
+        load_file="$1"
+        if [ ! -f "$load_file" ]; then
+            echo "Could not find $load_file"
+            return 1
+        fi
+    fi
+
     if [ -z "${load_file}" ]; then
         echo "Could not find a opsdb file to load"
         return 1
@@ -30,7 +40,24 @@ function opsdb-dump() {
 }
 
 function opsdb-schema-regen() {
-    pushd ~/go/src/github.com/jacksontj/dataman/src/schemaexport
+    local dir="$HOME/go/src/github.com/jacksontj/dataman/src/"
+
+    if [ ! -d "$dir" ]; then
+        echo -n "Fetching schemaexport"
+        go get github.com/jacksontj/dataman/src/schemaexport
+        estatus
+    fi
+    pushd "$dir/schemaexport"
+
+    if [ ! -x "$dir/schemaexport" ]; then
+        echo -n "Building schemaexport"
+        go build
+        estatus
+    fi
+
+    echo -n "Running schemaexport on opsdb"
     ./schemaexport --databases=opsdb > ~/go/src/github.com/ghowland/web6.0/data/schema.json
+    estatus
+
     popd
 }
