@@ -1,6 +1,3 @@
-"
-" .vimrc (shaw@vranix.com)
-"
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
       !cargo build --release
@@ -88,7 +85,6 @@ let g:DeleteTrailingWhitespace_Action = 'delete'
 
 let g:deoplete#enable_at_startup = 1
 " let g:deoplete#disable_auto_complete = 1
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 set completeopt+=menu
 set notimeout
@@ -123,7 +119,6 @@ set comments+=b:\"
 
 " Turn on continuation of comment characters for all file types
 "autocmd FileType * setlocal formatoptions+=caroq
-
 autocmd FileType * setlocal formatoptions+=croq
 
 autocmd BufRead gitcommit setlocal spell spelllang=en_US textwidth=72
@@ -174,129 +169,83 @@ function! GotoDotfiles()
     cd $DOTFILES
 endfun
 
-map     \cf :call GetFile(expand("$DOTFILES"))<CR>
-map!    \cf <ESC>:call GetFile(expand("$DOTFILES"))<CR>
+map  \cf :call GetFile(expand("$DOTFILES"))<CR>
+map! \cf <ESC>:call GetFile(expand("$DOTFILES"))<CR>
 
-map     \gc :call GotoDotfiles()<CR>
-map!    \gc <ESC>:call GotoDotfile()<CR>
+map  \gc :call GotoDotfiles()<CR>
+map! \gc <ESC>:call GotoDotfile()<CR>
 
-map 	\sp :split<CR>
-map!	\sp <ESC>:split<CR>
+map \sp :split<CR>
+map! \sp <ESC>:split<CR>
 nmap <silent> \ts :ts<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"  Function key mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map 	<F1> :w<CR>
-map!  	<F1> <ESC>:w<CR>
-map     <F3> :Explore<CR>
-map!    <F3> <ESC>:Explore<CR>
-map 	<F7> :!tlc<CR><CR>
-map! 	<F7> <ESC>:!tlc<CR><CR>
-map 	<F12> :q<CR>
-map! 	<F12> <ESC>:q<CR>
+map  <F1> :w<CR>
+map! <F1> <ESC>:w<CR>
+map  <F3> :Explore<CR>
+map! <F3> <ESC>:Explore<CR>
+map  <F7> :!tlc<CR><CR>
+map! <F7> <ESC>:!tlc<CR><CR>
+map  <F12> :q<CR>
+map! <F12> <ESC>:q<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map  <m-n> :cn<CR>
+map! <m-n> <ESC>:cn<CR>
+map  <m-p> :cp<CR>
+map! <m-p> <ESC>:cp<CR>
+map  <m-f> :cfirst<CR>
+map! <m-f> <ESC>:cfirst<CR>
+map  <m-l> :clist<CR>
+map! <m-l> <ESC>:clist<CR>
+map  <m-o> :copen<CR>
+map! <m-o> <ESC>:copen<CR>
+
 nmap n nmzz.`z
 nmap N Nmzz.`z
 nmap * *mzz.`z
 nmap # #mzz.`z
 nmap g* g*mzz.`z
 nmap g# g#mzz.`z
-"nmap gn :set invnu<CR>
 
-noremap <silent> <leader>zz :TagbarToggle<CR>
-"noremap <leader>md :ComposerStart<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" alt mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map 	<m-n> :cn<CR>
-map! 	<m-n> <ESC>:cn<CR>
-map 	<m-p> :cp<CR>
-map! 	<m-p> <ESC>:cp<CR>
-map 	<m-f> :cfirst<CR>
-map! 	<m-f> <ESC>:cfirst<CR>
-map 	<m-l> :clist<CR>
-map! 	<m-l> <ESC>:clist<CR>
-map 	<m-o> :copen<CR>
-map! 	<m-o> <ESC>:copen<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ctrl mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " buffers
-map 	<c-p> :bp<CR>
-map! 	<c-p> <esc>:bp<CR>
-map 	<c-n> :bn<CR>
-map! 	<c-n> <esc>:bn<CR>
-map 	<c-j> :buffers<CR>
-map! 	<c-j> <esc>:buffers<CR>
-map 	<c-x> :bdelete<CR>
-map! 	<c-x> <esc>:bdelete<CR>
-map 	<c-/> :bdelete<CR>
-map! 	<c-/> <esc>:bdelete<CR>
+map  <c-p> :bp<CR>
+map! <c-p> <esc>:bp<CR>
+map  <c-n> :bn<CR>
+map! <c-n> <esc>:bn<CR>
+map  <c-j> :buffers<CR>
+map! <c-j> <esc>:buffers<CR>
+map  <c-x> :bdelete<CR>
+map! <c-x> <esc>:bdelete<CR>
+map  <c-/> :bdelete<CR>
+map! <c-/> <esc>:bdelete<CR>
 
 " tabs
-map 	<c-s> :tabp<CR>
-map! 	<c-s> <ESC>tabp<CR>
-map     <c-h> :tabn<CR>
-map!  	<c-h> <ESC>tabn<CR>
+map  <c-s> :tabp<CR>
+map! <c-s> <ESC>tabp<CR>
+map  <c-h> :tabn<CR>
+map! <c-h> <ESC>tabn<CR>
 nnoremap \tt :tabnew<CR>
 nnoremap \nt :tabnew<CR>
 
-map 	<c-c> :make<CR>
-" 5 ctrl-h jumps to buffer 5
-"map 	<c-h> <C-^>
-map 	- <C-W>-
-map 	+ <C-W>+
+map <c-c> :make<CR>
+map - <C-W>-
+map + <C-W>+
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ctrl tag-related mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <silent> <leader>zz :TagbarToggle<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
 
 " goto next tag in taglist
 map 	<c-=> :tnext<CR>
 map! 	<c-=> <ESC>:tnext<CR>
-" mapping something to <c-[> breaks function key mappings
-"map 	<c-[> :pop<CR>
-"map! 	<c-[> <ESC>:pop<CR>
-
 " map pageup to something reasonable
-map 	<c-d> <c-b>
-map 	<c-r> :'a,'bs/^/#/<CR>
-nnoremap \sv :source ~/.vimrc<CR>
+map <c-d> <c-b>
+map <c-r> :'a,'bs/^/#/<CR>
+nnoremap \rcb :'a,'bs/^#//<CR>
 
 " toggle highlighting when searching
 nnoremap \th :set invhls hls?<CR>
 " toggle paste mapping to avoid things like autoindent causing 'stepped' text
 nnoremap \tp :set invpaste paste?<CR>
-" remove comment block
-nnoremap \rcb :'a,'bs/^#//<CR>
-"set pastetoggle=<F4>
 
-"
-" JAVAC/ANT INTEGRATION (he quickfix)
-" ':' command  what it does
-" cn go to the next error
-" cp go to the previous error
-" cfirst go to the first error
-" clast go to the last error
-" clist list all of the errors
-" copen open split window of errors
-"
-"set shell=/bin/bash
-"set shellpipe=2>&1\|tee
-"set makeef=$TMP/vim.##
-"set makeprg=ant\ debug
-"set makeprg=make\ -f\ Makefile
-"autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colorschemes
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
     set background=light
 else
@@ -305,13 +254,13 @@ endif
 
 colorscheme solarized
 
-map <M-Esc>[62~ <MouseDown>
+map  <M-Esc>[62~ <MouseDown>
 map! <M-Esc>[62~ <MouseDown>
-map <M-Esc>[63~ <MouseUp>
+map  <M-Esc>[63~ <MouseUp>
 map! <M-Esc>[63~ <MouseUp>
-map <M-Esc>[64~ <S-MouseDown>
+map  <M-Esc>[64~ <S-MouseDown>
 map! <M-Esc>[64~ <S-MouseDown>
-map <M-Esc>[65~ <S-MouseUp>
+map  <M-Esc>[65~ <S-MouseUp>
 map! <M-Esc>[65~ <S-MouseUp>
 
 nnoremap <silent> <LocalLeader>t :FZF<cr>
@@ -368,12 +317,12 @@ au FileType go nmap <leader>r :GoTest<CR>
 au FileType go nmap <leader>s <Plug>(go-implements)
 au FileType go nmap <leader>o <Plug>(go-test)
 
-let g:go_fmt_command = "goimports"
+"let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 "let g:go_auto_type_info = 1
 set updatetime=1000
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
-let g:go_fmt_autosave = 1
+let g:go_fmt_autosave = 0
 
 " Enables debug logging
 "let g:neomake_logfile = '/tmp/neomake.log'
