@@ -129,6 +129,8 @@ autocmd BufNewFile,BufRead,BufEnter *.erb setf ruby
 autocmd BufNewFile,BufRead,BufEnter *.feature setf ruby
 autocmd BufNewFile,BufRead,BufEnter *.gradle setf groovy
 autocmd BufNewFile,BufRead,BufEnter *.json setf json
+autocmd BufNewFile,BufRead,BufEnter *.gjs setf javascript
+
 autocmd BufWritePost,BufEnter * Neomake
 
 " When editing a file that requires root, try to save using sudo
