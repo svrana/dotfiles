@@ -12,6 +12,7 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary' 		" auto-commenting
+Plug 'tpope/vim-obsession.git'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'vim-scripts/matchit.zip'
 Plug 'ervandew/supertab'
