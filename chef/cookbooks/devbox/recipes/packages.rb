@@ -1,3 +1,8 @@
+include_recipe 'nodejs'
+
+npm_package 'neovim'
+gem_package 'neovim'
+
 apt_repository 'neovim' do
   uri 'ppa:neovim-ppa/stable'
 end

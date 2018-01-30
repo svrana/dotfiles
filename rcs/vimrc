@@ -10,9 +10,9 @@ Plug 'gmodarelli/solarize' 		" the colorscheme
 Plug 'altercation/vim-colors-solarized'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' 		" git
 Plug 'tpope/vim-commentary' 		" auto-commenting
-Plug 'tpope/vim-obsession.git'
+Plug 'tpope/vim-obsession' 		" auto-session handling
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'vim-scripts/matchit.zip'
 Plug 'ervandew/supertab'
@@ -30,15 +30,17 @@ Plug 'zchee/deoplete-go'
 Plug 'zchee/deoplete-jedi'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'ternjs/tern_for_vim'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar' 		" ide
 Plug 'farmergreg/vim-lastplace' 	" open file at last position
 Plug 'jreybert/vimagit'
-Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-peekaboo' 		" show contents of copy buffer
 Plug 'kopischke/vim-fetch' 		" open file:lineno:colno see sf()
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-jdaddy' 		" json related (formatting)
+Plug 'cespare/vim-toml' 		" toml formatting
+
 
 " All of your Plugins must be added before the following line
 call plug#end()
