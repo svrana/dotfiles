@@ -1485,13 +1485,12 @@
         "focusInput": [
           [
             {
-              "code": "KeyF",
-              "key": "F",
-              "shiftKey": true
-            },
-            {
               "code": "KeyI",
-              "key": "i"
+              "key": "i",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
             }
           ]
         ],
@@ -1702,12 +1701,6 @@
               "code": "BracketLeft",
               "key": "{",
               "shiftKey": true
-            }
-          ],
-          [
-            {
-              "code": "KeyI",
-              "key": "i"
             }
           ]
         ],
