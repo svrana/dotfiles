@@ -1,6 +1,8 @@
 include_recipe 'nodejs'
 
 npm_package 'neovim'
+npm_package 'diff-so-fancy'
+
 gem_package 'neovim'
 
 apt_repository 'neovim' do
