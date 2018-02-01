@@ -31,6 +31,8 @@
 	fr = "!f() { git fetch origin master && git rebase origin/master; }; f"
 	cgrep = "!f() { git grep -I "$@" -- './*' ':!**/css/**' ':!**/build-js-en/**' ':!**/ios4/**' ':!**/static/js/**' ':!**/static/css/**' ':!**/js/modules/**' ':!**/quality/static/**' ':!**/lib/highcharts/**' ':!*.min.js' ':!**/MobileWebsiteCore.js' ':!*.html' ':!*.json' ':!*.xml' ':!*.map' ':!*.pkl' ; }; f"
 	new = "!f() { git checkout -b "$@" --track origin/master ; }; f"
+	patch = !git --no-pager diff --no-color
+
 [color]
   	ui = true
 [color "branch"]
@@ -63,3 +65,6 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[diff-so-fancy]
+	stripLeadingSymbols = false
+
