@@ -1,5 +1,3 @@
-include_recipe 'nodejs'
-
 npm_package 'neovim'
 npm_package 'diff-so-fancy'
 
