@@ -33,3 +33,21 @@ layout_golang() {
 
     PATH_prepend "$GOBIN"
 }
+
+layout_node() {
+    local version=${1}
+
+    if [ -z "$version" ]; then
+        echo "must specify node version"
+    fi
+    version="v${version}"
+    local node_dir="${NVM_DIR}/versions/node/${version}"
+
+    if [ ! -d "$node_dir" ]; then
+        echo "Node $version not found in \$NVM_DIR"
+        return
+    fi
+
+    PATH_prepend "${node_dir}/bin"
+    export MANPATH="${node_dir}}/share/man":$MANPATH
+}
