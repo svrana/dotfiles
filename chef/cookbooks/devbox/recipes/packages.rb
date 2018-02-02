@@ -1,5 +1,6 @@
 npm_package 'neovim'
 npm_package 'diff-so-fancy'
+npm_package 'eslint'
 
 gem_package 'neovim'
 
