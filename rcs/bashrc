@@ -40,6 +40,7 @@ export DOTFILE_PLUGINS=(
     ls
     powerline-go
     ps
+    nvm
     python
     ruby
     rust
