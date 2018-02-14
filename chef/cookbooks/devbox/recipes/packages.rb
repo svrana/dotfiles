@@ -69,4 +69,5 @@ package %w(
   cmake
   libfreetype6-dev
   libfontconfig1-dev
+  pandoc
 )
