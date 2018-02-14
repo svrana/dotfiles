@@ -10,12 +10,15 @@ layout_python() {
     local python=${1:-python}
     local subdir=${2:-$PWD}
 
-    unset PYTHONHOME
+    unset PYTHONHOME # what is this?
     export VIRTUAL_ENV=${WORKON_HOME}/${subdir##*/}
     if [[ ! -d $VIRTUAL_ENV ]]; then
         virtualenv -p "$python" "$VIRTUAL_ENV"
     fi
     PATH_add "$VIRTUAL_ENV/bin"
+
+    export PYTHONPATH=$PWD
+    export PYLINTRC=${PWD}/.pylintrc
 }
 
 layout_golang() {
