@@ -3,7 +3,7 @@
 function __install_golang() {
     [ -d "$GOROOT" ] && return 0
 
-    local version=1.9.2
+    local version=1.9.4
     local url=https://storage.googleapis.com/golang
     local filename=go${version}.linux-amd64.tar.gz
 
