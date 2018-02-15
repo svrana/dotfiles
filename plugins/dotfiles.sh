@@ -23,3 +23,15 @@ function vip() {
 
     $EDITOR "$plugin_path"
 }
+
+#
+# Load a dotfiles plugin into editor
+#
+function vii() {
+    [ -z "$1" ] && return
+    local installer="${1%.sh}"
+    local installer_path
+
+    installer_path=$DOTFILES/installers/${installer}.sh
+    $EDITOR "$installer_path"
+}
