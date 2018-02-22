@@ -168,8 +168,16 @@ function _make_links() {
         spec=$(echo "$link_spec" | tr -s ' ')
         local target=${spec%% *}
         local link=${spec#* }
-        ln -Tsf "$target" "$link"
-        count=$((count+1))
+        if ! ln -Tsf "$target" "$link" 2>/dev/null ; then
+            [ -d "$link" ] && rmdir "$link" 2>/dev/null
+            if ! ln -Tsf "$target" "$link" 2>/dev/null ; then
+                ebad "Failed to create directory link at $link"
+            else
+                count=$((count+1))
+            fi
+        else
+            count=$((count+1))
+        fi
     done
     egood "Created $count directory links"
     count=0
