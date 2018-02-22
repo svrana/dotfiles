@@ -1,8 +1,10 @@
 [user]
 	name = Shaw Vrana
 	email = shaw@vranix.com
+
 [credential]
 	helper = cache
+
 [alias]
 	rename = commit --reset-author --amend
 	co = checkout
@@ -35,10 +37,12 @@
 
 [color]
   	ui = true
+
 [color "branch"]
   	current = yellow black
   	local = yellow
   	remote = magenta
+
 [color "diff"]
 	meta = yellow
 	frag = magenta bold
@@ -46,25 +50,32 @@
 	new = green bold
 	whitespace = red reverse
 	commit = yellow bold
+
 [color "status"]
   	added = yellow
   	changed = green
   	untracked = cyan reverse
   	branch = magenta
+
 [push]
   	default = simple
+
 [core]
   	excludesfile = ~/.config/git/ignore
 	pager = diff-so-fancy | less --tabs=4 -RFX
+
 [merge]
 	tool = vimdiff
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+
 [diff-so-fancy]
 	stripLeadingSymbols = false
 
