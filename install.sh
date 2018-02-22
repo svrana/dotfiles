@@ -27,6 +27,7 @@ INSTALLERS=(
     cargo
     alacritty
     dbeaver
+    neovim
     fd
     go
     hugo

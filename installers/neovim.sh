@@ -23,7 +23,7 @@ if [ ! -f "$PLUG_DIR/plug.vim" ]; then
 fi
 
 if [ ! -f ~/.config/nvim/init.vim ]; then
-    mkdir ~/.config/nvim
+    mkdir -p ~/.config/nvim
     ln -sf "${RCS}/vimrc" ~/.config/nvim/init.vim
     sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
     sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
