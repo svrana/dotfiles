@@ -1,8 +1,10 @@
 #!/bin/bash
 
-which hugo > /dev/null
-if [ $? = 1 ]; then
-    go get github.com/kardianos/govendor
-    govendor get github.com/gohugoio/hugo
-    go install github.com/gohugoio/hugo
+if ! command -v hugo ; then
+    go get github.com/magefile/mage
+    go get -d github.com/gohugoio/hugo
+    pushd "${GOPATH:-$HOME/go}/src/github.com/gohugoio/hugo" > /dev/null
+    mage vendor
+    mage install
+    popd > /dev/null
 fi
