@@ -1,5 +1,6 @@
 {
   "default_attributes": {
+    "scale_factor": 1
   },
   "run_list": [
     "recipe[nodejs]",

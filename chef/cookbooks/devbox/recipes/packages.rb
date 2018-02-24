@@ -58,6 +58,7 @@ package %w(
   network-manager-openvpn-gnome
   shellcheck
   ruby
+  ruby-dev
   neovim
   libpq-dev
   rvm
@@ -71,3 +72,10 @@ package %w(
   libfontconfig1-dev
   pandoc
 )
+
+template '/usr/share/applications/spotify.desktop' do
+  source 'spotify.desktop.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
