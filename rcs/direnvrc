@@ -7,7 +7,7 @@ PATH_prepend() {
 
 
 layout_python() {
-    local python=${1:-python}
+    local python=${1:-python2}
     local subdir=${2:-$PWD}
 
     unset PYTHONHOME # what is this?
