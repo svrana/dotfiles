@@ -31,6 +31,7 @@ INSTALLERS=(
     fd
     go
     hugo
+    joplin
     neovim
     powerline
     ripgrep
