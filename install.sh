@@ -100,8 +100,8 @@ function _run_installers() {
     for installer in ${INSTALLERS[*]}; do
         local location="$DOTFILES/installers/${installer}.sh"
         if [ ! -f "$location" ]; then
-            echo "Installer $installer missing"
-            return 1
+            ebad "Installer $installer missing"
+            continue
         fi
         echo -n "Configuring $installer"
         source "$location"
