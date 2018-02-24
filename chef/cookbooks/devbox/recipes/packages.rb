@@ -73,8 +73,24 @@ package %w(
   pandoc
 )
 
+# custom .desktop files for electron apps that require scaling on hidpi settings
+
 template '/usr/share/applications/spotify.desktop' do
   source 'spotify.desktop.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
+template '/home/shaw/.local/share/applications/appimagekit-joplin.desktop' do
+  source 'appimagekit-joplin.desktop.erb'
+  owner 'shaw'
+  group 'shaw'
+  mode '0644'
+end
+
+template '/usr/share/applications/slack.desktop' do
+  source 'slack.desktop.erb'
   owner 'root'
   group 'root'
   mode '0644'
