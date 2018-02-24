@@ -1,3 +1,14 @@
+[net/launchpad/diodon/keybindings]
+history-accelerator='<super>C'
+
+[net/launchpad/diodon/plugins]
+active-plugins=['indicator']
+
+[net/launchpad/diodon/clipboard]
+use-clipboard=true
+use-primary=true
+synchronize-clipboards=true
+
 [org/gnome/quadrapassel]
 window-height=555
 window-width=585
@@ -6,6 +17,41 @@ window-is-maximized=false
 [org/gnome/empathy]
 sanity-cleaning-number=uint32 4
 
+[org/gnome/empathy/conversation]
+theme='Classic'
+theme-variant='Clean'
+spell-checker-enabled=true
+
+[org/gnome/empathy/location]
+reduce-accuracy=false
+publish=true
+
+[org/gnome/empathy/sounds]
+sounds-enabled=false
+
+[org/gnome/empathy/ui]
+show-balance-in-roster=true
+chat-window-paned-pos=528
+
+[org/gnome/Contacts]
+did-initial-setup=true
+
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-battery-type='nothing'
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='nothing'
+sleep-inactive-battery-timeout=1800
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+logout=''
+screensaver='<Primary><Alt>l'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding=''
+command='/usr/bin/diodon'
+name='Diodon'
+
 [org/gnome/settings-daemon/plugins/xsettings]
 overrides={'Gtk/EnablePrimaryPaste': <1>}
 
@@ -13,9 +59,9 @@ overrides={'Gtk/EnablePrimaryPaste': <1>}
 numlock-state='off'
 
 [org/gnome/shell]
-command-history=['gconf-editor', 'r']
-enabled-extensions=['activities-config@nls1729', 'dash-to-dock@micxgx.gmail.com', 'TopIcons@phocean.net', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'workspace-grid@mathematical.coffee.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'pixel-saver@deadalnix.me', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de']
-favorite-apps=['evolution.desktop', 'Alacritty.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
+command-history=['gconf-editor', 'r', 'er', 'r']
+enabled-extensions=['activities-config@nls1729', 'dash-to-dock@micxgx.gmail.com', 'TopIcons@phocean.net', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'workspace-grid@mathematical.coffee.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'pixel-saver@deadalnix.me', 'openweather-extension@jenslody.de', 'alternate-tab@gnome-shell-extensions.gcampax.github.com']
+favorite-apps=['thunderbird.desktop', 'Alacritty.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
 
 [org/gnome/shell/window-switcher]
 app-icon-mode='both'
@@ -103,41 +149,122 @@ isolate-workspaces=false
 
 [org/gnome/shell/overrides]
 dynamic-workspaces=false
+workspaces-only-on-primary=false
+
+[org/gnome/charmap/window-state]
+size=(1440, 794)
+
+[org/gnome/charmap]
+last-char=uint32 602
+
+[org/gnome/gedit/preferences/editor]
+wrap-last-split-mode='word'
 
 [org/gnome/gedit/preferences/ui]
 show-tabs-mode='auto'
 
 [org/gnome/gedit/plugins/filebrowser]
-virtual-root='file:///home/shaw/Projects/bash-home-scaffold'
+virtual-root='file:///home/shaw/Downloads'
 tree-view=true
 root='file:///'
 
 [org/gnome/gedit/plugins]
-active-plugins=['spell', 'modelines', 'time', 'docinfo', 'filebrowser']
+active-plugins=['modelines', 'spell', 'filebrowser', 'docinfo', 'time']
 
 [org/gnome/gedit/state/window]
-size=(900, 700)
+size=(1444, 700)
 state=128
 bottom-panel-size=140
 side-panel-size=200
 side-panel-active-page='GeditWindowDocumentsPanel'
 
+[org/gnome/calculator]
+target-currency=''
+show-zeroes=false
+source-currency=''
+show-thousands=false
+button-mode='programming'
+target-units='radian'
+word-size=64
+number-format='automatic'
+angle-units='degrees'
+base=10
+source-units='degree'
+accuracy=9
+
+[org/gnome/gnome-screenshot]
+include-pointer=false
+include-border=false
+border-effect='none'
+delay=3
+last-save-directory='file:///home/shaw/Documents'
+
+[org/gnome/nautilus/preferences]
+sort-directories-first=true
+
 [org/gnome/nautilus/window-state]
-geometry='890x550+0+4'
+geometry='890x1173+0+258'
 maximized=false
+
+[org/gnome/nautilus/desktop]
+volumes-visible=true
+
+[org/gnome/nautilus/list-view]
+default-visible-columns=['name', 'size', 'type', 'date_modified']
+default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 'owner', 'group', 'permissions', 'mime_type', 'where']
 
 [org/gnome/photos]
 window-maximized=true
 
+[org/gnome/evince]
+pictures-directory=@ms 'file:///home/shaw/Documents/home/42-mortgage-payoff'
+
 [org/gnome/evince/default]
-window-ratio=(1.0016339869281046, 0.75757575757575757)
+window-ratio=(1.6653182308522112, 1.4796659404502541)
+
+[org/gnome/file-roller/listing]
+sort-method='name'
+name-column-width=250
+sort-type='ascending'
+list-mode='as-folder'
+show-path=false
+
+[org/gnome/file-roller/dialogs/new]
+default-extension='.tar.gz'
+volume-size=104857
+encrypt-header=false
+
+[org/gnome/file-roller/dialogs/extract]
+skip-newer=false
+recreate-folders=true
+
+[org/gnome/file-roller/ui]
+sidebar-width=200
+window-height=493
+window-width=600
 
 [org/gnome/evolution-data-server]
 migrated=true
 
 [org/gnome/deja-dup]
 backend='file'
-prompt-check='2018-01-01T04:49:41.524481Z'
+prompt-check='2018-01-31T21:24:15.405003Z'
+include-list=@as []
+
+[org/gnome/deja-dup/s3]
+folder='bonview'
+
+[org/gnome/deja-dup/openstack]
+container='bonview'
+
+[org/gnome/deja-dup/gcs]
+folder='bonview'
+
+[org/gnome/deja-dup/rackspace]
+container='bonview'
+
+[org/gnome/deja-dup/gdrive]
+folder='/deja-dup/bonview'
 
 [org/gnome/deja-dup/file]
 path='/home/shaw/deja-dup'
@@ -145,30 +272,52 @@ path='/home/shaw/deja-dup'
 [org/gnome/desktop/interface]
 clock-show-date=true
 gtk-im-module='gtk-im-context-simple'
+monospace-font-name='Ubuntu Mono derivative Powerline 12'
 
 [org/gnome/desktop/notifications]
-application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution']
+application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution', 'thunderbird', 'empathy', 'firefox']
+show-in-lock-screen=false
 
-[org/gnome/desktop/notifications/application/spotify]
-application-id='spotify.desktop'
+[org/gnome/desktop/notifications/application/mailspring-mailspring]
+application-id='mailspring_mailspring.desktop'
 
-[org/gnome/desktop/notifications/application/evolution]
-application-id='evolution.desktop'
+[org/gnome/desktop/notifications/application/empathy]
+application-id='empathy.desktop'
 
-[org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell]
-application-id='org.gnome.ChromeGnomeShell.desktop'
-
-[org/gnome/desktop/notifications/application/slack]
-application-id='slack.desktop'
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
 
 [org/gnome/desktop/notifications/application/deja-dup]
 application-id='deja-dup.desktop'
 
+[org/gnome/desktop/notifications/application/gnome-network-panel]
+application-id='gnome-network-panel.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
 
+[org/gnome/desktop/notifications/application/spotify]
+application-id='spotify.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell]
+application-id='org.gnome.ChromeGnomeShell.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-tweak-tool]
+application-id='gnome-tweak-tool.desktop'
+
 [org/gnome/desktop/notifications/application/rhythmbox]
 application-id='rhythmbox.desktop'
+
+[org/gnome/desktop/notifications/application/evolution]
+application-id='evolution.desktop'
+enable=false
+show-banners=false
+
+[org/gnome/desktop/notifications/application/thunderbird]
+application-id='thunderbird.desktop'
+
+[org/gnome/desktop/notifications/application/slack]
+application-id='slack.desktop'
 
 [org/gnome/desktop/app-folders]
 folder-children=['Utilities', 'Sundry']
@@ -185,6 +334,9 @@ categories=['X-GNOME-Sundry']
 apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop', 'fedora-release-notes.desktop', 'firewall-config.desktop', 'flash-player-properties.desktop', 'gconf-editor.desktop', 'gnome-abrt.desktop', 'gnome-power-statistics.desktop', 'ibus-setup-anthy.desktop', 'ibus-setup.desktop', 'ibus-setup-hangul.desktop', 'ibus-setup-libbopomofo.desktop', 'ibus-setup-libpinyin.desktop', 'ibus-setup-m17n.desktop', 'ibus-setup-typing-booster.desktop', 'im-chooser.desktop', 'itweb-settings.desktop', 'jhbuild.desktop', 'javaws.desktop', 'java-1.7.0-openjdk-jconsole.desktop', 'java-1.7.0-openjdk-policytool.desktop', 'log4j-chainsaw.desktop', 'log4j-logfactor5.desktop', 'nm-connection-editor.desktop', 'orca.desktop', 'setroubleshoot.desktop', 'system-config-date.desktop', 'system-config-firewall.desktop', 'system-config-keyboard.desktop', 'system-config-language.desktop', 'system-config-printer.desktop', 'system-config-users.desktop', 'vino-preferences.desktop']
 name='X-GNOME-Sundry.directory'
 
+[org/gnome/desktop/screensaver]
+lock-delay=uint32 60
+
 [org/gnome/desktop/peripherals/touchpad]
 click-method='default'
 tap-to-click=true
@@ -193,27 +345,37 @@ tap-to-click=true
 display=['CMN', '0x1345', '0x00000000']
 
 [org/gnome/desktop/peripherals/keyboard]
+delay=uint32 429
 repeat=true
 
 [org/gnome/desktop/peripherals/mouse]
-speed=0.4336283185840708
+speed=-0.37168141592920356
+
+[org/gnome/desktop/search-providers]
+sort-order=['gnome-contacts.desktop', 'gnome-documents.desktop', 'nautilus.desktop']
 
 [org/gnome/desktop/wm/preferences]
+auto-raise=true
+focus-mode='sloppy'
 num-workspaces=6
 
 [org/gnome/desktop/wm/keybindings]
 switch-to-workspace-1=['<Super>1']
 switch-to-workspace-2=['<Super>2']
+move-to-workspace-3=@as []
+move-to-workspace-1=@as []
+move-to-workspace-2=@as []
 switch-to-workspace-3=['<Super>3']
+move-to-workspace-4=@as []
+maximize-vertically=['<Primary><Alt>v']
+switch-to-workspace-6=['<Super>6']
 switch-to-workspace-4=['<Super>4']
 switch-to-workspace-5=['<Super>5']
-switch-to-workspace-6=['<Super>6']
-switch-to-workspace-left=@as []
-maximize-vertically=['<Primary><Alt>v']
-switch-to-workspace-right=@as []
-switch-to-workspace-down=@as []
 switch-to-workspace-last=@as []
+switch-to-workspace-down=@as []
+switch-to-workspace-left=@as []
 maximize-horizontally=['<Primary><Alt>h']
+switch-to-workspace-right=@as []
 switch-to-workspace-up=@as []
 
 [org/gnome/desktop/a11y/keyboard]
@@ -239,15 +401,64 @@ mousekeys-init-delay=160
 slowkeys-enable=false
 
 [org/gnome/desktop/background]
+show-desktop-icons=false
 picture-options='zoom'
 
 [org/gnome/desktop/input-sources]
 sources=[('xkb', 'us')]
 xkb-options=['caps:ctrl_modifier']
 
+[org/gnome/terminal/legacy/keybindings]
+help='disabled'
+
+[org/gnome/terminal/legacy]
+menu-accelerator-enabled=false
+schema-version=uint32 3
+default-show-menubar=false
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+foreground-color='rgb(131,148,150)'
+visible-name='Default'
+palette=['rgb(7,54,66)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(238,232,213)', 'rgb(0,43,54)', 'rgb(203,75,22)', 'rgb(88,110,117)', 'rgb(101,123,131)', 'rgb(131,148,150)', 'rgb(108,113,196)', 'rgb(147,161,161)', 'rgb(253,246,227)']
+cursor-shape='underline'
+use-system-font=false
+use-theme-colors=false
+font='Ubuntu Mono derivative Powerline 12'
+use-theme-transparency=false
+background-color='rgb(0,43,54)'
+scrollbar-policy='never'
+audible-bell=false
+
+[org/gnome/telepathy-account-widgets/ui]
+avatar-directory='/home/shaw/Pictures/buddy-icons'
+
+[org/gnome/GPaste]
+images-support=false
+track-extension-state=true
+growing-lines=true
+primary-to-history=true
+synchronize-clipboards=true
+
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
 use-background-color=true
+
+[org/gnome/rhythmbox]
+position=(223, 169)
+size=(1625, 1046)
+display-page-tree-visible=true
+maximized=false
+show-album-art=true
+
+[org/gnome/rhythmbox/player]
+volume=0.91998291015625
+
+[org/gnome/rhythmbox/podcast]
+download-interval='weekly'
+download-location='file:///home/shaw/Music'
+
+[org/gnome/rhythmbox/podcast/source]
+show-browser=true
 
 [org/gnome/rhythmbox/plugins/audioscrobbler/Last.fm]
 scrobbling-enabled=true
@@ -265,20 +476,23 @@ show-browser=true
 active-plugins=['mpris', 'audiocd', 'rb', 'mtpdevice', 'generic-player', 'power-manager', 'android', 'daap', 'mmkeys', 'ipod', 'notification', 'dbus-media-server', 'iradio', 'artsearch']
 seen-plugins=['mpris', 'replaygain', 'magnatune', 'rbzeitgeist', 'rb', 'mtpdevice', 'soundcloud', 'grilo', 'lyrics', 'daap', 'im-status', 'ipod', 'notification', 'rblirc', 'dbus-media-server', 'fmradio', 'audioscrobbler', 'pythonconsole', 'artsearch', 'sendto']
 
-[org/gnome/rhythmbox/player]
-volume=1.0
-
-[org/gnome/rhythmbox/podcast/source]
+[org/gnome/rhythmbox/plugins/android/source]
 show-browser=true
 
-[org/gnome/rhythmbox]
-position=(0, 27)
-size=(1920, 1053)
-maximized=true
+[org/gnome/rhythmbox/library]
+layout-filename='%tN - %tt'
+layout-path='%aa/%at'
+
+[org/gnome/rhythmbox/library/encoding]
+media-type='audio/x-aac'
 
 [org/gnome/rhythmbox/library/source]
 paned-position=291
 show-browser=true
+
+[org/gnome/rhythmbox/sources]
+browser-views='artists-albums'
+visible-columns=['post-time', 'artist', 'duration', 'genre', 'bitrate', 'track-number', 'album']
 
 [org/gnome/rhythmbox/rhythmdb]
 locations=['file:///home/shaw/Music']
@@ -324,7 +538,7 @@ use-24hour-format=true
 work-day-sunday=false
 work-day-thursday=true
 recur-events-italic=false
-last-notification-time=1516834200
+last-notification-time=1519320000
 prefer-new-item=''
 primary-calendar='1492034716.1460.0@bonview'
 work-day-saturday=false
@@ -364,6 +578,7 @@ forward-style-name='attached'
 prompt-on-composer-mode-switch=false
 junk-check-incoming=false
 trash-empty-on-exit-days=0
+composer-show-bcc=true
 composer-show-from-override=false
 browser-close-on-reply-policy='ask'
 show-headers=[('From', true), ('Reply-To', true), ('To', true), ('Cc', true), ('Bcc', true), ('Subject', true), ('Date', true), ('Newsgroups', true), ('Face', true), ('x-evolution-mailer', false)]
@@ -374,7 +589,7 @@ prompt-on-mark-all-read=false
 caret-mode=true
 prompt-on-empty-subject=true
 prompt-on-accel-send=false
-paned-size=466
+paned-size=583
 headers=['<?xml version="1.0"?>\n<header name="From" enabled=""/>\n', '<?xml version="1.0"?>\n<header name="Reply-To" enabled=""/>\n', '<?xml version="1.0"?>\n<header name="To" enabled=""/>\n', '<?xml version="1.0"?>\n<header name="Cc" enabled=""/>\n', '<?xml version="1.0"?>\n<header name="Bcc" enabled=""/>\n', '<?xml version="1.0"?>\n<header name="Subject" enabled=""/>\n', '<?xml version="1.0"?>\n<header name="Date" enabled=""/>\n', '<?xml version="1.0"?>\n<header name="Newsgroups" enabled=""/>\n', '<?xml version="1.0"?>\n<header name="Face" enabled=""/>\n', '<?xml version="1.0"?>\n<header name="x-evolution-mailer"/>\n']
 
 [org/gnome/evolution/mail/composer-window]
@@ -410,41 +625,44 @@ completion-minimum-query-length=3
 subtitle-encoding='UTF-8'
 active-plugins=['skipto', 'autoload-subtitles', 'screensaver', 'movie-properties', 'screenshot', 'apple-trailers', 'save-file', 'vimeo', 'recent', 'media_player_keys']
 
-[org/gnome/terminal/legacy/keybindings]
-help='disabled'
+[org/gnome/gnome-system-monitor]
+show-dependencies=false
+current-tab='resources'
+cpu-colors=[(uint32 0, '#FF6E00'), (1, '#CB0C29'), (2, '#49A835'), (3, '#2D7DB3'), (4, '#f25915e815e8'), (5, '#f25915e815e8'), (6, '#f25915e815e8'), (7, '#f25915e815e8')]
+maximized=false
+window-state=(700, 817, 50, 50)
+show-whose-processes='user'
 
-[org/gnome/terminal/legacy]
-menu-accelerator-enabled=false
-schema-version=uint32 3
-default-show-menubar=false
-
-[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-foreground-color='rgb(131,148,150)'
-visible-name='Default'
-palette=['rgb(7,54,66)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(238,232,213)', 'rgb(0,43,54)', 'rgb(203,75,22)', 'rgb(88,110,117)', 'rgb(101,123,131)', 'rgb(131,148,150)', 'rgb(108,113,196)', 'rgb(147,161,161)', 'rgb(253,246,227)']
-cursor-shape='underline'
-use-system-font=false
-use-theme-colors=false
-font='Ubuntu Mono derivative Powerline 12'
-use-theme-transparency=false
-background-color='rgb(0,43,54)'
-scrollbar-policy='never'
+[org/gnome/gnome-system-monitor/disktreenew]
+col-6-visible=true
+col-6-width=0
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1516814026
+check-timestamp=int64 1519395047
 
 [org/gtk/settings/file-chooser]
 sort-column='name'
 sidebar-width=148
-window-position=(660, 364)
+window-position=(825, 395)
 show-size-column=true
 show-hidden=false
-window-size=(938, 682)
+window-size=(910, 682)
 sort-directories-first=false
 date-format='regular'
 sort-order='ascending'
 location-mode='path-bar'
+
+[org/gtk/settings/color-chooser]
+selected-color=(true, 0.1803921568627451, 0.20392156862745098, 0.21176470588235294, 1.0)
+custom-colors=[(0.55294117647058827, 0.56470588235294117, 0.56862745098039214, 1.0), (0.1803921568627451, 0.20392156862745098, 0.21176470588235294, 1.0)]
+
+[apps/update-manager]
+first-run=false
+launch-time=int64 1519146827
+window-height=434
+show-details=true
+window-width=486
 
 [ca/desrt/dconf-editor]
 window-is-fullscreen=false
