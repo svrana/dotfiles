@@ -91,10 +91,3 @@ template '/home/shaw/.local/share/applications/appimagekit-joplin.desktop' do
   group 'shaw'
   mode '0644'
 end
-
-template '/usr/share/applications/slack.desktop' do
-  source 'slack.desktop.erb'
-  owner 'root'
-  group 'root'
-  mode '0644'
-end
