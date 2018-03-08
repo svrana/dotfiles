@@ -25,7 +25,7 @@ Plug 'ingydotnet/yaml-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'svrana/neomake'
-Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go'
 Plug 'zchee/deoplete-jedi'
 Plug 'fishbullet/deoplete-ruby'
@@ -40,6 +40,8 @@ Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-jdaddy' 		" json formatting
 Plug 'cespare/vim-toml' 		" toml formatting
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 
 " All of your Plugins must be added before the following line
