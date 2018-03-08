@@ -35,9 +35,10 @@ export DOTFILE_PLUGINS=(
     git
     go
     gruf
-    opsdb
+    java
     less
     ls
+    opsdb
     powerline-go
     ps
     nvm

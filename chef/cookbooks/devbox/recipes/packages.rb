@@ -39,6 +39,7 @@ package %w(
   tmux
   xclip
   openvpn
+  openjdk-8-jdk
   exuberant-ctags
   silversearcher-ag
   curl

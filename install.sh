@@ -30,6 +30,7 @@ INSTALLERS=(
     neovim
     fd
     go
+    gradle
     hugo
     joplin
     neovim
