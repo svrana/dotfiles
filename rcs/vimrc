@@ -42,6 +42,7 @@ Plug 'tpope/vim-jdaddy' 		" json formatting
 Plug 'cespare/vim-toml' 		" toml formatting
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree'
 
 
 " All of your Plugins must be added before the following line
@@ -243,6 +244,7 @@ map + <C-W>+
 
 noremap <silent> <leader>zz :TagbarToggle<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " goto next tag in taglist
 map 	<c-=> :tnext<CR>
