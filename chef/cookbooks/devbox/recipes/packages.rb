@@ -30,6 +30,13 @@ apt_repository 'insync' do
   distribution node['lsb']['codename']
 end
 
+apt_repository 'yarn' do
+  uri 'https://dl.yarnpkg.com/debian'
+  key 'https://dl.yarnpkg.com/debian/pubkey.gpg'
+  components ['stable', 'main']
+  distribution ''
+end
+
 package %w(
   build-essential
   fonts-powerline
@@ -75,6 +82,7 @@ package %w(
   libfontconfig1-dev
   pandoc
   entr
+  yarn
 )
 
 # custom .desktop files for electron apps that require scaling on hidpi settings
