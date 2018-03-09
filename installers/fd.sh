@@ -1,15 +1,11 @@
 #!/bin/bash
 
 if [ ! -f "$BIN_DIR/fd" ]; then
-    VERSION="v6.0.0"
-    FILENAME=fd-${VERSION}-x86_64-unknown-linux-musl.tar.gz
-    DIRNAME=${FILENAME%.tar.gz}
-    TEMPDIR=$(mktemp -d)
+    VERSION="6.3.0"
+    FILENAME=fd-musl_${VERSION}_amd64.deb
 
-    wget -P "$TEMPDIR" "https://github.com/sharkdp/fd/releases/download/$VERSION/$FILENAME"
-    tar xzvf "$TEMPDIR/$FILENAME" -C "$TEMPDIR"
-    cp "$TEMPDIR/$DIRNAME/fd" "$BIN_DIR"
-    rm -r "$TEMPDIR"
+    wget -P "$APPS" "https://github.com/sharkdp/fd/releases/download/v$VERSION/$FILENAME"
+    sudo dpkg -i "$APPS/$FILENAME"
 
     unset VERSION
     unset FILENAME
