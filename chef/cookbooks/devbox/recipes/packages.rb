@@ -74,6 +74,7 @@ package %w(
   libfreetype6-dev
   libfontconfig1-dev
   pandoc
+  entr
 )
 
 # custom .desktop files for electron apps that require scaling on hidpi settings
