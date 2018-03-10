@@ -21,6 +21,7 @@ export COLUMNS=$COLUMNS                     # hack for powerline-go which was fi
 #
 # Set the dotfile plugins to load. These correspond to files in
 # $DOTFILES/plugins
+
 #
 # shellcheck disable=SC2034
 export DOTFILE_PLUGINS=(
@@ -33,6 +34,7 @@ export DOTFILE_PLUGINS=(
     dotfiles
     find
     fzf
+    gcloud
     git
     go
     gruf
@@ -67,3 +69,9 @@ dotfiles_load() {
     fi
 }
 dotfiles_load
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/shaw/Apps/google-cloud-sdk/path.bash.inc' ]; then source '/home/shaw/Apps/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/shaw/Apps/google-cloud-sdk/completion.bash.inc' ]; then source '/home/shaw/Apps/google-cloud-sdk/completion.bash.inc'; fi
