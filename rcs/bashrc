@@ -24,6 +24,7 @@ export COLUMNS=$COLUMNS                     # hack for powerline-go which was fi
 #
 # shellcheck disable=SC2034
 export DOTFILE_PLUGINS=(
+    android
     aws
     bommie
     cd

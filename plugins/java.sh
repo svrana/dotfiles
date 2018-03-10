@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export JAVA_HOME=/usr/lib/jvm/default-java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 if [ -d "$JAVA_HOME" ]; then
     PATH_append "$JAVA_HOME/bin"

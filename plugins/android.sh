@@ -1,19 +1,23 @@
-export ANDROID_HOME=~/android
-export ANDROID_SDK=~/android
-export ANDROID_SDK_ROOT=$ANDROID_HOME/sdk
-export ANDROID_STUDIO=~/apps/android-studio
+#!/usr/bin/env bash
+
+export ANDROID_HOME=~/.android
+export ANDROID_SDK=~/.android-sdk
+export ANDROID_SDK_ROOT=$ANDROID_SDK
+export ANDROID_STUDIO=~/Apps/android-studio
 
 PATH_append $ANDROID_STUDIO/bin:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
 
-function install_apk() {
-    if [ -z "$1" ]; then
-        echo "Requires filename"
+
+function apk-install() {
+    local filename=${1}
+
+    if [ -z "$filename" ]; then
+        echo "Requires filename of .apk to install"
         return 1
     fi
 
-    APK_FILENAME=$1
 
     id=$(adb devices | grep device$ | awk -F '\\t' '{ print $1}')
-    echo "Installing $APK_FILENAME to device $id"
-    adb install -r "$APK_FILENAME"
+    echo "Installing $filename to device $id"
+    adb install -r "$filename"
 }
