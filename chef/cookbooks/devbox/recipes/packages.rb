@@ -32,6 +32,7 @@ end
 
 package %w(
   build-essential
+  fonts-powerline
   python-pip
   python-dev
   python3-dev
