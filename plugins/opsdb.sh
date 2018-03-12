@@ -6,7 +6,7 @@ function opsdb-reload() {
     local load_file
 
     if [ -z "$1" ]; then
-        load_file=$(dolisting "$DOWNLOADS/wish_opsdb_*.sql" | tr ' ' '\n' | sort -nrt _ -k2 | head -1)
+        load_file=$(dolisting "$DOWNLOADS/prod_opsdb_*.sql" | tr ' ' '\n' | sort -nrt _ -k2 | head -1)
     else
         load_file="$1"
         if [ ! -f "$load_file" ]; then
