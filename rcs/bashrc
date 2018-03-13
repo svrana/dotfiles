@@ -44,7 +44,7 @@ export DOTFILE_PLUGINS=(
     opsdb
     powerline-go
     ps
-    nvm
+    #nvm
     python
     ruby
     rust
@@ -55,23 +55,4 @@ export DOTFILE_PLUGINS=(
     direnv		# direnv must be initiliazed last
 )
 
-#
-# Find out where the dotfiles repo is on disk by following the .bashrc link.
-# This assumes the dotfiles `install' script has been run which makes the .bashrc
-# link.
-#
-dotfiles_load() {
-    if [ -L ~/.bashrc ]; then
-        local bashrc_location
-        bashrc_location=$(readlink -f ~/.bashrc)
-        local dotfiles_dir=${bashrc_location%/rcs/bashrc}
-        source "$dotfiles_dir/load.sh"
-    fi
-}
-dotfiles_load
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/shaw/Apps/google-cloud-sdk/path.bash.inc' ]; then source '/home/shaw/Apps/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/shaw/Apps/google-cloud-sdk/completion.bash.inc' ]; then source '/home/shaw/Apps/google-cloud-sdk/completion.bash.inc'; fi
+source ~/.dotfiles/load.sh

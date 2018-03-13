@@ -1,8 +1,6 @@
 #!/bin/bash
 #
-# Links configuration files to their correct places.
-# Runs installers.
-#
+# Configure bash-home-scaffold and run its install script.
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -23,7 +21,7 @@ done
 #
 # All installers with the same name of a plugin in your DOTFILES_PLUGINS
 # are sourced automatically.
-INSTALLERS=(
+export INSTALLERS=(
     cargo
     alacritty
     dbeaver
@@ -41,7 +39,7 @@ INSTALLERS=(
 )
 
 # A list of directories that should be created.
-CREATE_DIRS=(
+export CREATE_DIRS=(
     $BIN_DIR
     $DOWNLOADS
     $APPS
@@ -57,7 +55,7 @@ CREATE_DIRS=(
 )
 
 # A list of symbolic links that point to directories that should be created.
-DIR_LINKS=(
+export DIR_LINKS=(
     # Target                        Link name
     "$CLOUD_ROOT/Documents          $DOCUMENTS"
     "$CLOUD_ROOT/Music              $MUSIC"
@@ -65,7 +63,7 @@ DIR_LINKS=(
 )
 
 # A list of symbolic links pointing to files that should be created.
-FILE_LINKS=(
+export FILE_LINKS=(
     # Target                                    Link name
     "${RCS}/bash_profile                        ~/.bash_profile"
     "${RCS}/bashrc                              ~/.bashrc"
@@ -81,170 +79,4 @@ FILE_LINKS=(
     "$APPS/alacritty/target/release/alacritty   /usr/local/bin/alacritty"
 )
 
-#
-# Runs each of the installers specified in the INSTALLERS array.
-#
-function _run_installers() {
-    local plugins
-    plugins=$(sed -rn '/export DOTFILE_PLUGINS=\(.*/','/\)/'p "$RCS/bashrc" | \
-        sed 's/#.*//' | sed 's/export DOTFILE_PLUGINS=(//' | tr -d ')\n')
-
-    for plugin in $plugins ; do
-        local installer="$DOTFILES/installers/$plugin.sh"
-        if [ -f "$installer" ]; then
-            echo -n "Configuring $plugin"
-            source "$installer"
-            estatus
-        fi
-    done
-
-    for installer in ${INSTALLERS[*]}; do
-        local location="$DOTFILES/installers/${installer}.sh"
-        if [ ! -f "$location" ]; then
-            ebad "Installer $installer missing"
-            continue
-        fi
-        echo -n "Configuring $installer"
-        source "$location"
-        estatus
-    done
-}
-
-#
-# Link each script in ./scripts to a directory in your path specified by
-# $BIN_DIR.
-#
-function _prep_scripts() {
-    local i
-    local scripts="$DOTFILES/scripts"
-    local -i count=0
-
-    for i in $(dolisting "$scripts"/*) ; do
-        chmod +x "$i"
-        count=$((count+1))
-    done
-    egood "Added execute permission to $count scripts in ${scripts/$HOME\//\~/}"
-    count=0
-
-    for i in $(dolisting "$scripts/*") ; do
-        i=$(basename "$i")
-        ln -sf "${scripts}/$i" "${BIN_DIR}/$i"
-        count=$((count+1))
-    done
-
-    egood "Created $count links to scripts in ${scripts/$HOME\//\~/} in ${BIN_DIR/$HOME\//\~/}"
-}
-
-#
-# Run chef solo. Only for package installation at this time.
-#
-function _chef_bootstrap() {
-    local force=${1:-"false"}
-    local first_run
-
-    first_run=$(which chef-solo)
-    if [ -z "$first_run" ]; then
-        curl -L https://omnitruck.chef.io/install.sh -o "$TMP/install.sh"
-        sudo bash /tmp/install.sh -P chefdk
-        estatus "Installed chefdk"
-        rm /tmp/install.sh > /dev/null 2>&1
-    fi
-
-    if [[ -z "$first_run" || "$force" = "true" ]]; then
-        "$DOTFILES/scripts/chef-up"
-        estatus "Ran chef-solo"
-    else
-        egood "Skipped chef-solo run"
-    fi
-}
-
-#
-# Create a symbolic link for each entry speciied in the FILE_LINKS and
-# DIR_LINKS arrays.
-#
-function _make_links() {
-    local -i count=0
-
-    local spec
-    for link_spec in "${DIR_LINKS[@]}" ; do
-        spec=$(echo "$link_spec" | tr -s ' ')
-        local target=${spec%% *}
-        local link=${spec#* }
-        if ! ln -Tsf "$target" "$link" 2>/dev/null ; then
-            [ -d "$link" ] && rmdir "$link" 2>/dev/null
-            if ! ln -Tsf "$target" "$link" 2>/dev/null ; then
-                ebad "Failed to create directory link at $link"
-            else
-                count=$((count+1))
-            fi
-        else
-            count=$((count+1))
-        fi
-    done
-    egood "Created $count directory links"
-    count=0
-
-    for link_spec in "${FILE_LINKS[@]}" ; do
-        spec=$(echo "$link_spec" | tr -s ' ')
-        local target=${spec%% *}
-        local link=${spec#* }
-        link=${link/#~/$HOME} # expand ~/ to $HOME
-        local len=${#HOME}
-        if [ "$HOME" = "${link:0:len}" ]; then
-            ln -sf "$target" "$link"
-        else
-            sudo ln -sf "$target" "$link"
-        fi
-        count=$((count+1))
-    done
-
-    egood "Created $count file links"
-}
-
-#
-# Create each direcctory specified in the CREATE_DIRS array.
-#
-function _make_dirs() {
-    local -i count=0
-    for dir in "${CREATE_DIRS[@]}" ; do
-        mkdir -p "${dir/#~/$HOME}"
-        count=$((count+1))
-    done
-
-    egood "Created $count default directories"
-}
-
-#
-# If we're managing this bashrc, then source it to load all the plugins.
-function _maybe_source_bashrc() {
-    for link_spec in "${FILE_LINKS[@]}" ; do
-        spec=$(echo "$link_spec" | tr -s ' ')
-        link=${spec#* }
-        # shellcheck disable=SC2088
-        if [ "$link" = "~/.bashrc" ]; then
-            echo -n "Sourcing .bashrc"
-            . ~/.bashrc
-            estatus
-        fi
-    done
-}
-
-force_chef_run="false"
-while getopts f opt
-do
-    case "$opt" in
-        f)  force_chef_run="true";;
-        \?)   # unknown flag
-            echo >&2 \
-                "usage: $0 [-f force chef-solo run ]"
-            exit 1;;
-    esac
-done
-shift "$((OPTIND-1))"
-
-_chef_bootstrap "$force_chef_run"
-_make_dirs
-_make_links
-_prep_scripts
-_run_installers
-_maybe_source_bashrc
+source "$PROJECTS/bash-home-scaffold/install.sh" "$*"

@@ -68,6 +68,10 @@ function ebad() {
     ebox
 }
 
+function einfo() {
+    echo "$*"
+}
+
 function estatus() {
     if [ $? -eq 0 ]; then
         egood "$*"

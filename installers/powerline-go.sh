@@ -5,4 +5,4 @@ if [ ! -d "$GOPATH/src/github.com/svrana/powerline-go" ]; then
     pushd "$GOPATH/src/github.com/svrana/powerline-go"
     go install
     popd
-
+fi
