@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+: "${SCAFFOLD_PATH:=~/Projects/bash-home-scaffold}"
+: "${DOTFILES_PATH:=~/.dotfiles}"
+
+if ! command -v git >/dev/null 2>&1; then
+    sudo apt install git
+fi
+
+git clone git://github.com/svrana/bash-home-scaffold "$SCAFFOLD_PATH"
+git clone git://github.com/svrana/dotfiles "$DOTFILES_PATH"
+
+~/.dotfiles/install.sh -f
