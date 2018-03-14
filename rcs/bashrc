@@ -52,7 +52,7 @@ export DOTFILE_PLUGINS=(
     tmux
     virtualgo
     wish
-    direnv		# direnv must be initiliazed last
+    direnv		# direnv must be initialized last
 )
 
 source ~/.dotfiles/load.sh

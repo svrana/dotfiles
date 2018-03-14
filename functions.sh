@@ -1,84 +1,4 @@
 #!/bin/bash
-#
-# Many of these from gentoo @
-#   https://github.com/gentoo/gentoo-functions/blob/master/functions.sh
-#
-
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "$CURRENT_DIR/colors.sh"
-
-# Safer way to list the contents of a directory as it doesn't have the 'empty
-# dir bug'.
-#
-# char *dolisting(param)
-#
-#    print a list of the directory contents
-#
-#    NOTE: quote the params if they contain globs.
-#          also, error checking is not that extensive
-function dolisting() {
-    local x=
-    local y=
-    local tmpstr=
-    local mylist=
-    local mypath="$*"
-
-    if [[ ${mypath%/\*} != "${mypath}" ]] ; then
-        mypath=${mypath%/\*}
-    fi
-
-    for x in ${mypath} ; do
-        [[ ! -e ${x} ]] && continue
-
-        if [[ ! -d ${x} ]] && [[ -L ${x} || -f ${x} ]] ; then
-            mylist="${mylist} $(ls "${x}" 2> /dev/null)"
-        else
-            [[ ${x%/} != "${x}" ]] && x=${x%/}
-
-            cd "${x}"; tmpstr=$(ls)
-
-            for y in ${tmpstr} ; do
-                mylist="${mylist} ${x}/${y}"
-            done
-        fi
-    done
-
-    echo "${mylist}"
-}
-
-# void ebox(void)
-# 	indicates a failure in a "box"
-function ebox() {
-    echo -e "${ENDCOL}  ${BRACKET}[ ${BAD}!!${BRACKET} ]${NORMAL}"
-}
-
-# void sbox(void)
-# 	indicates a success in a "box"
-function sbox() {
-    echo -e "${ENDCOL}  ${BRACKET}[ ${GOOD}ok${BRACKET} ]${NORMAL}"
-}
-
-function egood() {
-    echo "$*"
-    sbox
-}
-
-function ebad() {
-    echo "$*"
-    ebox
-}
-
-function einfo() {
-    echo "$*"
-}
-
-function estatus() {
-    if [ $? -eq 0 ]; then
-        egood "$*"
-    else
-        ebad "$*"
-    fi
-}
 
 # prompts for a y/n from user, returning 0 or 1 respectively
 function ask() {
@@ -97,7 +17,6 @@ function ask() {
 # Add newlines to path for readability
 alias path='echo -e ${PATH//:/\\n}'
 alias perlinc='perl -le "print for @INC"'
-
 alias svi='sudo vi'
 alias rvi='vi -R'
 alias bzip='bzip2'
@@ -166,7 +85,6 @@ function PATH_prepend() {
 
     paths=$(echo "$1" | tr ":" "\n")
     for path in $paths ; do
-        echo "GOT PATH element: $path"
         if [ "${PATH#*${path}}" = "${PATH}" ]; then
             export PATH=$path:$PATH
         fi
@@ -208,22 +126,21 @@ function loopit() {
 }
 
 function sf() {
-  if [ "$#" -lt 1 ]; then
-      echo "Supply string to search for!"
-      return 1
-  fi
-  printf -v search "%q" "$*"
+    if [ "$#" -lt 1 ]; then
+        echo "Supply string to search for!"
+        return 1
+    fi
+    printf -v search "%q" "$*"
 
-  #include="yml,js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst,sh,toml"
-  exclude="tags,.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist,.berkshelf"
-  #rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
-  #rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
-  #rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --color "always" -g "!{'$exclude'}/*"'
-  #rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --color "always" -g "!{'$exclude'}/*"'
-  rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --color "always" -g "!{'$exclude'}"'
-  #echo "rg_commmand: $rg_command"
-  files=$(eval "$rg_command" "$search" 2>/dev/null | fzf --height 80% --ansi --multi --reverse | awk -F ':' '{print $1":"$2":"$3}')
-  files=$(echo "$files" | tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
-  #shellcheck disable=SC2086
-  [[ -n "$files" ]] && ${EDITOR:-vim} $files
+    #include="yml,js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst,sh,toml"
+    exclude="tags,.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist,.berkshelf"
+    #rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
+    #rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
+    #rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --color "always" -g "!{'$exclude'}/*"'
+    #rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --color "always" -g "!{'$exclude'}/*"'
+    rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --color "always" -g "!{'$exclude'}"'
+    #echo "rg_commmand: $rg_command"
+    files=$(eval "$rg_command" "$search" 2>/dev/null | fzf --height 80% --ansi --multi --reverse | awk -F ':' '{print $1":"$2":"$3}')
+    files=$(echo "$files" | tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
+    [[ -n "$files" ]] && ${EDITOR:-vim} $files
 }
