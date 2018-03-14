@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+#
+# Raw form of this file @ https://dotfiles.vranix.com/bootstrap
+#
+
+
 set -eu
 set -o pipefail
 
