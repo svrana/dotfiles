@@ -33,8 +33,15 @@ end
 apt_repository 'yarn' do
   uri 'https://dl.yarnpkg.com/debian'
   key 'https://dl.yarnpkg.com/debian/pubkey.gpg'
-  components ['stable', 'main']
+  components %w(stable main)
   distribution ''
+end
+
+apt_repository 'salt' do
+  uri 'http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest'
+  key 'https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub'
+  distribution node['lsb']['codename']
+  components ['main']
 end
 
 package %w(
