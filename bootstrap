@@ -1,21 +1,24 @@
 #!/usr/bin/env bash
-
 #
-# Raw form of this file @ https://dotfiles.vranix.com/bootstrap
-#
-
+# curl -L dotfiles.vranix.com/bootstrap | bash
 
 set -eu
 set -o pipefail
 
-: "${SCAFFOLD_PATH:=~/Projects/bash-home-scaffold}"
-: "${DOTFILES_PATH:=~/.dotfiles}"
+: "${SCAFFOLD_PATH:=$HOME/Projects/bash-home-scaffold}"
+: "${DOTFILES_PATH:=$HOME/.dotfiles}"
 
 if ! command -v git >/dev/null 2>&1; then
     sudo apt install git
 fi
 
-git clone git://github.com/svrana/bash-home-scaffold "$SCAFFOLD_PATH"
-git clone git://github.com/svrana/dotfiles "$DOTFILES_PATH"
+if [ -d "$SCAFFOLD_PATH" ]; then
+    git --git-dir "$SCAFFOLD_PATH" pull
+    git --git-dir "$DOTFILES_PATH" pull
+    "$DOTFILES_PATH/install.sh"
+else
+    git clone git://github.com/svrana/bash-home-scaffold "$SCAFFOLD_PATH"
+    git clone git://github.com/svrana/dotfiles "$DOTFILES_PATH"
+    "$DOTFILES_PATH/install.sh" -f
+fi
 
-~/.dotfiles/install.sh -f
