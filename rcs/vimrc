@@ -251,7 +251,14 @@ map + <C-W>+
 
 noremap <silent> <leader>zz :TagbarToggle<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
-map <C-n> :NERDTreeToggle<CR>
+map <leader>nt :NERDTreeToggle<CR>
+
+" jump between erros in quickfix list
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
 " goto next tag in taglist
 map 	<c-=> :tnext<CR>
