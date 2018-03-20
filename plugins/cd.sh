@@ -7,31 +7,7 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
-function cdp() {
-    local project="$1"
 
-    if [ -z "$project" ]; then
-        if [ -n "$GRUF_PROJECT" ]; then
-            cd "$GRUF_PROJECT"
-        else
-            echo "Must specify directory or project name"
-        fi
-        return
-    fi
-
-    local project_root="${project%%/*}"
-    local dir
-    local dir="$(fd --max-depth 2 "$project_root" "$PROJECTS" | head -n1 )"
-
-    if [ -n "$dir" ]; then
-        local subdirs="${project#$project_root/*}"
-        if [ "$project" != "$project_root" ]; then
-            cd "$dir" && cd "$subdirs"
-        else
-            cd "$dir"
-        fi
-    else
-        # maybe it's a go project
-        cdg "$project"
-    fi
-}
+export CDP_DIR_SPEC="$HOME/Projects:2;$GOPATH/src/github.com:3"
+export CDP_DEFAULT_VAR="GRUF_PROJECT"
+source "$PROJECTS/cdp/cdp.sh"
