@@ -5,7 +5,7 @@ These dotfiles use the [bash-home-scaffold](https://github.com/svrana/bash-home-
 ## Getting Started
 
 ```
-bash < (curl -L https://dotfiles.vranix.com/bootstrap)
+curl -L dotfiles.vranix.com/bootstrap | bash
 ```
 
 By default this will clone this repo into ~/.dotfiles and the bash-home-scaffold repo into ~/Projects/bash-home-scaffold. To customize, take a look at the [bootstrap](https://github.com/svrana/dotfiles/tree/master/bootstrap) code.
