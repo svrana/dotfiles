@@ -84,6 +84,12 @@ let g:neomake_verbose = 0
 let g:peekaboo_delay=300
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "vimsnips"]
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Whitespace related
 "
