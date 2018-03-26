@@ -43,13 +43,14 @@ Plug 'cespare/vim-toml' 		" toml formatting
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree'
-
+Plug 'AndrewRadev/splitjoin.vim' 	" gS gJ
+Plug '$APPS/fzf'
 
 " All of your Plugins must be added before the following line
 call plug#end()
 
 set mouse=a
-set rtp+=$APPS/fzf:$DOTFILES/rcs/vimsnips
+set rtp+=$DOTFILES/rcs/vimsnips
 
 let mapleader = ","
 let maplocalleader = ","
