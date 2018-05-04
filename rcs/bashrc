@@ -44,7 +44,6 @@ export DOTFILE_PLUGINS=(
     opsdb
     powerline-go
     ps
-    #nvm
     python
     ruby
     rust
