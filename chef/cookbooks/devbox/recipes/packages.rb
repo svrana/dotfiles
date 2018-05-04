@@ -85,6 +85,8 @@ package %w(
   firefox
   virtualenv
   cmake
+  flex
+  libelf-dev
   libfreetype6-dev
   libfontconfig1-dev
   pandoc
