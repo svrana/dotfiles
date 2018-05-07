@@ -1,7 +1,7 @@
 #!/bin/bash
 
 __install_joplin() {
-    local version="1.0.63"
+    local version="1.0.85"
     local filename="Joplin-${version}-x86_64.AppImage"
     local dest_filename="joplin.AppImage"
     local dest_path="$HOME/.local/bin/${dest_filename}"
