@@ -1,3 +1,18 @@
+[com/canonical/indicator/messages]
+applications=['thunderbird.desktop']
+
+[com/canonical/indicator/keyboard]
+migrated=true
+
+[com/canonical/unity/interface]
+text-scale-factor=1.3999999999999999
+
+[com/canonical/unity/launcher]
+favorites=['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://firefox.desktop', 'application://chromium-browser.desktop', 'application://google-chrome.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://libreoffice-impress.desktop', 'application://org.gnome.Software.desktop', 'application://ubuntu-amazon-default.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']
+
+[com/ubuntu/user-interface]
+scale-factor={'eDP1': 8}
+
 [net/launchpad/diodon/keybindings]
 history-accelerator='<super>C'
 
@@ -38,6 +53,8 @@ did-initial-setup=true
 
 [org/gnome/settings-daemon/plugins/power]
 sleep-inactive-battery-type='nothing'
+button-power='suspend'
+lid-close-battery-action='suspend'
 sleep-inactive-ac-timeout=3600
 sleep-inactive-ac-type='nothing'
 sleep-inactive-battery-timeout=1800
@@ -71,7 +88,7 @@ default-search-engine=1
 search-history-data='[{"query":"hello","type":"QUERY"},{"query":"st","type":"QUERY"},{"query":"vranix","type":"QUERY"}]'
 
 [org/gnome/shell/extensions/activities-config]
-transparent-panel=40
+transparent-panel=20
 activities-config-button-removed=true
 activities-config-button-no-text=true
 activities-icon-padding=8
@@ -102,6 +119,8 @@ topbar-preview-size=10
 application-list=['slack.desktop:5', 'spotify.desktop:4', 'google-chrome.desktop:3', 'evolution.desktop:1', 'rhythmbox.desktop:4', 'firefox.desktop:3', 'zeal.desktop:6']
 
 [org/gnome/shell/extensions/topicons]
+icon-size=25
+icon-spacing=18
 tray-pos='right'
 
 [org/gnome/shell/extensions/openweather]
@@ -132,20 +151,26 @@ show-workspace-labels=false
 
 [org/gnome/shell/extensions/dash-to-dock]
 preferred-monitor=0
+customize-alphas=true
 shortcut-timeout=0.25
 force-straight-corner=false
 intellihide=false
 intellihide-mode='FOCUS_APPLICATION_WINDOWS'
 show-show-apps-button=false
 hot-keys=false
+custom-background-color=false
+max-alpha=0.47999999999999998
+apply-custom-theme=false
 custom-theme-running-dots=false
 unity-backlit-items=false
 custom-theme-shrink=false
 background-opacity=0.29999999999999999
+min-alpha=0.14000000000000001
 dash-max-icon-size=32
 opaque-background=true
 shortcut=['<Super>q']
 isolate-workspaces=false
+transparency-mode='ADAPTIVE'
 
 [org/gnome/shell/overrides]
 dynamic-workspaces=false
@@ -270,9 +295,16 @@ folder='/deja-dup/bonview'
 path='/home/shaw/deja-dup'
 
 [org/gnome/desktop/interface]
-clock-show-date=true
+text-scaling-factor=1.3999999999999999
+cursor-size=48
+font-name='Cantarell 13'
+document-font-name='Sans 14'
+scaling-factor=uint32 1
 gtk-im-module='gtk-im-context-simple'
+toolkit-accessibility=false
 monospace-font-name='Ubuntu Mono derivative Powerline 12'
+enable-animations=true
+clock-show-date=true
 
 [org/gnome/desktop/notifications]
 application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution', 'thunderbird', 'empathy', 'firefox']
@@ -335,16 +367,30 @@ apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop',
 name='X-GNOME-Sundry.directory'
 
 [org/gnome/desktop/screensaver]
+picture-uri='file:///usr/share/backgrounds/ubuntu-gnome/abstract-lock-screen.jpg'
+color-shading-type='solid'
+primary-color='#000000'
 lock-delay=uint32 60
+picture-options='zoom'
+secondary-color='#000000'
 
 [org/gnome/desktop/peripherals/touchpad]
+natural-scroll=false
 click-method='default'
+speed=0.51219512195121952
 tap-to-click=true
+
+[org/gnome/desktop/peripherals/touchscreens/(null):(null)]
+display=['SHP', '0x148b', '0x00000000']
+
+[org/gnome/desktop/peripherals/touchscreens/04f3:24f0]
+display=['SHP', '0x148b', '0x00000000']
 
 [org/gnome/desktop/peripherals/touchscreens/06cb:0af8]
 display=['CMN', '0x1345', '0x00000000']
 
 [org/gnome/desktop/peripherals/keyboard]
+repeat-interval=uint32 14
 delay=uint32 429
 repeat=true
 
@@ -358,24 +404,35 @@ sort-order=['gnome-contacts.desktop', 'gnome-documents.desktop', 'nautilus.deskt
 auto-raise=true
 focus-mode='sloppy'
 num-workspaces=6
+titlebar-font='Cantarell Bold 14'
 
 [org/gnome/desktop/wm/keybindings]
-switch-to-workspace-1=['<Super>1']
-switch-to-workspace-2=['<Super>2']
-move-to-workspace-3=@as []
+maximize=['<Control><Super>Up']
+toggle-maximized=['<Control><Alt>KP_5']
+switch-to-workspace-right=@as []
+unmaximize=['<Control><Super>Down']
+lower=['disabled']
+close=['<Alt>F4']
 move-to-workspace-1=@as []
 move-to-workspace-2=@as []
-switch-to-workspace-3=['<Super>3']
+move-to-workspace-3=@as []
 move-to-workspace-4=@as []
+switch-to-workspace-2=['<Super>2']
+raise=['disabled']
+switch-to-workspace-1=['<Super>1']
+activate-window-menu=['<Alt>space']
 maximize-vertically=['<Primary><Alt>v']
-switch-to-workspace-6=['<Super>6']
-switch-to-workspace-4=['<Super>4']
+show-desktop=['<Control><Super>d']
 switch-to-workspace-5=['<Super>5']
-switch-to-workspace-last=@as []
+switch-to-workspace-6=['<Super>6']
+switch-to-workspace-3=['<Super>3']
+switch-to-workspace-4=['<Super>4']
 switch-to-workspace-down=@as []
 switch-to-workspace-left=@as []
+switch-to-workspace-last=@as []
+toggle-shaded=['<Control><Alt>s']
 maximize-horizontally=['<Primary><Alt>h']
-switch-to-workspace-right=@as []
+minimize=['<Control><Alt>KP_0']
 switch-to-workspace-up=@as []
 
 [org/gnome/desktop/a11y/keyboard]
@@ -401,8 +458,12 @@ mousekeys-init-delay=160
 slowkeys-enable=false
 
 [org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/warty-final-ubuntu.png'
 show-desktop-icons=false
+color-shading-type='solid'
+primary-color='#2c001e'
 picture-options='zoom'
+secondary-color='#2c001e'
 
 [org/gnome/desktop/input-sources]
 sources=[('xkb', 'us')]
@@ -423,7 +484,7 @@ palette=['rgb(7,54,66)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', '
 cursor-shape='underline'
 use-system-font=false
 use-theme-colors=false
-font='Ubuntu Mono derivative Powerline 12'
+font='Ubuntu Mono derivative Powerline 14'
 use-theme-transparency=false
 background-color='rgb(0,43,54)'
 scrollbar-policy='never'
@@ -431,6 +492,12 @@ audible-bell=false
 
 [org/gnome/telepathy-account-widgets/ui]
 avatar-directory='/home/shaw/Pictures/buddy-icons'
+
+[org/gnome/power-manager]
+info-history-type='charge'
+info-stats-type='discharge-accuracy'
+info-last-device='wakeups'
+info-page-number=3
 
 [org/gnome/GPaste]
 images-support=false
@@ -447,6 +514,7 @@ use-background-color=true
 position=(223, 169)
 size=(1625, 1046)
 display-page-tree-visible=true
+paned-position=306
 maximized=false
 show-album-art=true
 
@@ -470,6 +538,7 @@ scrobbling-enabled=true
 initial-stations-loaded=true
 
 [org/gnome/rhythmbox/plugins/iradio/source]
+paned-position=310
 show-browser=true
 
 [org/gnome/rhythmbox/plugins]
@@ -496,6 +565,7 @@ visible-columns=['post-time', 'artist', 'duration', 'genre', 'bitrate', 'track-n
 
 [org/gnome/rhythmbox/rhythmdb]
 locations=['file:///home/shaw/Music']
+monitor-library=false
 
 [org/gnome/evolution]
 disabled-eplugins=['org.gnome.evolution.mail_notification']
@@ -639,7 +709,7 @@ col-6-width=0
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1519395047
+check-timestamp=int64 1526341328
 
 [org/gtk/settings/file-chooser]
 sort-column='name'
@@ -657,12 +727,191 @@ location-mode='path-bar'
 selected-color=(true, 0.1803921568627451, 0.20392156862745098, 0.21176470588235294, 1.0)
 custom-colors=[(0.55294117647058827, 0.56470588235294117, 0.56862745098039214, 1.0), (0.1803921568627451, 0.20392156862745098, 0.21176470588235294, 1.0)]
 
+[org/compiz]
+existing-profiles=['Default', 'unity']
+current-profile='unity'
+
+[org/compiz/profiles/unity-lowgfx/plugins/scale]
+skip-animation=true
+
+[org/compiz/profiles/unity-lowgfx/plugins/ezoom]
+speed=100.0
+
+[org/compiz/profiles/unity-lowgfx/plugins/showdesktop]
+skip-animation=true
+
+[org/compiz/profiles/unity-lowgfx/plugins/unityshell]
+shadow-x-offset=1
+menus-discovery-fadeout=0
+menus-discovery-fadein=0
+menus-fadeout=0
+menus-fadein=0
+dash-blur-experimental=0
+active-shadow-radius=3
+autohide-animation=1
+override-decoration-theme=true
+inactive-shadow-radius=2
+shadow-y-offset=1
+
+[org/compiz/profiles/unity-lowgfx/plugins/wall]
+slide-duration=0.0
+
+[org/compiz/profiles/unity-lowgfx/plugins/opengl]
+texture-filter=0
+
+[org/compiz/profiles/unity-lowgfx/plugins/grid]
+animation-duration=0
+draw-stretched-window=false
+
+[org/compiz/profiles/unity-lowgfx/plugins/move]
+increase-border-contrast=true
+mode=2
+lazy-positioning=true
+
+[org/compiz/profiles/unity-lowgfx/plugins/expo]
+expo-animation=3
+
+[org/compiz/profiles/unity-lowgfx/plugins/core]
+active-plugins=['core', 'composite', 'opengl', 'compiztoolbox', 'vpswitch', 'snap', 'mousepoll', 'resize', 'place', 'move', 'wall', 'grid', 'regex', 'imgpng', 'session', 'animation', 'fade', 'workarounds', 'scale', 'expo', 'ezoom', 'switcher']
+
+[org/compiz/profiles/unity-lowgfx/plugins/fade]
+fade-mode=1
+fade-time=1
+
+[org/compiz/profiles/unity-lowgfx/plugins/resize]
+increase-border-contrast=true
+mode=2
+
+[org/compiz/profiles/unity]
+plugins-with-set-keys=['extrawm', 'td', 'animation', 'showrepaint', 'scaleaddon', 'opacify', 'move', 'put', 'mag', 'matecompat', 'water', 'ring', 'staticswitcher', 'grid', 'splash', 'wobbly', 'place', 'resizeinfo', 'resize', 'wall', 'maximumize', 'gnomecompat', 'ezoom', 'shift', 'composite', 'expo', 'imgjpeg', 'opengl', 'core', 'clone', 'wallpaper', 'mousepoll', 'fade', 'fadedesktop', 'shelf', 'mblur', 'rotate', 'obs', 'bench', 'session', 'freewins', 'switcher', 'thumbnail', 'scalefilter', 'scale', 'widget', 'trailfocus', 'showdesktop', 'notification', 'cube', 'crashhandler', 'vpswitch', 'workspacenames', 'winrules', 'snap', 'unitymtgrabhandles', 'showmouse', 'neg', 'commands', 'wizard', 'addhelper', 'workarounds', 'screenshot', 'cubeaddon', 'decor', 'kdecompat', 'annotate', 'firepaint', 'unityshell', 'titleinfo']
+
+[org/compiz/profiles/unity/plugins/resizeinfo]
+gradient-1='#cccce6cc'
+gradient-2='#f3f3f3cc'
+gradient-3='#d9d9d9cc'
+outline-color='#e6e6e6ff'
+
+[org/compiz/profiles/unity/plugins/thumbnail]
+thumb-color='#0000007f'
+font-background-color='#0000007f'
+
+[org/compiz/profiles/unity/plugins/ezoom]
+zoom-box-fill-color='#2f2f2f4f'
+zoom-box-outline-color='#2f2f4f9f'
+
+[org/compiz/profiles/unity/plugins/cubeaddon]
+ground-color1='#b3b3b3cc'
+ground-color2='#b3b3b300'
+
+[org/compiz/profiles/unity/plugins/put]
+put-left-key='<Control><Alt>KP_Left'
+put-right-key='<Control><Alt>KP_Right'
+put-bottom-key='<Control><Alt>KP_Down'
+put-restore-key='<Control><Alt>KP_Insert'
+put-center-key='<Control><Alt>KP_Begin'
+put-topright-key='<Control><Alt>KP_Prior'
+put-pointer-key='<Control><Alt>z'
+put-bottomleft-key='<Control><Alt>KP_End'
+put-bottomright-key='<Control><Alt>KP_Next'
+put-top-key='<Control><Alt>KP_Up'
+
+[org/compiz/profiles/unity/plugins/unityshell]
+launcher-minimize-window=true
+show-launcher='Disabled'
+num-launchers=0
+lock-screen='<Control><Alt>l'
+launcher-switcher-forward='Disabled'
+inactive-shadow-color='#000000a5'
+show-desktop-key='<Control><Alt>d'
+launcher-switcher-prev='Disabled'
+
+[org/compiz/profiles/unity/plugins/wall]
+thumb-highlight-gradient-shadow-color='#dfdfdfff'
+arrow-base-color='#e6e6e6d9'
+arrow-shadow-color='#dcdcdcd9'
+
+[org/compiz/profiles/unity/plugins/freewins]
+cross-line-color='#1800ffff'
+snap-threshold=50
+circle-color='#54befb80'
+line-color='#1800ffff'
+
+[org/compiz/profiles/unity/plugins/animation]
+unminimize-effects=['animation:Glide 2']
+close-matches=['((type=Normal | Unknown) | name=sun-awt-X11-XFramePeer | name=sun-awt-X11-XDialogPeer) & !(role=toolTipTip | role=qtooltip_label) & !(type=Normal & override_redirect=1) & !(name=gnome-screensaver) & !(name=gnome-screenshot)', '((type=Menu | PopupMenu | DropdownMenu | Combo | Dialog | ModalDialog | Normal) & !(class=\\.exe$))', '(type=Tooltip | Notification | Utility) & !(name=compiz) & !(title=notify-osd)']
+open-matches=['((type=Normal | Unknown) | name=sun-awt-X11-XFramePeer | name=sun-awt-X11-XDialogPeer) & !(role=toolTipTip | role=qtooltip_label) & !(type=Normal & override_redirect=1) & !(name=gnome-screensaver)', '((type=Menu | PopupMenu | DropdownMenu | Combo | Dialog | ModalDialog | Normal) & !(class=\\.exe$))', '(type=Tooltip | Notification | Utility) & !(name=compiz) & !(title=notify-osd)']
+
+[org/compiz/profiles/unity/plugins/switcher]
+background-color='#333333d9'
+
+[org/compiz/profiles/unity/plugins/grid]
+put-maximize-key='<Control><Alt>Up'
+right-maximize='<Control><Alt>Right'
+put-restore-key='<Control><Alt>Down'
+left-maximize='<Control><Alt>Left'
+
+[org/compiz/profiles/unity/plugins/decor]
+active-shadow-color='#00000080'
+inactive-shadow-color='#000000ff'
+
+[org/compiz/profiles/unity/plugins/expo]
+distance=0.004999999888241291
+expo-key='<Control><Alt>s'
+ground-color2='#b3b3b300'
+ground-color1='#b3b3b3cc'
+vp-saturation=40.0
+
+[org/compiz/profiles/unity/plugins/gnomecompat]
+main-menu-key='Disabled'
+run-key='Disabled'
+
+[org/compiz/profiles/unity/plugins/staticswitcher]
+background-color='#333333d9'
+
+[org/compiz/profiles/unity/plugins/firepaint]
+fire-color='#ff3305ff'
+
+[org/compiz/profiles/unity/plugins/screenshot]
+selection-outline-color='#2f2f4f9f'
+selection-fill-color='#2f2f4f4f'
+
+[org/compiz/profiles/unity/plugins/core]
+unmaximize-or-minimize-window-key='<Control><Alt>Down'
+active-plugins=['core', 'composite', 'opengl', 'mousepoll', 'imgpng', 'copytex', 'vpswitch', 'snap', 'unitymtgrabhandles', 'commands', 'compiztoolbox', 'regex', 'animation', 'move', 'grid', 'place', 'resize', 'wall', 'expo', 'fade', 'session', 'scale', 'workarounds', 'ezoom', 'unityshell']
+maximize-window-key='<Control><Alt>Up'
+
+[org/compiz/profiles/unity/plugins/shift]
+ground-color1='#b3b3b3cc'
+ground-color2='#b3b3b300'
+
+[org/compiz/profiles/unity/plugins/showmouse]
+color='#ffdf3fff'
+
+[org/compiz/integrated]
+run-command-1=['disabled']
+run-command-10=['disabled']
+run-command-11=['disabled']
+run-command-12=['disabled']
+run-command-2=['disabled']
+run-command-3=['disabled']
+run-command-4=['disabled']
+run-command-5=['disabled']
+run-command-6=['disabled']
+run-command-7=['disabled']
+run-command-8=['disabled']
+run-command-9=['disabled']
+show-hud=['<Alt>']
+
 [apps/update-manager]
-first-run=false
-launch-time=int64 1519146827
-window-height=434
 show-details=true
+first-run=false
+check-new-release-ignore='artful'
+window-height=434
+launch-time=int64 1519146827
 window-width=486
+
+[apps/seahorse/listing]
+keyrings-selected=['secret-service://login', 'openssh:///home/shaw/.ssh']
 
 [ca/desrt/dconf-editor]
 window-is-fullscreen=false
