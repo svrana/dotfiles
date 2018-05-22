@@ -25,7 +25,7 @@ function vip() {
 }
 
 #
-# Load a dotfiles plugin into editor
+# Load a dotfiles installer into editor
 #
 function vii() {
     [ -z "$1" ] && return
