@@ -30,7 +30,6 @@ export INSTALLERS=(
     go
     gradle
     hugo
-    joplin
     neovim
     powerline
     ripgrep

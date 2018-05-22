@@ -103,10 +103,3 @@ template '/usr/share/applications/spotify.desktop' do
   group 'root'
   mode '0644'
 end
-
-template '/home/shaw/.local/share/applications/appimagekit-joplin.desktop' do
-  source 'appimagekit-joplin.desktop.erb'
-  owner 'shaw'
-  group 'shaw'
-  mode '0644'
-end
