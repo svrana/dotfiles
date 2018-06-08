@@ -21,4 +21,4 @@ function fa() {
 
 
 alias drmo='find . -name "*.o" -delete'
-alias kvswap='rm ~/.local/share/nvim/swap/*'
+alias kvswap='rm  ~/.local/share/nvim/swap/* ; find . -type f -name ".*.py" -exec rm -f "{}" \;'
