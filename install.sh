@@ -51,6 +51,7 @@ export CREATE_DIRS=(
     ~/.kitchen
     ~/.local/share/applications
     ~/.ipython/profile_default
+    ~/.weechat
 )
 
 # A list of symbolic links that point to directories that should be created.
@@ -74,6 +75,7 @@ export FILE_LINKS=(
     "${RCS}/ctags                               ~/.ctags"
     "${RCS}/ipython_config.py                   ~/.ipython/profile_default/ipython_config.py"
     "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
+    "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
     "${DOTFILES}/misc/Alacritty.desktop         ~/.local/share/applications"
     "$APPS/alacritty/target/release/alacritty   /usr/local/bin/alacritty"
 )

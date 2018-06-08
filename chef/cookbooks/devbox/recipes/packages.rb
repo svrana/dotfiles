@@ -91,6 +91,7 @@ package %w(
   libfontconfig1-dev
   pandoc
   entr
+  weechat
   yarn
 )
 
