@@ -77,7 +77,6 @@ package %w(
   shellcheck
   ruby
   ruby-dev
-  neovim
   libpq-dev
   rvm
   spotify-client

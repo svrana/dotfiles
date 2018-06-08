@@ -32,7 +32,6 @@ Plug 'fishbullet/deoplete-ruby'
 Plug 'ternjs/tern_for_vim'
 Plug 'majutsushi/tagbar' 		" ide
 Plug 'farmergreg/vim-lastplace' 	" open file at last position
-Plug 'jreybert/vimagit'
 Plug 'junegunn/vim-peekaboo' 		" show contents of copy buffer
 Plug 'kopischke/vim-fetch' 		" open file:lineno:colno see sf()
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
@@ -40,10 +39,7 @@ Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-jdaddy' 		" json formatting
 Plug 'cespare/vim-toml' 		" toml formatting
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree'
-Plug 'AndrewRadev/splitjoin.vim' 	" gS gJ
 Plug '$APPS/fzf'
 
 " All of your Plugins must be added before the following line
@@ -84,20 +80,12 @@ let g:neomake_verbose = 0
 
 let g:peekaboo_delay=300
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "vimsnips"]
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
 " Whitespace related
 "
 " To disable showing trailing whitespace:
 " let g:ShowTrailingWhitespace = 0
 " Auto-delete whitespace automatically, no ask
-let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace = 0
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
 let g:deoplete#enable_at_startup = 1
@@ -146,7 +134,7 @@ autocmd BufNewFile,BufRead,BufEnter *.feature setf ruby
 autocmd BufNewFile,BufRead,BufEnter *.gradle setf groovy
 autocmd BufNewFile,BufRead,BufEnter *.json setf json
 autocmd BufNewFile,BufRead,BufEnter *.gjs setf javascript
-autocmd BufNewFile,BufRead,BufEnter BUILD setf python
+autocmd BufNewFile,BufRead,BufEnter BUILD.fs setf python
 
 autocmd BufWritePost,BufEnter * Neomake
 
