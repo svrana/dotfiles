@@ -35,6 +35,7 @@ export INSTALLERS=(
     ripgrep
     slack
     solarize
+    terraform
 )
 
 # A list of directories that should be created.
