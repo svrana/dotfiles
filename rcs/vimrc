@@ -85,7 +85,7 @@ let g:peekaboo_delay=300
 " To disable showing trailing whitespace:
 " let g:ShowTrailingWhitespace = 0
 " Auto-delete whitespace automatically, no ask
-let g:DeleteTrailingWhitespace = 0
+let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
 let g:deoplete#enable_at_startup = 1
@@ -350,3 +350,5 @@ let g:go_fmt_autosave = 0
 set lazyredraw
 " repeat last macro
 nnoremap Q @@
+
+hi IncSearch ctermbg=LightYellow ctermfg=Red
