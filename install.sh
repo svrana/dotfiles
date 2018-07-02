@@ -31,6 +31,7 @@ export INSTALLERS=(
     gradle
     hugo
     neovim
+    packer
     powerline
     ripgrep
     slack

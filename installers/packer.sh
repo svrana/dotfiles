@@ -1,10 +1,10 @@
 #!/usr/bin/bash
 
 function install() {
-    VERSION=0.11.7
-    NAME=terraform
+    VERSION=1.2.4
+    NAME="packer"
     FILENAME="${NAME}_${VERSION}_linux_amd64.zip"
-    DEST_DIR="/usr/local/bin"
+    DEST_DIR='/usr/local/bin'
 
     if [ -f "$DEST_DIR/$NAME" ]; then
         return
