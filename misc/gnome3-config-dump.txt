@@ -78,7 +78,7 @@ numlock-state='off'
 [org/gnome/shell]
 command-history=['gconf-editor', 'r', 'er', 'r']
 enabled-extensions=['activities-config@nls1729', 'dash-to-dock@micxgx.gmail.com', 'TopIcons@phocean.net', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'workspace-grid@mathematical.coffee.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'pixel-saver@deadalnix.me', 'openweather-extension@jenslody.de', 'alternate-tab@gnome-shell-extensions.gcampax.github.com']
-favorite-apps=['thunderbird.desktop', 'Alacritty.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
+favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
 
 [org/gnome/shell/window-switcher]
 app-icon-mode='both'
@@ -176,32 +176,71 @@ transparency-mode='ADAPTIVE'
 dynamic-workspaces=false
 workspaces-only-on-primary=false
 
+[org/gnome/brasero/plugins/dvd-rw-format]
+priority=0
+
+[org/gnome/brasero/plugins/dvdauthor]
+priority=0
+
+[org/gnome/brasero/plugins/image-checksum]
+priority=0
+
+[org/gnome/brasero/plugins/audio2cue]
+priority=0
+
+[org/gnome/brasero/plugins/file-checksum]
+priority=0
+
+[org/gnome/brasero/plugins/libisofs]
+priority=0
+
+[org/gnome/brasero/plugins/file-downloader]
+priority=0
+
+[org/gnome/brasero/plugins/cdrdao]
+priority=0
+
+[org/gnome/brasero/plugins/burn-uri]
+priority=0
+
+[org/gnome/brasero/plugins/wodim]
+priority=0
+
+[org/gnome/brasero/plugins/genisoimage]
+priority=0
+
+[org/gnome/brasero/plugins/growisofs]
+priority=0
+
+[org/gnome/brasero/plugins/readom]
+priority=0
+
+[org/gnome/brasero/plugins/normalize]
+priority=0
+
+[org/gnome/brasero/plugins/transcode]
+priority=0
+
+[org/gnome/brasero/plugins/transcode2vob]
+priority=0
+
+[org/gnome/brasero/plugins/libburn]
+priority=0
+
+[org/gnome/brasero/plugins/dvdcss]
+priority=0
+
+[org/gnome/brasero/plugins/vcdimager]
+priority=0
+
+[org/gnome/brasero/display]
+iso-folder='/home/shaw/Downloads'
+
 [org/gnome/charmap/window-state]
 size=(1440, 794)
 
 [org/gnome/charmap]
 last-char=uint32 602
-
-[org/gnome/gedit/preferences/editor]
-wrap-last-split-mode='word'
-
-[org/gnome/gedit/preferences/ui]
-show-tabs-mode='auto'
-
-[org/gnome/gedit/plugins/filebrowser]
-virtual-root='file:///home/shaw/Downloads'
-tree-view=true
-root='file:///'
-
-[org/gnome/gedit/plugins]
-active-plugins=['modelines', 'spell', 'filebrowser', 'docinfo', 'time']
-
-[org/gnome/gedit/state/window]
-size=(1444, 700)
-state=128
-bottom-panel-size=140
-side-panel-size=200
-side-panel-active-page='GeditWindowDocumentsPanel'
 
 [org/gnome/calculator]
 target-currency=''
@@ -224,10 +263,14 @@ border-effect='none'
 delay=3
 last-save-directory='file:///home/shaw/Documents'
 
+[org/gnome/Disks]
+image-dir-uri='file:///home/shaw/Downloads'
+
 [org/gnome/nautilus/preferences]
 sort-directories-first=true
 
 [org/gnome/nautilus/window-state]
+sidebar-width=357
 geometry='890x1173+0+258'
 maximized=false
 
@@ -237,9 +280,6 @@ volumes-visible=true
 [org/gnome/nautilus/list-view]
 default-visible-columns=['name', 'size', 'type', 'date_modified']
 default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 'owner', 'group', 'permissions', 'mime_type', 'where']
-
-[org/gnome/photos]
-window-maximized=true
 
 [org/gnome/evince]
 pictures-directory=@ms 'file:///home/shaw/Documents/home/42-mortgage-payoff'
@@ -273,7 +313,7 @@ migrated=true
 
 [org/gnome/deja-dup]
 backend='file'
-prompt-check='2018-01-31T21:24:15.405003Z'
+prompt-check='2018-06-17T23:13:11.334578Z'
 include-list=@as []
 
 [org/gnome/deja-dup/s3]
@@ -315,6 +355,9 @@ application-id='mailspring_mailspring.desktop'
 
 [org/gnome/desktop/notifications/application/empathy]
 application-id='empathy.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
 
 [org/gnome/desktop/notifications/application/firefox]
 application-id='firefox.desktop'
@@ -493,11 +536,29 @@ audible-bell=false
 [org/gnome/telepathy-account-widgets/ui]
 avatar-directory='/home/shaw/Pictures/buddy-icons'
 
-[org/gnome/power-manager]
-info-history-type='charge'
-info-stats-type='discharge-accuracy'
-info-last-device='wakeups'
-info-page-number=3
+[org/gnome/photos]
+window-maximized=true
+
+[org/gnome/gedit/preferences/editor]
+wrap-last-split-mode='word'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/plugins/filebrowser]
+virtual-root='file:///home/shaw/Downloads'
+tree-view=true
+root='file:///'
+
+[org/gnome/gedit/plugins]
+active-plugins=['modelines', 'spell', 'filebrowser', 'docinfo', 'time']
+
+[org/gnome/gedit/state/window]
+size=(1444, 700)
+state=128
+bottom-panel-size=140
+side-panel-size=200
+side-panel-active-page='GeditWindowDocumentsPanel'
 
 [org/gnome/GPaste]
 images-support=false
@@ -509,6 +570,12 @@ synchronize-clipboards=true
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
 use-background-color=true
+
+[org/gnome/power-manager]
+info-history-type='charge'
+info-stats-type='discharge-accuracy'
+info-last-device='wakeups'
+info-page-number=3
 
 [org/gnome/rhythmbox]
 position=(223, 169)
@@ -709,7 +776,7 @@ col-6-width=0
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1526341328
+check-timestamp=int64 1531797936
 
 [org/gtk/settings/file-chooser]
 sort-column='name'
@@ -906,9 +973,9 @@ show-hud=['<Alt>']
 show-details=true
 first-run=false
 check-new-release-ignore='artful'
-window-height=434
-launch-time=int64 1519146827
-window-width=486
+window-height=541
+launch-time=int64 1531797981
+window-width=1169
 
 [apps/seahorse/listing]
 keyrings-selected=['secret-service://login', 'openssh:///home/shaw/.ssh']
