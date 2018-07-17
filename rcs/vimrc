@@ -137,6 +137,9 @@ autocmd BufNewFile,BufRead,BufEnter *.gjs setf javascript
 autocmd BufNewFile,BufRead,BufEnter BUILD.fs setf python
 autocmd BufWritePost,BufEnter * Neomake
 autocmd FileType terraform setlocal commentstring=#%s
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 " When editing a file that requires root, try to save using sudo
 cmap w!! %!sudo tee > /dev/null %
