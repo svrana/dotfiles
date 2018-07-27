@@ -1,4 +1,5 @@
 .berkshelf
+nodes
 chef/nodes
 chef/local-mode-cache
 chef/chef-client-running.pid

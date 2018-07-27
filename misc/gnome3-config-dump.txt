@@ -80,7 +80,7 @@ hinting='slight'
 numlock-state='off'
 
 [org/gnome/shell]
-enabled-extensions=['activities-config@nls1729', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'openweather-extension@jenslody.de', 'workspace-grid@mathematical.coffee.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz']
+enabled-extensions=['activities-config@nls1729', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'openweather-extension@jenslody.de', 'workspace-grid@mathematical.coffee.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz', 'no-title-bar@franglais125.gmail.com', 'pixel-saver@deadalnix.me']
 command-history=['gconf-editor', 'r', 'er', 'r']
 remember-mount-password=false
 app-picker-view=uint32 1
