@@ -8,7 +8,7 @@ mkdir -p ~/.config/nvim/autoload
 
 function _link_ftplugins() {
     local i
-    for i in $(dolisting rcs/ftplugin/*); do
+    for i in rcs/ftplugin/* ; do
         i=$(basename "$i")
         ln -sf "$DOTFILES/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
     done
