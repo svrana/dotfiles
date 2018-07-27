@@ -15,10 +15,6 @@ apt_repository 'rvm' do
   distribution node['lsb']['codename']
 end
 
-apt_repository 'zeal' do
-  uri 'ppa:zeal-developers/ppa'
-end
-
 apt_repository 'spotify' do
   uri 'http://repository.spotify.com'
   components ['stable', 'non-free']
