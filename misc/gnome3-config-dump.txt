@@ -79,9 +79,12 @@ hinting='slight'
 [org/gnome/settings-daemon/peripherals/keyboard]
 numlock-state='off'
 
+[org/gnome/settings-daemon/peripherals/mouse]
+locate-pointer=false
+
 [org/gnome/shell]
-enabled-extensions=['activities-config@nls1729', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'openweather-extension@jenslody.de', 'workspace-grid@mathematical.coffee.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz', 'no-title-bar@franglais125.gmail.com', 'pixel-saver@deadalnix.me']
-command-history=['gconf-editor', 'r', 'er', 'r']
+enabled-extensions=['activities-config@nls1729', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'openweather-extension@jenslody.de', 'workspace-grid@mathematical.coffee.gmail.com', 'no-title-bar@franglais125.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz', 'pixel-saver@deadalnix.me', 'TopIcons@phocean.net', 'gsconnect@andyholmes.github.io']
+command-history=['gconf-editor', 'r', 'er', 'r', 'lg']
 remember-mount-password=false
 app-picker-view=uint32 1
 favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
@@ -128,11 +131,6 @@ topbar-preview-size=10
 [org/gnome/shell/extensions/auto-move-windows]
 application-list=['slack.desktop:5', 'spotify.desktop:4', 'google-chrome.desktop:3', 'evolution.desktop:1', 'rhythmbox.desktop:4', 'firefox.desktop:3', 'zeal.desktop:6']
 
-[org/gnome/shell/extensions/topicons]
-icon-size=25
-icon-spacing=18
-tray-pos='right'
-
 [org/gnome/shell/extensions/openweather]
 weather-provider='openweathermap'
 center-forecast=false
@@ -154,6 +152,34 @@ use-text-on-buttons=false
 pressure-unit='inHg'
 show-comment-in-forecast=true
 decimal-places=1
+
+[org/gnome/shell/extensions/topicons]
+icon-size=20
+icon-spacing=2
+tray-pos='right'
+
+[org/gnome/shell/extensions/gsconnect/device/610159432fdfb4cd]
+supported-plugins=['battery', 'clipboard', 'findmyphone', 'mousepad', 'mpris', 'notification', 'ping', 'runcommand', 'sftp', 'share', 'telephony']
+enabled-plugins=['notification', 'share', 'telephony', 'battery']
+type='phone'
+tcp-port=uint32 1716
+id='610159432fdfb4cd'
+name='google'
+tcp-host='10.42.64.90'
+certificate-pem='-----BEGIN CERTIFICATE-----\nMIIC9zCCAd+gAwIBAgIBATANBgkqhkiG9w0BAQsFADA/MRkwFwYDVQQDDBA2MTAx\nNTk0MzJmZGZiNGNkMRQwEgYDVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RF\nMB4XDTE3MDcyNzIyMzYxMVoXDTI3MDcyNzIyMzYxMVowPzEZMBcGA1UEAwwQNjEw\nMTU5NDMyZmRmYjRjZDEUMBIGA1UECwwLS0RFIENvbm5lY3QxDDAKBgNVBAoMA0tE\nRTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKzBJHqfbBtRtPpPldOB\nMJrRtypXW1ARZMSv1b/VLbDGH/vSEWQMrqz1chV3UWoJpbMGXM+K0JX8akSmJSsg\nl22s3gF4G5h+JXdm5pBpDy2PMAj6jgZIr7tDwyHIG/JTiUXuvEHFUogj+UH6TD25\n7n5wr8+J/IPLYVVIlJ8r417o6+l19h9ZUhELwDp2K3a71HpVsiQJM16I6OtKf8KC\no2sbuk3VJWnnRm82vKhdGaFnvcHbwTcukZWKfCFr1BLusUKYUIljp8HO77vLN9+n\n7/sD6H98Yy56oJtt71Ak2mc7354duGWbNNzVtsC3pyGuTAW9nGZr8ujTaYZ8kuBu\nOmECAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAGMN+LGPB8kJI49ZZZ0X2nY9B/eXy\nDdGpoYbfm4qNAU1HxiLdTynasAi3IrYvu+3U+0kD21S1GvvLwhosYpWpurGAW7Iq\nZp8kM43OT7kePu0mMjWPubVuMVQAVrrr/2vp2Vg6QWl/fCV/1p/QO7pCRqO7AM1g\nshfJP4gPhKXG0Pfd1Rew8XlSgU7aTmU3kNP/d+zAAfFHSW0ePQaStjKClPyljeCq\n6+pz7WzSMpKURVIR0GHpPhyyAei1FZcgx5eAXqBw4iPCESpWH2k1T6ye7eeybAFt\nDJFFPMVg4cTB95kdpiN0x459sPF4VSItKC4CoBdludeY/k96dgyXsYuhCA==\n-----END CERTIFICATE-----\n'
+
+[org/gnome/shell/extensions/gsconnect/device/610159432fdfb4cd/plugin/share]
+download-directory='/home/shaw/Downloads'
+
+[org/gnome/shell/extensions/gsconnect/device/610159432fdfb4cd/plugin/notification]
+applications='{"GSConnect":{"iconName":"phone","enabled":false},"Thunderbird":{"iconName":"","enabled":true}}'
+
+[org/gnome/shell/extensions/gsconnect]
+nautilus-integration=true
+show-battery=false
+show-indicators=false
+devices=['610159432fdfb4cd']
+webbrowser-integration=true
 
 [org/gnome/shell/extensions/workspace-grid]
 num-columns=3
@@ -231,6 +257,8 @@ delay=3
 last-save-directory='file:///home/shaw/Documents'
 
 [org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
 sort-directories-first=true
 
 [org/gnome/nautilus/window-state]
@@ -315,13 +343,14 @@ scaling-factor=uint32 1
 cursor-theme='Adwaita'
 toolkit-accessibility=false
 gtk-im-module='gtk-im-context-simple'
+icon-theme='Adwaita'
 monospace-font-name='Ubuntu Mono derivative Powerline 12'
 enable-animations=true
 gtk-theme='Adwaita'
 clock-show-date=true
 
 [org/gnome/desktop/notifications]
-application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution', 'thunderbird', 'empathy', 'firefox', 'apport-gtk', 'org-gnome-tweaks']
+application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution', 'thunderbird', 'empathy', 'firefox', 'apport-gtk', 'org-gnome-tweaks', 'org-gnome-shell-extensions-gsconnect', 'gnome-shell-extension-prefs']
 show-in-lock-screen=false
 
 [org/gnome/desktop/notifications/application/mailspring-mailspring]
@@ -330,11 +359,14 @@ application-id='mailspring_mailspring.desktop'
 [org/gnome/desktop/notifications/application/empathy]
 application-id='empathy.desktop'
 
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
+
 [org/gnome/desktop/notifications/application/google-chrome]
 application-id='google-chrome.desktop'
 
-[org/gnome/desktop/notifications/application/firefox]
-application-id='firefox.desktop'
+[org/gnome/desktop/notifications/application/org-gnome-shell-extensions-gsconnect]
+application-id='org.gnome.Shell.Extensions.GSConnect.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-tweaks]
 application-id='org.gnome.tweaks.desktop'
@@ -345,14 +377,17 @@ application-id='deja-dup.desktop'
 [org/gnome/desktop/notifications/application/gnome-network-panel]
 application-id='gnome-network-panel.desktop'
 
+[org/gnome/desktop/notifications/application/gnome-shell-extension-prefs]
+application-id='gnome-shell-extension-prefs.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
 
-[org/gnome/desktop/notifications/application/spotify]
-application-id='spotify.desktop'
-
 [org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell]
 application-id='org.gnome.ChromeGnomeShell.desktop'
+
+[org/gnome/desktop/notifications/application/spotify]
+application-id='spotify.desktop'
 
 [org/gnome/desktop/notifications/application/gnome-tweak-tool]
 application-id='gnome-tweak-tool.desktop'
@@ -425,7 +460,7 @@ sort-order=['gnome-contacts.desktop', 'gnome-documents.desktop', 'nautilus.deskt
 
 [org/gnome/desktop/wm/preferences]
 auto-raise=true
-button-layout=':appmenu,minimize,maximize,close'
+button-layout=':appmenu,close'
 focus-mode='sloppy'
 num-workspaces=6
 titlebar-font='Cantarell Bold 14'
@@ -518,7 +553,7 @@ audible-bell=false
 avatar-directory='/home/shaw/Pictures/buddy-icons'
 
 [org/gnome/control-center]
-last-panel='ubuntu'
+last-panel='info-overview'
 
 [org/gnome/power-manager]
 info-history-type='charge'
@@ -736,7 +771,7 @@ col-6-width=0
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1532697203
+check-timestamp=int64 1532966829
 
 [org/gnome/mutter]
 dynamic-workspaces=false
@@ -744,9 +779,9 @@ dynamic-workspaces=false
 [org/gtk/settings/file-chooser]
 sort-column='name'
 sidebar-width=181
-window-position=(1465, 715)
+window-position=(262, 207)
 show-size-column=true
-show-hidden=false
+show-hidden=true
 window-size=(910, 682)
 sort-directories-first=false
 date-format='regular'
