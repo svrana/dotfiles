@@ -49,6 +49,7 @@ export DOTFILE_PLUGINS=(
     ruby
     rust
     rvm
+    systemd
     tmux
     virtualgo
     wish
