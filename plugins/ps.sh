@@ -23,3 +23,5 @@ function iss() {
 
     ps -ef | grep -v grep | grep "$@" -i ;
 }
+
+alias psc='ps xawf -eo pid,user,cgroup,args'
