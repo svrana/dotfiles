@@ -226,11 +226,11 @@ vpane-position=400
 completion-minimum-query-length=3
 
 [org/gnome/system/location]
-enabled=true
+enabled=false
 
 [org/gnome/rhythmbox]
 position=(20, 203)
-size=(1634, 1781)
+size=(1939, 1781)
 display-page-tree-visible=true
 paned-position=306
 maximized=false
@@ -261,7 +261,7 @@ show-browser=true
 
 [org/gnome/rhythmbox/plugins]
 active-plugins=['mpris', 'audiocd', 'rb', 'mtpdevice', 'generic-player', 'power-manager', 'android', 'daap', 'mmkeys', 'ipod', 'notification', 'dbus-media-server', 'iradio', 'artsearch']
-seen-plugins=['mpris', 'replaygain', 'magnatune', 'rbzeitgeist', 'rb', 'mtpdevice', 'soundcloud', 'grilo', 'lyrics', 'daap', 'im-status', 'ipod', 'notification', 'rblirc', 'dbus-media-server', 'fmradio', 'audioscrobbler', 'pythonconsole', 'artsearch', 'sendto']
+seen-plugins=['mpris', 'replaygain', 'magnatune', 'rbzeitgeist', 'rb', 'mtpdevice', 'soundcloud', 'grilo', 'lyrics', 'daap', 'im-status', 'ipod', 'notification', 'rblirc', 'dbus-media-server', 'fmradio', 'audioscrobbler', 'pythonconsole', 'artsearch', 'sendto', 'webremote']
 
 [org/gnome/rhythmbox/plugins/android/source]
 show-browser=true
@@ -274,7 +274,7 @@ layout-path='%aa/%at'
 media-type='audio/x-aac'
 
 [org/gnome/rhythmbox/library/source]
-paned-position=291
+paned-position=492
 show-browser=true
 
 [org/gnome/rhythmbox/sources]
@@ -361,7 +361,7 @@ gtk-theme='Adwaita'
 clock-show-date=true
 
 [org/gnome/desktop/notifications]
-application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution', 'thunderbird', 'empathy', 'firefox', 'org-gnome-dejadup', 'org-gnome-tweaks', 'gnome-network-panel', 'update-manager']
+application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution', 'thunderbird', 'empathy', 'firefox', 'org-gnome-dejadup', 'org-gnome-tweaks', 'gnome-network-panel', 'update-manager', 'ca-desrt-dconf-editor']
 show-in-lock-screen=true
 
 [org/gnome/desktop/notifications/application/mailspring-mailspring]
@@ -408,6 +408,9 @@ application-id='org.gnome.ChromeGnomeShell.desktop'
 
 [org/gnome/desktop/notifications/application/spotify]
 application-id='spotify.desktop'
+
+[org/gnome/desktop/notifications/application/ca-desrt-dconf-editor]
+application-id='ca.desrt.dconf-editor.desktop'
 
 [org/gnome/desktop/notifications/application/gnome-tweak-tool]
 application-id='gnome-tweak-tool.desktop'
@@ -485,6 +488,7 @@ sort-order=['gnome-contacts.desktop', 'gnome-documents.desktop', 'nautilus.deskt
 report-technical-problems=true
 
 [org/gnome/desktop/wm/preferences]
+mouse-button-modifier='<Alt>'
 auto-raise=true
 button-layout=':appmenu,close'
 focus-mode='sloppy'
@@ -588,7 +592,7 @@ dynamic-workspaces=false
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1533653802
+check-timestamp=int64 1533821816
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
@@ -611,8 +615,8 @@ default-visible-columns=['name', 'size', 'type', 'date_modified']
 default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 'owner', 'group', 'permissions', 'mime_type', 'where']
 
 [org/gnome/shell]
-enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'workspace-grid@mathematical.coffee.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'TopIcons@phocean.net', 'no-title-bar@franglais125.gmail.com']
-command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editro', 'dconf-editor']
+enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'workspace-grid@mathematical.coffee.gmail.com', 'TopIcons@phocean.net', 'no-title-bar@franglais125.gmail.com']
+command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editro', 'dconf-editor', 'gconf-editor', 'dconf-editor']
 remember-mount-password=false
 had-bluetooth-devices-setup=true
 app-picker-view=uint32 1
@@ -672,7 +676,7 @@ icon-saturation=0.59999999999999998
 icon-contrast=0.30000000000000004
 icon-opacity=193
 tray-order=6
-icon-spacing=18
+icon-spacing=13
 
 [org/gnome/shell/extensions/openweather]
 weather-provider='openweathermap'
@@ -726,6 +730,7 @@ show-workspace-labels=false
 [org/gnome/shell/extensions/dash-to-dock]
 preferred-monitor=0
 customize-alphas=true
+extend-height=false
 dock-fixed=false
 force-straight-corner=false
 intellihide=false
@@ -742,7 +747,7 @@ height-fraction=0.82999999999999996
 custom-theme-shrink=false
 background-opacity=0.29999999999999999
 min-alpha=0.14000000000000001
-dash-max-icon-size=47
+dash-max-icon-size=34
 opaque-background=true
 shortcut=['<Super>q']
 isolate-workspaces=false
@@ -820,7 +825,7 @@ priority=0
 iso-folder='/home/shaw/Downloads'
 
 [org/gnome/control-center]
-last-panel='wifi'
+last-panel='ubuntu'
 
 [org/gnome/evince]
 document-directory=@ms 'file:///home/shaw/Documents/papers'
@@ -889,7 +894,7 @@ last-save-directory='file:///home/shaw/Documents'
 [org/gtk/settings/file-chooser]
 sort-column='name'
 sidebar-width=233
-window-position=(26, 23)
+window-position=(1465, 729)
 show-size-column=true
 show-hidden=false
 window-size=(910, 682)
@@ -1089,10 +1094,10 @@ window-width=1169
 keyrings-selected=['secret-service://login', 'openssh:///home/shaw/.ssh']
 
 [ca/desrt/dconf-editor]
-saved-view='/org/gnome/desktop/peripherals/'
+saved-view='/org/gnome/shell/extensions/dash-to-dock/'
 show-warning=false
 window-is-fullscreen=false
-window-height=600
+window-height=1596
 window-width=1104
 window-is-maximized=false
 
