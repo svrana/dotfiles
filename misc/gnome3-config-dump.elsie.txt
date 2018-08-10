@@ -561,7 +561,7 @@ window-maximized=true
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1533653802
+check-timestamp=int64 1533868471
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
@@ -581,8 +581,8 @@ default-visible-columns=['name', 'size', 'type', 'date_modified']
 default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 'owner', 'group', 'permissions', 'mime_type', 'where']
 
 [org/gnome/shell]
-command-history=['gconf-editor', 'r', 'er', 'r', 'lg']
-enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'workspace-grid@mathematical.coffee.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'TopIcons@phocean.net', 'no-title-bar@franglais125.gmail.com']
+command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editor']
+enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'workspace-grid@mathematical.coffee.gmail.com', 'TopIcons@phocean.net', 'no-title-bar@franglais125.gmail.com', 'ubuntu-dock@ubuntu.com']
 had-bluetooth-devices-setup=true
 favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
 
@@ -658,6 +658,7 @@ show-workspace-labels=false
 [org/gnome/shell/extensions/dash-to-dock]
 preferred-monitor=0
 customize-alphas=true
+extend-height=false
 dock-fixed=false
 force-straight-corner=false
 intellihide=false
@@ -759,7 +760,7 @@ priority=0
 iso-folder='/home/shaw/Downloads'
 
 [org/gnome/control-center]
-last-panel='network'
+last-panel='wifi'
 
 [org/gnome/evince]
 pictures-directory=@ms 'file:///home/shaw/Documents/home/42-mortgage-payoff'
@@ -1027,9 +1028,11 @@ window-width=1169
 keyrings-selected=['secret-service://login', 'openssh:///home/shaw/.ssh']
 
 [ca/desrt/dconf-editor]
+saved-view='/org/gnome/shell/extensions/dash-to-dock/'
+show-warning=false
 window-is-fullscreen=false
-window-height=600
-window-width=1104
+window-height=1460
+window-width=1295
 window-is-maximized=false
 
 [desktop/ibus/general]
