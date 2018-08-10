@@ -65,25 +65,34 @@ function extract() {
     fi
 }
 
+# Usage: split "string" "delimiter"
+function split() {
+   IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
+   printf '%s\n' "${arr[@]}"
+}
+
+function join_by() {
+    local d=$1 shift; echo -n "$1"; shift; printf "%s" "${@/#/$d}";
+}
+
 # Remove all invalid directories from PATH
 #
 # @return String PATH
 function PATH_clean() {
-    local ruby_path=$(which ruby)
-    if [ -z "$ruby_path" ]; then
-        ebad "Could not find ruby!!" >&2
-        return
-    fi
-
-    ruby -e "puts ENV['PATH'].split(':') \
-        .inject([]) { |r,k| r << k if File.exist?(k) ; r } \
-        .join(':')"
+    local tmp=()
+    for dir in $(split "$PATH" ":") ; do
+        [ -d "$dir" ] && tmp+=("$dir")
+    done
+    local new_path
+    new_path=$(join_by ':' "${tmp[@]}")
+    export PATH="$new_path"
 }
 
 function PATH_prepend() {
     [ -z "$1" ] && return
 
-    paths=$(echo "$1" | tr ":" "\n")
+    local paths
+    paths=$(split "$1" ":")
     for path in $paths ; do
         if [ "${PATH#*${path}}" = "${PATH}" ]; then
             export PATH=$path:$PATH
@@ -94,7 +103,8 @@ function PATH_prepend() {
 function PATH_append() {
     [ -z "$1" ] && return
 
-    paths=$(echo "$1" | tr ":" "\n")
+    local paths
+    paths=$(split "$1" ":")
     for path in $paths ; do
         if [ "${PATH#*${path}}" = "${PATH}" ]; then
             export PATH=$PATH:$path
@@ -105,7 +115,8 @@ function PATH_append() {
 function CDPATH_append() {
     [ -z "$1" ] && return
 
-    paths=$(echo "$1" | tr ":" "\n")
+    local paths
+    paths=$(split "$1" ":")
     for path in $paths ; do
         if [ "${CDPATH#*${path}}" = "${PATH}" ]; then
             export CDPATH=$CDPATH:$path
@@ -125,6 +136,7 @@ function loopit() {
     done
 }
 
+# Search for a string in the files in all subdirectories of $PWD
 function sf() {
     if [ "$#" -lt 1 ]; then
         echo "Supply string to search for!"
@@ -132,12 +144,7 @@ function sf() {
     fi
     printf -v search "%q" "$*"
 
-    #include="yml,js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst,sh,toml"
     exclude="tags,.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist,.berkshelf"
-    #rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
-    #rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
-    #rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --color "always" -g "!{'$exclude'}/*"'
-    #rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --color "always" -g "!{'$exclude'}/*"'
     rg_command='rg --smart-case --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --color "always" -g "!{'$exclude'}"'
     #echo "rg_commmand: $rg_command"
     files=$(eval "$rg_command" "$search" 2>/dev/null | fzf --height 80% --ansi --multi --reverse | awk -F ':' '{print $1":"$2":"$3}')
