@@ -5,6 +5,6 @@ if [ ! -d "$APPS/alacritty" ]; then
     pushd "$APPS/alacritty"
     rustup override set stable
     rustup update stable
-    cargo build --release
+    cargo deb --install
     popd
 fi
