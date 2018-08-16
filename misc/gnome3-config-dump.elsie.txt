@@ -11,7 +11,7 @@ text-scale-factor=1.3999999999999999
 favorites=['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://firefox.desktop', 'application://chromium-browser.desktop', 'application://google-chrome.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://libreoffice-impress.desktop', 'application://org.gnome.Software.desktop', 'application://ubuntu-amazon-default.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']
 
 [com/ubuntu/update-notifier]
-release-check-time=uint32 1532747380
+release-check-time=uint32 1534124259
 
 [com/ubuntu/user-interface]
 scale-factor={'eDP1': 8}
@@ -337,21 +337,21 @@ palette=['rgb(7,54,66)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', '
 cursor-shape='underline'
 use-system-font=false
 use-theme-colors=false
-font='Ubuntu Mono derivative Powerline 14'
+font='Ubuntu Mono derivative Powerline 18'
 use-theme-transparency=false
 background-color='rgb(0,43,54)'
 scrollbar-policy='never'
 audible-bell=false
 
 [org/gnome/desktop/interface]
-text-scaling-factor=1.3999999999999999
+text-scaling-factor=1.0
 cursor-size=48
-font-name='Cantarell 13'
-document-font-name='Sans 14'
+font-name='Cantarell 16'
+document-font-name='Sans 16'
 scaling-factor=uint32 1
 gtk-im-module='gtk-im-context-simple'
 toolkit-accessibility=false
-monospace-font-name='Ubuntu Mono derivative Powerline 12'
+monospace-font-name='Ubuntu Mono derivative Powerline 18'
 enable-animations=true
 clock-show-date=true
 
@@ -465,7 +465,7 @@ report-technical-problems=true
 auto-raise=true
 focus-mode='sloppy'
 num-workspaces=6
-titlebar-font='Cantarell Bold 14'
+titlebar-font='Cantarell Bold 16'
 
 [org/gnome/desktop/wm/keybindings]
 maximize=['<Control><Super>Up']
@@ -561,7 +561,7 @@ window-maximized=true
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1533868471
+check-timestamp=int64 1534124260
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
@@ -570,7 +570,7 @@ sort-directories-first=true
 
 [org/gnome/nautilus/window-state]
 sidebar-width=357
-geometry='1622x1165+26+23'
+geometry='1622x1161+26+23'
 maximized=false
 
 [org/gnome/nautilus/desktop]
@@ -581,10 +581,18 @@ default-visible-columns=['name', 'size', 'type', 'date_modified']
 default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 'owner', 'group', 'permissions', 'mime_type', 'where']
 
 [org/gnome/shell]
-command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editor']
 enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'workspace-grid@mathematical.coffee.gmail.com', 'TopIcons@phocean.net', 'no-title-bar@franglais125.gmail.com', 'ubuntu-dock@ubuntu.com']
+command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editor']
 had-bluetooth-devices-setup=true
+enable-hot-corners=true
 favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/shell/overrides]
+dynamic-workspaces=false
+workspaces-only-on-primary=false
+
+[org/gnome/shell/window-switcher]
+app-icon-mode='both'
 
 [org/gnome/shell/extensions/web-search-dialog]
 default-search-engine=1
@@ -680,13 +688,6 @@ opaque-background=true
 shortcut=['<Super>q']
 isolate-workspaces=false
 transparency-mode='ADAPTIVE'
-
-[org/gnome/shell/overrides]
-dynamic-workspaces=false
-workspaces-only-on-primary=false
-
-[org/gnome/shell/window-switcher]
-app-icon-mode='both'
 
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
