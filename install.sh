@@ -37,6 +37,7 @@ export INSTALLERS=(
     slack
     solarize
     terraform
+    update-systemd-resolved
 )
 
 # A list of directories that should be created.
