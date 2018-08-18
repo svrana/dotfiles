@@ -11,7 +11,7 @@ text-scale-factor=1.3999999999999999
 favorites=['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://firefox.desktop', 'application://chromium-browser.desktop', 'application://google-chrome.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://libreoffice-impress.desktop', 'application://org.gnome.Software.desktop', 'application://ubuntu-amazon-default.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']
 
 [com/ubuntu/update-notifier]
-release-check-time=uint32 1532747380
+release-check-time=uint32 1534456249
 
 [com/ubuntu/user-interface]
 scale-factor={'eDP1': 8}
@@ -561,7 +561,7 @@ window-maximized=true
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1533868471
+check-timestamp=int64 1534551785
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
@@ -581,10 +581,18 @@ default-visible-columns=['name', 'size', 'type', 'date_modified']
 default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 'owner', 'group', 'permissions', 'mime_type', 'where']
 
 [org/gnome/shell]
-command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editor']
-enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'workspace-grid@mathematical.coffee.gmail.com', 'TopIcons@phocean.net', 'no-title-bar@franglais125.gmail.com', 'ubuntu-dock@ubuntu.com']
+enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'workspace-grid@mathematical.coffee.gmail.com', 'no-title-bar@franglais125.gmail.com', 'ubuntu-dock@ubuntu.com', 'removeaccesibility@lomegor', 'TopIcons@phocean.net']
+command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editor', 'r']
 had-bluetooth-devices-setup=true
+enable-hot-corners=true
 favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/shell/overrides]
+dynamic-workspaces=false
+workspaces-only-on-primary=false
+
+[org/gnome/shell/window-switcher]
+app-icon-mode='both'
 
 [org/gnome/shell/extensions/web-search-dialog]
 default-search-engine=1
@@ -623,11 +631,13 @@ application-list=['slack.desktop:5', 'spotify.desktop:4', 'google-chrome.desktop
 
 [org/gnome/shell/extensions/no-title-bar]
 change-appmenu=true
+button-position='hidden'
 
 [org/gnome/shell/extensions/topicons]
-icon-size=25
+icon-size=34
 icon-spacing=18
 tray-pos='right'
+tray-order=7
 
 [org/gnome/shell/extensions/openweather]
 weather-provider='openweathermap'
@@ -680,13 +690,6 @@ opaque-background=true
 shortcut=['<Super>q']
 isolate-workspaces=false
 transparency-mode='ADAPTIVE'
-
-[org/gnome/shell/overrides]
-dynamic-workspaces=false
-workspaces-only-on-primary=false
-
-[org/gnome/shell/window-switcher]
-app-icon-mode='both'
 
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
@@ -1021,7 +1024,7 @@ show-details=true
 first-run=false
 check-new-release-ignore='artful'
 window-height=541
-launch-time=int64 1532790882
+launch-time=int64 1534457808
 window-width=1169
 
 [apps/seahorse/listing]
