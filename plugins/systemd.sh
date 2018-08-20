@@ -2,6 +2,6 @@
 # journalctl -u systemd-resolved -f
 #
 
-alias sctl='systemctl'
-alias jctl='journalctl'
+alias sctl='sudo systemctl'
+alias jctl='sudo journalctl'
 
