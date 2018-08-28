@@ -32,6 +32,11 @@ use-clipboard=true
 use-primary=true
 synchronize-clipboards=true
 
+[org/onboard]
+system-theme-associations={'HighContrast': 'HighContrast', 'HighContrastInverse': 'HighContrastInverse', 'LowContrast': 'LowContrast', 'ContrastHighInverse': 'HighContrastInverse', 'Default': ''}
+use-system-defaults=false
+schema-version='2.3'
+
 [org/gnome/Totem]
 subtitle-encoding='UTF-8'
 active-plugins=['skipto', 'autoload-subtitles', 'screensaver', 'movie-properties', 'screenshot', 'apple-trailers', 'save-file', 'vimeo', 'recent', 'media_player_keys']
@@ -226,7 +231,7 @@ completion-minimum-query-length=3
 enabled=true
 
 [org/gnome/rhythmbox]
-position=(223, 169)
+position=(26, 23)
 size=(1625, 1046)
 display-page-tree-visible=true
 paned-position=306
@@ -258,7 +263,7 @@ show-browser=true
 
 [org/gnome/rhythmbox/plugins]
 active-plugins=['mpris', 'audiocd', 'rb', 'mtpdevice', 'generic-player', 'power-manager', 'android', 'daap', 'mmkeys', 'ipod', 'notification', 'dbus-media-server', 'iradio', 'artsearch']
-seen-plugins=['mpris', 'replaygain', 'magnatune', 'rbzeitgeist', 'rb', 'mtpdevice', 'soundcloud', 'grilo', 'lyrics', 'daap', 'im-status', 'ipod', 'notification', 'rblirc', 'dbus-media-server', 'fmradio', 'audioscrobbler', 'pythonconsole', 'artsearch', 'sendto']
+seen-plugins=['mpris', 'replaygain', 'magnatune', 'rbzeitgeist', 'rb', 'mtpdevice', 'soundcloud', 'grilo', 'lyrics', 'daap', 'im-status', 'ipod', 'notification', 'rblirc', 'dbus-media-server', 'fmradio', 'audioscrobbler', 'pythonconsole', 'artsearch', 'sendto', 'alternative-toolbar', 'webremote']
 
 [org/gnome/rhythmbox/plugins/android/source]
 show-browser=true
@@ -561,7 +566,7 @@ window-maximized=true
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1534551785
+check-timestamp=int64 1535469970
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
@@ -581,11 +586,14 @@ default-visible-columns=['name', 'size', 'type', 'date_modified']
 default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 'owner', 'group', 'permissions', 'mime_type', 'where']
 
 [org/gnome/shell]
-enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'workspace-grid@mathematical.coffee.gmail.com', 'no-title-bar@franglais125.gmail.com', 'ubuntu-dock@ubuntu.com', 'removeaccesibility@lomegor', 'TopIcons@phocean.net']
+enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'workspace-grid@mathematical.coffee.gmail.com', 'no-title-bar@franglais125.gmail.com', 'ubuntu-dock@ubuntu.com', 'removeaccesibility@lomegor', 'TopIcons@phocean.net', 'alternate-tab@gnome-shell-extensions.gcampax.github.com']
 command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editor', 'r']
 had-bluetooth-devices-setup=true
 enable-hot-corners=true
 favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/shell/app-switcher]
+current-workspace-only=false
 
 [org/gnome/shell/overrides]
 dynamic-workspaces=false
@@ -599,13 +607,14 @@ default-search-engine=1
 search-history-data='[{"query":"hello","type":"QUERY"},{"query":"st","type":"QUERY"},{"query":"vranix","type":"QUERY"}]'
 
 [org/gnome/shell/extensions/activities-config]
-transparent-panel=20
+transparent-panel=0
 activities-config-button-removed=true
 activities-config-button-no-text=true
 activities-icon-padding=8
 activities-config-button-no-icon=true
 activities-config-button-icon-path='/home/shaw/.local/share/gnome-shell/extensions/activities-config@nls1729/face-smile-3.svg'
 panel-shadow-color-hex-rgb='#000000'
+transparent-shadow=0
 original-activities-button-text='Activities'
 pointer-barriers-supported=true
 panel-hide-app-menu-button-icon=false
@@ -763,7 +772,7 @@ priority=0
 iso-folder='/home/shaw/Downloads'
 
 [org/gnome/control-center]
-last-panel='wifi'
+last-panel='search'
 
 [org/gnome/evince]
 pictures-directory=@ms 'file:///home/shaw/Documents/home/42-mortgage-payoff'

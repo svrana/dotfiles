@@ -1,9 +1,10 @@
-112:removeaccesibility@lomegor
+19:user-theme@gnome-shell-extensions.gcampax.github
+358:activities-config@nls1729
+1267:no-title-bar@franglais125.gmail
 1031:TopIcons@phocean
 779:clipboard-indicator@tudmotu
-484:workspace-grid@mathematical.coffee.gmail
-750:openweather-extension@jenslody
 16:auto-move-windows@gnome-shell-extensions.gcampax.github
-19:user-theme@gnome-shell-extensions.gcampax.github
-1267:no-title-bar@franglais125.gmail
-358:activities-config@nls1729
+15:alternate-tab@gnome-shell-extensions.gcampax.github
+112:removeaccesibility@lomegor
+750:openweather-extension@jenslody
+484:workspace-grid@mathematical.coffee.gmail
