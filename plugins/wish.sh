@@ -1,6 +1,8 @@
 #!/bin/bash
 
 export CL_HOME=~/Projects/clroot
+export DEV_HOME=~/Projects/dev
+source "$DEV_HOME/bin/dev-completion.bash"
 
 if [ -f /usr/local/arcanist/resources/shell/bash-completion ] ; then
     source /usr/local/arcanist/resources/shell/bash-completion
