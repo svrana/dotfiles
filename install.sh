@@ -36,6 +36,7 @@ export INSTALLERS=(
     ripgrep
     slack
     solarize
+    standard-notes
     terraform
     update-systemd-resolved
 )
@@ -51,6 +52,7 @@ export CREATE_DIRS=(
     ~/.config/psql
     ~/.config/fontconfig/conf.d
     ~/.config/git
+    ~/.config/standard-notes
     ~/.kitchen
     ~/.local/share/applications
     ~/.ipython/profile_default
