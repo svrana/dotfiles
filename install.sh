@@ -52,7 +52,7 @@ export CREATE_DIRS=(
     ~/.config/psql
     ~/.config/fontconfig/conf.d
     ~/.config/git
-    ~/.config/standard-notes
+    ~/.config/Standard\ Notes
     ~/.kitchen
     ~/.local/share/applications
     ~/.ipython/profile_default
@@ -81,6 +81,7 @@ export FILE_LINKS=(
     "${RCS}/ipython_config.py                   ~/.ipython/profile_default/ipython_config.py"
     "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
+    "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"
