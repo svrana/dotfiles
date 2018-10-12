@@ -25,10 +25,3 @@ if [ ! -f "$BIN_DIR/cfssljson" ]; then
         -O "$BIN_DIR/cfssljson"
     chmod +x "$BIN_DIR/cfssljson"
 fi
-
-if [ ! -f "$BIN_DIR/kubectl" ]; then
-    wget -q --show-progress  \
-        https://storage.googleapis.com/kubernetes-release/release/v1.10.4/bin/linux/amd64/kubectl \
-        -O "$BIN_DIR/kubectl"
-    chmod +x "$BIN_DIR/kubectl"
-fi
