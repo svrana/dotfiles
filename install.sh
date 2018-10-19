@@ -80,7 +80,6 @@ export FILE_LINKS=(
     "${RCS}/kitchen-config.yml                  ~/.kitchen/config.yml"
     "${RCS}/ctags                               ~/.ctags"
     "${RCS}/ipython_config.py                   ~/.ipython/profile_default/ipython_config.py"
-    "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
     "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
 )
