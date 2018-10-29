@@ -43,6 +43,7 @@ Plug 'scrooloose/nerdtree'
 Plug '$APPS/fzf'
 Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-packer'
+Plug 'google/vim-jsonnet'
 
 " All of your Plugins must be added before the following line
 call plug#end()
