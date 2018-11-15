@@ -11,7 +11,7 @@ text-scale-factor=1.3999999999999999
 favorites=['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://firefox.desktop', 'application://chromium-browser.desktop', 'application://google-chrome.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://libreoffice-impress.desktop', 'application://org.gnome.Software.desktop', 'application://ubuntu-amazon-default.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']
 
 [com/ubuntu/update-notifier]
-release-check-time=uint32 1534456249
+release-check-time=uint32 1541126864
 
 [com/ubuntu/user-interface]
 scale-factor={'eDP1': 8}
@@ -66,7 +66,7 @@ sleep-inactive-ac-type='nothing'
 sleep-inactive-battery-timeout=1800
 
 [org/gnome/settings-daemon/plugins/color]
-night-light-last-coordinates=(37.748399999999997, -122.4156)
+night-light-last-coordinates=(37.750900000000001, -122.4153)
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
@@ -97,6 +97,7 @@ show-thousands=false
 button-mode='programming'
 target-units='radian'
 word-size=64
+window-position=(778, 623)
 number-format='automatic'
 angle-units='degrees'
 base=10
@@ -144,7 +145,7 @@ use-24hour-format=true
 work-day-sunday=false
 work-day-thursday=true
 recur-events-italic=false
-last-notification-time=1519320000
+last-notification-time=1542046800
 prefer-new-item=''
 primary-calendar='1492034716.1460.0@bonview'
 work-day-saturday=false
@@ -231,15 +232,15 @@ completion-minimum-query-length=3
 enabled=true
 
 [org/gnome/rhythmbox]
-position=(26, 23)
-size=(1625, 1046)
+position=(0, 0)
+size=(3840, 2122)
 display-page-tree-visible=true
 paned-position=306
-maximized=false
+maximized=true
 show-album-art=true
 
 [org/gnome/rhythmbox/player]
-volume=0.91998291015625
+volume=1.0
 
 [org/gnome/rhythmbox/podcast]
 download-interval='weekly'
@@ -361,7 +362,7 @@ enable-animations=true
 clock-show-date=true
 
 [org/gnome/desktop/notifications]
-application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution', 'thunderbird', 'empathy', 'firefox', 'org-gnome-dejadup', 'org-gnome-tweaks', 'gnome-network-panel']
+application-children=['rhythmbox', 'slack', 'spotify', 'org-gnome-software', 'org-gnome-chromegnomeshell', 'deja-dup', 'evolution', 'thunderbird', 'empathy', 'firefox', 'org-gnome-dejadup', 'org-gnome-tweaks', 'gnome-network-panel', 'update-manager', 'org-gnome-evolution']
 show-in-lock-screen=true
 
 [org/gnome/desktop/notifications/application/mailspring-mailspring]
@@ -391,11 +392,14 @@ application-id='gnome-network-panel.desktop'
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
 
-[org/gnome/desktop/notifications/application/spotify]
-application-id='spotify.desktop'
+[org/gnome/desktop/notifications/application/org-gnome-evolution]
+application-id='org.gnome.Evolution.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell]
 application-id='org.gnome.ChromeGnomeShell.desktop'
+
+[org/gnome/desktop/notifications/application/spotify]
+application-id='spotify.desktop'
 
 [org/gnome/desktop/notifications/application/gnome-tweak-tool]
 application-id='gnome-tweak-tool.desktop'
@@ -413,6 +417,9 @@ application-id='thunderbird.desktop'
 
 [org/gnome/desktop/notifications/application/slack]
 application-id='slack.desktop'
+
+[org/gnome/desktop/notifications/application/update-manager]
+application-id='update-manager.desktop'
 
 [org/gnome/desktop/app-folders]
 folder-children=['Utilities', 'Sundry']
@@ -440,7 +447,7 @@ secondary-color='#000000'
 [org/gnome/desktop/peripherals/touchpad]
 natural-scroll=false
 click-method='default'
-speed=0.51219512195121952
+speed=0.69852941176470584
 tap-to-click=true
 
 [org/gnome/desktop/peripherals/touchscreens/(null):(null)]
@@ -566,7 +573,7 @@ window-maximized=true
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1535469970
+check-timestamp=int64 1542298254
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
@@ -575,7 +582,7 @@ sort-directories-first=true
 
 [org/gnome/nautilus/window-state]
 sidebar-width=357
-geometry='1622x1165+26+23'
+geometry='1622x1141+358+587'
 maximized=false
 
 [org/gnome/nautilus/desktop]
@@ -590,7 +597,7 @@ enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensi
 command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editor', 'r']
 had-bluetooth-devices-setup=true
 enable-hot-corners=true
-favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
+favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'org.gnome.Nautilus.desktop', 'appimagekit-standard-notes.desktop']
 
 [org/gnome/shell/app-switcher]
 current-workspace-only=false
@@ -613,7 +620,7 @@ activities-config-button-no-text=true
 activities-icon-padding=8
 activities-config-button-no-icon=true
 activities-config-button-icon-path='/home/shaw/.local/share/gnome-shell/extensions/activities-config@nls1729/face-smile-3.svg'
-panel-shadow-color-hex-rgb='#000000'
+panel-shadow-color-hex-rgb='#2e3436'
 transparent-shadow=0
 original-activities-button-text='Activities'
 pointer-barriers-supported=true
@@ -621,7 +628,7 @@ panel-hide-app-menu-button-icon=false
 panel-hide-rounded-corners=true
 activities-text-padding=8
 override-theme=false
-panel-background-color-hex-rgb='#000000'
+panel-background-color-hex-rgb='#2e3436'
 shell-theme-id='null<|>user'
 activities-config-button-text='Acitivities'
 activities-config-hot-corner=true
@@ -636,7 +643,7 @@ prev-entry=['<Primary>Down']
 topbar-preview-size=10
 
 [org/gnome/shell/extensions/auto-move-windows]
-application-list=['slack.desktop:5', 'spotify.desktop:4', 'google-chrome.desktop:3', 'evolution.desktop:1', 'rhythmbox.desktop:4', 'firefox.desktop:3', 'zeal.desktop:6']
+application-list=['slack.desktop:5', 'spotify.desktop:4', 'google-chrome.desktop:3', 'rhythmbox.desktop:4', 'firefox.desktop:3', 'appimagekit-standard-notes.desktop:6', 'thunderbird.desktop:1']
 
 [org/gnome/shell/extensions/no-title-bar]
 change-appmenu=true
@@ -708,6 +715,10 @@ use-background-color=true
 ignore-phase2-ca-cert=false
 ignore-ca-cert=false
 
+[org/gnome/nm-applet/eap/d32b0a14-f228-4a8e-84d9-b0b51da1f4b6]
+ignore-phase2-ca-cert=false
+ignore-ca-cert=false
+
 [org/gnome/telepathy-account-widgets/ui]
 avatar-directory='/home/shaw/Pictures/buddy-icons'
 
@@ -772,17 +783,17 @@ priority=0
 iso-folder='/home/shaw/Downloads'
 
 [org/gnome/control-center]
-last-panel='search'
+last-panel='bluetooth'
 
 [org/gnome/evince]
 pictures-directory=@ms 'file:///home/shaw/Documents/home/42-mortgage-payoff'
 
 [org/gnome/evince/default]
-window-ratio=(1.6653182308522112, 1.4796659404502541)
+window-ratio=(2.4242424242424243, 1.6805555555555556)
 
 [org/gnome/deja-dup]
-backend='local'
-prompt-check='2018-07-28T03:15:47.698013Z'
+backend='goa'
+prompt-check='disabled'
 include-list=@as []
 
 [org/gnome/deja-dup/s3]
@@ -797,11 +808,18 @@ folder='bonview'
 [org/gnome/deja-dup/local]
 folder='/home/shaw/deja-dup'
 
+[org/gnome/deja-dup/remote]
+folder='elsie'
+
 [org/gnome/deja-dup/gdrive]
 folder='/deja-dup/bonview'
 
 [org/gnome/deja-dup/rackspace]
 container='bonview'
+
+[org/gnome/deja-dup/goa]
+folder='elsie'
+type='google'
 
 [org/gnome/deja-dup/file]
 path='/home/shaw/deja-dup'
@@ -840,10 +858,10 @@ last-save-directory='file:///home/shaw/Documents'
 [org/gtk/settings/file-chooser]
 sort-column='name'
 sidebar-width=233
-window-position=(26, 23)
+window-position=(1413, 726)
 show-size-column=true
 show-hidden=false
-window-size=(910, 682)
+window-size=(1015, 682)
 sort-directories-first=false
 date-format='regular'
 sort-order='ascending'
@@ -1033,8 +1051,8 @@ show-details=true
 first-run=false
 check-new-release-ignore='artful'
 window-height=541
-launch-time=int64 1534457808
-window-width=1169
+launch-time=int64 1541778287
+window-width=1494
 
 [apps/seahorse/listing]
 keyrings-selected=['secret-service://login', 'openssh:///home/shaw/.ssh']
