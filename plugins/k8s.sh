@@ -1,4 +1,4 @@
-source <(kubectl completion bash)
+#source <(kubectl completion bash) too slow...
 
 alias kube-token='grep id-token ~/.kube/config | cut -d':' -f2 | cut -b 2-'
 

@@ -25,16 +25,13 @@ export COLUMNS=$COLUMNS                     # hack for powerline-go which was fi
 #
 # shellcheck disable=SC2034
 export DOTFILE_PLUGINS=(
-    android
     aws
-    bommie
     cd
     dircolors
     docker
     dotfiles
     find
     fzf
-    gcloud
     git
     go
     gruf
@@ -42,7 +39,6 @@ export DOTFILE_PLUGINS=(
     k8s
     less
     ls
-    opsdb
     powerline-go
     ps
     python
@@ -51,7 +47,6 @@ export DOTFILE_PLUGINS=(
     rvm
     systemd
     tmux
-    virtualgo
     wish
     direnv		# direnv must be initialized last
 )
