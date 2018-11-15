@@ -18,7 +18,6 @@ function ask() {
 alias path='echo -e ${PATH//:/\\n}'
 alias perlinc='perl -le "print for @INC"'
 alias svi='sudo vi'
-alias rvi='vi -R'
 alias bzip='bzip2'
 alias bunzip='bunzip2'
 alias diff='diff -u'
@@ -66,13 +65,27 @@ function extract() {
 }
 
 # Usage: split "string" "delimiter"
-function split() {
+split() {
    IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
    printf '%s\n' "${arr[@]}"
 }
 
-function join_by() {
+join_by() {
     local d=$1 shift; echo -n "$1"; shift; printf "%s" "${@/#/$d}";
+}
+
+trim() {
+    if [ -z "$1" ]; then
+        # assume content comes from stdin if not from a parameter
+        str=$(< /dev/stdin)
+    else
+        str="$1"
+    fi
+
+    # Usage: trim_string "   example   string    " or echo " fooo " | trim_string
+    : "${str#"${str%%[![:space:]]*}"}"
+    : "${_%"${_##*[![:space:]]}"}"
+    printf '%s\n' "$_"
 }
 
 # Remove all invalid directories from PATH
@@ -152,16 +165,4 @@ function sf() {
     [[ -n "$files" ]] && ${EDITOR:-vim} $files
 }
 
-trim_string() {
-    if [ -z "$1" ]; then
-        # assume content comes from stdin if not from a parameter
-        str=$(< /dev/stdin)
-    else
-        str="$1"
-    fi
 
-    # Usage: trim_string "   example   string    " or echo " fooo " | trim_string
-    : "${str#"${str%%[![:space:]]*}"}"
-    : "${_%"${_##*[![:space:]]}"}"
-    printf '%s\n' "$_"
-}
