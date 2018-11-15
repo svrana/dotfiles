@@ -30,7 +30,6 @@ export INSTALLERS=(
     go
     gradle
     hugo
-    k8s
     neovim
     packer
     powerline

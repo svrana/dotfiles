@@ -39,6 +39,7 @@ export DOTFILE_PLUGINS=(
     go
     gruf
     java
+    k8s
     less
     ls
     opsdb
