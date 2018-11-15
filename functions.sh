@@ -151,3 +151,17 @@ function sf() {
     files=$(echo "$files" | tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
     [[ -n "$files" ]] && ${EDITOR:-vim} $files
 }
+
+trim_string() {
+    if [ -z "$1" ]; then
+        # assume content comes from stdin if not from a parameter
+        str=$(< /dev/stdin)
+    else
+        str="$1"
+    fi
+
+    # Usage: trim_string "   example   string    " or echo " fooo " | trim_string
+    : "${str#"${str%%[![:space:]]*}"}"
+    : "${_%"${_##*[![:space:]]}"}"
+    printf '%s\n' "$_"
+}
