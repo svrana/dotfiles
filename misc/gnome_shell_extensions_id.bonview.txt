@@ -1,11 +1,11 @@
 750:openweather-extension@jenslody
-1319:gsconnect@andyholmes.github
 15:alternate-tab@gnome-shell-extensions.gcampax.github
-615:appindicatorsupport@rgcjonas.gmail
 484:workspace-grid@mathematical.coffee.gmail
-1267:no-title-bar@franglais125.gmail
-16:auto-move-windows@gnome-shell-extensions.gcampax.github
-779:clipboard-indicator@tudmotu
+358:activities-config@nls1729
 1274:location-icon-autohide@darednaxella
 19:user-theme@gnome-shell-extensions.gcampax.github
-358:activities-config@nls1729
+1267:no-title-bar@franglais125.gmail
+1319:gsconnect@andyholmes.github
+779:clipboard-indicator@tudmotu
+16:auto-move-windows@gnome-shell-extensions.gcampax.github
+615:appindicatorsupport@rgcjonas.gmail

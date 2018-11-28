@@ -11,7 +11,7 @@ text-scale-factor=1.3999999999999999
 favorites=['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://firefox.desktop', 'application://chromium-browser.desktop', 'application://google-chrome.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://libreoffice-impress.desktop', 'application://org.gnome.Software.desktop', 'application://ubuntu-amazon-default.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']
 
 [com/ubuntu/update-notifier]
-release-check-time=uint32 1539101262
+release-check-time=uint32 1542731117
 
 [com/ubuntu/user-interface]
 scale-factor={'eDP1': 8}
@@ -99,7 +99,7 @@ show-thousands=false
 button-mode='programming'
 target-units='radian'
 word-size=64
-window-position=(748, 966)
+window-position=(282, 994)
 number-format='automatic'
 angle-units='degrees'
 base=10
@@ -234,7 +234,7 @@ completion-minimum-query-length=3
 enabled=false
 
 [org/gnome/rhythmbox]
-position=(23, 458)
+position=(94, 377)
 size=(1939, 1424)
 display-page-tree-visible=true
 paned-position=306
@@ -297,7 +297,7 @@ wrap-last-split-mode='word'
 show-tabs-mode='auto'
 
 [org/gnome/gedit/plugins/filebrowser]
-virtual-root='file:///home/shaw/Documents'
+virtual-root='file:///home/shaw/go/src/github.com/ContextLogic/kube-deploy'
 tree-view=true
 root='file:///'
 
@@ -385,7 +385,9 @@ application-id='firefox.desktop'
 application-id='google-chrome.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-shell-extensions-gsconnect]
+enable-sound-alerts=true
 application-id='org.gnome.Shell.Extensions.GSConnect.desktop'
+show-banners=true
 
 [org/gnome/desktop/notifications/application/org-gnome-tweaks]
 application-id='org.gnome.tweaks.desktop'
@@ -598,7 +600,7 @@ dynamic-workspaces=false
 
 [org/gnome/software]
 first-run=false
-check-timestamp=int64 1539176864
+check-timestamp=int64 1543415657
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
@@ -607,7 +609,7 @@ sort-directories-first=true
 
 [org/gnome/nautilus/window-state]
 sidebar-width=222
-geometry='1340x1025+617+661'
+geometry='1340x1175+85+406'
 maximized=false
 
 [org/gnome/nautilus/icon-view]
@@ -624,10 +626,10 @@ default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 
 enabled-extensions=['activities-config@nls1729', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'web_search_dialog@awamper.gmail.com', 'clipboard-indicator@tudmotu.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'no-title-bar@franglais125.gmail.com', 'workspace-grid@mathematical.coffee.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'location-icon-autohide@darednaxella.name', 'ubuntu-dock@ubuntu.com', 'gsconnect@andyholmes.github.io']
 command-history=['gconf-editor', 'r', 'er', 'r', 'lg', 'dconf-editro', 'dconf-editor', 'gconf-editor', 'dconf-editor', 'r', 'R', 'r']
 remember-mount-password=false
-had-bluetooth-devices-setup=false
+had-bluetooth-devices-setup=true
 app-picker-view=uint32 1
 enable-hot-corners=true
-favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop']
+favorite-apps=['thunderbird.desktop', 'firefox.desktop', 'rhythmbox.desktop', 'slack.desktop', 'empathy.desktop', 'org.gnome.Nautilus.desktop', 'appimagekit-standard-notes.desktop']
 
 [org/gnome/shell/overrides]
 dynamic-workspaces=false
@@ -669,7 +671,7 @@ prev-entry=['<Primary>Down']
 topbar-preview-size=10
 
 [org/gnome/shell/extensions/auto-move-windows]
-application-list=['slack.desktop:5', 'spotify.desktop:4', 'google-chrome.desktop:3', 'evolution.desktop:1', 'rhythmbox.desktop:4', 'firefox.desktop:3', 'zeal.desktop:6']
+application-list=['slack.desktop:5', 'spotify.desktop:4', 'google-chrome.desktop:3', 'rhythmbox.desktop:4', 'firefox.desktop:3', 'appimagekit-standard-notes.desktop:6']
 
 [org/gnome/shell/extensions/no-title-bar]
 automatic-theme=true
@@ -708,23 +710,19 @@ pressure-unit='inHg'
 show-comment-in-forecast=true
 decimal-places=1
 
-[org/gnome/shell/extensions/gsconnect]
-webbrowser-integration=true
-nautilus-integration=true
-show-battery=false
-show-indicators=false
-devices=['ec7fd3dc2980826e']
-show-offline=true
-
 [org/gnome/shell/extensions/gsconnect/device/ec7fd3dc2980826e]
-supported-plugins=['battery', 'clipboard', 'findmyphone', 'mousepad', 'mpris', 'notification', 'ping', 'runcommand', 'sftp', 'share', 'telephony']
+supported-plugins=['battery', 'clipboard', 'contacts', 'findmyphone', 'mousepad', 'mpris', 'notification', 'ping', 'runcommand', 'sftp', 'share', 'sms', 'systemvolume', 'telephony']
 enabled-plugins=['telephony', 'notification', 'clipboard', 'battery', 'share', 'findmyphone', 'runcommand', 'ping', 'mousepad']
+incoming-capabilities=['kdeconnect.battery.request', 'kdeconnect.clipboard', 'kdeconnect.contacts.request_all_uids_timestamps', 'kdeconnect.contacts.request_vcards_by_uid', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.notification', 'kdeconnect.notification.reply', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.runcommand', 'kdeconnect.sftp.request', 'kdeconnect.share.request', 'kdeconnect.sms.request', 'kdeconnect.sms.request_conversation', 'kdeconnect.sms.request_conversations', 'kdeconnect.systemvolume', 'kdeconnect.telephony.request', 'kdeconnect.telephony.request_mute']
 type='phone'
-tcp-port=uint32 1716
+tcp-host='10.42.64.106'
 id='ec7fd3dc2980826e'
 name='google'
-tcp-host='10.42.64.106'
+tcp-port=uint32 1716
+paired=true
+last-connection='tcp'
 certificate-pem='-----BEGIN CERTIFICATE-----\nMIIC9zCCAd+gAwIBAgIBATANBgkqhkiG9w0BAQsFADA/MRkwFwYDVQQDDBBlYzdm\nZDNkYzI5ODA4MjZlMRQwEgYDVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RF\nMB4XDTE3MDkyMTE3MjUyOVoXDTI3MDkyMTE3MjUyOVowPzEZMBcGA1UEAwwQZWM3\nZmQzZGMyOTgwODI2ZTEUMBIGA1UECwwLS0RFIENvbm5lY3QxDDAKBgNVBAoMA0tE\nRTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIo3bYAIlsBMDYQ3C/FU\nGQKvPRpcPfUOwrjbIVY6S+o3BhoRt0LDEeOreVbDFfM7TntnUhnAD+h6g9uC0fhZ\n5KX5IZjve4ebk/9x0GlVU9FJKzuybaSNk9qgIurjgvgHS/6c/06ujpeKYVkJ4pPH\nZFBYdb2zMEFtXr9SAFeWes4KoKfevZ/pZus6+fUXFL5mI12xHMa0lI4ssqYUtHsn\naYHY8LVKfkU/0VSkuYv74RzIX0cpr4lykpSbk4kVh10nQtbh2mKmwxbBDFs6zLjL\nIH2byiMxuOMnyUaElAMaRMFBF3r1zqfxMX9kNje/OKlBtsSH6tWPWxw2Hgrjk7nS\nEH0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAElqBmKxe5Cy7uYbcCNpKBkaCVl2w\ndRC/09m3YRytG6Z/VkdCt3XB1jcvvaZFIuRaX8GYuV/5kZk/6OuKfjf1S7VKYzlm\n1q5fc6zszG0zj4dgtUMIXig23Jwq75RINEFnHB1R2POqMLdPNEO/roKThJPRFe+m\nxvSWFbmfdqnqwIvv+AIdkPCHWUAv9WBl1fRwfEjn5uIdM7EPd5MkmP5NTaYs7/TG\nsmy7+JMAJSNzvsrC0GKNHfVNuMiriPrB1RIAXqkrFXesYYPtyjKTe/JC/YhFM9l4\nU27mcWP2JrhM7Jswp6+nZU+tarugNyHxv2ioq8JiOig5yZxiBefLInVRcQ==\n-----END CERTIFICATE-----\n'
+outgoing-capabilities=['kdeconnect.battery', 'kdeconnect.clipboard', 'kdeconnect.contacts.response_uids_timestamps', 'kdeconnect.contacts.response_vcards', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.echo', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.runcommand.request', 'kdeconnect.sftp', 'kdeconnect.share.request', 'kdeconnect.sms.messages', 'kdeconnect.systemvolume.request', 'kdeconnect.telephony']
 
 [org/gnome/shell/extensions/gsconnect/device/ec7fd3dc2980826e/plugin/share]
 download-directory='/home/shaw/Downloads'
@@ -748,6 +746,19 @@ download-directory='/home/shaw/Downloads'
 
 [org/gnome/shell/extensions/gsconnect/device/610159432fdfb4cd/plugin/notification]
 applications='{"GSConnect":{"iconName":"phone","enabled":false},"Thunderbird":{"iconName":"","enabled":true},"Rhythmbox":{"iconName":"rhythmbox","enabled":true}}'
+
+[org/gnome/shell/extensions/gsconnect]
+devices=['ec7fd3dc2980826e']
+webbrowser-integration=true
+show-indicators=false
+show-offline=true
+show-battery=false
+nautilus-integration=true
+
+[org/gnome/shell/extensions/gsconnect/preferences]
+window-position=(45, 815)
+window-maximized=false
+window-size=(744, 691)
 
 [org/gnome/shell/extensions/workspace-grid]
 num-columns=3
@@ -851,14 +862,14 @@ priority=0
 iso-folder='/home/shaw/Downloads'
 
 [org/gnome/control-center]
-last-panel='default-apps'
+last-panel='notifications'
 
 [org/gnome/evince]
 document-directory=@ms nothing
 pictures-directory=@ms 'file:///home/shaw/Documents/home/42-mortgage-payoff'
 
 [org/gnome/evince/default]
-window-ratio=(3.1233144552319305, 2.0624477861319965)
+window-ratio=(2.4232026143790848, 1.7045454545454546)
 continuous=true
 fullscreen=false
 show-sidebar=true
@@ -871,7 +882,7 @@ sizing-mode='fit-width'
 
 [org/gnome/deja-dup]
 backend='local'
-prompt-check='2018-10-09T16:10:42.559410Z'
+prompt-check='2018-11-12T17:18:17.952309Z'
 include-list=@as []
 
 [org/gnome/deja-dup/s3]
@@ -929,7 +940,7 @@ last-save-directory='file:///home/shaw/Documents'
 [org/gtk/settings/file-chooser]
 sort-column='name'
 sidebar-width=233
-window-position=(116, 363)
+window-position=(1094, 670)
 show-size-column=true
 show-hidden=false
 window-size=(1652, 800)
@@ -1122,7 +1133,7 @@ show-details=true
 first-run=false
 check-new-release-ignore='artful'
 window-height=541
-launch-time=int64 1538782716
+launch-time=int64 1542875780
 window-width=1169
 
 [apps/seahorse/listing]
