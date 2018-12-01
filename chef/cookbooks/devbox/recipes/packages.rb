@@ -34,12 +34,12 @@ apt_repository 'yarn' do
   distribution ''
 end
 
-apt_repository 'salt' do
-  uri 'http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest'
-  key 'https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub'
-  distribution node['lsb']['codename']
-  components ['main']
-end
+# apt_repository 'salt' do
+#   uri 'http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest'
+#   key 'https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub'
+#   distribution node['lsb']['codename']
+#   components ['main']
+# end
 
 package %w(
   build-essential
