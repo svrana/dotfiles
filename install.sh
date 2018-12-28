@@ -27,11 +27,13 @@ export INSTALLERS=(
     dbeaver
     neovim
     fd
+    fonts
     go
     gradle
     hugo
     neovim
     packer
+    polybar
     powerline
     ripgrep
     slack
@@ -81,6 +83,10 @@ export FILE_LINKS=(
     "${RCS}/ipython_config.py                   ~/.ipython/profile_default/ipython_config.py"
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
     "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
+    "${RCS}/i3config                            ~/.config/i3/config"
+    "${RCS}/polybar-config                      ~/.config/polybar/config"
+    "${RCS}/Xresources                          ~/.Xresources"
+    "${RCS}/Xmodmap                             ~/.Xmodmap"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"

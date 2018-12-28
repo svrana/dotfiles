@@ -52,3 +52,6 @@ export DOTFILE_PLUGINS=(
 )
 
 source ~/.dotfiles/load.sh
+
+# configure this in xorg settings somewhere
+setxkbmap -option caps:ctrl_modifier

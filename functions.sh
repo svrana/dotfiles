@@ -164,5 +164,3 @@ function sf() {
     files=$(echo "$files" | tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
     [[ -n "$files" ]] && ${EDITOR:-vim} $files
 }
-
-
