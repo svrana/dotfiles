@@ -163,8 +163,8 @@ exec --no-startup-id xautolock -time 5 -locker 'gnome-screensaver-command -l'
 exec --no-startup-id compton --unredir-if-possible --backend glx --vsync opengl-swc -f --fade-delta=6
 
 # (Pulse) Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pa-volume.sh --up
-bindsym XF86AudioLowerVolume exec --no-startup-id  pa-volume.sh --down
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.local/bin/pa-volume.sh --up
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.local/bin/pa-volume.sh --down
 bindsym XF86AudioMute exec --no-startup-id pa-volume.sh --togmute
 
 # Media player controls
