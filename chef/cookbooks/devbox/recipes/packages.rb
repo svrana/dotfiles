@@ -122,6 +122,7 @@ package %w(
   libcurl4-openssl-dev
   libpulse-dev
   libxcb-composite0-dev
+  notify-osd
 )
 
 # custom .desktop files for electron apps that require scaling on hidpi settings
