@@ -33,6 +33,7 @@ export DOTFILE_PLUGINS=(
     find
     fzf
     git
+    gnome-keyring
     go
     gruf
     java
