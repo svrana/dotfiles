@@ -121,6 +121,7 @@ package %w(
   libiw-dev
   libcurl4-openssl-dev
   libpulse-dev
+  libxcb-composite0-dev
 )
 
 # custom .desktop files for electron apps that require scaling on hidpi settings

@@ -52,6 +52,8 @@ export CREATE_DIRS=(
 
     ~/.config/alacritty
     ~/.config/psql
+    ~/.config/i3
+    ~/.config/polybar
     ~/.config/fontconfig/conf.d
     ~/.config/git
     ~/.config/Standard\ Notes
