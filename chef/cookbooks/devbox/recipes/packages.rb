@@ -27,11 +27,18 @@ apt_repository 'insync' do
   distribution node['lsb']['codename']
 end
 
-apt_repository 'yarn' do
-  uri 'https://dl.yarnpkg.com/debian'
-  key 'https://dl.yarnpkg.com/debian/pubkey.gpg'
-  components %w(stable main)
-  distribution ''
+# apt_repository 'yarn' do
+#   uri 'https://dl.yarnpkg.com/debian'
+#   key 'https://dl.yarnpkg.com/debian/pubkey.gpg'
+#   components %w(stable main)
+#   distribution ''
+# end
+
+apt_repository 'i3' do
+  uri 'http://debian.sur5r.net/i3/'
+  key 'http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2018.01.30_all.deb'
+  components ['universe']
+  distribution node['lsb']['codename']
 end
 
 # apt_repository 'salt' do
