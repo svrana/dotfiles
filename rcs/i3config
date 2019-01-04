@@ -20,6 +20,8 @@ default_floating_border pixel 1
 default_border pixel 1
 hide_edge_borders smart
 
+workspace_auto_back_and_forth yes
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -74,7 +76,6 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -169,3 +170,16 @@ bindsym XF86AudioPrev exec playerctl previous<Paste>
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+#background-alt = #586e75
+#background = #073642
+
+# Color
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #586e75 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #073642 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
