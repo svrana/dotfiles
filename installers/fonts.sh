@@ -5,7 +5,7 @@ install() {
     local FONT_DIR="$HOME/.local/share/fonts"
 
     # yosemite font (for the i3 polybar text)
-    local YOSEMITE_URL="https://fontawesome.com/v4.7.0/assets/font-awesome-4.7.0.zip"
+    local YOSEMITE_URL="https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip"
     if [ ! -f "$FONT_DIR/sf-font.zip" ]; then
         curl -L -sSf -o "$FONT_DIR/sf-font.zip" "$YOSEMITE_URL"
         pushd "$FONT_DIR"
