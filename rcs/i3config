@@ -97,6 +97,7 @@ bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -105,6 +106,7 @@ bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -115,7 +117,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 #-f 'System San Francisco Display Regular 24'
 
-bindsym Mod1+Control+l exec gnome-screensaver-command -l
+bindsym Mod1+Control+l exec 'gnome-screensaver-command -l'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -153,7 +155,7 @@ exec --no-startup-id dbus-launch /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id ssh-add $HOME/.ssh/bommie/bommie-id_rsa
 exec --no-startup-id insync start --headless
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png
-exec --no-startup-id xautolock -time 5 -locker 'gnome-screensaver-command -l'
+exec --no-startup-id xautolock -time 5 -locker 'sleep 1; xset s activate'
 exec --no-startup-id compton --unredir-if-possible --backend glx --vsync opengl-swc -f --fade-delta=6
 
 # (Pulse) Audio controls
