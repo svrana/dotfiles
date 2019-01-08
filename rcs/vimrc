@@ -44,6 +44,7 @@ Plug '$APPS/fzf'
 Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-packer'
 Plug 'google/vim-jsonnet'
+Plug 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call plug#end()
