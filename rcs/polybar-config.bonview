@@ -26,8 +26,6 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-;dpi = ${xrdb:Xft.dpi:-1}
-dpi = 150
 tray-maxsize = 1000
 width = 100%
 height = 30
@@ -49,8 +47,8 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = System San Francisco Display:fontformat=regular:size=8;3
-font-1 = Font Awesome:fontformat=regular:size=8;4
+font-0 = System San Francisco Display:fontformat=regular:size=12;3
+font-1 = Font Awesome:fontformat=regular:size=12;4
 
 modules-left = i3
 modules-center = date
