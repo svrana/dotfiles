@@ -117,7 +117,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 #-f 'System San Francisco Display Regular 24'
 
-bindsym Mod1+Control+l exec 'gnome-screensaver-command -l'
+
+bindsym Mod1+Control+l exec i3lock -c 073642 -eu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
