@@ -117,8 +117,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 #-f 'System San Francisco Display Regular 24'
 
-
-bindsym Mod1+Control+l exec --no-startup-id i3lock -c 073642 -eu
+bindsym Mod1+Control+l exec --no-startup-id i3lock -c 002b36 -eu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -145,15 +144,14 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#mode "split" {
-#	bindsym - split horizontal
-#	#bindsym | split vertical
+mode "split" {
+	bindsym v mode "default", split horizontal
+	bindsym h mode "default", split vertical
 
-#        # back to normal: Enter or Escape
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#}
-#bindsym $mod+i mode "split"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+i mode "split"
 
 for_window [class="Gsimplecal"] floating enable
 
@@ -162,11 +160,11 @@ exec --no-startup-id dbus-launch /usr/lib/policykit-1-gnome/polkit-gnome-authent
 exec --no-startup-id dbus-launch /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id ssh-add $HOME/.ssh/bommie/bommie-id_rsa
 exec --no-startup-id insync start --headless
-exec --no-startup-id feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png
+#exec --no-startup-id feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png
 exec --no-startup-id xautolock -time 5 -locker 'sleep 1; xset s activate'
 #exec --no-startup-id compton --unredir-if-possible --backend glx --vsync opengl-swc -f --fade-delta=6
 exec --no-startup-id compton --unredir-if-possible --backend glx --sw-opti -f --fade-delta=6
-#exec --no-startup-id xsetroot -solid "#073642"
+exec --no-startup-id hsetroot -solid "#002b36"
 
 
 # (Pulse) Audio controls
@@ -194,5 +192,4 @@ client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #073642 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
 client.background       #ffffff
