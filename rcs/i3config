@@ -160,10 +160,8 @@ exec --no-startup-id dbus-launch /usr/lib/policykit-1-gnome/polkit-gnome-authent
 exec --no-startup-id dbus-launch /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id ssh-add $HOME/.ssh/bommie/bommie-id_rsa
 exec --no-startup-id insync start --headless
-#exec --no-startup-id feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png
 exec --no-startup-id xautolock -time 5 -locker 'sleep 1; xset s activate'
-#exec --no-startup-id compton --unredir-if-possible --backend glx --vsync opengl-swc -f --fade-delta=6
-exec --no-startup-id compton --unredir-if-possible --backend glx --sw-opti -f --fade-delta=6
+#exec --no-startup-id compton --unredir-if-possible --backend glx --sw-opti -f --fade-delta=6
 exec --no-startup-id hsetroot -solid "#002b36"
 
 
