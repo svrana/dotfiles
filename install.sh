@@ -89,6 +89,7 @@ export FILE_LINKS=(
     "${RCS}/polybar-config                      ~/.config/polybar/config"
     "${RCS}/Xresources                          ~/.Xresources"
     "${RCS}/Xmodmap                             ~/.Xmodmap"
+    "${RCS}/xorg.conf                           /etc/X11/xorg.conf"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"
