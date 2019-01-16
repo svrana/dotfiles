@@ -163,6 +163,7 @@ exec --no-startup-id insync start --headless
 exec --no-startup-id xautolock -time 5 -locker 'sleep 1; xset s activate'
 #exec --no-startup-id compton --unredir-if-possible --backend glx --sw-opti -f --fade-delta=6
 exec --no-startup-id hsetroot -solid "#002b36"
+exec --no-startup-id unclutter
 
 
 # (Pulse) Audio controls
