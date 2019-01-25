@@ -6,9 +6,14 @@ if [ -f "$DEV_HOME/bin/dev-completion.bash" ]; then
     source "$DEV_HOME/bin/dev-completion.bash"
 fi
 
+
 if [ -f /usr/local/arcanist/resources/shell/bash-completion ] ; then
     source /usr/local/arcanist/resources/shell/bash-completion
 fi
+
+PATH_add "$DEV_HOME/bin/linux"
+export WISH_CLI_TOOL=DEV
+export BUILDUID=$(id -u $USER)
 
 alias bogo="$CL_HOME/sweeper/bogo.py"
 alias run-tests='arc unit `find -type d | grep __tests__`'
