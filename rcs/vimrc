@@ -8,7 +8,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'gmodarelli/solarize' 		" the colorscheme
 Plug 'altercation/vim-colors-solarized'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-fugitive' 		" git
 Plug 'tpope/vim-commentary' 		" auto-commenting
