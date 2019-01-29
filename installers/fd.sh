@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! command -v fd > /dev/null ; then
-    VERSION="6.3.0"
+    VERSION="7.2.0"
     FILENAME=fd-musl_${VERSION}_amd64.deb
 
     wget -P "$APPS" "https://github.com/sharkdp/fd/releases/download/v$VERSION/$FILENAME"
