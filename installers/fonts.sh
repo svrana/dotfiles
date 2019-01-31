@@ -4,6 +4,12 @@ install() {
     local added_font="false"
     local FONT_DIR="$HOME/.local/share/fonts"
 
+
+    if [ ! -f "$FONT_DIR/PowerlineSymbols.otf" ]; then
+        ln -s "${DOTFILES}/misc/PowerlineSymbols.otf" "${FONT_DIR}/PowerlineSymbols.otf"
+        added_font="true"
+    fi
+
     # yosemite font (for the i3 polybar text)
     local YOSEMITE_URL="https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip"
     if [ ! -f "$FONT_DIR/sf-font.zip" ]; then
@@ -24,6 +30,14 @@ install() {
             added_font="true"
         fi
         popd
+    fi
+
+    if [ ! -f "$FONT_DIR/PowerlineExtraSymbols.otf" ]; then
+        local POWERLINE_SYMBOLS="https://github.com/ryanoasis/powerline-extra-symbols/blob/master/PowerlineExtraSymbols.otf"
+
+        if curl -L -sSf -o "$FONT_DIR/PowerlineExtraSymbols.otf" "$POWERLINE_SYMBOLS" ; then
+            added_font="true"
+        fi
     fi
 
     if [ "$added_font" == "true" ] ; then
