@@ -1,3 +1,10 @@
+" MACRO HOWTO
+"
+" q + <letter> starts recording a macro
+" then q stops it
+" then @<letter> to use it
+"
+"
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
       !cargo build --release
