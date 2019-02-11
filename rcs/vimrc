@@ -200,14 +200,19 @@ map \sp :split<CR>
 map! \sp <ESC>:split<CR>
 nmap <silent> \ts :ts<CR>
 
-map  <F1> :w<CR>
-map! <F1> <ESC>:w<CR>
-map  <F3> :Explore<CR>
-map! <F3> <ESC>:Explore<CR>
-map  <F7> :!tlc<CR><CR>
-map! <F7> <ESC>:!tlc<CR><CR>
-map  <F12> :q<CR>
-map! <F12> <ESC>:q<CR>
+" map  <F1> :w<CR>
+" map! <F1> <ESC>:w<CR>
+noremap <leader>w :w<CR>
+noremap! <leader>w <ESC>:w<CR>
+noremap <leader>q :q<CR>
+noremap! <leader>q <ESC>:q<CR>
+
+" map  <F3> :Explore<CR>
+" map! <F3> <ESC>:Explore<CR>
+" map  <F7> :!tlc<CR><CR>
+" map! <F7> <ESC>:!tlc<CR><CR>
+" map  <F12> :q<CR>
+" map! <F12> <ESC>:q<CR>
 
 map  <m-n> :cn<CR>
 map! <m-n> <ESC>:cn<CR>
