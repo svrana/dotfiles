@@ -12,6 +12,14 @@
 # windows key
 set $mod Mod4
 
+# Workspace identifiers
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:System San Francisco Display 16
@@ -22,10 +30,8 @@ hide_edge_borders smart
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
-# Show the first scratchpad window
 bindsym $mod+minus scratchpad show
-bindsym mod+0 [title="^Notes ::"] scratchpad show
-
+bindsym $mod+0 [class="Standard Notes"] scratchpad show
 
 workspace_auto_back_and_forth yes
 
@@ -67,10 +73,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym Mod1+Control+v split horizontal
@@ -162,15 +168,32 @@ bindsym $mod+i mode "split"
 
 for_window [class="Gsimplecal"] floating enable
 
+# Application startup
 exec_always --no-startup-id $HOME/.local/bin/polybar-launch.sh
 exec --no-startup-id dbus-launch /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dbus-launch /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id ssh-add $HOME/.ssh/bommie/bommie-id_rsa
 exec --no-startup-id insync start --headless
 exec --no-startup-id xautolock -time 5 -locker 'sleep 1; xset s activate'
-#exec --no-startup-id compton --unredir-if-possible --backend glx --sw-opti -f --fade-delta=6
 exec --no-startup-id hsetroot -solid "#002b36"
 exec --no-startup-id unclutter
+
+assign [class="Firefox"] $ws3
+exec --no-startup-id firefox
+
+#assign [class="Thunderbird"] $ws1
+#exec --no-startup-id thunderbird
+
+for_window [class="Spotify"] move to workspace 4
+exec --no-startup-id spotify
+
+for_window [class="Standard Notes"] move scratchpad
+exec --no-startup-id $HOME/Apps/standard-notes-3.0.5-x86_64.AppImage
+
+for_window [class="Slack"] move scratchpad
+exec --no-startup-id slack
+
+exec --no-startup-id i3-msg 'workspace 2; exec alacritty -e tmux'
 
 
 # (Pulse) Audio controls
@@ -199,3 +222,9 @@ client.unfocused        #333333 #073642 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
+
+# app shortcuts
+bindsym $mod+m [class="Thunderbird"] focus
+bindsym $mod+n [class="Alacritty"] focus
+bindsym $mod+b [class="Firefox"] focus
+bindsym $mod+comma [class="Spotify"] focus
