@@ -225,6 +225,8 @@ map! <m-l> <ESC>:clist<CR>
 map  <m-o> :copen<CR>
 map! <m-o> <ESC>:copen<CR>
 
+imap jj <ESC>
+
 nmap n nmzz.`z
 nmap N Nmzz.`z
 nmap * *mzz.`z
