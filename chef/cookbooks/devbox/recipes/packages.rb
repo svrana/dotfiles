@@ -49,6 +49,7 @@ end
 # end
 
 package %w(
+  autocutsel
   build-essential
   fonts-powerline
   python-pip

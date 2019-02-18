@@ -164,6 +164,8 @@ exec --no-startup-id insync start --headless
 exec --no-startup-id xautolock -time 5 -locker 'sleep 1; xset s activate'
 exec --no-startup-id hsetroot -solid "#002b36"
 exec --no-startup-id unclutter
+exec --no-startup-id autocutsel -fork -selection CLIPBOARD
+exec --no-startup-id autocutsel -fork -selection PRIMARY
 
 assign [class="Firefox"] $ws3
 exec --no-startup-id firefox
