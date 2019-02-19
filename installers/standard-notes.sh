@@ -1,13 +1,15 @@
 #!/bin/bash
 
 function __install_standard_notes() {
-    [ -d "$GOROOT" ] && return 0
-
-    local version=2.3.7
+    local version=3.0.5
     local filename="standard-notes-${version}-x86_64.AppImage"
-    local url="https://github.com/standardnotes/desktop/releases/download/v${version}/$filename"
+    local dest="$BIN_DIR/$filename"
 
-    wget "${url}/${filename}" -O "$APPS/$filename" && chmod +x "$APPS/$filename"
+    if [ ! -f "$dest" ]; then
+        local url="https://github.com/standardnotes/desktop/releases/download/v${version}/$filename"
+        wget "${url}" -O "$dest" && chmod +x "$dest"
+        ln -sf "$dest" "$BIN_DIR/standard-notes"
+    fi
 }
 
 __install_standard_notes

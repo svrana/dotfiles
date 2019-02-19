@@ -177,7 +177,7 @@ for_window [class="Spotify"] move to workspace 4
 exec --no-startup-id spotify
 
 for_window [class="Standard Notes"] move scratchpad
-exec --no-startup-id $HOME/Apps/standard-notes-3.0.5-x86_64.AppImage
+exec --no-startup-id $HOME/.local/bin/standard-notes
 
 for_window [class="Slack"] move scratchpad
 
@@ -213,9 +213,9 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # app shortcuts
-bindsym $mod+m [class="Thunderbird"] focus
+bindsym $mod+b [class="Thunderbird"] focus
 bindsym $mod+n [class="Alacritty"] focus
-bindsym $mod+b [class="Firefox"] focus
+bindsym $mod+m [class="Firefox"] focus
 bindsym $mod+comma [class="Spotify"] focus
 bindsym $mod+0 [class="Standard Notes"] scratchpad show; move position 1000 100; resize set 1800 2000
 bindsym $mod+9 [class="Slack"] scratchpad show; move position 1000 100; resize set 1800 2000
