@@ -33,6 +33,7 @@ export INSTALLERS=(
     hugo
     neovim
     packer
+    pass
     polybar
     powerline
     ripgrep
@@ -51,6 +52,7 @@ export CREATE_DIRS=(
     $PROJECTS
 
     ~/.config/alacritty
+    ~/.config/qutebrowser
     ~/.config/psql
     ~/.config/i3
     ~/.config/polybar
@@ -61,6 +63,7 @@ export CREATE_DIRS=(
     ~/.local/share/applications
     ~/.ipython/profile_default
     ~/.weechat
+    ~/.local/share/qutebrowser/userscripts
 )
 
 # A list of symbolic links that point to directories that should be created.
@@ -89,7 +92,13 @@ export FILE_LINKS=(
     "${RCS}/polybar-config                      ~/.config/polybar/config"
     "${RCS}/Xresources                          ~/.Xresources"
     "${RCS}/Xmodmap                             ~/.Xmodmap"
+    "${RCS}/xsessionrc                          ~/.xsessionrc"
     "${RCS}/xorg.conf                           /etc/X11/xorg.conf"
+    "${RCS}/qutebrowser-config.py               ~/.config/qutebrowser/config.py"
+    "$HOME/Documents/quickmarks                          ~/.config/qutebrowser/quickmarks"
+    "${DOTFILES}/scripts/qute-pass              $APPS/qutebrowser/misc/userscripts/qute-pass"
+    "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
+
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"

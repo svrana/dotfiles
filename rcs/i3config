@@ -190,6 +190,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.local/bin/pa-volume.sh 
 bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.local/bin/pa-volume.sh --down
 bindsym XF86AudioMute exec --no-startup-id $HOME/.local/bin/pa-volume.sh --togmute
 
+bindsym Mod1+Control+u exec --no-startup-id $HOME/.local/bin/pa-volume.sh --up
+bindsym Mod1+Control+d exec --no-startup-id $HOME/.local/bin/pa-volume.sh --down
+bindsym Mod1+Control+m exec --no-startup-id $HOME/.local/bin/pa-volume.sh --togmute
+
 # Media player controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
@@ -216,6 +220,7 @@ client.background       #ffffff
 bindsym $mod+b [class="Thunderbird"] focus
 bindsym $mod+n [class="Alacritty"] focus
 bindsym $mod+m [class="Firefox"] focus
+#bindsym $mod+m [class="qutebrowser"] focus
 bindsym $mod+comma [class="Spotify"] focus
-bindsym $mod+0 [class="Standard Notes"] scratchpad show; move position 1000 100; resize set 1800 2000
-bindsym $mod+9 [class="Slack"] scratchpad show; move position 1000 100; resize set 1800 2000
+bindsym $mod+0 [class="Standard Notes"] scratchpad show; move position 1000 50; resize set 1800 2000
+bindsym $mod+9 [class="Slack"] scratchpad show; move position 1000 50; resize set 1800 2000

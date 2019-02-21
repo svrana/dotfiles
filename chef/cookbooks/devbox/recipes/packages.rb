@@ -45,6 +45,7 @@ package %w(
   python3-dev
   python3-pip
   git
+  tox
   tmux
   xclip
   openvpn

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=Vim the web
+Terminal=false
+Name=qutebrowser
+Exec=/home/shaw/.local/bin/qutebrowser
+Type=Application
+Icon=/home/shaw/Apps/qutebrowser/icons/qutebrowser-128x128.png
