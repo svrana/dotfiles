@@ -41,6 +41,7 @@ export INSTALLERS=(
     solarize
     standard-notes
     terraform
+    qutebrowser
     update-systemd-resolved
 )
 
@@ -95,10 +96,9 @@ export FILE_LINKS=(
     "${RCS}/xsessionrc                          ~/.xsessionrc"
     "${RCS}/xorg.conf                           /etc/X11/xorg.conf"
     "${RCS}/qutebrowser-config.py               ~/.config/qutebrowser/config.py"
-    "$HOME/Documents/quickmarks                          ~/.config/qutebrowser/quickmarks"
-    "${DOTFILES}/scripts/qute-pass              $APPS/qutebrowser/misc/userscripts/qute-pass"
+    "${RCS}/qutebrowser-elsie.py                ~/.config/qutebrowser/elsie.py"
+    "$HOME/Documents/quickmarks                 ~/.config/qutebrowser/quickmarks"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
-
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"

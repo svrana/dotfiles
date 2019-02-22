@@ -5,21 +5,28 @@ import socket
 c = c  # noqa: F821 pylint: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 
-c.colors.statusbar.normal.bg = "#333"
-c.colors.statusbar.url.success.https.fg = "white"
-c.colors.tabs.even.fg = "#888"
-c.colors.tabs.even.bg = "#333"
-c.colors.tabs.odd.fg = "#888"
-c.colors.tabs.odd.bg = "#333"
-c.colors.tabs.selected.odd.bg = "#285577"
-c.colors.tabs.selected.even.bg = "#285577"
-c.colors.messages.error.fg = c.colors.statusbar.normal.fg
-c.colors.messages.warning.fg = c.colors.statusbar.normal.fg
-c.colors.prompts.fg = c.colors.statusbar.normal.fg
+# Solarized colors
+base03 = "#002b36"
+base02 = "#073642"
+base01 = "#586e75"
+base00 = "#657b83"
+base0  = "#839496"
+base1  = "#93a1a1"
+base2  = "#eee8d5"
+base3  = "#fdf6e3"
+yellow = "#b58900"
+orange = "#cb4b16"
+red    = "#dc322f"
+magenta= "#d33682"
+violet = "#6c71c4"
+blue   = "#268bd2"
+cyann  = "#2aa198"
+green  = "#859900"
+
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
-config.load_autoconfig()
+#config.load_autoconfig()
 
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
@@ -47,7 +54,7 @@ c.auto_save.session = True
 ## Valid values:
 ##   - webengine: Use QtWebEngine (based on Chromium).
 ##   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
-c.backend = 'webengine'
+#c.backend = 'webengine'
 
 ## This setting can be used to map keys to other keys. When the key used
 ## as dictionary-key is pressed, the binding for the key used as
@@ -332,17 +339,27 @@ c.backend = 'webengine'
 ## Type: QssColor
 # c.colors.statusbar.url.warn.fg = 'yellow'
 
+
 ## Background color of the tab bar.
 ## Type: QtColor
-# c.colors.tabs.bar.bg = '#555555'
+c.colors.tabs.bar.bg = base01
+
+### Background color of unselected odd tabs.
+## Type: QtColor
+c.colors.tabs.odd.bg = base01
 
 ## Background color of unselected even tabs.
 ## Type: QtColor
-# c.colors.tabs.even.bg = 'darkgrey'
+c.colors.tabs.even.bg = base01
 
 ## Foreground color of unselected even tabs.
 ## Type: QtColor
-# c.colors.tabs.even.fg = 'white'
+#c.colors.tabs.even.fg = "#888"
+c.colors.tabs.even.fg = base02
+
+## Foreground color of unselected odd tabs.
+## Type: QtColor
+c.colors.tabs.odd.fg = base02
 
 ## Color for the tab indicator on errors.
 ## Type: QtColor
@@ -365,29 +382,21 @@ c.backend = 'webengine'
 ##   - none: Don't show a gradient.
 # c.colors.tabs.indicator.system = 'rgb'
 
-## Background color of unselected odd tabs.
-## Type: QtColor
-# c.colors.tabs.odd.bg = 'grey'
-
-## Foreground color of unselected odd tabs.
-## Type: QtColor
-# c.colors.tabs.odd.fg = 'white'
-
 ## Background color of selected even tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.even.bg = 'black'
-
-## Foreground color of selected even tabs.
-## Type: QtColor
-# c.colors.tabs.selected.even.fg = 'white'
+c.colors.tabs.selected.even.bg = base1
 
 ## Background color of selected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.odd.bg = 'black'
+c.colors.tabs.selected.odd.bg = base1
+
+## Foreground color of selected even tabs.
+## Type: QtColor
+c.colors.tabs.selected.even.fg = 'white'
 
 ## Foreground color of selected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.odd.fg = 'white'
+c.colors.tabs.selected.odd.fg = 'white'
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
@@ -1045,7 +1054,7 @@ c.fonts.web.size.minimum = 18
 ## as it can cause issues with some bitmap fonts. As an alternative to
 ## this, it's possible to set font sizes and the `zoom.default` setting.
 ## Type: Bool
-# c.qt.highdpi = False
+#c.qt.highdpi = False
 
 ## Show a scrollbar.
 ## Type: Bool
@@ -1145,7 +1154,7 @@ c.statusbar.hide = True
 
 ## Open new tabs (middleclick/ctrl+click) in the background.
 ## Type: Bool
-# c.tabs.background = False
+c.tabs.background = True
 
 ## Mouse button with which to close tabs.
 ## Type: String
@@ -1414,8 +1423,10 @@ config.bind('<Ctrl-F>', 'scroll-page 0 0.5')
 # config.bind('<Ctrl-X>', 'navigate decrement')
 # config.bind('<Ctrl-^>', 'tab-focus last')
 # config.bind('<Ctrl-h>', 'home')
+config.bind('<Ctrl-h>', 'tab-next')
 # config.bind('<Ctrl-p>', 'tab-pin')
 # config.bind('<Ctrl-s>', 'stop')
+config.bind('<Ctrl-s>', 'tab-prev')
 # config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 # config.bind('<F11>', 'fullscreen')
 # config.bind('<F5>', 'reload')
@@ -1460,6 +1471,7 @@ config.bind('[', 'tab-prev')
 config.bind('x', 'tab-close')
 config.bind(',q', 'tab-close')
 config.bind(',nt', 'open -t')
+config.bind('\\nt', 'open -t')
 # config.bind('f', 'hint')
 # config.bind('g$', 'tab-focus -1')
 # config.bind('g0', 'tab-focus 1')
@@ -1628,9 +1640,7 @@ config.bind('<Ctrl-b>', 'config-source')
 
 ## Bindings for register mode
 # config.bind('<Escape>', 'leave-mode', mode='register')
-#
-#
-#
+
 host_config = os.path.expanduser("~/.config/qutebrowser/{}.py".format(socket.gethostname()))
 if os.path.exists(host_config):
     with open(host_config) as f:

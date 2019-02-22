@@ -188,8 +188,6 @@ function! GotoDotfiles()
     cd $DOTFILES
 endfun
 
-ab mrozen mrozentsvayg
-
 map  \cf :call GetFile(expand("$DOTFILES"))<CR>
 map! \cf <ESC>:call GetFile(expand("$DOTFILES"))<CR>
 
