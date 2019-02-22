@@ -838,7 +838,7 @@ c.fonts.tabs = '13pt "System San Francisco Display Bold"'
 
 ## Default font size (in pixels) for regular text.
 ## Type: Int
-c.fonts.web.size.default = 18
+c.fonts.web.size.default = 19
 
 ## Default font size (in pixels) for fixed-pitch text.
 ## Type: Int
@@ -846,7 +846,7 @@ c.fonts.web.size.default_fixed = 16
 
 ## Hard minimum font size (in pixels).
 ## Type: Int
-c.fonts.web.size.minimum = 12
+c.fonts.web.size.minimum = 18
 
 ## Minimum logical font size (in pixels) that is applied when zooming
 ## out.
@@ -1153,7 +1153,7 @@ c.statusbar.hide = True
 ##   - right: Close tabs on right-click.
 ##   - middle: Close tabs on middle-click.
 ##   - none: Don't close tabs using the mouse.
-# c.tabs.close_mouse_button = 'middle'
+c.tabs.close_mouse_button = 'right'
 
 ## How to behave when the close mouse button is pressed on the tab bar.
 ## Type: String
@@ -1175,7 +1175,7 @@ c.statusbar.hide = True
 
 ## Padding (in pixels) for tab indicators.
 ## Type: Padding
-# c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
+#c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
 
 ## Width (in pixels) of the progress indicator (0 to disable).
 ## Type: Int
@@ -1189,7 +1189,7 @@ c.statusbar.hide = True
 ##   - startpage: Load the start page.
 ##   - default-page: Load the default page.
 ##   - close: Close the window.
-# c.tabs.last_close = 'ignore'
+c.tabs.last_close = 'close'
 
 ## Switch between tabs using the mouse wheel.
 ## Type: Bool
@@ -1215,7 +1215,7 @@ c.statusbar.hide = True
 
 ## Padding (in pixels) around text for tabs.
 ## Type: Padding
-# c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 5, 'right': 5}
+c.tabs.padding = {'top': 7, 'bottom': 7, 'left': 5, 'right': 5}
 
 ## Stay in insert/passthrough mode when switching tabs.
 ## Type: Bool
@@ -1223,7 +1223,7 @@ c.statusbar.hide = True
 
 ## Shrink pinned tabs down to their contents.
 ## Type: Bool
-# c.tabs.pinned.shrink = True
+c.tabs.pinned.shrink = True
 
 ## Position of the tab bar.
 ## Type: Position
@@ -1433,6 +1433,8 @@ config.bind('<Ctrl-F>', 'scroll-page 0 0.5')
 config.bind('c', 'back')
 # config.bind('J', 'tab-next')
 # config.bind('K', 'tab-prev')
+config.bind(']', 'tab-next')
+config.bind('[', 'tab-prev')
 # config.bind('L', 'forward')
 # config.bind('M', 'bookmark-add')
 # config.bind('N', 'search-prev')
@@ -1456,6 +1458,8 @@ config.bind('c', 'back')
 # config.bind('co', 'tab-only')
 # config.bind('d', 'tab-close')
 config.bind('x', 'tab-close')
+config.bind(',q', 'tab-close')
+config.bind(',nt', 'open -t')
 # config.bind('f', 'hint')
 # config.bind('g$', 'tab-focus -1')
 # config.bind('g0', 'tab-focus 1')
@@ -1517,11 +1521,10 @@ config.bind('x', 'tab-close')
 # config.bind('yy', 'yank')
 # config.bind('{{', 'navigate prev -t')
 # config.bind('}}', 'navigate next -t')
-#config.bind(',p', 'spawn --userscript qute-pass -
-#config.bind(',P', 'spawn --userscript qute-pass --password-only --dmenu-invocation "rofi -theme solarized -show drun -eh padding 16"')
 config.bind(',l', 'spawn --userscript qute-pass') # login username and password
 config.bind(',u', 'spawn --userscript qute-pass --username-only --no-insert-mode') # username only
 config.bind(',p', 'spawn --userscript qute-pass --password-only --no-insert-mode') # password only
+config.bind('<Ctrl-b>', 'config-source')
 
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')

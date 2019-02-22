@@ -65,7 +65,7 @@ bindsym $mod+Shift+l move right
 # bindsym $mod+Shift+Up move up
 # bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# split in horizontal orientation ctrl-alt-v/h .. need an easier key combo
 bindsym Mod1+Control+v split horizontal
 # split in vertical orientation
 bindsym Mod1+Control+h split vertical
@@ -219,8 +219,8 @@ client.background       #ffffff
 # app shortcuts
 bindsym $mod+b [class="Thunderbird"] focus
 bindsym $mod+n [class="Alacritty"] focus
-bindsym $mod+m [class="Firefox"] focus
-#bindsym $mod+m [class="qutebrowser"] focus
+#bindsym $mod+m [class="Firefox"] focus
+bindsym $mod+m [class="qutebrowser"] focus
 bindsym $mod+comma [class="Spotify"] focus
 bindsym $mod+0 [class="Standard Notes"] scratchpad show; move position 1000 50; resize set 1800 2000
 bindsym $mod+9 [class="Slack"] scratchpad show; move position 1000 50; resize set 1800 2000
