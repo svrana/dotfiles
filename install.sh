@@ -99,6 +99,7 @@ export FILE_LINKS=(
     "${RCS}/qutebrowser-elsie.py                ~/.config/qutebrowser/elsie.py"
     "$HOME/Documents/quickmarks                 ~/.config/qutebrowser/quickmarks"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
+    "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"
