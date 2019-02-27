@@ -1,15 +1,15 @@
 #!/bin/bash
 
-APPNAME="dbeaver-ee"
-TAG='latest_amd64'
-FILENAME="${APPNAME}_$TAG.deb"
+APPNAME="dbeaver-ce"
+VERSION="5.3.5"
+FILENAME="${APPNAME}_${VERSION}_amd64.deb"
 
 if [ ! -f "$APPS/$FILENAME" ]; then
-    URL="https://dbeaver.com/files/$FILENAME"
+    URL="https://dbeaver.io/files/$VERSION/$FILENAME"
     wget -P "$APPS" "$URL"
     sudo dpkg -i "$APPS/$FILENAME"
 fi
 
 unset APPNAME
-unset TAG
+unset VERSION
 unset FILENAME
