@@ -1566,6 +1566,7 @@ config.bind('<Ctrl-b>', 'config-source')
 # config.bind('y', 'yank selection', mode='caret')
 # config.bind('{', 'move-to-end-of-prev-block', mode='caret')
 # config.bind('}', 'move-to-end-of-next-block', mode='caret')
+config.bind('jj', 'leave-mode', mode='caret')
 
 ## Bindings for command mode
 # config.bind('<Alt-B>', 'rl-backward-word', mode='command')
@@ -1603,11 +1604,13 @@ config.bind('<Ctrl-b>', 'config-source')
 # config.bind('<Ctrl-F>', 'hint links', mode='hint')
 # config.bind('<Ctrl-R>', 'hint --rapid links tab-bg', mode='hint')
 # config.bind('<Escape>', 'leave-mode', mode='hint')
+config.bind('jj', 'leave-mode', mode='hint')
 # config.bind('<Return>', 'follow-hint', mode='hint')
 
 ## Bindings for insert mode
 # config.bind('<Ctrl-E>', 'open-editor', mode='insert')
 # config.bind('<Escape>', 'leave-mode', mode='insert')
+config.bind('jj', 'leave-mode', mode='insert')
 # config.bind('<Shift-Ins>', 'insert-text {primary}', mode='insert')
 
 ## Bindings for passthrough mode
@@ -1637,9 +1640,11 @@ config.bind('<Ctrl-b>', 'config-source')
 # config.bind('<Up>', 'prompt-item-focus prev', mode='prompt')
 # config.bind('n', 'prompt-accept no', mode='prompt')
 # config.bind('y', 'prompt-accept yes', mode='prompt')
+config.bind('jj', 'leave-mode', mode='prompt')
 
 ## Bindings for register mode
 # config.bind('<Escape>', 'leave-mode', mode='register')
+config.bind('jj', 'leave-mode', mode='register')
 
 host_config = os.path.expanduser("~/.config/qutebrowser/{}.py".format(socket.gethostname()))
 if os.path.exists(host_config):

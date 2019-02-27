@@ -97,7 +97,8 @@ export FILE_LINKS=(
     "${RCS}/xorg.conf                           /etc/X11/xorg.conf"
     "${RCS}/qutebrowser-config.py               ~/.config/qutebrowser/config.py"
     "${RCS}/qutebrowser-elsie.py                ~/.config/qutebrowser/elsie.py"
-    "$HOME/Documents/quickmarks                 ~/.config/qutebrowser/quickmarks"
+    "${DOCUMENTS}/apps/qutebrowser/quickmarks   ~/.config/qutebrowser/quickmarks"
+    "${DOCUMENTS}/apps/qutebrowser/bookmarks    ~/.config/qutebrowser/bookmarks/urls"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
 )
