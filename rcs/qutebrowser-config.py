@@ -1486,6 +1486,8 @@ config.bind('\\nt', 'open -t')
 # config.bind('gf', 'view-source')
 # config.bind('gg', 'scroll-to-perc 0')
 # config.bind('gl', 'tab-move -')
+config.bind('{', 'tab-move -')
+config.bind('}', 'tab-move +')
 # config.bind('gm', 'tab-move')
 # config.bind('go', 'set-cmd-text :open {url:pretty}')
 # config.bind('gr', 'tab-move +')
@@ -1537,7 +1539,6 @@ config.bind(',l', 'spawn --userscript qute-pass') # login username and password
 config.bind(',u', 'spawn --userscript qute-pass --username-only --no-insert-mode') # username only
 config.bind(',p', 'spawn --userscript qute-pass --password-only --no-insert-mode') # password only
 config.bind('<Ctrl-b>', 'config-source')
-
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')
 # config.bind('0', 'move-to-start-of-line', mode='caret')

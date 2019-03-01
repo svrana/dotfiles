@@ -15,8 +15,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'gmodarelli/solarize' 		" the colorscheme
 Plug 'altercation/vim-colors-solarized'
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-fugitive' 		" git
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary' 		" auto-commenting
 Plug 'tpope/vim-obsession' 		" auto-session handling
 Plug 'vim-scripts/DeleteTrailingWhitespace'
@@ -51,6 +50,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-packer'
 Plug 'google/vim-jsonnet'
 Plug 'posva/vim-vue'
+Plug 'justinmk/vim-sneak'
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -369,3 +369,8 @@ set lazyredraw
 nnoremap Q @@
 
 hi IncSearch ctermbg=LightYellow ctermfg=Red
+
+" map f <Plug>Sneak_f
+" map F <Plug>Sneak_F
+" map t <Plug>Sneak_t
+" map T <Plug>Sneak_T
