@@ -1351,7 +1351,6 @@ c.url.searchengines = {
     'gh': 'https://github.com/search?q={}'
 }
 
-
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
 # c.url.start_pages = ['https://start.duckduckgo.com']
