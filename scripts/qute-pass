@@ -178,7 +178,7 @@ def main(arguments):
     match = re.search(arguments.username_pattern, target, re.MULTILINE)
     if not match and arguments.username_target == 'path':
         stderr('Failed to match username pattern on {}!'.format(arguments.username_target))
-        match = re.search(r'.*^username:(.+)', secret, re.MULTILINE)
+        match = re.search(r'.*^username:\s?(.+)', secret, re.MULTILINE)
         if not match:
             return ExitCodes.COULD_NOT_MATCH_USERNAME
     username = match.group(1)
