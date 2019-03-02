@@ -1616,6 +1616,8 @@ config.bind('jj', 'leave-mode', mode='insert')
 
 ## Bindings for passthrough mode
 # config.bind('<Ctrl-V>', 'leave-mode', mode='passthrough')
+config.bind('jj', 'leave-mode', mode='passthrough')
+config.bind('<Escape>', 'leave-mode', mode='passthrough')
 
 ## Bindings for prompt mode
 # config.bind('<Alt-B>', 'rl-backward-word', mode='prompt')
