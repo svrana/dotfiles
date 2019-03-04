@@ -20,7 +20,7 @@ red    = "#dc322f"
 magenta= "#d33682"
 violet = "#6c71c4"
 blue   = "#268bd2"
-cyann  = "#2aa198"
+cyan   = "#2aa198"
 green  = "#859900"
 
 
@@ -68,14 +68,15 @@ c.auto_save.session = True
 ## Background color of the completion widget category headers.
 ## Type: QssColor
 # c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #888888, stop:1 #505050)'
+c.colors.completion.category.bg = base01
 
 ## Bottom border color of the completion widget category headers.
 ## Type: QssColor
-# c.colors.completion.category.border.bottom = 'black'
+c.colors.completion.category.border.bottom = base02
 
 ## Top border color of the completion widget category headers.
 ## Type: QssColor
-# c.colors.completion.category.border.top = 'black'
+c.colors.completion.category.border.top = base02
 
 ## Foreground color of completion widget category headers.
 ## Type: QtColor
@@ -83,24 +84,26 @@ c.auto_save.session = True
 
 ## Background color of the completion widget for even rows.
 ## Type: QssColor
-# c.colors.completion.even.bg = '#333333'
+#c.colors.completion.even.bg = '#333333' #839496"
+c.colors.completion.even.bg = base02
 
 ## Text color of the completion widget. May be a single color to use for
 ## all columns or a list of three colors, one for each column.
 ## Type: List of QtColor, or QtColor
 # c.colors.completion.fg = ['white', 'white', 'white']
+c.colors.completion.fg = [base0, base0, base0]
 
 ## Background color of the selected completion item.
 ## Type: QssColor
-# c.colors.completion.item.selected.bg = '#e8c000'
+c.colors.completion.item.selected.bg = cyan
 
 ## Bottom border color of the selected completion item.
 ## Type: QssColor
-# c.colors.completion.item.selected.border.bottom = '#bbbb00'
+c.colors.completion.item.selected.border.bottom = cyan
 
 ## Top border color of the completion widget category headers.
 ## Type: QssColor
-# c.colors.completion.item.selected.border.top = '#bbbb00'
+c.colors.completion.item.selected.border.top = cyan
 
 ## Foreground color of the selected completion item.
 ## Type: QtColor
@@ -108,23 +111,25 @@ c.auto_save.session = True
 
 ## Foreground color of the matched text in the completion.
 ## Type: QssColor
-# c.colors.completion.match.fg = '#ff4444'
+c.colors.completion.match.fg = magenta
 
 ## Background color of the completion widget for odd rows.
 ## Type: QssColor
-# c.colors.completion.odd.bg = '#444444'
+#c.colors.completion.odd.bg = '#444444'
+c.colors.completion.odd.bg = base02
 
 ## Color of the scrollbar in the completion view.
 ## Type: QssColor
-# c.colors.completion.scrollbar.bg = '#333333'
+c.colors.completion.scrollbar.bg = base01
 
 ## Color of the scrollbar handle in the completion view.
 ## Type: QssColor
-# c.colors.completion.scrollbar.fg = 'white'
+c.colors.completion.scrollbar.fg = green
 
 ## Background color for the download bar.
 ## Type: QssColor
 # c.colors.downloads.bar.bg = 'black'
+c.colors.downloads.bar.bg = base03
 
 ## Background color for downloads with errors.
 ## Type: QtColor
@@ -184,14 +189,15 @@ c.auto_save.session = True
 ## Background color of the keyhint widget.
 ## Type: QssColor
 # c.colors.keyhint.bg = 'rgba(0, 0, 0, 80%)'
+c.colors.keyhint.bg = base03
 
 ## Text color for the keyhint widget.
 ## Type: QssColor
-# c.colors.keyhint.fg = '#FFFFFF'
+c.colors.keyhint.fg = base00
 
 ## Highlight color for keys to complete the current keychain.
 ## Type: QssColor
-# c.colors.keyhint.suffix.fg = '#FFFF00'
+c.colors.keyhint.suffix.fg = cyan
 
 ## Background color of an error message.
 ## Type: QssColor
@@ -208,6 +214,7 @@ c.auto_save.session = True
 ## Background color of an info message.
 ## Type: QssColor
 # c.colors.messages.info.bg = 'black'
+#c.colors.messages.info.bg = base03
 
 ## Border color of an info message.
 ## Type: QssColor
@@ -232,6 +239,7 @@ c.auto_save.session = True
 ## Background color for prompts.
 ## Type: QssColor
 # c.colors.prompts.bg = '#444444'
+c.colors.prompts.bg = base02
 
 ## Border used around UI elements in prompts.
 ## Type: String
@@ -263,7 +271,7 @@ c.auto_save.session = True
 
 ## Background color of the statusbar in command mode.
 ## Type: QssColor
-# c.colors.statusbar.command.bg = 'black'
+c.colors.statusbar.command.bg = base03
 
 ## Foreground color of the statusbar in command mode.
 ## Type: QssColor
@@ -337,7 +345,7 @@ c.auto_save.session = True
 
 ## Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
-# c.colors.statusbar.url.warn.fg = 'yellow'
+c.colors.statusbar.url.warn.fg = yellow
 
 
 ## Background color of the tab bar.
@@ -1336,7 +1344,13 @@ c.tabs.pinned.shrink = True
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-# c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {
+    'DEFAULT':  'https://duckduckgo.com/?q={}',
+    'd': 'https://duckduckgo.com/?q={}',
+    'g': 'http://www.google.com/search?hl=en&q={}',
+    'gh': 'https://github.com/search?q={}'
+}
+
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
@@ -1594,6 +1608,7 @@ config.bind('jj', 'leave-mode', mode='caret')
 # config.bind('<Ctrl-Y>', 'rl-yank', mode='command')
 # config.bind('<Down>', 'completion-item-focus --history next', mode='command')
 # config.bind('<Escape>', 'leave-mode', mode='command')
+config.bind('jj', 'leave-mode', mode='command')
 # config.bind('<Return>', 'command-accept', mode='command')
 # config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 # config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
