@@ -177,14 +177,16 @@ c.colors.downloads.bar.bg = base03
 ## for transparency.
 ## Type: QssColor
 # c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
+c.colors.hints.bg = base2
 
 ## Font color for hints.
 ## Type: QssColor
-# c.colors.hints.fg = 'black'
+#c.colors.hints.fg = 'white'
+c.colors.hints.fg = base01
 
 ## Font color for the matched part of hints.
 ## Type: QssColor
-# c.colors.hints.match.fg = 'green'
+c.colors.hints.match.fg = green
 
 ## Background color of the keyhint widget.
 ## Type: QssColor
@@ -311,7 +313,7 @@ c.colors.statusbar.command.bg = base03
 
 ## Background color of the statusbar in private browsing mode.
 ## Type: QssColor
-# c.colors.statusbar.private.bg = '#666666'
+c.colors.statusbar.private.bg = base03
 
 ## Foreground color of the statusbar in private browsing mode.
 ## Type: QssColor
@@ -323,7 +325,7 @@ c.colors.statusbar.command.bg = base03
 
 ## Foreground color of the URL in the statusbar on error.
 ## Type: QssColor
-# c.colors.statusbar.url.error.fg = 'orange'
+# c.colors.statusbar.url.error.fg = red
 
 ## Default foreground color of the URL in the statusbar.
 ## Type: QssColor
@@ -331,17 +333,17 @@ c.colors.statusbar.command.bg = base03
 
 ## Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
-# c.colors.statusbar.url.hover.fg = 'aqua'
+c.colors.statusbar.url.hover.fg = yellow
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (http).
 ## Type: QssColor
-# c.colors.statusbar.url.success.http.fg = 'white'
+c.colors.statusbar.url.success.http.fg = base01
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (https).
 ## Type: QssColor
-# c.colors.statusbar.url.success.https.fg = 'lime'
+c.colors.statusbar.url.success.https.fg = cyan
 
 ## Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
@@ -423,7 +425,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 
 ## Height (in pixels or as percentage of the window) of the completion.
 ## Type: PercOrInt
-# c.completion.height = '50%'
+c.completion.height = '35%'
 
 ## Minimum amount of characters needed to update completions.
 ## Type: Int
@@ -523,7 +525,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 ## menu. For QtWebEngine, see `--enable-webengine-inspector` in
 ## `qutebrowser --help` instead.
 ## Type: Bool
-# c.content.developer_extras = False
+#c.content.developer_extras = False
 
 ## Try to pre-fetch DNS entries to speed up browsing.
 ## Type: Bool
