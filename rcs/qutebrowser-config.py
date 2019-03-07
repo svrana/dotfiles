@@ -203,7 +203,7 @@ c.colors.keyhint.suffix.fg = cyan
 
 ## Background color of an error message.
 ## Type: QssColor
-# c.colors.messages.error.bg = 'red'
+c.colors.messages.error.bg = red
 
 ## Border color of an error message.
 ## Type: QssColor
@@ -325,7 +325,7 @@ c.colors.statusbar.private.bg = base03
 
 ## Foreground color of the URL in the statusbar on error.
 ## Type: QssColor
-# c.colors.statusbar.url.error.fg = red
+c.colors.statusbar.url.error.fg = red
 
 ## Default foreground color of the URL in the statusbar.
 ## Type: QssColor
@@ -763,7 +763,7 @@ c.downloads.location.directory = '/home/shaw/Downloads'
 ## Duration (in milliseconds) to wait before removing finished downloads.
 ## If set to -1, downloads are never removed.
 ## Type: Int
-# c.downloads.remove_finished = -1
+c.downloads.remove_finished = 10
 
 ## Editor (and arguments) to use for the `open-editor` command. The
 ## following placeholders are defined: * `{file}`: Filename of the file
@@ -1582,7 +1582,7 @@ config.bind('<Ctrl-b>', 'config-source')
 # config.bind('y', 'yank selection', mode='caret')
 # config.bind('{', 'move-to-end-of-prev-block', mode='caret')
 # config.bind('}', 'move-to-end-of-next-block', mode='caret')
-config.bind('jj', 'leave-mode', mode='caret')
+config.bind(',q', 'leave-mode', mode='caret')
 
 ## Bindings for command mode
 # config.bind('<Alt-B>', 'rl-backward-word', mode='command')
@@ -1609,7 +1609,7 @@ config.bind('jj', 'leave-mode', mode='caret')
 # config.bind('<Ctrl-Y>', 'rl-yank', mode='command')
 # config.bind('<Down>', 'completion-item-focus --history next', mode='command')
 # config.bind('<Escape>', 'leave-mode', mode='command')
-config.bind('jj', 'leave-mode', mode='command')
+config.bind(',q', 'leave-mode', mode='command')
 # config.bind('<Return>', 'command-accept', mode='command')
 # config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 # config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
@@ -1621,18 +1621,18 @@ config.bind('jj', 'leave-mode', mode='command')
 # config.bind('<Ctrl-F>', 'hint links', mode='hint')
 # config.bind('<Ctrl-R>', 'hint --rapid links tab-bg', mode='hint')
 # config.bind('<Escape>', 'leave-mode', mode='hint')
-config.bind('jj', 'leave-mode', mode='hint')
+config.bind(',q', 'leave-mode', mode='hint')
 # config.bind('<Return>', 'follow-hint', mode='hint')
 
 ## Bindings for insert mode
 # config.bind('<Ctrl-E>', 'open-editor', mode='insert')
 # config.bind('<Escape>', 'leave-mode', mode='insert')
-config.bind('jj', 'leave-mode', mode='insert')
+# config.bind(',q', 'leave-mode', mode='insert')
 # config.bind('<Shift-Ins>', 'insert-text {primary}', mode='insert')
 
 ## Bindings for passthrough mode
 # config.bind('<Ctrl-V>', 'leave-mode', mode='passthrough')
-config.bind('jj', 'leave-mode', mode='passthrough')
+#config.bind(',q', 'leave-mode', mode='passthrough')
 config.bind('<Escape>', 'leave-mode', mode='passthrough')
 
 ## Bindings for prompt mode
@@ -1659,11 +1659,11 @@ config.bind('<Escape>', 'leave-mode', mode='passthrough')
 # config.bind('<Up>', 'prompt-item-focus prev', mode='prompt')
 # config.bind('n', 'prompt-accept no', mode='prompt')
 # config.bind('y', 'prompt-accept yes', mode='prompt')
-config.bind('jj', 'leave-mode', mode='prompt')
+config.bind(',q', 'leave-mode', mode='prompt')
 
 ## Bindings for register mode
 # config.bind('<Escape>', 'leave-mode', mode='register')
-config.bind('jj', 'leave-mode', mode='register')
+config.bind(',q', 'leave-mode', mode='register')
 
 host_config = os.path.expanduser("~/.config/qutebrowser/{}.py".format(socket.gethostname()))
 if os.path.exists(host_config):
