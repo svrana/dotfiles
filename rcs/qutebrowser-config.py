@@ -1551,9 +1551,13 @@ config.bind('}', 'tab-move +')
 # config.bind('{{', 'navigate prev -t')
 # config.bind('}}', 'navigate next -t')
 config.bind(',l', 'spawn --userscript qute-pass') # login username and password
-config.bind(',u', 'spawn --userscript qute-pass --username-only --no-insert-mode') # username only
-config.bind(',p', 'spawn --userscript qute-pass --password-only --no-insert-mode') # password only
+config.bind(',u', 'spawn --userscript qute-pass --username-only --no-insert-mode')
+config.bind(',p', 'spawn --userscript qute-pass --password-only --no-insert-mode')
 config.bind('<Ctrl-b>', 'config-source')
+config.bind('<Ctrl-m>', 'spawn --detach mpv --force-window yes {url}')
+config.bind('<Ctrl-r>', 'spawn --userscript readability')
+config.bind('<Ctrl-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
+
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')
 # config.bind('0', 'move-to-start-of-line', mode='caret')
@@ -1664,6 +1668,9 @@ config.bind(',q', 'leave-mode', mode='prompt')
 ## Bindings for register mode
 # config.bind('<Escape>', 'leave-mode', mode='register')
 config.bind(',q', 'leave-mode', mode='register')
+
+
+
 
 host_config = os.path.expanduser("~/.config/qutebrowser/{}.py".format(socket.gethostname()))
 if os.path.exists(host_config):
