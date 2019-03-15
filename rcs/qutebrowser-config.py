@@ -865,7 +865,7 @@ c.fonts.web.size.default_fixed = 16
 
 ## Hard minimum font size (in pixels).
 ## Type: Int
-c.fonts.web.size.minimum = 18
+c.fonts.web.size.minimum = 14
 
 ## Minimum logical font size (in pixels) that is applied when zooming
 ## out.
@@ -1558,6 +1558,7 @@ config.bind('<Ctrl-b>', 'config-source')
 config.bind('<Ctrl-m>', 'spawn --detach mpv --force-window yes {url}')
 config.bind('<Ctrl-r>', 'spawn --userscript readability')
 config.bind('<Ctrl-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
+config.bind('<Ctrl-Shift-I>', 'inspector')
 
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')
