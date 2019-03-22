@@ -189,6 +189,7 @@ export FILE_LINKS=(
     "${RCS}/Xmodmap                             ~/.Xmodmap"
     "${RCS}/xsessionrc                          ~/.xsessionrc"
     "${RCS}/xorg.conf                           /etc/X11/xorg.conf"
+    "${RCS}/10-evdev.conf                       /etc/X11/xorg.conf.d/10-evdev.conf"
     "${RCS}/qutebrowser-config.py               ~/.config/qutebrowser/config.py"
     "${RCS}/qutebrowser-elsie.py                ~/.config/qutebrowser/elsie.py"
     "${DOCUMENTS}/apps/qutebrowser/quickmarks   ~/.config/qutebrowser/quickmarks"
