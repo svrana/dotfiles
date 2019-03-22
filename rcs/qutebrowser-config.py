@@ -1350,7 +1350,8 @@ c.url.searchengines = {
     'DEFAULT':  'https://duckduckgo.com/?q={}',
     'd': 'https://duckduckgo.com/?q={}',
     'g': 'http://www.google.com/search?hl=en&q={}',
-    'gh': 'https://github.com/search?q={}'
+    'gh': 'https://github.com/search?q={}',
+    'yt': 'https://www.youtube.com/results?search_query={}'
 }
 
 ## Page(s) to open at the start.
