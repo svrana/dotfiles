@@ -15,10 +15,19 @@ for dep in "${_install_deps[@]}" ; do
     . "$CURRENT_DIR/$dep"
 done
 
+export PPA_LIST=(
+    "spotify    http://repository.spotify.com                       stable non-free"
+    "insync     http://apt.insynchq.com/ubuntu                      bionic non-free contrib"
+    "neovim     http://ppa.launchpad.net/neovim-ppa/stable/ubuntu   bionic main"
+    "rvm        http://ppa.launchpad.net.rael-gc/rvm/ubuntu         bionic main"
+    "node.js    https://deb.nodesource.com/node_6.x                 bionic main"
+    "bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
+)
+
 export PACKAGE_LIST=(
-    compton
     autocutsel
     build-essential
+    curl
     fonts-powerline
     pass
     python-pip
@@ -33,7 +42,6 @@ export PACKAGE_LIST=(
     openjdk-8-jdk
     exuberant-ctags
     silversearcher-ag
-    curl
     libcurl4-openssl-dev
     libcap-dev
     libxml2-dev
@@ -106,8 +114,6 @@ export GLOBAL_NODE_PACKAGES=(
 export GLOBAL_GEMS=(
     neovim
 )
-
-
 
 # A list of installers in $DOTFILES/installers that will be sourced during
 # install. These are typically actions that need only be done once and for
@@ -197,39 +203,5 @@ export FILE_LINKS=(
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
 )
-
-
-
-#apt_repository 'neovim' do
-#  uri 'ppa:neovim-ppa/stable'
-#end
-#
-#apt_repository 'rvm' do
-#  uri 'ppa:rael-gc/rvm'
-#  distribution node['lsb']['codename']
-#end
-#
-#apt_repository 'spotify' do
-#  uri 'http://repository.spotify.com'
-#  components ['stable', 'non-free']
-#  distribution ''
-#end
-#
-#apt_repository 'insync' do
-#  uri 'http://apt.insynchq.com/ubuntu'
-#  components ['non-free', 'contrib']
-#  distribution node['lsb']['codename']
-#end
-#
-#apt_repository 'yarn' do
-#  uri 'https://dl.yarnpkg.com/debian'
-#  # curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-#  # key 'https://dl.yarnpkg.com/debian/pubkey.gpg'
-#  components %w(stable main)
-#  distribution ''
-#end
-#
-
-#add_to_source_list neovim "http://ppa.launchpad.net./neovim-ppa/stable/ubuntu bionic main"
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"

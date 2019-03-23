@@ -70,6 +70,11 @@ split() {
    printf '%s\n' "${arr[@]}"
 }
 
+split_to_array() {
+   IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
+   echo "${arr[@]}"
+}
+
 join_by() {
     local d=$1 shift; echo -n "$1"; shift; printf "%s" "${@/#/$d}";
 }
