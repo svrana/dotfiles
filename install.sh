@@ -21,7 +21,7 @@ export PPA_LIST=(
     "neovim     http://ppa.launchpad.net/neovim-ppa/stable/ubuntu   bionic main"
     "rvm        http://ppa.launchpad.net.rael-gc/rvm/ubuntu         bionic main"
     "node.js    https://deb.nodesource.com/node_6.x                 bionic main"
-    "bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
+#    "bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
 )
 
 export PACKAGE_LIST=(
