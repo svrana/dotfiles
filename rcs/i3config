@@ -143,6 +143,7 @@ bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit i3?' -b
 bindsym Mod1+Control+l exec --no-startup-id $HOME/.local/bin/i3lockwrapper.sh
 
 # resize window (you can also use the mouse for that)
+# perspective is from a window at 0,0
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -178,7 +179,9 @@ bindsym $mod+i mode "split"
 
 for_window [class="Gsimplecal"] floating enable
 
+#
 # Application startup
+#
 exec_always --no-startup-id $HOME/.local/bin/polybar-launch.sh
 exec --no-startup-id dbus-launch /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dbus-launch /usr/lib/gnome-settings-daemon/gsd-xsettings
@@ -195,6 +198,7 @@ exec --no-startup-id $HOME/.local/bin/qutebrowser
 
 #assign [class="Thunderbird"] $ws1
 #exec --no-startup-id thunderbird
+#exec --no-startup-id i3-msg 'workspace 2; exec alacritty -e tmux'
 
 for_window [class="Spotify"] move to workspace 4
 exec --no-startup-id spotify
@@ -203,9 +207,8 @@ for_window [class="Standard Notes"] move scratchpad
 exec --no-startup-id $HOME/.local/bin/standard-notes
 
 for_window [class="Slack"] move scratchpad
-
 exec --no-startup-id slack
-exec --no-startup-id i3-msg 'workspace 2; exec alacritty -e tmux'
+
 
 
 # (Pulse) Audio controls
