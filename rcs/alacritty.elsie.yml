@@ -130,7 +130,8 @@ font:
   # screens and make reading text a little easier.
   # On X11 it is possible to change the DPI for each instance of alacritty by using
   # `WINIT_HIDPI_FACTOR=1.0 alacritty` to scale the font.
-  scale_with_dpi: true
+  # v-- deprecated, use the env var above
+  #scale_with_dpi: true
 
 
 # Should display the render timer
@@ -222,6 +223,7 @@ mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
 
+  hide_when_typing: false
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
@@ -229,7 +231,6 @@ selection:
 
 dynamic_title: true
 
-#hide_cursor_when_typing: false
 
 # Style of the cursor
 #
