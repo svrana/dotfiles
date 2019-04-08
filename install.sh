@@ -26,6 +26,7 @@ export PPA_LIST=(
 
 export PACKAGE_LIST=(
     autocutsel
+    blueman
     build-essential
     curl
     fonts-powerline
