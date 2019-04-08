@@ -29,6 +29,7 @@ export PACKAGE_LIST=(
     blueman
     build-essential
     curl
+    ddgr
     fonts-powerline
     pass
     python-pip
