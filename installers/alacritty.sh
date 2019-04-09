@@ -5,7 +5,7 @@ function install_alacritty() {
     local FILENAME="Alacritty-${VERSION}_amd64.deb"
     local URL="https://github.com/jwilm/alacritty/releases/download/${VERSION}/${FILENAME}"
 
-    if [ ! -d "$APPS/$FILENAME" ]; then
+    if [ ! -f "$APPS/$FILENAME" ]; then
         curl -L -sSf -o "$APPS/$FILENAME" "$URL"
         sudo dpkg -i "$APPS/$FILENAME"
     fi
