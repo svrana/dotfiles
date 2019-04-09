@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # source bashrc with ctrl-b (ctrl-v ctrl-b)
-[ ! -z "$PS1" ] && bind '"":"source ~/.bashrc && direnv reload > /dev/null 2>&1\n"'
+[ ! -z "$PS1" ] && bind '"":"source ~/.bashrc && direnv reload > /dev/null 2>&1\n"'
 
 alias cdd='cd $DOTFILES'
 alias cvi='vi $DOTFILES'
