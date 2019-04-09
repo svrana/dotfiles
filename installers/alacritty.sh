@@ -1,12 +1,13 @@
 #!/bin/bash
 
 function install_alacritty() {
-    if [ ! -d "$APPS/alacritty" ]; then
-        git clone https://github.com/jwilm/alacritty "$APPS/alacritty"
-        pushd "$APPS/alacritty"
-        cargo install cargo-deb
-        cargo deb --install
-        popd
+    local VERSION="v0.3.0"
+    local FILENAME="Alacritty-${VERSION}_amd64.deb"
+    local URL="https://github.com/jwilm/alacritty/releases/download/${VERSION}/${FILENAME}"
+
+    if [ ! -d "$APPS/$FILENAME" ]; then
+        curl -L -sSf -o "$APPS/$FILENAME" "$URL"
+        sudo dpkg -i "$APPS/$FILENAME"
     fi
 }
 
