@@ -177,14 +177,14 @@ mode "split" {
 }
 bindsym $mod+i mode "split"
 
-mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+mode "exit: l)ogout r)eboot s)hutdown" {
   bindsym l exec i3-msg exit
   bindsym r exec systemctl reboot
   bindsym s exec systemctl shutdown
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
-bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+bindsym $mod+Shift+e mode "exit: l)ogout r)eboot s)hutdown"
 
 for_window [class="Gsimplecal"] floating enable
 
