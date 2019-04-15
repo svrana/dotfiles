@@ -2,7 +2,7 @@
 c = c  # noqa: F821 pylint: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 
-c.zoom.default = '150%'
+c.zoom.default = '125%'
 #c.qt.highdpi = True
 
 ## Font used in the completion categories.
