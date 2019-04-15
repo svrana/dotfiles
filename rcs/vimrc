@@ -204,6 +204,8 @@ noremap  <leader>q :q<CR>
 noremap! <leader>q <ESC>:q<CR>
 noremap  <leader>e :wq<CR>
 noremap! <leader>e <ESC>:wq<CR>
+noremap  <leader>z :q!<CR>
+noremap! <leader>z <ESC>:q!<CR>
 
 " map  <F3> :Explore<CR>
 " map! <F3> <ESC>:Explore<CR>
