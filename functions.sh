@@ -169,3 +169,37 @@ function sf() {
     files=$(echo "$files" | tr '\n' ' ' | sed -e 's/[[:space:]]*$//')
     [[ -n "$files" ]] && ${EDITOR:-vim} $files
 }
+
+download() {
+    local url="$1"
+    local output="$2"
+
+    if command -v "curl" &> /dev/null; then
+        curl -LsSo "$output" "$url" &> /dev/null
+        #     │││└─ write output to file
+        #     ││└─ show error messages
+        #     │└─ don't show the progress meter
+        #     └─ follow redirects
+        return $?
+
+    elif command -v "wget" &> /dev/null; then
+        wget -qO "$output" "$url" &> /dev/null
+        #     │└─ write output to file
+        #     └─ don't show output
+        return $?
+    fi
+
+    return 1
+}
+
+
+package_installed() {
+    dpkg -s "$1" &> /dev/null
+}
+
+package_version() {
+    if package_installed "$1" ; then
+        dpkg -s "$1" | grep Version | cut -d' ' -f2
+    fi
+}
+

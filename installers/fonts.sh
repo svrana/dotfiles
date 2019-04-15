@@ -13,7 +13,7 @@ install() {
     # yosemite font (for the i3 polybar text)
     local YOSEMITE_URL="https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip"
     if [ ! -f "$FONT_DIR/sf-font.zip" ]; then
-        curl -L -sSf -o "$FONT_DIR/sf-font.zip" "$YOSEMITE_URL"
+        download "$YOSEMITE_URL" "$FONT_DIR/sf-font.zip"
         pushd "$FONT_DIR"
         if unzip "$FONT_DIR/sf-font.zip" ; then
             added_font="true"
@@ -24,7 +24,7 @@ install() {
     # font awesome for the glyphs I use in i3/polybar
     local FA_URL="https://fontawesome.com/v4.7.0/assets/font-awesome-4.7.0.zip"
     if [ ! -f "$FONT_DIR/font-awesome.zip" ]; then
-        curl -L -sSf -o "$FONT_DIR/font-awesome.zip" "$FA_URL"
+        download "$FA_URL" "$FONT_DIR/font-awesome.zip"
         pushd "$FONT_DIR"
         if unzip "$FONT_DIR/font-awesome.zip" ; then
             added_font="true"
@@ -35,7 +35,7 @@ install() {
     if [ ! -f "$FONT_DIR/PowerlineExtraSymbols.otf" ]; then
         local POWERLINE_SYMBOLS="https://github.com/ryanoasis/powerline-extra-symbols/blob/master/PowerlineExtraSymbols.otf"
 
-        if curl -L -sSf -o "$FONT_DIR/PowerlineExtraSymbols.otf" "$POWERLINE_SYMBOLS" ; then
+        if download "$POWERLINE_SYMBOLS" "$FONT_DIR/PowerlineExtraSymbols.otf" ; then
             added_font="true"
         fi
     fi

@@ -30,6 +30,7 @@ export DOTFILE_PLUGINS=(
     dircolors
     docker
     dotfiles
+    emacs
     find
     fzf
     git
