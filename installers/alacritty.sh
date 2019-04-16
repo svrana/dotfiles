@@ -1,14 +1,11 @@
 #!/bin/bash
 
 function install_alacritty() {
-    local VERSION="v0.3.0"
+    local VERSION="0.3.0"
     local FILENAME="Alacritty-${VERSION}_amd64.deb"
-    local URL="https://github.com/jwilm/alacritty/releases/download/${VERSION}/${FILENAME}"
+    local URL="https://github.com/jwilm/alacritty/releases/download/v${VERSION}/${FILENAME}"
 
-    if [ ! -f "$APPS/$FILENAME" ]; then
-        download "$URL" "$APPS/$FILENAME"
-        sudo dpkg -i "$APPS/$FILENAME"
-    fi
+    ext_package_install alacritty $VERSION $URL
 }
 
 function link_alacritty_config() {

@@ -3,13 +3,11 @@
 APPNAME="dbeaver-ce"
 VERSION="6.0.2"
 FILENAME="${APPNAME}_${VERSION}_amd64.deb"
+URL="https://dbeaver.io/files/$VERSION/$FILENAME"
 
-if [ ! -f "$APPS/$FILENAME" ]; then
-    URL="https://dbeaver.io/files/$VERSION/$FILENAME"
-    wget -P "$APPS" "$URL"
-    sudo dpkg -i "$APPS/$FILENAME"
-fi
+ext_package_install dbeaver-ce $VERSION $URL
 
 unset APPNAME
 unset VERSION
 unset FILENAME
+unset URL

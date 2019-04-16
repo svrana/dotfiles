@@ -174,24 +174,13 @@ download() {
     local url="$1"
     local output="$2"
 
-    if command -v "curl" &> /dev/null; then
-        curl -LsSo "$output" "$url" &> /dev/null
+    curl -LsSo "$output" "$url" &> /dev/null
         #     │││└─ write output to file
         #     ││└─ show error messages
         #     │└─ don't show the progress meter
         #     └─ follow redirects
-        return $?
-
-    elif command -v "wget" &> /dev/null; then
-        wget -qO "$output" "$url" &> /dev/null
-        #     │└─ write output to file
-        #     └─ don't show output
-        return $?
-    fi
-
-    return 1
+    return $?
 }
-
 
 package_installed() {
     dpkg -s "$1" &> /dev/null
@@ -199,7 +188,41 @@ package_installed() {
 
 package_version() {
     if package_installed "$1" ; then
-        dpkg -s "$1" | grep Version | cut -d' ' -f2
+        dpkg -s "$1" | grep "^Version:" | cut -d' ' -f2
     fi
 }
 
+_ext_package_install() {
+    declare -r PACKAGE="$1"
+    declare -r VERSION="$2"
+    declare -r URL="$3"
+    local TEMPDIR
+
+    TEMPDIR=$(mktemp -d)
+    echo "tempdir is $TEMPDIR"
+    download "$URL" "$TEMPDIR/${PACKAGE}-${VERSION}.deb"
+    sudo dpkg -i "$TEMPDIR/${PACKAGE}-${VERSION}.deb"
+    rm -rf "$TEMPDIR"
+}
+
+ext_package_install() {
+    declare -r PACKAGE="$1"
+    declare -r VERSION="$2"
+    declare -r URL="$3"
+
+    if package_installed "$PACKAGE" ; then
+        local CURRENT_VERSION
+        CURRENT_VERSION=$(package_version "$PACKAGE")
+        if [ "$VERSION" != "$CURRENT_VERSION" ]; then
+            echo "Upgrading $PACKAGE to v${VERSION} from v${CURRENT_VERSION}"
+            _ext_package_install "$*"
+            estatus
+        else
+            egood "Already installed $PACKAGE v${VERSION}"
+        fi
+    else
+         echo "$PACKAGE not installed. Installing v${VERSION}"
+        _ext_package_install "$*"
+        estatus
+    fi
+}
