@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -f "$BIN_DIR/rg" ]; then
-    VERSION="0.7.1"
+    VERSION="11.0.0"
     FILENAME=ripgrep-${VERSION}-x86_64-unknown-linux-musl.tar.gz
     DIRNAME=${FILENAME%.tar.gz}
     TEMPDIR=$(mktemp -d)
