@@ -33,6 +33,7 @@ Plug 'svrana/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go'
 Plug 'zchee/deoplete-jedi'
+"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'fishbullet/deoplete-ruby'
 Plug 'ternjs/tern_for_vim'
 Plug 'majutsushi/tagbar' 		" ide
@@ -369,6 +370,11 @@ let g:go_list_type = "quickfix"
 set lazyredraw
 " repeat last macro
 nnoremap Q @@
+
+" === coc.nvim === "
+nmap <silent> <leader>dd <Plug>(coc-definition)
+nmap <silent> <leader>dr <Plug>(coc-references)
+nmap <silent> <leader>dj <Plug>(coc-implementation)
 
 hi IncSearch ctermbg=LightYellow ctermfg=Red
 

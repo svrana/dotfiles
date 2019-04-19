@@ -204,6 +204,7 @@ export FILE_LINKS=(
     "${DOCUMENTS}/apps/qutebrowser/bookmarks    ~/.config/qutebrowser/bookmarks/urls"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
+    "${RCS}/coc-settings.json                   ~/.config/nvim/coc-settings.json"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"
