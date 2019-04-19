@@ -8,9 +8,9 @@ mkdir -p ~/.config/nvim/autoload
 
 function _link_ftplugins() {
     local i
-    for i in rcs/ftplugin/* ; do
+    for i in rcs/nvim/ftplugin/* ; do
         i=$(basename "$i")
-        ln -sf "$DOTFILES/rcs/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
+        ln -sf "$DOTFILES/rcs/nvim/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
     done
 }
 _link_ftplugins
@@ -23,14 +23,12 @@ if [ ! -f "$PLUG_DIR/plug.vim" ]; then
 fi
 
 if [ ! -f ~/.config/nvim/init.vim ]; then
-    mkdir -p ~/.config/nvim
-    ln -sf "${RCS}/vimrc" ~/.config/nvim/init.vim
-    sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-    sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+    sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 60
+    sudo update-alternatives --install /usr/bin/vim vim /usr/local/bin/nvim 60
+    sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 60
 fi
 
-#ln -sf "${RCS}/vimrc" ~/.vimrc
+ln -sf "${RCS}/nvim/vimrc" ~/.config/nvim/init.vim
 
 function _go_config() {
     if [ -n "$GOPATH" -a ! -d "$GOPATH/src/github.com/nsf/gocode" ]; then
