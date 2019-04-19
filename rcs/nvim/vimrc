@@ -359,6 +359,7 @@ let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 set updatetime=1000
 let g:go_fmt_autosave = 1
 let g:go_list_type = "quickfix"
+let g:go_def_mode='godef'
 
 " Enables debug logging
 "let g:neomake_logfile = '/tmp/neomake.log'
