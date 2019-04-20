@@ -8,14 +8,4 @@ function install_alacritty() {
     ext_package_install alacritty $VERSION $URL
 }
 
-function link_alacritty_config() {
-    local hostname_config="${RCS}/alacritty.$HOSTNAME.yml"
-    if [ -f "$hostname_config" ]; then
-        ln -sf "$hostname_config" ~/.config/alacritty/alacritty.yml
-    else
-        ln -sf "$DOTFILES/rcs/alacritty.yml" ~/.config/alacritty/alacritty.yml
-    fi
-}
-
 install_alacritty
-link_alacritty_config

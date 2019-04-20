@@ -12,9 +12,9 @@ export APPS=~/Apps
 
 cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export DOTFILES="${cwd}"
-export RCS="${DOTFILES}/rcs"
+export RCS="${DOTFILES}/configs"
 unset cwd
 
 # required by bash_home_scaffold
-export DOTFILES_BASHRC="$DOTFILES/rcs/bashrc"
+export DOTFILES_BASHRC="$RCS/bashrc"
 export BIN_DIR=~/.local/bin

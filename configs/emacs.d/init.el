@@ -1,6 +1,5 @@
-(require 'package)
 (package-initialize)
-
+(require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
@@ -42,9 +41,11 @@
                  (file-directory-p (concat basedir f)))
             (add-to-list 'custom-theme-load-path (concat basedir f)))))
 
-(load-theme 'solarized t)
-;(set-terminal-parameter nil 'background-mode 'dark)
-;(enable-theme 'solarized)
+(use-package solarized-theme
+  :ensure t)
+(load-theme 'solarized-dark t)
+(set-terminal-parameter nil 'background-mode 'dark)
+(enable-theme 'solarized-dark)
 
 ;;; Larger package-specific configurations
 (require 'init-evil)

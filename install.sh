@@ -172,7 +172,7 @@ export CREATE_DIRS=(
 )
 
 # A list of symbolic links that point to directories that should be created.
-export DIR_LINKS=(t
+export DIR_LINKS=(
     # Target                        Link name
     "$CLOUD_ROOT/Documents          $DOCUMENTS"
     "$CLOUD_ROOT/Music              $MUSIC"
@@ -182,6 +182,7 @@ export DIR_LINKS=(t
 # A list of symbolic links pointing to files that should be created.
 export FILE_LINKS=(
     # Target                                    Link name
+    "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
     "${RCS}/bash_profile                        ~/.bash_profile"
     "${RCS}/bashrc                              ~/.bashrc"
     "${RCS}/git/gitconfig                       ~/.config/git/config"
@@ -195,7 +196,7 @@ export FILE_LINKS=(
     "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
     "${RCS}/i3config                            ~/.config/i3/config"
     "${RCS}/polybar-config                      ~/.config/polybar/config"
-    "${RCS}/X/Xresources                          ~/.Xresources"
+    "${RCS}/X/Xresources                        ~/.Xresources"
     "${RCS}/X/Xmodmap                           ~/.Xmodmap"
     "${RCS}/X/xsessionrc                        ~/.xsessionrc"
     "${RCS}/X/xorg.conf                         /etc/X11/xorg.conf"
@@ -207,7 +208,7 @@ export FILE_LINKS=(
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
     "${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
-    "${RCS}/emacs.d/init.el                     ~/.emacs.d/init.el"
+    "${RCS}/emacs.d/init.el                       ~/.emacs.d/init.el"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"
