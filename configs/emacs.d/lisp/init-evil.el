@@ -5,34 +5,12 @@
   "Configure evil leader mode."
   (evil-leader/set-leader ",")
   (evil-leader/set-key
-    "#"  'server-edit
-    ","  'other-window
-    "."  'mode-line-other-buffer
-    ":"  'eval-expression
-    "aa" 'align-regexp
-    "a=" 'my-align-single-equals
-    "b"  'helm-mini             ;; Switch to another buffer
     "B"  'magit-blame-toggle
-    "c"  'comment-dwim
     "d"  'kill-this-buffer
-    "D"  'open-current-line-in-codebase-search
-    "f"  'helm-imenu            ;; Jump to function in buffer
     "g"  'magit-status
     "h"  'fontify-and-browse    ;; HTML-ize the buffer and browse the result
-    "l"  'whitespace-mode       ;; Show invisible characters
-    "nn" 'air-narrow-dwim       ;; Narrow to region and enter normal mode
-    "nw" 'widen
-    "o"  'delete-other-windows  ;; C-w o
-    "p"  'helm-show-kill-ring
-    "s"  'ag-project            ;; Ag search from project's root
-    "r"  'chrome-reload
-    "R"  (lambda () (interactive) (font-lock-fontify-buffer) (redraw-display))
-    "S"  'delete-trailing-whitespace
-    "t"  'gtags-reindex
-    "T"  'gtags-find-tag
-    "w"  'save-buffer
-    "x"  'helm-M-x
-    "y"  'yank-to-x-clipboard)
+    "q"  'evil-quit-all
+    "w"  'save-buffer)
 
   (defun magit-blame-toggle ()
     "Toggle magit-blame-mode on and off interactively."
@@ -74,13 +52,14 @@
     (kbd "/")       'evil-search-forward
     (kbd "n")       'evil-search-next
     (kbd "N")       'evil-search-previous
-    (kbd "C-d")     'evil-scroll-up
     (kbd "C-w C-w") 'other-window)
 
   ;; Global bindings.
   (evil-define-key 'normal global-map (kbd "<down>")  'evil-next-visual-line)
   (evil-define-key 'normal global-map (kbd "<up>")    'evil-previous-visual-line)
-  (evil-define-key 'normal global-map (kbd "-")       'helm-find-files)
+  (evil-define-key 'normal global-map (kbd "C-d")     'evil-scroll-page-up)
+  (evil-define-key 'normal global-map (kbd "C-x")     'kill-this-buffer)
+
   ;(evil-define-key 'normal global-map (kbd "C--")     'air-dired-buffer-dir-or-home)
   ; (evil-define-key 'normal global-map (kbd "C-`")     (lambda ()
   ;                                                       (interactive)
