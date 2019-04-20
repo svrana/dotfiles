@@ -1,1 +1,1 @@
-alias emacs='emacs -nw'
+#alias emacs='emacs -nw'

@@ -57,7 +57,7 @@ Plug 'justinmk/vim-sneak'
 call plug#end()
 
 set mouse=a
-set rtp+=$DOTFILES/rcs/vimsnips
+set rtp+=$RCS/nvim/vimsnips
 
 let mapleader = ","
 let maplocalleader = ","

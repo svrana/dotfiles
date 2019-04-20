@@ -9,7 +9,7 @@ function install_alacritty() {
 }
 
 function link_alacritty_config() {
-    local hostname_config="$DOTFILES/rcs/alacritty.$HOSTNAME.yml"
+    local hostname_config="${RCS}/alacritty.$HOSTNAME.yml"
     if [ -f "$hostname_config" ]; then
         ln -sf "$hostname_config" ~/.config/alacritty/alacritty.yml
     else

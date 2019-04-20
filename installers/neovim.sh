@@ -8,9 +8,9 @@ mkdir -p ~/.config/nvim/autoload
 
 function _link_ftplugins() {
     local i
-    for i in rcs/nvim/ftplugin/* ; do
+    for i in ${RCS}/nvim/ftplugin/* ; do
         i=$(basename "$i")
-        ln -sf "$DOTFILES/rcs/nvim/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
+        ln -sf "${RCS}/nvim/ftplugin/$i" ~/.config/nvim/after/ftplugin/"$i"
     done
 }
 _link_ftplugins
@@ -23,9 +23,9 @@ if [ ! -f "$PLUG_DIR/plug.vim" ]; then
 fi
 
 if [ ! -f ~/.config/nvim/init.vim ]; then
-    sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 60
-    sudo update-alternatives --install /usr/bin/vim vim /usr/local/bin/nvim 60
-    sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 60
+    sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+    sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 fi
 
 ln -sf "${RCS}/nvim/vimrc" ~/.config/nvim/init.vim
