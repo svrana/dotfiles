@@ -1,7 +1,9 @@
 (package-initialize)
 (require 'package)
 (setq package-enable-at-startup nil)
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
 
 (require 'init-utils)
 (require 'init-elpa)
@@ -31,6 +33,8 @@
 (setq-default indicate-empty-lines t)
 (setq-default indent-tabs-mode nil)
 
+(setq custom-safe-themes t)
+
 (defvar backup-dir "~/.emacs.d/backups/")
 (setq backup-directory-alist (list (cons "." backup-dir)))
 (setq make-backup-files nil)
@@ -41,24 +45,22 @@
                  (file-directory-p (concat basedir f)))
             (add-to-list 'custom-theme-load-path (concat basedir f)))))
 
-(use-package solarized-theme
-  :ensure t)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized)
 (set-terminal-parameter nil 'background-mode 'dark)
-(enable-theme 'solarized-dark)
+(set-frame-parameter nil 'background-mode 'dark)
+(enable-theme 'solarized)
 
-;;; Larger package-specific configurations
 (require 'init-evil)
 (require 'evil)
 (evil-mode t)
 
 (use-package helm
-  :ensure t
+  :ensure
   :diminish helm-mode
   :commands helm-mode
   :config
   (helm-mode 1)
-  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-buffer-fuzzy-matching t)
   (setq helm-autoresize-mode t)
   (setq helm-buffer-max-length 40)
   (define-key helm-map (kbd "S-SPC")          'helm-toggle-visible-mark)
