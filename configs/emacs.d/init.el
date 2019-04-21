@@ -32,6 +32,7 @@
 (setq-default left-fringe-width nil)
 (setq-default indicate-empty-lines t)
 (setq-default indent-tabs-mode nil)
+(setq vc-follow-symlinks t)
 
 (setq custom-safe-themes t)
 
@@ -45,10 +46,12 @@
                  (file-directory-p (concat basedir f)))
             (add-to-list 'custom-theme-load-path (concat basedir f)))))
 
-(load-theme 'solarized)
-(set-terminal-parameter nil 'background-mode 'dark)
-(set-frame-parameter nil 'background-mode 'dark)
-(enable-theme 'solarized)
+(use-package solarized-theme
+  :ensure t)
+(load-theme 'solarized-dark)
+; (set-terminal-parameter nil 'background-mode 'dark)
+; (set-frame-parameter nil 'background-mode 'dark)
+; (enable-theme 'solarized)
 
 (require 'init-evil)
 (require 'evil)
@@ -66,6 +69,8 @@
   (define-key helm-map (kbd "S-SPC")          'helm-toggle-visible-mark)
   (define-key helm-find-files-map (kbd "C-k") 'helm-find-files-up-one-level)
   (define-key helm-read-file-map (kbd "C-k")  'helm-find-files-up-one-level))
+
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 (use-package which-key
   :ensure t
@@ -97,7 +102,5 @@
   :ensure t
   :config
   (sml/setup))
-
-(server-start)
 
 (provide 'init)

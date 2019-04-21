@@ -10,6 +10,7 @@
     "g"  'magit-status
     "h"  'fontify-and-browse    ;; HTML-ize the buffer and browse the result
     "q"  'evil-quit-all
+    "t"  'helm-find
     "w"  'save-buffer)
 
   (defun magit-blame-toggle ()
@@ -22,21 +23,12 @@
 (defun air--config-evil ()
   "Configure evil mode."
 
-  ;; Use Emacs state in these additional modes.
-  ; (dolist (mode '(ag-mode
-  ;                 custom-mode
-  ;                 custom-new-theme-mode
-  ;                 dired-mode
-  ;                 eshell-mode
-  ;                 flycheck-error-list-mode
-  ;                 git-rebase-mode
-  ;                 octopress-mode
-  ;                 octopress-server-mode
-  ;                 octopress-process-mode
-  ;                 org-capture-mode
-  ;                 sunshine-mode
-  ;                 term-mode))
-  ;   (add-to-list 'evil-emacs-state-modes mode))
+  ; Use Emacs state in these additional modes.
+  (dolist (mode '(eshell-mode
+                  git-rebase-mode
+                  org-capture-mode
+                  term-mode))
+    (add-to-list 'evil-emacs-state-modes mode))
 
   ; (delete 'term-mode evil-insert-state-modes)
   ; (delete 'eshell-mode evil-insert-state-modes)
