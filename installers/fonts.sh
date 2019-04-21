@@ -40,6 +40,12 @@ install() {
         fi
     fi
 
+    # source code pro for spacemacs
+    if [ ! -d "$FONT_DIR/source-code-pro" ]; then
+        git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git "$FONT_DIR/source-code-pro"
+        added_font="true"
+    fi
+
     if [ "$added_font" == "true" ] ; then
         fc-cache -fv
     fi
