@@ -127,7 +127,6 @@ export INSTALLERS=(
     cargo
     alacritty
     dbeaver
-    emacs
     neovim
     fd
     fonts
@@ -210,6 +209,7 @@ export FILE_LINKS=(
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
     "${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
     #"${RCS}/emacs.d/init.el                       ~/.emacs.d/init.el"
+    "${RCS}/spacemacs                           ~/.spacemacs"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"
