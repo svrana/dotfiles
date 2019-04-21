@@ -140,6 +140,7 @@ export INSTALLERS=(
     polybar
     powerline
     ripgrep
+    spacemacs
     slack
     solarize
     standard-notes
@@ -168,7 +169,7 @@ export CREATE_DIRS=(
     ~/.ipython/profile_default
     ~/.weechat
     ~/.local/share/qutebrowser/userscripts
-    ~/.emacs.d
+    #~/.emacs.d
 )
 
 # A list of symbolic links that point to directories that should be created.
@@ -208,7 +209,7 @@ export FILE_LINKS=(
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
     "${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
-    "${RCS}/emacs.d/init.el                       ~/.emacs.d/init.el"
+    #"${RCS}/emacs.d/init.el                       ~/.emacs.d/init.el"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"
