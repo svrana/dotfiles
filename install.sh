@@ -127,7 +127,7 @@ export INSTALLERS=(
     cargo
     alacritty
     dbeaver
-    #neovim
+    neovim
     fd
     fonts
     go
@@ -138,7 +138,7 @@ export INSTALLERS=(
     polybar
     powerline
     ripgrep
-    spacemacs
+    #spacevim
     slack
     solarize
     standard-notes
@@ -167,7 +167,7 @@ export CREATE_DIRS=(
     ~/.ipython/profile_default
     ~/.weechat
     ~/.local/share/qutebrowser/userscripts
-    ~/.SpaceVim.d
+    ~/.SpaceVim.d/autoload
 )
 
 # A list of symbolic links that point to directories that should be created.
@@ -208,6 +208,7 @@ export FILE_LINKS=(
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
     #"${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
     "${RCS}/spacevim-init.toml                  ~/.SpaceVim.d/init.toml"
+    "${RCS}/myspacevim.vim                      ~/.SpaceVim.d/autoload/myspacevim.vim"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"

@@ -1,0 +1,10 @@
+FROM ubuntu:latest
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y \
+        apt-utils \
+	curl \
+	git \
+	sudo
+RUN useradd -m user
+USER user
+WORKDIR /home/user
