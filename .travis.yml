@@ -3,7 +3,7 @@
 services:
   - docker
 before_install:
-  - docker build -f .Dockerfile.ci --pull --tag dotfiles/base .
+  - docker build -f .Dockerfile-ci --pull --tag dotfiles/base .
 script:
   - 'docker run --tty --volume `pwd`:/root/dotfiles dotfiles/base bash -c "dotfiles/install.sh"'
 
