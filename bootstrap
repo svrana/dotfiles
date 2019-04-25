@@ -9,7 +9,7 @@ set -o pipefail
 : "${DOTFILES_PATH:=$HOME/.dotfiles}"
 
 if ! command -v git >/dev/null 2>&1; then
-    sudo apt install git
+    sudo apt-get install git
 fi
 
 if [ -d "$SCAFFOLD_PATH" ]; then

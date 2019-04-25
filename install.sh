@@ -15,6 +15,14 @@ for dep in "${_install_deps[@]}" ; do
     . "$CURRENT_DIR/$dep"
 done
 
+export PPA_KEYS=(
+    "spotify     keyserver.ubuntu.com     94558F59"
+    "insync      keyserver.ubuntu.com     ACCAF35C"
+    "neovim      keyserver.ubuntu.com     8231B6DD"
+    "rvm         keyserver.ubuntu.com     F4E3FBBE"
+    "node.js     deb.nodesource.com       68576280"
+)
+
 export PPA_LIST=(
     "spotify    http://repository.spotify.com                       stable non-free"
     "insync     http://apt.insynchq.com/ubuntu                      bionic non-free contrib"
