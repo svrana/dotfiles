@@ -5,5 +5,5 @@ services:
 before_install:
   - docker build -f .Dockerfile.ci --pull --tag dotfiles/base .
 script:
-  - 'docker run --tty --volume `pwd`:/home/user/dotfiles dotfiles/base bash -c "cat dotfiles/bootstrap | bash"'
+  - 'docker run --tty --volume `pwd`:/root/dotfiles dotfiles/base bash -c "dotfiles/install.sh"'
 

@@ -207,4 +207,4 @@ export FILE_LINKS=(
     #"${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
 )
 
-source "$PROJECTS/bash-home-scaffold/install.sh" "$*"
+    source "$SCAFFOLD_PATH/install.sh" "$*"

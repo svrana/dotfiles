@@ -8,6 +8,7 @@ export DOWNLOADS=~/Downloads
 export MUSIC=~/Music
 export PROJECTS=~/Projects
 export APPS=~/Apps
+export SCAFFOLD_PATH=${SCAFFOLD_PATH:-$PROJECTS/bash-home-scaffold}
 
 
 cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
