@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Configure bash-home-scaffold and run its install script.
+# Configure bash-home-scaffold (bhs) and run its install script.
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -10,31 +10,36 @@ _install_deps=(
     plugins/go.sh   # neovim installer uses go
 )
 
-# Must have directories set so applications no where to be installed
 for dep in "${_install_deps[@]}" ; do
     . "$CURRENT_DIR/$dep"
 done
+unset _install_deps
 
+
+# bhs: fetch the gpg key ids from the keyservers
 export PPA_KEYS=(
-    "spotify     keyserver.ubuntu.com     94558F59"
+    "spotify     keyserver.ubuntu.com     48BF1C90"
     "insync      keyserver.ubuntu.com     ACCAF35C"
     "neovim      keyserver.ubuntu.com     8231B6DD"
     "rvm         keyserver.ubuntu.com     F4E3FBBE"
-    "node.js     deb.nodesource.com       68576280"
+    #"node.js     deb.nodesource.comx      68576280"
+#
 )
 
+# bhs: add a few ppas
 export PPA_LIST=(
     "spotify    http://repository.spotify.com                       stable non-free"
     "insync     http://apt.insynchq.com/ubuntu                      bionic non-free contrib"
     "neovim     http://ppa.launchpad.net/neovim-ppa/stable/ubuntu   bionic main"
-    "rvm        http://ppa.launchpad.net.rael-gc/rvm/ubuntu         bionic main"
-    "node.js    https://deb.nodesource.com/node_6.x                 bionic main"
+    "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
+    #"node.js    https://deb.nodesource.com/node_6.x                 bionic main"
 #    "bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
 )
 
+# bhs: packages to install
 export PACKAGE_LIST=(
     autocutsel
-    blueman
+    #blueman
     build-essential
     curl
     ddgr
@@ -82,7 +87,7 @@ export PACKAGE_LIST=(
     libfontconfig1-dev
     pandoc
     entr
-    weechat
+#    weechat ## requires user input? hangs
     yarn
     i3
     feh
@@ -184,7 +189,7 @@ export DIR_LINKS=(
     "$CLOUD_ROOT/Pictures           $PHOTOS"
 )
 
-# A list of symbolic links pointing to files that should be created.
+# bhs: A list of symbolic links pointing to files that should be created.
 export FILE_LINKS=(
     # Target                                    Link name
     "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
@@ -215,4 +220,5 @@ export FILE_LINKS=(
     #"${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
 )
 
-    source "$SCAFFOLD_PATH/install.sh" "$*"
+# call bhs installer that will act on all the lists defined above
+source "$SCAFFOLD_PATH/install.sh" "$*"

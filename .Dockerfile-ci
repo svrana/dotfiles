@@ -3,7 +3,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
 	curl \
 	git \
-	sudo
+	sudo \
+	gpg
 
 RUN mkdir -p /root/Projects && git clone https://github.com/svrana/bash-home-scaffold /root/Projects/bash-home-scaffold
 
