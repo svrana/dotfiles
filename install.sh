@@ -138,7 +138,6 @@ export INSTALLERS=(
     polybar
     powerline
     ripgrep
-    #spacevim
     slack
     solarize
     standard-notes
@@ -167,7 +166,6 @@ export CREATE_DIRS=(
     ~/.ipython/profile_default
     ~/.weechat
     ~/.local/share/qutebrowser/userscripts
-    ~/.SpaceVim.d/autoload
 )
 
 # A list of symbolic links that point to directories that should be created.
@@ -207,8 +205,6 @@ export FILE_LINKS=(
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
     #"${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
-    "${RCS}/spacevim-init.toml                  ~/.SpaceVim.d/init.toml"
-    "${RCS}/myspacevim.vim                      ~/.SpaceVim.d/autoload/myspacevim.vim"
 )
 
 source "$PROJECTS/bash-home-scaffold/install.sh" "$*"

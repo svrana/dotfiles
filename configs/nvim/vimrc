@@ -62,6 +62,8 @@ set rtp+=$RCS/nvim/vimsnips
 let mapleader = ","
 let maplocalleader = ","
 
+set relativenumber
+
 "let g:markdown_composer_autostart = 0
 
 let g:airline_powerline_fonts = 1
