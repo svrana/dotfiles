@@ -22,8 +22,7 @@ export PPA_KEYS=(
     "insync      keyserver.ubuntu.com     ACCAF35C"
     "neovim      keyserver.ubuntu.com     8231B6DD"
     "rvm         keyserver.ubuntu.com     F4E3FBBE"
-    "node.js     deb.nodesource.com       68576280"
-#
+    "node.js     https://deb.nodesource.com/gpgkey/nodesource.gpg.key 68576280"
 )
 
 # bhs: add a few ppas
@@ -38,6 +37,7 @@ export PPA_LIST=(
 
 # bhs: packages to install
 export PACKAGE_LIST=(
+    rvm
     nodejs
     autocutsel
     #blueman
@@ -221,6 +221,5 @@ export FILE_LINKS=(
     #"${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
 )
 
-echo "bsh path: $SCAFFOLD_PATH"
 # call bhs installer that will act on all the lists defined above
 source "$SCAFFOLD_PATH/install.sh" "$*"
