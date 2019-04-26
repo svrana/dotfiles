@@ -22,7 +22,7 @@ export PPA_KEYS=(
     "insync      keyserver.ubuntu.com     ACCAF35C"
     "neovim      keyserver.ubuntu.com     8231B6DD"
     "rvm         keyserver.ubuntu.com     F4E3FBBE"
-    #"node.js     deb.nodesource.comx      68576280"
+    "node.js     deb.nodesource.com       68576280"
 #
 )
 
@@ -32,12 +32,13 @@ export PPA_LIST=(
     "insync     http://apt.insynchq.com/ubuntu                      bionic non-free contrib"
     "neovim     http://ppa.launchpad.net/neovim-ppa/stable/ubuntu   bionic main"
     "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
-    #"node.js    https://deb.nodesource.com/node_6.x                 bionic main"
-#    "bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
+    "node.js    https://deb.nodesource.com/node_10.x                bionic main"
+#    bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
 )
 
 # bhs: packages to install
 export PACKAGE_LIST=(
+    nodejs
     autocutsel
     #blueman
     build-essential
@@ -220,5 +221,6 @@ export FILE_LINKS=(
     #"${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
 )
 
+echo "bsh path: $SCAFFOLD_PATH"
 # call bhs installer that will act on all the lists defined above
 source "$SCAFFOLD_PATH/install.sh" "$*"
