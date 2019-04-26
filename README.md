@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles [![Build Status](https://travis-ci.org/svrana/dotfiles.svg?branch=master)](https://travis-ci.org/svrana/dotfiles)
 
 These dotfiles use the [bash-home-scaffold](https://github.com/svrana/bash-home-scaffold) to link configuration files, create directories, install packages and to break functionality into [plugins](https://github.com/svrana/dotfiles/tree/master/plugins) and [installers](https://github.com/svrana/dotfiles/tree/master/installers).
 
