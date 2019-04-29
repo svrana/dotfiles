@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
 	curl \
@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
 	sudo \
 	gpg
 
+RUN mkdir -p /root/.ssh
+RUN echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 RUN mkdir -p /root/Projects && git clone https://github.com/svrana/bash-home-scaffold /root/Projects/bash-home-scaffold
 
 WORKDIR /root
