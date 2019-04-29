@@ -77,7 +77,7 @@ export PACKAGE_LIST=(
     libpq-dev
     rvm
     spotify-client
-    zeal
+#    zeal
     insync
     firefox
     virtualenv
