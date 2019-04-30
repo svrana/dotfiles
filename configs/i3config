@@ -177,7 +177,7 @@ mode "split" {
 }
 bindsym $mod+i mode "split"
 
-mode "exit: l)ogout r)eboot s)hutdown su)spend n(etworking restart" {
+mode "exit: l)ogout r)eboot s)hutdown su)spend n)etworking restart" {
   bindsym l exec i3-msg exit
   bindsym r exec sudo systemctl reboot
   bindsym s exec sudo systemctl poweroff
