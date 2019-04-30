@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-set -o emacs
+set -o vi
 shopt -s checkwinsize
 shopt -s histappend
 shopt -s cdspell                  # Let bash help you change directories when you can't spell
