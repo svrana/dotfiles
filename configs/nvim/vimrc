@@ -63,6 +63,7 @@ let mapleader = ","
 let maplocalleader = ","
 
 set relativenumber
+nnoremap <leader>n :set relativenumber!<CR>
 
 "let g:markdown_composer_autostart = 0
 
@@ -283,11 +284,7 @@ nnoremap \th :set invhls hls?<CR>
 " toggle paste mapping to avoid things like autoindent causing 'stepped' text
 nnoremap \tp :set invpaste paste?<CR>
 
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
+set background=dark
 
 colorscheme solarized
 
@@ -300,6 +297,7 @@ map! <M-Esc>[64~ <S-MouseDown>
 map  <M-Esc>[65~ <S-MouseUp>
 map! <M-Esc>[65~ <S-MouseUp>
 
+nnoremap <silent> <LocalLeader>t :FZF<cr>
 nnoremap <silent> <LocalLeader>t :FZF<cr>
 
 nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
