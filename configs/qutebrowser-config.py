@@ -297,7 +297,7 @@ c.colors.statusbar.command.bg = base03
 
 ## Background color of the statusbar.
 ## Type: QssColor
-# c.colors.statusbar.normal.bg = 'black'
+c.colors.statusbar.normal.bg = base03
 
 ## Foreground color of the statusbar.
 ## Type: QssColor
@@ -1149,7 +1149,7 @@ c.scrolling.smooth = True
 
 ## Hide the statusbar unless a message is shown.
 ## Type: Bool
-c.statusbar.hide = True
+c.statusbar.hide = False
 
 ## Padding (in pixels) for the statusbar.
 ## Type: Padding
