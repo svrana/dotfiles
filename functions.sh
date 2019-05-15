@@ -112,6 +112,9 @@ function PATH_prepend() {
     local paths
     paths=$(split "$1" ":")
     for path in $paths ; do
+        if [ ! -d "$path" ]; then
+            continue
+        fi
         if [ "${PATH#*${path}}" = "${PATH}" ]; then
             export PATH=$path:$PATH
         fi
@@ -124,6 +127,9 @@ function PATH_append() {
     local paths
     paths=$(split "$1" ":")
     for path in $paths ; do
+        if [ ! -d "$path" ]; then
+            continue
+        fi
         if [ "${PATH#*${path}}" = "${PATH}" ]; then
             export PATH=$PATH:$path
         fi
