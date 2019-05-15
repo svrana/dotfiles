@@ -2,16 +2,17 @@
 
 export CL_HOME=~/Projects/clroot
 export DEV_HOME=~/Projects/dev
-if [ -f "$DEV_HOME/bin/dev-completion.bash" ]; then
-    source "$DEV_HOME/bin/dev-completion.bash"
-fi
 
+# if [ -f "$DEV_HOME/bin/dev-completion.bash" ]; then
+#     source "$DEV_HOME/bin/dev-completion.bash"
+# fi
 
 if [ -f /usr/local/arcanist/resources/shell/bash-completion ] ; then
     source /usr/local/arcanist/resources/shell/bash-completion
 fi
 
-PATH_append "$DEV_HOME/bin/linux"
+PATH_append "$DEV_HOME/build"
+PATH_append "$CL_HOME/ci/bin"
 export WISH_CLI_TOOL=DEV
 export BUILDUID=$(id -u $USER)
 
