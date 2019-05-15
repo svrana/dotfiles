@@ -144,7 +144,6 @@ export INSTALLERS=(
     neovim
     fd
     fonts
-    go
     gradle
     hugo
     packer

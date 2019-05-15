@@ -22,7 +22,7 @@ function __dotfiles_go_install() {
         chmod +x ~/.local/bin/dep
     fi
 
-    if ! command gopls > /dev/null 2>&1; then
+    if ! which gopls > /dev/null 2>&1 > /dev/null 2>&1; then
         go get -u golang.org/x/tools/cmd/gopls
     fi
 }
