@@ -30,10 +30,10 @@ Plug 'ingydotnet/yaml-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'svrana/neomake'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go'
-Plug 'zchee/deoplete-jedi'
-"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'zchee/deoplete-go'
+"Plug 'zchee/deoplete-jedi'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'fishbullet/deoplete-ruby'
 Plug 'ternjs/tern_for_vim'
 Plug 'majutsushi/tagbar' 		" ide
@@ -102,7 +102,7 @@ let g:peekaboo_delay=300
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 " let g:deoplete#disable_auto_complete = 1
 
 set completeopt+=menu
@@ -152,6 +152,8 @@ autocmd FileType terraform setlocal commentstring=#%s
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+" jsonc
+ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " When editing a file that requires root, try to save using sudo
 cmap w!! %!sudo tee > /dev/null %
@@ -372,10 +374,30 @@ set lazyredraw
 " repeat last macro
 nnoremap Q @@
 
-" === coc.nvim === "
-nmap <silent> <leader>dd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
+" === coc.nvim ===
+let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python']
+nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>cr <Plug>(coc-references)
+nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>ct <Plug>(coc-type-definition)
+nmap <silent> <leader>cr <Plug>(coc-rename)
+"===end coc.nvim settings
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 hi IncSearch ctermbg=LightYellow ctermfg=Red
 

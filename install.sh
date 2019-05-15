@@ -218,7 +218,7 @@ export FILE_LINKS=(
     "${DOCUMENTS}/apps/qutebrowser/bookmarks    ~/.config/qutebrowser/bookmarks/urls"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
-    #"${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
+    "${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
 )
 
 # call bhs installer that will act on all the lists defined above
