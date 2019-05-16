@@ -25,6 +25,10 @@ function __dotfiles_go_install() {
     if ! which gopls > /dev/null 2>&1 > /dev/null 2>&1; then
         go get -u golang.org/x/tools/cmd/gopls
     fi
+
+    if ! which golint > /dev/null 2>&1; then
+        go get -u golang.org/x/lint/golint
+    fi
 }
 
 __dotfiles_go_install
