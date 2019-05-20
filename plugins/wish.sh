@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export CL_HOME=~/Projects/clroot
+export DEV_CONFIG=$CL_HOME/dev.yaml
 export DEV_HOME=~/Projects/dev
 
 # if [ -f "$DEV_HOME/bin/dev-completion.bash" ]; then
@@ -13,7 +14,7 @@ fi
 
 PATH_append "$DEV_HOME/build"
 PATH_append "$CL_HOME/ci/bin"
-export WISH_CLI_TOOL=DEV
+#export WISH_CLI_TOOL=DEV
 export BUILDUID=$(id -u $USER)
 
 alias bogo="$CL_HOME/sweeper/bogo.py"
