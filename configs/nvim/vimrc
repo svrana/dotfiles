@@ -34,7 +34,7 @@ Plug 'svrana/neomake'
 "Plug 'zchee/deoplete-go'
 "Plug 'zchee/deoplete-jedi'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'fishbullet/deoplete-ruby'
+"Plug 'fishbullet/deoplete-ruby'
 Plug 'ternjs/tern_for_vim'
 Plug 'majutsushi/tagbar' 		" ide
 Plug 'farmergreg/vim-lastplace' 	" open file at last position
