@@ -424,8 +424,9 @@ nmap <Leader>gp <Plug>GitGutterPrevHunk  " git previous
 nnoremap <leader>gs :Magit<CR>       	 " git status
 nnoremap <leader>gP :! git push<CR>      " git Push
 nnoremap <Leader>gb :Gblame<CR>          " git blame
-nnoremap <Leader>gb :.Gbrowse<CR> 	 " Open current line in the browser
-vnoremap <Leader>gb :Gbrowse<CR>   	 " Open visual selection in the browser
+
+nnoremap <Leader>gl :.Gbrowse<CR> 	 " Open current line in the browser (i.e., get link)
+vnoremap <Leader>gl :Gbrowse<CR>   	 " Open visual selection in the browser
 "nnoremap <Leader>gaf :Gw<CR>             " git add file
 " Hunk-add and hunk-revert for chunk staging
 nmap <Leader>ga <Plug>GitGutterStageHunk " git add (chunk)
