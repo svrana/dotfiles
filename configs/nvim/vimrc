@@ -14,10 +14,15 @@ endfunction
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Style
-Plug 'gmodarelli/solarize' 		" the colorscheme
+Plug 'gmodarelli/solarize' 		" solarize everything
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Vim functionality helpers
+Plug 'tpope/vim-obsession' 		" auto-session handling
+Plug 'scrooloose/nerdtree' 		" file tree
+Plug 'junegunn/vim-peekaboo' 		" show contents of copy buffer
 
 " Git related plugisn
 Plug 'tpope/vim-fugitive' 		" mostly for blame
@@ -25,32 +30,35 @@ Plug 'airblade/vim-gitgutter' 		" showing and staging chunks
 Plug 'jreybert/vimagit' 		" project wide git
 Plug 'tpope/vim-rhubarb' 		" sharing git urls
 
+" Text processing
 Plug 'tpope/vim-commentary' 		" auto-commenting
-Plug 'tpope/vim-obsession' 		" auto-session handling
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'vim-scripts/matchit.zip'
-Plug 'ervandew/supertab'
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-"Plug 'fatih/gomodifytags'
+" Programming (general)
+Plug 'ervandew/supertab'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'ternjs/tern_for_vim'
 Plug 'svrana/neomake'
+Plug 'majutsushi/tagbar' 		" ide
+Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
+
+" Language specific functionality
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " mostly for identifier jumping
+Plug 'wsdjeg/vim-fetch' 		" open file:lineno:colno see sf()
+"Plug 'fatih/gomodifytags'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'zchee/deoplete-go'
 "Plug 'zchee/deoplete-jedi'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} 	"
 "Plug 'fishbullet/deoplete-ruby'
-Plug 'ternjs/tern_for_vim'
-Plug 'majutsushi/tagbar' 		" ide
-Plug 'farmergreg/vim-lastplace' 	" open file at last position
-Plug 'junegunn/vim-peekaboo' 		" show contents of copy buffer
-Plug 'kopischke/vim-fetch' 		" open file:lineno:colno see sf()
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
-Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
-Plug 'tmux-plugins/vim-tmux'
-Plug 'scrooloose/nerdtree'
-Plug '$APPS/fzf'
 
-" Language specific ftplugins, highlighting, etc
+" File handling
+Plug '$APPS/fzf'
+Plug 'farmergreg/vim-lastplace' 	" open file at last position
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+
+
+" Language specific visual effects:  ftplugins, highlighting, etc
 Plug 'tpope/vim-jdaddy' 		" json formatting
 Plug 'cespare/vim-toml' 		" toml formatting
 Plug 'othree/html5.vim'
@@ -62,9 +70,9 @@ Plug 'hashivim/vim-packer'
 Plug 'google/vim-jsonnet'
 Plug 'posva/vim-vue'
 Plug 'justinmk/vim-sneak'
+Plug 'tmux-plugins/vim-tmux'  		" editing .tmux.conf
 
-" All of your Plugins must be added before the following line
-call plug#end()
+call plug#end() 			" All of your Plugins must be added before the following line
 
 set mouse=a
 set rtp+=$RCS/nvim/vimsnips
@@ -422,7 +430,7 @@ nmap <silent> <leader>cr <Plug>(coc-rename)
 nmap <Leader>gn <Plug>GitGutterNextHunk  " git next
 nmap <Leader>gp <Plug>GitGutterPrevHunk  " git previous
 nnoremap <leader>gs :Magit<CR>       	 " git status
-nnoremap <leader>gP :! git push<CR>      " git Push
+nnoremap <leader>gP :! git push<CR>      " git push
 nnoremap <Leader>gb :Gblame<CR>          " git blame
 
 nnoremap <Leader>gl :.Gbrowse<CR> 	 " Open current line in the browser (i.e., get link)
