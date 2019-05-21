@@ -182,7 +182,7 @@ mode "exit: l)ogout r)eboot s)hutdown su)spend n)etworking restart" {
   bindsym r exec sudo systemctl reboot
   bindsym s exec sudo systemctl poweroff
   bindsym u exec sudo systemctl suspend
-  bindsym n exec sudo systemctl restart NetworkManager
+  bindsym n exec sudo systemctl restart NetworkManager ; mode "default"
 
   bindsym Escape mode "default"
   bindsym Return mode "default"
