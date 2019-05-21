@@ -426,7 +426,11 @@ nnoremap <leader>gP :! git push<CR>      " git Push
 nnoremap <Leader>gb :Gblame<CR>          " git blame
 nnoremap <Leader>gb :.Gbrowse<CR> 	 " Open current line in the browser
 vnoremap <Leader>gb :Gbrowse<CR>   	 " Open visual selection in the browser
-nnoremap <Leader>gaf :Gw<CR>             " git add file
+"nnoremap <Leader>gaf :Gw<CR>             " git add file
+" Hunk-add and hunk-revert for chunk staging
+nmap <Leader>ga <Plug>GitGutterStageHunk " git add (chunk)
+nmap <Leader>gu <Plug>GitGutterUndoHunk  " git undo (chunk)
+
 " Enable deletion of untracked files in Magit
 let g:magit_discard_untracked_do_delete=1
 
