@@ -15,7 +15,7 @@ function __install_golang() {
 function __dotfiles_go_install() {
     __install_golang
 
-    local dep_version=0.4.1
+    local dep_version=0.5.3
     local dep_url="https://github.com/golang/dep/releases/download/v$dep_version/dep-linux-amd64"
     if [ ! -f ~/.local/bin/dep ]; then
         wget ${dep_url} -O ~/.local/bin/dep
