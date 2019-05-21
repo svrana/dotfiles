@@ -188,6 +188,10 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 " jsonc
  autocmd FileType json syntax match Comment +\/\/.\+$+
 
+"remove current line highlight in unfocused window
+au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
+au WinLeave,FocusLost,CmdwinLeave * set nocul
+
 " When editing a file that requires root, try to save using sudo
 cmap w!! %!sudo tee > /dev/null %
 
