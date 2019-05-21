@@ -21,7 +21,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Vim functionality helpers
 Plug 'tpope/vim-obsession' 		" auto-session handling
-Plug 'scrooloose/nerdtree' 		" file tree
 Plug 'junegunn/vim-peekaboo' 		" show contents of copy buffer
 
 " Git related plugisn
@@ -57,7 +56,6 @@ Plug '$APPS/fzf'
 Plug 'farmergreg/vim-lastplace' 	" open file at last position
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
-
 " Language specific visual effects:  ftplugins, highlighting, etc
 Plug 'tpope/vim-jdaddy' 		" json formatting
 Plug 'cespare/vim-toml' 		" toml formatting
@@ -85,10 +83,11 @@ nnoremap <leader>n :set relativenumber!<CR>
 
 "let g:markdown_composer_autostart = 0
 
+
+" Statusline stetup
 let g:airline_powerline_fonts = 1
 let g:airline_section_b='' "Disable showing branch cause it crowds the filename
 let g:airline_section_y='' "Disable filetype cause it's mostly useless
-
 " use error & warning count of diagnostics form coc.nvim
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
@@ -105,8 +104,6 @@ autocmd User AirlineAfterInit call AirlineInit()
 
 " exclude overwrite statusline of list filetype
 let g:airline_exclude_filetypes = ["list"]
-
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t' "no path,only filename
 let g:airline#extensions#tabline#tab_min_count = 2
@@ -302,7 +299,6 @@ map + <C-W>+
 
 noremap <silent> <leader>zz :TagbarToggle<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
-map <leader>nt :NERDTreeToggle<CR>
 
 " jump between erros in quickfix list
 map <C-n> :cnext<CR>
@@ -463,5 +459,14 @@ hi IncSearch ctermbg=LightYellow ctermfg=Red
 " map F <Plug>Sneak_F
 " map t <Plug>Sneak_t
 " map T <Plug>Sneak_T
-"
 
+
+" File explorer settings
+"
+"toggle netrw on the left side of the editor
+let g:netrw_banner=0
+let g:netrw_winsize=20
+let g:netrw_liststyle=3
+let g:netrw_localrmdir='rm -r'
+nnoremap <leader>fe :Lexplore<CR>
+"map <leader>nt :NERDTreeToggle<CR>
