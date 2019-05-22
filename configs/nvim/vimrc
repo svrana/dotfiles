@@ -31,7 +31,7 @@ Plug 'tpope/vim-rhubarb' 		" sharing git urls
 
 " Text processing
 Plug 'tpope/vim-commentary' 		" auto-commenting
-Plug 'vim-scripts/DeleteTrailingWhitespace'
+"Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'vim-scripts/matchit.zip'
 
 " Programming (general)
@@ -71,7 +71,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'tmux-plugins/vim-tmux'  		" editing .tmux.conf
 
 call plug#end() 			" All of your Plugins must be added before the following line
-
 set mouse=a
 set rtp+=$RCS/nvim/vimsnips
 
@@ -79,7 +78,11 @@ let mapleader = ","
 let maplocalleader = ","
 
 set relativenumber
-nnoremap <leader>n :set relativenumber!<CR>
+"toggle display of numbers
+nnoremap <leader>dn :set relativenumber!<CR>
+
+"remove trailing whitespace on save
+autocmd! BufWritePre * :%s/\s\+$//e
 
 "let g:markdown_composer_autostart = 0
 
@@ -189,8 +192,8 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
  autocmd FileType json syntax match Comment +\/\/.\+$+
 
 "remove current line highlight in unfocused window
-au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
-au WinLeave,FocusLost,CmdwinLeave * set nocul
+au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set relativenumber
+au WinLeave,FocusLost,CmdwinLeave * set norelativenumber
 
 " When editing a file that requires root, try to save using sudo
 cmap w!! %!sudo tee > /dev/null %
@@ -290,12 +293,11 @@ map  <c-/> :bdelete<CR>
 map! <c-/> <esc>:bdelete<CR>
 
 " tabs
-map  <c-s> :tabp<CR>
+map  <c-s> :tabp<CR> 			" goto previous tab
 map! <c-s> <ESC>tabp<CR>
-map  <c-h> :tabn<CR>
+map  <c-h> :tabn<CR> 			" goto next tab
 map! <c-h> <ESC>tabn<CR>
-nnoremap \tt :tabnew<CR>
-nnoremap \nt :tabnew<CR>
+nnoremap <leader>nt :tabnew<CR> 	" create new tab
 
 map <c-c> :make<CR>
 map - <C-W>-
@@ -435,7 +437,7 @@ nnoremap <Leader>gb :Gblame<CR>          " git blame
 
 nnoremap <Leader>gl :.Gbrowse<CR> 	 " Open current line in the browser (i.e., get link)
 vnoremap <Leader>gl :Gbrowse<CR>   	 " Open visual selection in the browser
-"nnoremap <Leader>gaf :Gw<CR>             " git add file
+nnoremap <Leader>gsf :Gw<CR>             " git stage file
 " Hunk-add and hunk-revert for chunk staging
 nmap <Leader>ga <Plug>GitGutterStageHunk " git add (chunk)
 nmap <Leader>gu <Plug>GitGutterUndoHunk  " git undo (chunk)
