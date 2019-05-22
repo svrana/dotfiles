@@ -605,7 +605,8 @@ c.completion.height = '35%'
 ## QtWebEngine, writing the clipboard as response to a user interaction
 ## is always allowed.
 ## Type: Bool
-# c.content.javascript.can_access_clipboard = False
+c.content.javascript.can_access_clipboard = True
+#set -u https://*.github.com/* content.javascript.can_access_clipboard true
 
 ## Allow JavaScript to close tabs.
 ## Type: Bool
@@ -613,7 +614,7 @@ c.completion.height = '35%'
 
 ## Allow JavaScript to open new tabs without user interaction.
 ## Type: Bool
-# c.content.javascript.can_open_tabs_automatically = False
+c.content.javascript.can_open_tabs_automatically = True
 
 ## Enable JavaScript.
 ## Type: Bool
