@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export CL_HOME=~/Projects/clroot
-export DEV_CONFIG=$CL_HOME/dev.yaml
+export DEV_CONFIG=$CL_HOME/.dev.yaml
 export DEV_HOME=~/Projects/dev
 
 # if [ -f "$DEV_HOME/bin/dev-completion.bash" ]; then
