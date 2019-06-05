@@ -202,7 +202,8 @@ exec --no-startup-id insync start --headless
 exec --no-startup-id xautolock -time 5 -locker $HOME/.local/bin/i3lockwrapper.sh
 exec --no-startup-id hsetroot -solid "#002b36"
 exec --no-startup-id unclutter
-exec --no-startup-id autocutsel -fork
+exec --no-startup-id autocutsel -fork -selection CLIPBOARD
+exec --no-startup-id autocutsel -fork -selection PRIMARY
 
 assign [class="qutebrowser"] $ws3
 exec --no-startup-id $HOME/.local/bin/qutebrowser
