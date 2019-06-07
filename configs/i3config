@@ -70,23 +70,11 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Shift+Left move left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move up
-# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation ctrl-alt-v/h .. need an easier key combo
 bindsym Mod1+Control+v split horizontal
@@ -145,18 +133,6 @@ bindsym Mod1+Control+l exec --no-startup-id $HOME/.local/bin/i3lockwrapper.sh
 # resize window (you can also use the mouse for that)
 # perspective is from a window at 0,0
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrinGk the window’s width
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        # bindsym Left resize shrink width 10 px or 10 ppt
-        # bindsym Down resize grow height 10 px or 10 ppt
-        # bindsym Up resize shrink height 10 px or 10 ppt
-        # bindsym Right resize grow width 10 px or 10 ppt
-
-        # same bindings, but with vim keys
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -222,7 +198,6 @@ for_window [class="Slack"] move scratchpad
 exec --no-startup-id slack
 
 
-
 # (Pulse) Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.local/bin/pa-volume.sh --up
 bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.local/bin/pa-volume.sh --down
@@ -257,9 +232,7 @@ client.background       #ffffff
 # Application shortcuts
 bindsym $mod+b [class="Thunderbird"] focus
 bindsym $mod+n [class="Alacritty"] focus
-#bindsym $mod+m [class="Firefox"] focus
 bindsym $mod+m [class="qutebrowser"] focus
 bindsym $mod+comma [class="Spotify"] focus
 bindsym $mod+0 [class="Standard Notes"] scratchpad show; move position 1000 50; resize set 1800 2000
 bindsym $mod+9 [class="Slack"] scratchpad show; move position 1000 50; resize set 1800 2000
-bindsym $mod+period [class="Emacs"] focus
