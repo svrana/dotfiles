@@ -191,10 +191,10 @@ exec --no-startup-id $HOME/.local/bin/qutebrowser
 for_window [class="Spotify"] move to workspace 4
 exec --no-startup-id spotify
 
-for_window [class="Standard Notes"] move scratchpad
+for_window [class="Standard Notes"] move scratchpad, move position 1000 50, resize set 1800 2000
 exec --no-startup-id $HOME/.local/bin/standard-notes
 
-for_window [class="Slack"] move scratchpad
+for_window [class="Slack"] move scratchpad, move position 1000 50, resize set 1800 2000
 exec --no-startup-id slack
 
 
@@ -234,5 +234,5 @@ bindsym $mod+b [class="Thunderbird"] focus
 bindsym $mod+n [class="Alacritty"] focus
 bindsym $mod+m [class="qutebrowser"] focus
 bindsym $mod+comma [class="Spotify"] focus
-bindsym $mod+0 [class="Standard Notes"] scratchpad show; move position 1000 50; resize set 1800 2000
-bindsym $mod+9 [class="Slack"] scratchpad show; move position 1000 50; resize set 1800 2000
+bindsym $mod+0 [class="Standard Notes"] scratchpad show
+bindsym $mod+9 [class="Slack"] scratchpad show
