@@ -15,6 +15,7 @@ fi
 PATH_append "$DEV_HOME/build"
 PATH_append "$CL_HOME/ci/bin"
 export WISH_CLI_TOOL=OS_DEV
+export DEV_CONFIG=$CL_HOME/.dev.yaml
 export BUILDUID=$(id -u $USER)
 
 alias bogo="$CL_HOME/sweeper/bogo.py"
