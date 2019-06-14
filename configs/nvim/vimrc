@@ -43,6 +43,7 @@ Plug 'majutsushi/tagbar' 		" ide
 Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
 
 " Language specific functionality
+Plug '$APPS/fzf'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " mostly for identifier jumping
 Plug 'wsdjeg/vim-fetch' 		" open file:lineno:colno see sf()
 "Plug 'fatih/gomodifytags'
@@ -52,7 +53,7 @@ Plug 'wsdjeg/vim-fetch' 		" open file:lineno:colno see sf()
 "Plug 'fishbullet/deoplete-ruby'
 
 " File handling
-Plug '$APPS/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'farmergreg/vim-lastplace' 	" open file at last position
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
@@ -417,7 +418,7 @@ set lazyredraw
 nnoremap Q @@
 
 " === coc.nvim ===
-let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python']
+let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python', 'coc-github']
 nmap <silent> <leader>cd <Plug>(coc-definition)
 nmap <silent> <leader>cr <Plug>(coc-references)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
