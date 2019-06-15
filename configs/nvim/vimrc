@@ -339,7 +339,7 @@ map  <M-Esc>[65~ <S-MouseUp>
 map! <M-Esc>[65~ <S-MouseUp>
 
 nnoremap <silent> <LocalLeader>t :FZF<cr>
-nnoremap <silent> <LocalLeader>t :FZF<cr>
+nnoremap <silent> <LocalLeader>sf :Rg<cr>
 
 nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
