@@ -4,7 +4,7 @@ alias tma='tmux attach -d -t'
 
 function tmux {
     if [[ -z "$VIRTUAL_ENV" && -z "$VIRTUALGO" ]]; then
-        direnv exec / tmux attach
+        direnv exec / tmux attach 2>/dev/null || direnv exec / tmux
     else
         echo "Get out of virtualenv"
         return 1
