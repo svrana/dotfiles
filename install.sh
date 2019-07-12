@@ -208,6 +208,8 @@ export FILE_LINKS=(
     "${RCS}/polybar-config                      ~/.config/polybar/config"
     "${RCS}/X/Xresources                        ~/.Xresources"
     "${RCS}/X/Xmodmap                           ~/.Xmodmap"
+    "${RCS}/X/xinitrc                           ~/.xinitrc"
+    "${RCS}/X/xserverrc                         ~/.xserverrc"
     "${RCS}/X/xsessionrc                        ~/.xsessionrc"
     "${RCS}/X/xorg.conf                         /etc/X11/xorg.conf"
     "${RCS}/X/10-evdev.conf                     /etc/X11/xorg.conf.d/10-evdev.conf"
@@ -218,6 +220,7 @@ export FILE_LINKS=(
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
     "${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
+    "${RCS}/keyboard                            /etc/default/keyboard"
 )
 
 # call bhs installer that will act on all the lists defined above
