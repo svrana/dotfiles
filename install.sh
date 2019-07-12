@@ -18,122 +18,122 @@ unset _install_deps
 
 # bhs: fetch the gpg key ids from the keyservers
 export PPA_KEYS=(
-    "spotify     keyserver.ubuntu.com     48BF1C90"
     "insync      keyserver.ubuntu.com     ACCAF35C"
     "neovim      keyserver.ubuntu.com     8231B6DD"
-    "rvm         keyserver.ubuntu.com     F4E3FBBE"
     "node.js     https://deb.nodesource.com/gpgkey/nodesource.gpg.key 68576280"
+    "rvm         keyserver.ubuntu.com     F4E3FBBE"
+    "spotify     keyserver.ubuntu.com     48BF1C90"
 )
 
 # bhs: add a few ppas
 export PPA_LIST=(
-    "spotify    http://repository.spotify.com                       stable non-free"
     "insync     http://apt.insynchq.com/ubuntu                      bionic non-free contrib"
     "neovim     http://ppa.launchpad.net/neovim-ppa/stable/ubuntu   bionic main"
-    "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
     "node.js    https://deb.nodesource.com/node_10.x                bionic main"
+    "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
+    "spotify    http://repository.spotify.com                       stable non-free"
 #    bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
 )
 
 # bhs: packages to install
 export PACKAGE_LIST=(
-    keychain
-    rvm
-    nodejs
     autocutsel
-    #blueman
     build-essential
-    curl
-    ddgr
-    fonts-powerline
-    pass
-    python-pip
-    python-dev
-    python3-dev
-    python3-pip
-    git
-    tox
-    tmux
-    xclip
-    openvpn
-    openjdk-8-jdk
-    exuberant-ctags
-    silversearcher-ag
-    libcurl4-openssl-dev
-    libcap-dev
-    libxml2-dev
-    libldap2-dev
-    libidn11-dev
-    librtmp-dev
-    libkrb5-dev
-    python-m2crypto
-    libsasl2-dev
-    libssl-dev
-    swig
-    network-manager-openvpn
-    network-manager-openvpn-gnome
-    shellcheck
-    ruby
-    ruby-dev
-    libpq-dev
-    rvm
-    spotify-client
-#    zeal
-    insync
-    firefox
-    virtualenv
     cmake
-    flex
-    libelf-dev
-    libev-dev
-    libfreetype6-dev
-    libfontconfig1-dev
-    libjpeg-dev
-    libpam0g-dev
-    pandoc
-    entr
-#    weechat ## requires user input? hangs
-    yarn
-    i3
-    feh
-    xautolock
-    rofi
     cmake
     cmake-data
+    curl
+    ddgr
+    entr
+    exuberant-ctags
+    feh
+    firefox
+    flex
+    fonts-powerline
+    git
+    i3
+    i3-wm
+    insync
+    keychain
+    libasound2-dev
     libcairo2-dev
+    libcap-dev
+    libcurl4-openssl-dev
+    libcurl4-openssl-dev
+    libelf-dev
+    libev-dev
+    libfontconfig1-dev
+    libfreetype6-dev
+    libidn11-dev
+    libiw-dev
+    libjpeg-dev
+    libkrb5-dev
+    libldap2-dev
+    libmpdclient-dev
+    libpam0g-dev
+    libpq-dev
+    libpulse-dev
+    librtmp-dev
+    libsasl2-dev
+    libssl-dev
     libx11-xcb-dev
-    libxcb1-dev
-    libxcb-util-dev
+    libxcb-composite0-dev
     libxcb-ewmh-dev
     libxcb-icccm4-dev
     libxcb-image0-dev
     libxcb-randr0-dev
+    libxcb-util-dev
     libxcb-util0-dev
-    libxcb-xkb-dev
     libxcb-xinerama0-dev
+    libxcb-xkb-dev
+    libxcb-xrm-dev
+    libxcb1-dev
     libxkbcommon-dev
     libxkbcommon-x11-dev
-    pkg-config
-    python-xcbgen
-    xcb-proto
-    libxcb-xrm-dev
-    i3-wm
-    libasound2-dev
-    libmpdclient-dev
-    libiw-dev
-    libcurl4-openssl-dev
-    libpulse-dev
-    libxcb-composite0-dev
-    notify-osd
+    libxml2-dev
     mpv
+    network-manager-openvpn
+    network-manager-openvpn-gnome
+    nodejs
+    notify-osd
+    openjdk-8-jdk
+    openvpn
+    pandoc
+    pass
+    pkg-config
+    python-dev
+    python-m2crypto
+    python-pip
+    python-xcbgen
+    python3-dev
+    python3-pip
+    rofi
+    ruby
+    ruby-dev
+    rvm
+    rvm
+    shellcheck
+    silversearcher-ag
+    spotify-client
+    swig
+    tmux
+    tox
+    virtualenv
+    xautolock
+    xcb-proto
+    xclip
+    yarn
+#    blueman
+#    weechat ## requires user input? hangs
+#    zeal
 )
 
 export GLOBAL_NODE_PACKAGES=(
-    neovim
     diff-so-fancy
     eslint
-    tern
     n
+    neovim
+    tern
 )
 
 export GLOBAL_GEMS=(
@@ -150,45 +150,45 @@ export INSTALLERS=(
     cargo
     alacritty
     dbeaver
-    neovim
     fd
     fonts
     gradle
     hugo
     i3lock-color
+    neovim
     packer
     pass
     polybar
     powerline
+    qutebrowser
     ripgrep
     slack
     solarize
     standard-notes
     terraform
-    qutebrowser
     update-systemd-resolved
 )
 
 # A list of directories that should be created.
 export CREATE_DIRS=(
+    $APPS
     $BIN_DIR
     $DOWNLOADS
-    $APPS
     $PROJECTS
 
+    ~/.config/Standard\ Notes
     ~/.config/alacritty
-    ~/.config/qutebrowser
-    ~/.config/psql
-    ~/.config/i3
-    ~/.config/polybar
     ~/.config/fontconfig/conf.d
     ~/.config/git
-    ~/.config/Standard\ Notes
+    ~/.config/i3
+    ~/.config/polybar
+    ~/.config/psql
+    ~/.config/qutebrowser
+    ~/.ipython/profile_default
     ~/.kitchen
     ~/.local/share/applications
-    ~/.ipython/profile_default
-    ~/.weechat
     ~/.local/share/qutebrowser/userscripts
+    ~/.weechat
 )
 
 # A list of symbolic links that point to directories that should be created.
@@ -202,35 +202,35 @@ export DIR_LINKS=(
 # bhs: A list of symbolic links pointing to files that should be created.
 export FILE_LINKS=(
     # Target                                    Link name
+    "${DOCUMENTS}/apps/qutebrowser/bookmarks    ~/.config/qutebrowser/bookmarks/urls"
+    "${DOCUMENTS}/apps/qutebrowser/quickmarks   ~/.config/qutebrowser/quickmarks"
+    "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
+    "${RCS}/X/10-evdev.conf                     /etc/X11/xorg.conf.d/10-evdev.conf"
+    "${RCS}/X/Xmodmap                           ~/.Xmodmap"
+    "${RCS}/X/Xresources                        ~/.Xresources"
+    "${RCS}/X/xinitrc                           ~/.xinitrc"
+    "${RCS}/X/xorg.conf                         /etc/X11/xorg.conf"
+    "${RCS}/X/xserverrc                         ~/.xserverrc"
+    "${RCS}/X/xsessionrc                        ~/.xsessionrc"
     "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
     "${RCS}/bash_profile                        ~/.bash_profile"
     "${RCS}/bashrc                              ~/.bashrc"
+    "${RCS}/ctags                               ~/.ctags"
     "${RCS}/git/gitconfig                       ~/.config/git/config"
     "${RCS}/git/gitignore_global                ~/.config/git/ignore"
-    "${RCS}/rvmrc                               ~/.rvmrc"
-    "${RCS}/psql/psqlrc                         ~/.psqlrc"
-    "${RCS}/kitchen-config.yml                  ~/.kitchen/config.yml"
-    "${RCS}/ctags                               ~/.ctags"
-    "${RCS}/ipython_config.py                   ~/.ipython/profile_default/ipython_config.py"
-    "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
-    "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
     "${RCS}/i3config                            ~/.config/i3/config"
-    "${RCS}/polybar-config                      ~/.config/polybar/config"
-    "${RCS}/X/Xresources                        ~/.Xresources"
-    "${RCS}/X/Xmodmap                           ~/.Xmodmap"
-    "${RCS}/X/xinitrc                           ~/.xinitrc"
-    "${RCS}/X/xserverrc                         ~/.xserverrc"
-    "${RCS}/X/xsessionrc                        ~/.xsessionrc"
-    "${RCS}/X/xorg.conf                         /etc/X11/xorg.conf"
-    "${RCS}/X/10-evdev.conf                     /etc/X11/xorg.conf.d/10-evdev.conf"
-    "${RCS}/qutebrowser-config.py               ~/.config/qutebrowser/config.py"
-    "${RCS}/qutebrowser-elsie.py                ~/.config/qutebrowser/elsie.py"
-    "${DOCUMENTS}/apps/qutebrowser/quickmarks   ~/.config/qutebrowser/quickmarks"
-    "${DOCUMENTS}/apps/qutebrowser/bookmarks    ~/.config/qutebrowser/bookmarks/urls"
-    "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
+    "${RCS}/ipython_config.py                   ~/.ipython/profile_default/ipython_config.py"
+    "${RCS}/keyboard                            /etc/default/keyboard"
+    "${RCS}/kitchen-config.yml                  ~/.kitchen/config.yml"
     "${RCS}/mimeapps.list                       ~/.config/mimeapps.list"
     "${RCS}/nvim/coc-settings.json              ~/.config/nvim/coc-settings.json"
-    "${RCS}/keyboard                            /etc/default/keyboard"
+    "${RCS}/polybar-config                      ~/.config/polybar/config"
+    "${RCS}/psql/psqlrc                         ~/.psqlrc"
+    "${RCS}/qutebrowser-config.py               ~/.config/qutebrowser/config.py"
+    "${RCS}/qutebrowser-elsie.py                ~/.config/qutebrowser/elsie.py"
+    "${RCS}/rvmrc                               ~/.rvmrc"
+    "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
+    "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
 )
 
 # call bhs installer that will act on all the lists defined above
