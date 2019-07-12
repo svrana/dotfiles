@@ -37,6 +37,7 @@ export PPA_LIST=(
 
 # bhs: packages to install
 export PACKAGE_LIST=(
+    keychain
     rvm
     nodejs
     autocutsel
