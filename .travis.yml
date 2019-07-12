@@ -5,5 +5,5 @@ services:
 before_install:
   - docker build -f .Dockerfile-ci --pull --tag dotfiles/base .
 script:
-  - 'docker run --tty --volume `pwd`:/home/shaw/dotfiles dotfiles/base bash -c "DEBIAN_FRONTEND=noninteractive sudo dotfiles/install.sh"'
+  - 'docker run --tty --volume `pwd`:/home/shaw/dotfiles dotfiles/base bash -c "dotfiles/install.sh"'
 

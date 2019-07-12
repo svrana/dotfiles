@@ -112,7 +112,6 @@ export PACKAGE_LIST=(
     ruby
     ruby-dev
     rvm
-    rvm
     shellcheck
     silversearcher-ag
     spotify-client
@@ -124,8 +123,8 @@ export PACKAGE_LIST=(
     xcb-proto
     xclip
     yarn
+    weechat
 #    blueman
-#    weechat ## requires user input? hangs
 #    zeal
 )
 

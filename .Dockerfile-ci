@@ -1,5 +1,6 @@
 FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
+RUN dpkg-reconfigure debconf -f noninteractive
 RUN apt-get update && apt-get install -y \
 	curl \
 	git \
@@ -9,6 +10,8 @@ RUN apt-get update && apt-get install -y \
 RUN useradd --create-home shaw
 RUN usermod -a -G sudo shaw
 RUN sed -i '/^%sudo/c\%sudo ALL=(ALL:ALL) NOPASSWD:ALL' /etc/sudoers
+# v-- still trying to popup window to configure apps
+RUN set -i '/env_reset/d' /etc/sudoers
 
 USER shaw
 RUN mkdir -p /home/shaw/.ssh
