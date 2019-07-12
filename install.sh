@@ -44,7 +44,7 @@ export PACKAGE_LIST=(
     cmake
     cmake-data
     curl
-    ddgr
+    #ddgr
     entr
     exuberant-ctags
     feh
