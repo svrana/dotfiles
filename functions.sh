@@ -64,21 +64,6 @@ function extract() {
     fi
 }
 
-# Usage: split "string" "delimiter"
-split() {
-   IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
-   printf '%s\n' "${arr[@]}"
-}
-
-split_to_array() {
-   IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
-   echo "${arr[@]}"
-}
-
-join_by() {
-    local d=$1 shift; echo -n "$1"; shift; printf "%s" "${@/#/$d}";
-}
-
 trim() {
     if [ -z "$1" ]; then
         # assume content comes from stdin if not from a parameter
@@ -231,4 +216,19 @@ ext_package_install() {
         _ext_package_install "$*"
         estatus
     fi
+}
+
+split_to_array() {
+   IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
+   echo "${arr[@]}"
+}
+
+# Usage: split "string" "delimiter"
+split() {
+   IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
+   printf '%s\n' "${arr[@]}"
+}
+
+join_by() {
+    local d=$1 shift; echo -n "$1"; shift; printf "%s" "${@/#/$d}";
 }
