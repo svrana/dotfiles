@@ -16,7 +16,6 @@ export HISTSIZE=100000
 export PROMPT_COMMAND='history -a'
 export EDITOR=nvim
 export TERM=xterm-256color                  # this is for solarized
-export COLUMNS=$COLUMNS                     # hack for powerline-go which was fixed upstream
 
 #
 # Set the dotfile plugins to load. These correspond to files in
