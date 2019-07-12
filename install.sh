@@ -84,8 +84,11 @@ export PACKAGE_LIST=(
     cmake
     flex
     libelf-dev
+    libev-dev
     libfreetype6-dev
     libfontconfig1-dev
+    libjpeg-dev
+    libpam0g-dev
     pandoc
     entr
 #    weechat ## requires user input? hangs
@@ -97,13 +100,18 @@ export PACKAGE_LIST=(
     cmake
     cmake-data
     libcairo2-dev
+    libx11-xcb-dev
     libxcb1-dev
+    libxcb-util-dev
     libxcb-ewmh-dev
     libxcb-icccm4-dev
     libxcb-image0-dev
     libxcb-randr0-dev
     libxcb-util0-dev
     libxcb-xkb-dev
+    libxcb-xinerama0-dev
+    libxkbcommon-dev
+    libxkbcommon-x11-dev
     pkg-config
     python-xcbgen
     xcb-proto
@@ -146,6 +154,7 @@ export INSTALLERS=(
     fonts
     gradle
     hugo
+    i3lock-color
     packer
     pass
     polybar
