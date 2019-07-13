@@ -6,7 +6,7 @@ _install() {
     done
 
     if [ ! -d ~/.emacs.d/themes/emacs-color-theme-solarizsed ]; then
-        git clone git@github.com:sellout/emacs-color-theme-solarized.git ~/.emacs.d/themes/emacs-color-theme-solarized
+        git clone https://github.com/sellout/emacs-color-theme-solarized.git ~/.emacs.d/themes/emacs-color-theme-solarized
     fi
 }
 _install
