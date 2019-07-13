@@ -118,6 +118,7 @@ export PACKAGE_LIST=(
     tmux
     tox
     virtualenv
+    wget
     xautolock
     xcb-proto
     xclip
