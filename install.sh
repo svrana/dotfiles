@@ -44,7 +44,6 @@ export PACKAGE_LIST=(
     cmake
     cmake-data
     curl
-    #ddgr
     entr
     exuberant-ctags
     feh
@@ -111,7 +110,7 @@ export PACKAGE_LIST=(
     rofi
     ruby
     ruby-dev
-    rvm
+    #rvm can't get this to install in ci. as if debian_frontend is not set to noninteractive
     shellcheck
     silversearcher-ag
     spotify-client
@@ -125,7 +124,6 @@ export PACKAGE_LIST=(
     yarn
     weechat
 #    blueman
-#    zeal
 )
 
 export GLOBAL_NODE_PACKAGES=(
