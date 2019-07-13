@@ -93,6 +93,7 @@ export PACKAGE_LIST=(
     libxkbcommon-x11-dev
     libxml2-dev
     mpv
+    neovim
     network-manager-openvpn
     network-manager-openvpn-gnome
     nodejs
