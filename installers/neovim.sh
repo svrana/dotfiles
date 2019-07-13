@@ -50,4 +50,4 @@ if [ ! -d ~/.virtualenvs/neovim2 ]; then
     "$WORKON_HOME/neovim2/bin/pip2" install neovim
 fi
 
-nvim +PlugInstall +qall
+nvim --headless +PlugInstall +qall
