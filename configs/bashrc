@@ -28,10 +28,11 @@ export DOTFILE_PLUGINS=(
     find
     fzf
     git
-    gnome-keyring
+    #gnome-keyring
     go
     gruf
     java
+    keychain
     k8s
     less
     ls

@@ -173,8 +173,8 @@ for_window [class="Gsimplecal"] floating enable
 exec_always --no-startup-id $HOME/.local/bin/polybar-launch.sh
 exec --no-startup-id dbus-launch /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dbus-launch /usr/lib/gnome-settings-daemon/gsd-xsettings
-exec --no-startup-id ssh-add $HOME/.ssh/id_rsa
-exec --no-startup-id ssh-add $HOME/.ssh/bommie/bommie-id_rsa
+#exec --no-startup-id ssh-add $HOME/.ssh/id_rsa
+#exec --no-startup-id ssh-add $HOME/.ssh/bommie/bommie-id_rsa
 exec --no-startup-id insync start --headless
 exec --no-startup-id xautolock -time 5 -locker $HOME/.local/bin/i3lockwrapper.sh
 exec --no-startup-id hsetroot -solid "#002b36"
