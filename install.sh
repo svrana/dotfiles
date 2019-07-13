@@ -146,8 +146,8 @@ export GLOBAL_GEMS=(
 # All installers with the same name of a plugin in your DOTFILES_PLUGINS
 # are sourced automatically.
 export INSTALLERS=(
-    cargo
     alacritty
+    cargo
     dbeaver
     fd
     fonts

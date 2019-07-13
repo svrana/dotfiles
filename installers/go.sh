@@ -13,8 +13,6 @@ function __install_golang() {
     wget "${url}/${filename}" -O "$DOWNLOADS/$filename"
     sudo tar -C /usr/local -xzf "$DOWNLOADS/$filename" && \
         rm "$DOWNLOADS/$filename"
-
-    source "$DOTFILES/plugins/go.sh"
 }
 
 function __dotfiles_go_install() {
