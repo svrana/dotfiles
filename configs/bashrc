@@ -5,11 +5,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-set -o vi
-shopt -s checkwinsize
-shopt -s histappend
-shopt -s cdspell                  # Let bash help you change directories when you can't spell
-
 export MANPAGER="nvim -c 'set ft=man' -"
 export HISTCONTROL=ignoredups
 export HISTSIZE=100000
@@ -25,6 +20,7 @@ export TERM=xterm-256color                  # this is for solarized
 # shellcheck disable=SC2034
 export DOTFILE_PLUGINS=(
     aws
+    bash
     cd
     dircolors
     docker
@@ -53,5 +49,7 @@ export DOTFILE_PLUGINS=(
 
 source ~/.dotfiles/load.sh
 
-# configure this in xorg settings somewhere
-setxkbmap -option caps:ctrl_modifier
+if [[ -n $DISPLAY ]]; then
+    # configure this in xorg settings somewhere
+    setxkbmap -option caps:ctrl_modifier
+fi
