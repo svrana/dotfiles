@@ -181,6 +181,7 @@ export CREATE_DIRS=(
     ~/.config/fontconfig/conf.d
     ~/.config/git
     ~/.config/i3
+    ~/.config/nvim
     ~/.config/polybar
     ~/.config/psql
     ~/.config/qutebrowser
