@@ -38,6 +38,7 @@ export PPA_LIST=(
 # bhs: packages to install
 export PACKAGE_LIST=(
     apt-utils
+    autoconf
     autocutsel
     build-essential
     cmake
