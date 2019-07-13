@@ -1,3 +1,3 @@
 if [ ! -d "$PROJECTS/cdp" ]; then
-    git clone git@github.com:svrana/cdp.git "$PROJECTS/cdp"
+    git clone https://github.com:svrana/cdp.git "$PROJECTS/cdp"
 fi
