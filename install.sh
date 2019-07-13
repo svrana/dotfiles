@@ -186,6 +186,7 @@ export CREATE_DIRS=(
     ~/.ipython/profile_default
     ~/.kitchen
     ~/.local/share/applications
+    ~/.local/share/fonts
     ~/.local/share/qutebrowser/userscripts
     ~/.weechat
 )
