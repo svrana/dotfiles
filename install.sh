@@ -122,7 +122,7 @@ export PACKAGE_LIST=(
     xcb-proto
     xclip
     yarn
-    weechat
+    # weechat (see rvm)
 #    blueman
 )
 
