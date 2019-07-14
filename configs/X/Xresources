@@ -11,11 +11,4 @@ Xft.hintstyle: hintfull
 /* rofi.color-urgent: argb:2c1d1f21, #cc6666, argb:e54b5160, #a54242, #f9f9f9 */
 /* rofi.color-active: argb:2c1d1f21, #65acff, argb:e44b5160, #4491ed, #f9f9f9 */
 /* !rofi.width: 80 */
-rofi.lines: 8
-rofi.columns: 1
-rofi.font: System San Francisco Display Regular 20
-rofi.bw: 0
-!rofi.padding: 20
-rofi.eh: 1
-!rofi.separator-style: solid
-rofi.hide-scrollbar: true
+
