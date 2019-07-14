@@ -139,6 +139,7 @@ export GLOBAL_NODE_PACKAGES=(
 
 export GLOBAL_GEMS=(
     neovim
+    travis
 )
 
 # A list of installers in $DOTFILES/installers that will be sourced during
