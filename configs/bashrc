@@ -28,7 +28,6 @@ export DOTFILE_PLUGINS=(
     find
     fzf
     git
-    #gnome-keyring
     go
     gruf
     java
@@ -40,7 +39,6 @@ export DOTFILE_PLUGINS=(
     ps
     python
     ruby
-    rust
     rvm
     systemd
     tmux

@@ -150,7 +150,6 @@ export GLOBAL_GEMS=(
 # are sourced automatically.
 export INSTALLERS=(
     alacritty
-    cargo
     dbeaver
     fd
     fonts
@@ -232,6 +231,7 @@ export FILE_LINKS=(
     "${RCS}/psql/psqlrc                         ~/.psqlrc"
     "${RCS}/qutebrowser-config.py               ~/.config/qutebrowser/config.py"
     "${RCS}/qutebrowser-elsie.py                ~/.config/qutebrowser/elsie.py"
+    "${RCS}/rofi.config                         ~/.config/rofi/config"
     "${RCS}/rvmrc                               ~/.rvmrc"
     "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
