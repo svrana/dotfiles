@@ -150,7 +150,6 @@ export GLOBAL_GEMS=(
 # are sourced automatically.
 export INSTALLERS=(
     alacritty
-    cargo
     dbeaver
     fd
     fonts
