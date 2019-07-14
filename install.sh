@@ -38,7 +38,6 @@ export PPA_LIST=(
 # bhs: packages to install
 export PACKAGE_LIST=(
     apt-utils
-    asciidoc-base
     autoconf
     autocutsel
     build-essential
@@ -99,7 +98,7 @@ export PACKAGE_LIST=(
     network-manager-openvpn-gnome
     nodejs
     notify-osd
-    #openjdk-8-jdk
+    openjdk-8-jdk
     openvpn
     pandoc
     pass
