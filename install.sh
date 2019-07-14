@@ -38,6 +38,7 @@ export PPA_LIST=(
 # bhs: packages to install
 export PACKAGE_LIST=(
     apt-utils
+    autoconf
     autocutsel
     build-essential
     cmake
@@ -92,6 +93,7 @@ export PACKAGE_LIST=(
     libxkbcommon-x11-dev
     libxml2-dev
     mpv
+    neovim
     network-manager-openvpn
     network-manager-openvpn-gnome
     nodejs
@@ -137,6 +139,7 @@ export GLOBAL_NODE_PACKAGES=(
 
 export GLOBAL_GEMS=(
     neovim
+    travis
 )
 
 # A list of installers in $DOTFILES/installers that will be sourced during
@@ -146,8 +149,8 @@ export GLOBAL_GEMS=(
 # All installers with the same name of a plugin in your DOTFILES_PLUGINS
 # are sourced automatically.
 export INSTALLERS=(
-    cargo
     alacritty
+    cargo
     dbeaver
     fd
     fonts
@@ -180,12 +183,14 @@ export CREATE_DIRS=(
     ~/.config/fontconfig/conf.d
     ~/.config/git
     ~/.config/i3
+    ~/.config/nvim
     ~/.config/polybar
     ~/.config/psql
     ~/.config/qutebrowser
     ~/.ipython/profile_default
     ~/.kitchen
     ~/.local/share/applications
+    ~/.local/share/fonts
     ~/.local/share/qutebrowser/userscripts
     ~/.weechat
 )

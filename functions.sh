@@ -165,6 +165,8 @@ download() {
     local url="$1"
     local output="$2"
 
+    echo "Downloading from $url"
+
     curl -LsSo "$output" "$url" &> /dev/null
         #     │││└─ write output to file
         #     ││└─ show error messages
@@ -190,9 +192,23 @@ _ext_package_install() {
     local TEMPDIR
 
     TEMPDIR=$(mktemp -d)
-    echo "tempdir is $TEMPDIR"
-    download "$URL" "$TEMPDIR/${PACKAGE}-${VERSION}.deb"
-    sudo dpkg -i "$TEMPDIR/${PACKAGE}-${VERSION}.deb"
+    declare -r FILENAME="$TEMPDIR/${PACKAGE}-${VERSION}.deb"
+
+    # echo "PACKAGE: $PACKAGE"
+    # echo "VERSION: $VERSION"
+    # echo "URL: $URL"
+    # echo "TEMPDIR: $TEMPDIR"
+
+    if ! download "$URL" "$FILENAME" ; then
+        echo "Download of $PACKAGE from $URL to $TEMPDIR failed"
+        return 1
+    fi
+
+    if ! sudo dpkg -i "$FILENAME" ; then
+        echo "dpkg install of $FILENAME failed. File left for inspection."
+        return 1
+    fi
+
     rm -rf "$TEMPDIR"
 }
 
@@ -206,14 +222,14 @@ ext_package_install() {
         CURRENT_VERSION=$(package_version "$PACKAGE")
         if [ "$VERSION" != "$CURRENT_VERSION" ]; then
             echo "Upgrading $PACKAGE to v${VERSION} from v${CURRENT_VERSION}"
-            _ext_package_install "$*"
+            _ext_package_install $*
             estatus
         else
             egood "Already installed $PACKAGE v${VERSION}"
         fi
     else
          echo "$PACKAGE not installed. Installing v${VERSION}"
-        _ext_package_install "$*"
+        _ext_package_install $*
         estatus
     fi
 }

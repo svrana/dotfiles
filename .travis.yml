@@ -1,10 +1,10 @@
----
-
 services:
-  - docker
+- docker
 before_install:
-  - docker build -f .Dockerfile-ci --pull --tag dotfiles/base .
-  - sed -i '/git@github.com/, /github.com\// s/^/#/' configs/git/gitconfig
+- docker build -f .Dockerfile-ci --pull --tag dotfiles/base .
+- sed -i '/git@github.com/, /github.com\// s/^/#/' configs/git/gitconfig
 script:
-  - 'docker run --tty --volume `pwd`:/home/shaw/dotfiles dotfiles/base dotfiles/install.sh'
-
+- docker run --tty --volume `pwd`:/home/shaw/dotfiles dotfiles/base dotfiles/install.sh
+notifications:
+  slack:
+    secure: M3GZ90ioaKCaAWJuY8aqOupf7eAYfvaqNgecftgsixOsCYQw7l7zDzYjE0TBZf3oFWv3pD/LvgUswwu+m1G5OI3V5+AlHdXanvX8g4tYM+2dsKrx0FRfMETJgxfMftKhU8P2sDXZF/qwo1I+W8PVSuXc/iPH5aLhFA95ltZ6alc=

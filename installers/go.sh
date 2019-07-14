@@ -1,5 +1,8 @@
 #!/bin/bash
 
+GOROOT=${GOROOT:-/usr/local/go}
+GOPATH=${GOPATH:-$HOME/go}
+
 function __install_golang() {
     [ -d "$GOROOT" ] && return 0
 
@@ -22,12 +25,12 @@ function __dotfiles_go_install() {
         chmod +x ~/.local/bin/dep
     fi
 
-    if ! which gopls > /dev/null 2>&1 > /dev/null 2>&1; then
-        go get -u golang.org/x/tools/cmd/gopls
+    if [ ! -f "$GOPATH/bin/gopls" ]; then
+        "$GOROOT/bin/go" get -u golang.org/x/tools/cmd/gopls
     fi
 
-    if ! which golint > /dev/null 2>&1; then
-        go get -u golang.org/x/lint/golint
+    if [ ! -f "$GOPATH/bin/golint" ]; then
+        "$GOROOT/bin/go" get -u golang.org/x/lint/golint
     fi
 }
 

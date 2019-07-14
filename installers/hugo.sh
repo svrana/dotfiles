@@ -1,10 +1,8 @@
 #!/bin/bash
 
-if ! command -v hugo > /dev/null ; then
-    go get github.com/magefile/mage
-    go get -d github.com/gohugoio/hugo
-    pushd "${GOPATH:-$HOME/go}/src/github.com/gohugoio/hugo" > /dev/null
-    mage vendor
-    mage install
-    popd > /dev/null
+if [ ! -d "$APPS/hugo" ]; then
+    git clone https://github.com/gohugoio/hugo.git "$APPS/hugo"
+    pushd "$APPS/hugo"
+    go install --tags extended
+    popd
 fi
