@@ -200,6 +200,8 @@ export DIR_LINKS=(
     "$CLOUD_ROOT/Documents          $DOCUMENTS"
     "$CLOUD_ROOT/Music              $MUSIC"
     "$CLOUD_ROOT/Pictures           $PHOTOS"
+    "${DOCUMENTS}/bommie/ssh        $HOME/.ssh/bommie"
+    "${DOCUMENTS}/vranix/ssh        $HOME/.ssh/vranix"
 )
 
 # bhs: A list of symbolic links pointing to files that should be created.
