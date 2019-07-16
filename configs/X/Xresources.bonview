@@ -18,4 +18,4 @@ rofi.eh: 1
 !rofi.separator-style: solid
 rofi.hide-scrollbar: true
 
-Xcursor.size: 32
+Xcursor.size: 16
