@@ -186,6 +186,7 @@ export CREATE_DIRS=(
     ~/.config/polybar
     ~/.config/psql
     ~/.config/qutebrowser
+    ~/.config/rofi
     ~/.ipython/profile_default
     ~/.kitchen
     ~/.local/share/applications
