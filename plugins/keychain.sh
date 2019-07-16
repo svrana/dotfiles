@@ -1,1 +1,1 @@
-eval `keychain --quiet --quick --eval id_rsa --dir $HOME/.config/keychain $HOME/.ssh/bommie/id_rsa $HOME/.ssh/vranix/id_rsa`
+eval `keychain --quiet --quick --eval --absolute --dir $HOME/.config/keychain ~/.ssh/id_rsa ~/.ssh/bommie/id_rsa ~/.ssh/vranix/id_rsa`
