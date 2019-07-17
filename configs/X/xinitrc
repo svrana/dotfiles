@@ -1,2 +1,2 @@
 xrdb ~/.Xresources
-/usr/bin/i3
+dbus-run-session /usr/bin/i3
