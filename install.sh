@@ -237,6 +237,10 @@ export FILE_LINKS=(
     "${RCS}/rofi.config                         ~/.config/rofi/config"
     "${RCS}/rvmrc                               ~/.rvmrc"
     "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
+    "${RCS}/system/bluetooth.main.conf          /etc/bluetooth/main.conf"
+    "${RCS}/system/bluetooth.main.conf          /etc/bluetooth/main.conf"
+    "${RCS}/system/bluetooth.main.conf          /etc/bluetooth/main.conf"
+    "${RCS}/system/pulse-default.pa             /etc/pulse/default.pa"
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
 )
 
