@@ -163,7 +163,6 @@ export INSTALLERS=(
     powerline
     qutebrowser
     ripgrep
-    slack
     solarize
     standard-notes
     terraform
