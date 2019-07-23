@@ -1350,8 +1350,8 @@ c.tabs.pinned.shrink = True
 ## `:open google qutebrowser`.
 ## Type: Dict
 c.url.searchengines = {
-    'DEFAULT':  'https://duckduckgo.com/?q={}',
-    'd': 'https://duckduckgo.com/?q={}',
+    'DEFAULT':  'https://duckduckgo.com/html?q={}',
+    'd': 'https://duckduckgo.com/html?q={}',
     'g': 'http://www.google.com/search?hl=en&q={}',
     'gh': 'https://github.com/search?q={}',
     'yt': 'https://www.youtube.com/results?search_query={}'
