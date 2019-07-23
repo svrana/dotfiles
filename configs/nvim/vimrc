@@ -124,7 +124,7 @@ let g:tagbar_autofocus = 0
 
 " virtualenv for neovim, has neovim python package installed
 let g:python3_host_prog = expand("$WORKON_HOME/neovim3/bin/python")
-let g:python_host_prog  = expand("$WORKON_HOME/neovim2/bin/python")
+"let g:python_host_prog  = expand("$WORKON_HOME/neovim2/bin/python")
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_verbose = 0

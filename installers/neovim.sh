@@ -45,9 +45,9 @@ if [ ! -d ~/.virtualenvs/neovim3 ]; then
     "$WORKON_HOME/neovim3/bin/pip3" install jedi
 fi
 
-if [ ! -d ~/.virtualenvs/neovim2 ]; then
-    virtualenv -p /usr/bin/python2 "$WORKON_HOME/neovim2"
-    "$WORKON_HOME/neovim2/bin/pip2" install neovim
-fi
+# if [ ! -d ~/.virtualenvs/neovim2 ]; then
+#     virtualenv -p /usr/bin/python2 "$WORKON_HOME/neovim2"
+#     "$WORKON_HOME/neovim2/bin/pip2" install neovim
+# fi
 
 nvim --headless +PlugInstall +qall
