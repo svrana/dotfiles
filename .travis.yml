@@ -7,4 +7,4 @@ script:
 - docker run --tty --volume `pwd`:/home/shaw/dotfiles dotfiles/base dotfiles/install.sh
 notifications:
   slack:
-    secure: M3GZ90ioaKCaAWJuY8aqOupf7eAYfvaqNgecftgsixOsCYQw7l7zDzYjE0TBZf3oFWv3pD/LvgUswwu+m1G5OI3V5+AlHdXanvX8g4tYM+2dsKrx0FRfMETJgxfMftKhU8P2sDXZF/qwo1I+W8PVSuXc/iPH5aLhFA95ltZ6alc=
+    secure: ByzI8UecdT6rUIRIF8VnMQjNSEq3hJdJuo0Fd0LNVPiaKHl6VORZlQ3jm+wbEO7Ql8Im3/4vOk60Ijq3OedvOfT3dynCsSKxkuf2Sl1A4ORpQ2zP6+Wxe3U6FYZV4/8sRQPyx2kMjathkr8kC4FCcGBoQtYWHxfc8LWWm+OH2x0=
