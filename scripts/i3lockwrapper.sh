@@ -8,7 +8,8 @@ current=$(i3-msg -t get_workspaces \
 i3-msg workspace 7
 
 # startup lock, blocking until unlocked
-i3-msg workspace 7 && i3-msg workspace 7 && i3lock -l -c 002b36 --ignore-empty-password --no-unlock-indicator --clock --nofork
+#i3-msg workspace 7 && i3-msg workspace 7 && i3lock -l -c 002b36 --ignore-empty-password --no-unlock-indicator --clock --nofork
+i3-msg workspace 7 && i3-msg workspace 7 && i3lock -c 002b36 --ignore-empty-password --no-unlock-indicator --clock --nofork
 
 # go to previous workspace
 i3-msg workspace "$current"
