@@ -40,6 +40,7 @@ export PACKAGE_LIST=(
     apt-utils
     autoconf
     autocutsel
+    blueman
     build-essential
     cmake
     cmake
@@ -97,7 +98,7 @@ export PACKAGE_LIST=(
     network-manager-openvpn
     network-manager-openvpn-gnome
     nodejs
-    notify-osd
+    #notify-osd
     openjdk-8-jdk
     openvpn
     pandoc
@@ -126,7 +127,6 @@ export PACKAGE_LIST=(
     xclip
     yarn
     # weechat (see rvm)
-#    blueman
 )
 
 export GLOBAL_NODE_PACKAGES=(
@@ -151,6 +151,7 @@ export GLOBAL_GEMS=(
 export INSTALLERS=(
     alacritty
     dbeaver
+    dunst
     fd
     fonts
     gradle
@@ -178,6 +179,7 @@ export CREATE_DIRS=(
 
     ~/.config/Standard\ Notes
     ~/.config/alacritty
+    ~/.config/dunst
     ~/.config/fontconfig/conf.d
     ~/.config/git
     ~/.config/i3
@@ -221,6 +223,7 @@ export FILE_LINKS=(
     "${RCS}/bash_profile                        ~/.bash_profile"
     "${RCS}/bashrc                              ~/.bashrc"
     "${RCS}/ctags                               ~/.ctags"
+    "${RCS}/dunstrc                             ~/.config/dunst/dunstrc"
     "${RCS}/git/gitconfig                       ~/.config/git/config"
     "${RCS}/git/gitignore_global                ~/.config/git/ignore"
     "${RCS}/i3config                            ~/.config/i3/config"
