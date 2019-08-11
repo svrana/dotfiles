@@ -38,7 +38,7 @@ export PACKAGE_LIST=(
     apt-utils
     autoconf
     autocutsel
-    blueman
+    #blueman
     build-essential
     cmake
     cmake
