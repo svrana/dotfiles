@@ -48,7 +48,6 @@ export PACKAGE_LIST=(
     curl
     entr
     exuberant-ctags
-    feh
     firefox
     flex
     fonts-powerline
