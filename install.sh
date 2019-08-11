@@ -22,7 +22,6 @@ export PPA_KEYS=(
     "neovim      keyserver.ubuntu.com     8231B6DD"
     "node.js     https://deb.nodesource.com/gpgkey/nodesource.gpg.key 68576280"
     "rvm         keyserver.ubuntu.com     F4E3FBBE"
-    "spotify     keyserver.ubuntu.com     48BF1C90"
 )
 
 # bhs: add a few ppas
@@ -31,7 +30,6 @@ export PPA_LIST=(
     "neovim     http://ppa.launchpad.net/neovim-ppa/stable/ubuntu   bionic main"
     "node.js    https://deb.nodesource.com/node_10.x                bionic main"
     "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
-    "spotify    http://repository.spotify.com                       stable non-free"
 #    bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
 )
 
@@ -115,7 +113,6 @@ export PACKAGE_LIST=(
     #rvm can't get this to install in ci. as if debian_frontend is not set to noninteractive
     shellcheck
     silversearcher-ag
-    spotify-client
     swig
     tmux
     tox
@@ -139,6 +136,10 @@ export GLOBAL_NODE_PACKAGES=(
 export GLOBAL_GEMS=(
     neovim
     travis
+)
+
+export SNAPS=(
+    spotify
 )
 
 # A list of installers in $DOTFILES/installers that will be sourced during
