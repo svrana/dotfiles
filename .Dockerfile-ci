@@ -4,8 +4,9 @@ RUN dpkg-reconfigure debconf -f noninteractive
 RUN apt-get update && apt-get install -y \
 	curl \
 	git \
-	sudo \
-	gpg
+	gpg \
+	snapd \
+	sudo
 
 RUN useradd --create-home shaw
 RUN usermod -a -G sudo shaw
