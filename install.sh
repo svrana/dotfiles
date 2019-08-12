@@ -113,6 +113,7 @@ export PACKAGE_LIST=(
     #rvm can't get this to install in ci. as if debian_frontend is not set to noninteractive
     shellcheck
     silversearcher-ag
+    snapd
     swig
     tmux
     tox
