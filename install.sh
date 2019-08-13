@@ -113,7 +113,6 @@ export PACKAGE_LIST=(
     #rvm can't get this to install in ci. as if debian_frontend is not set to noninteractive
     shellcheck
     silversearcher-ag
-    snapd
     swig
     tmux
     tox
@@ -137,10 +136,6 @@ export GLOBAL_NODE_PACKAGES=(
 export GLOBAL_GEMS=(
     neovim
     travis
-)
-
-export SNAPS=(
-    spotify
 )
 
 # A list of installers in $DOTFILES/installers that will be sourced during
