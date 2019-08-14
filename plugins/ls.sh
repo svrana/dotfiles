@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export LS_DFLT_ARGS="--color=auto"
+export LS_DFLT_ARGS="-hN --color=auto --group-directories-first"
 
 alias ls="ls \$LS_DFLT_ARGS"
 
@@ -24,13 +24,6 @@ alias lsdl='ll -d */'
 #
 function lsh() {
     ll | awk '{print $9}' | grep '^\.'
-}
-
-#
-# ls links (short listing)
-#
-function lsl() {
-    lsll | gawk '{print $9}'
 }
 
 alias p='pushd'
