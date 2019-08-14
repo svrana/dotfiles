@@ -79,6 +79,7 @@ let mapleader = ","
 let maplocalleader = ","
 
 set relativenumber
+set number
 "toggle display of numbers
 nnoremap <leader>dn :set relativenumber!<CR>
 
