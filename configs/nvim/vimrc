@@ -30,8 +30,9 @@ Plug 'jreybert/vimagit' 		" project wide git
 Plug 'tpope/vim-rhubarb' 		" sharing git urls
 
 " Text processing
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary' 		" auto-commenting
-"Plug 'vim-scripts/DeleteTrailingWhitespace'
+Plug 'christoomey/vim-sort-motion'
 Plug 'vim-scripts/matchit.zip'
 
 " Programming (general)
