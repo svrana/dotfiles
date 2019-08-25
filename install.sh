@@ -207,6 +207,8 @@ export FILE_LINKS=(
     # Target                                    Link name
     "${DOCUMENTS}/apps/qutebrowser/bookmarks    ~/.config/qutebrowser/bookmarks/urls"
     "${DOCUMENTS}/apps/qutebrowser/quickmarks   ~/.config/qutebrowser/quickmarks"
+    "${DOTFILES}/misc/resumelock.service        /etc/systemd/system/resumelock.service"
+    "${DOTFILES}/misc/nmtui.desktop             ~/.local/share/applications/"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/X/10-evdev.conf                     /etc/X11/xorg.conf.d/10-evdev.conf"
     "${RCS}/X/Xmodmap                           ~/.Xmodmap"
