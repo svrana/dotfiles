@@ -1,0 +1,10 @@
+log:
+  level: "info"
+
+image_prefix: "home"
+
+projects:
+  dotfiles:
+    aliases: ["dots"]
+    docker_compose_files:
+      - "docker-compose.yml"
