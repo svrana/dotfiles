@@ -44,6 +44,7 @@ export PACKAGE_LIST=(
     cmake
     cmake-data
     curl
+    dunst
     entr
     exuberant-ctags
     firefox
@@ -147,7 +148,6 @@ export GLOBAL_GEMS=(
 export INSTALLERS=(
     alacritty
     dbeaver
-    dunst
     fd
     fonts
     gradle
