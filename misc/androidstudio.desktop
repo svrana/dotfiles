@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=Android IDE
+Terminal=false
+Name=Android Studio
+Exec=/home/shaw/Apps/android-studio/bin/studio.sh
+Type=Application
+Icon=/home/shaw/Apps/android-studio/bin/studio.png

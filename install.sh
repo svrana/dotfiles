@@ -108,6 +108,7 @@ export PACKAGE_LIST=(
     python-xcbgen
     python3-dev
     python3-pip
+    qemu-kvm
     rofi
     ruby
     ruby-dev
@@ -208,6 +209,7 @@ export FILE_LINKS=(
     # Target                                    Link name
     "${DOCUMENTS}/apps/qutebrowser/bookmarks    ~/.config/qutebrowser/bookmarks/urls"
     "${DOCUMENTS}/apps/qutebrowser/quickmarks   ~/.config/qutebrowser/quickmarks"
+    "${DOTFILES}/misc/androidstudio.desktop     ~/.local/share/applications/"
     "${DOTFILES}/misc/lock.service              /etc/systemd/system/lock.service"
     "${DOTFILES}/misc/nmtui.desktop             ~/.local/share/applications/"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
@@ -243,6 +245,12 @@ export FILE_LINKS=(
     "${RCS}/system/bluetooth.main.conf          /etc/bluetooth/main.conf"
     "${RCS}/system/pulse-default.pa             /etc/pulse/default.pa"
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
+)
+
+export GROUPS=(
+    docker
+    kvm
+    plugdev
 )
 
 # call bhs installer that will act on all the lists defined above
