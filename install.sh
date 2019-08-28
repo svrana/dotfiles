@@ -246,7 +246,8 @@ export FILE_LINKS=(
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
 )
 
-export GROUPS=(
+# bhs: add user running this to these groups
+export GROUP_LIST=(
     docker
     kvm
     plugdev
