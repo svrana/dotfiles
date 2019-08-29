@@ -10,5 +10,5 @@ services:
         dockerfile: .Dockerfile-ci
     user: shaw
     volumes:
-      - .:/home/shaw/dotfiles:delegated
+      - .:/home/shaw/.dotfiles:delegated
     command: ["/bin/bash", "-c", "echo Container ready for use. Feel free to ctrl-c. Container will stick around! && while true ; do sleep 3600; done"]
