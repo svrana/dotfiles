@@ -42,7 +42,7 @@ export PACKAGE_LIST=(
     autocutsel
     #blueman
     build-essential
-    cmake
+    cargo
     cmake
     cmake-data
     curl
