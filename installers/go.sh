@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GOROOT=${GOROOT:-/usr/local/go}
-GOPATH=${GOPATH:-$HOME/go}
+GOPATH=${GOPATH:-$HOME/.go}
 
 function __install_golang() {
     [ -d "$GOROOT" ] && return 0

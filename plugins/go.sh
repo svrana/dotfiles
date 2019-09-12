@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/.go"
 export GOROOT=/usr/local/go
 PATH_append "$GOPATH/bin:$GOROOT/bin"
 
