@@ -14,7 +14,7 @@ endfunction
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Style
-Plug 'gmodarelli/solarize' 		" solarize everything
+Plug 'svrana/solarize' 			" solarize everything
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -42,6 +42,9 @@ Plug 'ternjs/tern_for_vim'
 Plug 'svrana/neomake'
 Plug 'majutsushi/tagbar' 		" ide
 Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
+Plug 'SirVer/ultisnips' 		" snippet handlerjj
+Plug 'honza/vim-snippets' 		" Snippets are separated from the engine.
+
 
 " Language specific functionality
 Plug '$APPS/fzf'
@@ -143,6 +146,11 @@ let g:DeleteTrailingWhitespace_Action = 'delete'
 
 let g:deoplete#enable_at_startup = 0
 " let g:deoplete#disable_auto_complete = 1
+
+" Snippet configuration
+let g:UltiSnipsExpandTrigger="<c-/>"
+let g:UltiSnipsSnippetsDir="/home/shaw/.dotfiles/configs/nvim/vimsnips"
+
 
 set completeopt+=menu
 set notimeout
