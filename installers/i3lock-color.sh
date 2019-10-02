@@ -6,3 +6,6 @@ if [ ! -d $APPS/i3lock-color ]; then
     autoreconf -i && ./configure && cd x86_64-pc-linux-gnu && make -j8 && sudo make install
 fi
 
+if [ ! -d "$APPS/autotiling" ]; then
+    git clone https://github.com/nwg-piotr/autotiling $APPS/autotiling
+fi
