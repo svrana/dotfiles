@@ -49,6 +49,7 @@ export PACKAGE_LIST=(
     dunst
     entr
     exuberant-ctags
+    ffmpegthumbnailer
     firefox
     flex
     fonts-powerline
@@ -111,6 +112,7 @@ export PACKAGE_LIST=(
     python3-dev
     python3-pip
     qemu-kvm
+    ranger
     rofi
     ruby
     ruby-dev
@@ -187,6 +189,7 @@ export CREATE_DIRS=(
     ~/.config/polybar
     ~/.config/psql
     ~/.config/qutebrowser
+    ~/.config/ranger
     ~/.config/rofi
     ~/.config/systemd/user
     ~/.ipython/profile_default
@@ -241,6 +244,8 @@ export FILE_LINKS=(
     "${RCS}/psql/psqlrc                         ~/.psqlrc"
     "${RCS}/qutebrowser-config.py               ~/.config/qutebrowser/config.py"
     "${RCS}/qutebrowser-elsie.py                ~/.config/qutebrowser/elsie.py"
+    "${RCS}/ranger/rc.conf                      ~/.config/ranger/rc.conf"
+    "${RCS}/ranger/scope.sh                     ~/.config/ranger/scope.sh"
     "${RCS}/rofi.config                         ~/.config/rofi/config"
     "${RCS}/rvmrc                               ~/.rvmrc"
     "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"

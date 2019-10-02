@@ -36,26 +36,25 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'vim-scripts/matchit.zip'
 
 " Programming (general)
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'ternjs/tern_for_vim'
 Plug 'svrana/neomake'
 Plug 'majutsushi/tagbar' 		" ide
 Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
-Plug 'SirVer/ultisnips' 		" snippet handlerjj
+Plug 'SirVer/ultisnips' 		" snippet handler
 Plug 'honza/vim-snippets' 		" Snippets are separated from the engine.
-
 
 " Language specific functionality
 Plug '$APPS/fzf'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " mostly for identifier jumping
 Plug 'wsdjeg/vim-fetch' 		" open file:lineno:colno see sf()
 "Plug 'fatih/gomodifytags'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go'
 Plug 'zchee/deoplete-jedi'
 Plug 'fishbullet/deoplete-ruby'
-Plug 'psf/black'
+Plug 'psf/black' 			" python formatting
 
 " File handling
 Plug 'junegunn/fzf.vim'
@@ -149,9 +148,22 @@ let g:DeleteTrailingWhitespace_Action = 'delete'
 
 let g:deoplete#enable_at_startup = 1
 " let g:deoplete#disable_auto_complete = 1
+"set completeopt=longest,menuone,preview
+"let g:deoplete#sources = {}
+"let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+"let g:deoplete#sources['python.py'] = ['file', 'ultisnips']
+"et g:tern#command = ['tern']
+"et g:tern#arguments = ['--persistent']
+"
 
-" Snippet configuration
-let g:UltiSnipsExpandTrigger="<c-/>"
+" call deoplete#custom#source('omni', 'functions', {
+"     \ 'python':  'ultisnips',
+"     \})
+
+" Snippet configuration (not working)
+let g:UltiSnipsExpandTrigger="<c-;>"
+"let g:UltiSnipsExpandTrigger=";"
+"let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsSnippetsDir="/home/shaw/.dotfiles/configs/nvim/vimsnips"
 
 

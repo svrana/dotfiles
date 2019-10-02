@@ -60,6 +60,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id "rofi -theme solarized -show drun -modi drun,run -eh 2 -padding 16 -show-icons"
 # rofi in application switcher mode
 bindsym $mod+Tab exec --no-startup-id "rofi -theme solarized -show window -eh 2 -padding 16 -show-icons"
+bindsym $mod+u exec --no-startup-id "alacritty -e ranger"
 
 # Toggle between vert/horizontal splits
 bindsym $mod+x layout toggle splitv splith
@@ -180,6 +181,7 @@ exec --no-startup-id hsetroot -solid "#002b36"
 exec --no-startup-id unclutter
 exec --no-startup-id autocutsel -fork -selection CLIPBOARD
 exec --no-startup-id autocutsel -fork -selection PRIMARY
+exec --no-startup-id python3 $HOME/Apps/autotiling/autotiling.py
 
 assign [class="qutebrowser"] $ws3
 exec --no-startup-id $HOME/.local/bin/qutebrowser
