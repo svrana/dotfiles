@@ -32,7 +32,7 @@ export PPA_LIST=(
     "node.js    https://deb.nodesource.com/node_10.x                bionic main"
     "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
 #    bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
-    "signal     https://updates.signal.org/desktop/apt              xenial main"
+#    "signal     https://updates.signal.org/desktop/apt              xenial main"
 )
 
 # bhs: packages to install
@@ -45,6 +45,7 @@ export PACKAGE_LIST=(
     cargo
     cmake
     cmake-data
+    cmus
     curl
     dunst
     entr
@@ -181,6 +182,7 @@ export CREATE_DIRS=(
 
     ~/.config/Standard\ Notes
     ~/.config/alacritty
+    ~/.config/cmus
     ~/.config/dunst
     ~/.config/fontconfig/conf.d
     ~/.config/git
@@ -230,6 +232,7 @@ export FILE_LINKS=(
     "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
     "${RCS}/bash_profile                        ~/.bash_profile"
     "${RCS}/bashrc                              ~/.bashrc"
+    "${RCS}/cmus.rc                             ~/.config/cmus/rc"
     "${RCS}/ctags                               ~/.ctags"
     "${RCS}/dunstrc                             ~/.config/dunst/dunstrc"
     "${RCS}/git/gitconfig                       ~/.config/git/config"
