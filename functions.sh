@@ -64,6 +64,12 @@ function extract() {
     fi
 }
 
+# view image in terminal. does not work with tmux :(
+img () {
+    w3m -o imgdisplay=/usr/lib/w3m/w3mimgdisplay "$1"
+}
+
+
 trim() {
     if [ -z "$1" ]; then
         # assume content comes from stdin if not from a parameter
