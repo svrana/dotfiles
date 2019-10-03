@@ -181,6 +181,7 @@ export CREATE_DIRS=(
     $PROJECTS
 
     ~/.config/Standard\ Notes
+    ~/.config/aerc
     ~/.config/alacritty
     ~/.config/cmus
     ~/.config/dunst
@@ -217,11 +218,14 @@ export FILE_LINKS=(
     # Target                                    Link name
     "${DOCUMENTS}/apps/qutebrowser/bookmarks    ~/.config/qutebrowser/bookmarks/urls"
     "${DOCUMENTS}/apps/qutebrowser/quickmarks   ~/.config/qutebrowser/quickmarks"
+    "${DOCUMENTS}/apps/aerc/accounts.conf       ~/.config/aerc/accounts.conf"
     "${DOTFILES}/misc/androidstudio.desktop     ~/.local/share/applications/"
     "${DOTFILES}/misc/51-android.rules          /etc/udev/rules.d/51-android.rules"
     "${DOTFILES}/misc/lock.service              /etc/systemd/system/lock.service"
     "${DOTFILES}/misc/nmtui.desktop             ~/.local/share/applications/"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
+    "${RCS}/aerc/aerc.conf                      ~/.config/aerc/aerc.conf"
+    "${RCS}/aerc/binds.conf                     ~/.config/aerc/binds.conf"
     "${RCS}/X/10-evdev.conf                     /etc/X11/xorg.conf.d/10-evdev.conf"
     "${RCS}/X/Xmodmap                           ~/.Xmodmap"
     "${RCS}/X/Xresources                        ~/.Xresources"
