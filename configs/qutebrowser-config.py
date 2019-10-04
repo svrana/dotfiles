@@ -10,23 +10,23 @@ base03 = "#002b36"
 base02 = "#073642"
 base01 = "#586e75"
 base00 = "#657b83"
-base0  = "#839496"
-base1  = "#93a1a1"
-base2  = "#eee8d5"
-base3  = "#fdf6e3"
+base0 = "#839496"
+base1 = "#93a1a1"
+base2 = "#eee8d5"
+base3 = "#fdf6e3"
 yellow = "#b58900"
 orange = "#cb4b16"
-red    = "#dc322f"
-magenta= "#d33682"
+red = "#dc322f"
+magenta = "#d33682"
 violet = "#6c71c4"
-blue   = "#268bd2"
-cyan   = "#2aa198"
-green  = "#859900"
+blue = "#268bd2"
+cyan = "#2aa198"
+green = "#859900"
 
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
-#config.load_autoconfig()
+# config.load_autoconfig()
 
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
@@ -54,7 +54,7 @@ c.auto_save.session = True
 ## Valid values:
 ##   - webengine: Use QtWebEngine (based on Chromium).
 ##   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
-#c.backend = 'webengine'
+# c.backend = 'webengine'
 
 ## This setting can be used to map keys to other keys. When the key used
 ## as dictionary-key is pressed, the binding for the key used as
@@ -84,7 +84,7 @@ c.colors.completion.category.border.top = base02
 
 ## Background color of the completion widget for even rows.
 ## Type: QssColor
-#c.colors.completion.even.bg = '#333333' #839496"
+# c.colors.completion.even.bg = '#333333' #839496"
 c.colors.completion.even.bg = base02
 
 ## Text color of the completion widget. May be a single color to use for
@@ -115,7 +115,7 @@ c.colors.completion.match.fg = magenta
 
 ## Background color of the completion widget for odd rows.
 ## Type: QssColor
-#c.colors.completion.odd.bg = '#444444'
+# c.colors.completion.odd.bg = '#444444'
 c.colors.completion.odd.bg = base02
 
 ## Color of the scrollbar in the completion view.
@@ -181,7 +181,7 @@ c.colors.hints.bg = base2
 
 ## Font color for hints.
 ## Type: QssColor
-#c.colors.hints.fg = 'white'
+# c.colors.hints.fg = 'white'
 c.colors.hints.fg = base01
 
 ## Font color for the matched part of hints.
@@ -216,7 +216,7 @@ c.colors.messages.error.bg = red
 ## Background color of an info message.
 ## Type: QssColor
 # c.colors.messages.info.bg = 'black'
-#c.colors.messages.info.bg = base03
+# c.colors.messages.info.bg = base03
 
 ## Border color of an info message.
 ## Type: QssColor
@@ -364,7 +364,7 @@ c.colors.tabs.even.bg = base01
 
 ## Foreground color of unselected even tabs.
 ## Type: QtColor
-#c.colors.tabs.even.fg = "#888"
+# c.colors.tabs.even.fg = "#888"
 c.colors.tabs.even.fg = base02
 
 ## Foreground color of unselected odd tabs.
@@ -402,11 +402,11 @@ c.colors.tabs.selected.odd.bg = base1
 
 ## Foreground color of selected even tabs.
 ## Type: QtColor
-c.colors.tabs.selected.even.fg = 'white'
+c.colors.tabs.selected.even.fg = "white"
 
 ## Foreground color of selected odd tabs.
 ## Type: QtColor
-c.colors.tabs.selected.odd.fg = 'white'
+c.colors.tabs.selected.odd.fg = "white"
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
@@ -425,7 +425,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 
 ## Height (in pixels or as percentage of the window) of the completion.
 ## Type: PercOrInt
-c.completion.height = '35%'
+c.completion.height = "35%"
 
 ## Minimum amount of characters needed to update completions.
 ## Type: Int
@@ -525,7 +525,7 @@ c.completion.height = '35%'
 ## menu. For QtWebEngine, see `--enable-webengine-inspector` in
 ## `qutebrowser --help` instead.
 ## Type: Bool
-#c.content.developer_extras = False
+# c.content.developer_extras = False
 
 ## Try to pre-fetch DNS entries to speed up browsing.
 ## Type: Bool
@@ -606,7 +606,7 @@ c.completion.height = '35%'
 ## is always allowed.
 ## Type: Bool
 c.content.javascript.can_access_clipboard = True
-#set -u https://*.github.com/* content.javascript.can_access_clipboard true
+# set -u https://*.github.com/* content.javascript.can_access_clipboard true
 
 ## Allow JavaScript to close tabs.
 ## Type: Bool
@@ -672,7 +672,7 @@ c.content.javascript.can_open_tabs_automatically = True
 ## still be downloaded by clicking the download button in the pdf.js
 ## viewer.
 ## Type: Bool
-#c.content.pdfjs = True
+# c.content.pdfjs = True
 
 ## Enable plugins in Web pages.
 ## Type: Bool
@@ -729,7 +729,7 @@ c.content.javascript.can_open_tabs_automatically = True
 ## Directory to save downloads to. If unset, a sensible OS-specific
 ## default is used.
 ## Type: Directory
-c.downloads.location.directory = '/home/shaw/Downloads'
+c.downloads.location.directory = "/home/shaw/Downloads"
 
 ## Prompt the user for the download location. If set to false,
 ## `downloads.location.directory` will be used.
@@ -773,8 +773,8 @@ c.downloads.remove_finished = 10
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-#c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
-c.editor.command = ['/usr/bin/alacritty', '-e', '/usr/bin/nvim {}']
+# c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ["/usr/bin/alacritty", "-e", "/usr/bin/nvim {}"]
 
 
 ## Encoding to use for the editor.
@@ -1067,7 +1067,7 @@ c.fonts.web.size.minimum = 14
 ## as it can cause issues with some bitmap fonts. As an alternative to
 ## this, it's possible to set font sizes and the `zoom.default` setting.
 ## Type: Bool
-#c.qt.highdpi = False
+# c.qt.highdpi = False
 
 ## Show a scrollbar.
 ## Type: Bool
@@ -1175,7 +1175,7 @@ c.tabs.background = True
 ##   - right: Close tabs on right-click.
 ##   - middle: Close tabs on middle-click.
 ##   - none: Don't close tabs using the mouse.
-c.tabs.close_mouse_button = 'right'
+c.tabs.close_mouse_button = "right"
 
 ## How to behave when the close mouse button is pressed on the tab bar.
 ## Type: String
@@ -1197,7 +1197,7 @@ c.tabs.close_mouse_button = 'right'
 
 ## Padding (in pixels) for tab indicators.
 ## Type: Padding
-#c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
+# c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
 
 ## Width (in pixels) of the progress indicator (0 to disable).
 ## Type: Int
@@ -1211,7 +1211,7 @@ c.tabs.close_mouse_button = 'right'
 ##   - startpage: Load the start page.
 ##   - default-page: Load the default page.
 ##   - close: Close the window.
-c.tabs.last_close = 'close'
+c.tabs.last_close = "close"
 
 ## Switch between tabs using the mouse wheel.
 ## Type: Bool
@@ -1237,7 +1237,7 @@ c.tabs.last_close = 'close'
 
 ## Padding (in pixels) around text for tabs.
 ## Type: Padding
-c.tabs.padding = {'top': 7, 'bottom': 7, 'left': 5, 'right': 5}
+c.tabs.padding = {"top": 7, "bottom": 7, "left": 5, "right": 5}
 
 ## Stay in insert/passthrough mode when switching tabs.
 ## Type: Bool
@@ -1350,11 +1350,11 @@ c.tabs.pinned.shrink = True
 ## `:open google qutebrowser`.
 ## Type: Dict
 c.url.searchengines = {
-    'DEFAULT':  'https://duckduckgo.com/html?q={}',
-    'd': 'https://duckduckgo.com/html?q={}',
-    'g': 'http://www.google.com/search?hl=en&q={}',
-    'gh': 'https://github.com/search?q={}',
-    'yt': 'https://www.youtube.com/results?search_query={}'
+    "DEFAULT": "https://duckduckgo.com/html?q={}",
+    "d": "https://duckduckgo.com/html?q={}",
+    "g": "http://www.google.com/search?hl=en&q={}",
+    "gh": "https://github.com/search?q={}",
+    "yt": "https://www.youtube.com/results?search_query={}",
 }
 
 ## Page(s) to open at the start.
@@ -1376,7 +1376,7 @@ c.url.searchengines = {
 
 ## Default zoom level.
 ## Type: Perc
-#c.zoom.default = '100%'
+# c.zoom.default = '100%'
 
 ## Available zoom levels.
 ## Type: List of Perc
@@ -1422,8 +1422,8 @@ c.url.searchengines = {
 # config.bind('<Ctrl-A>', 'navigate increment')
 # config.bind('<Ctrl-Alt-p>', 'print')
 # config.bind('<Ctrl-B>', 'scroll-page 0 -1')
-config.bind('<Ctrl-D>', 'scroll-page 0 -0.5')
-config.bind('<Ctrl-F>', 'scroll-page 0 0.5')
+config.bind("<Ctrl-D>", "scroll-page 0 -0.5")
+config.bind("<Ctrl-F>", "scroll-page 0 0.5")
 # config.bind('<Ctrl-F5>', 'reload -f')
 # config.bind('<Ctrl-F>', 'scroll-page 0 1')
 # config.bind('<Ctrl-N>', 'open -w')
@@ -1442,10 +1442,10 @@ config.bind('<Ctrl-F>', 'scroll-page 0 0.5')
 # config.bind('<Ctrl-X>', 'navigate decrement')
 # config.bind('<Ctrl-^>', 'tab-focus last')
 # config.bind('<Ctrl-h>', 'home')
-config.bind('<Ctrl-h>', 'tab-next')
+config.bind("<Ctrl-h>", "tab-next")
 # config.bind('<Ctrl-p>', 'tab-pin')
 # config.bind('<Ctrl-s>', 'stop')
-config.bind('<Ctrl-s>', 'tab-prev')
+config.bind("<Ctrl-s>", "tab-prev")
 # config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 # config.bind('<F11>', 'fullscreen')
 # config.bind('<F5>', 'reload')
@@ -1460,11 +1460,11 @@ config.bind('<Ctrl-s>', 'tab-prev')
 # config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
 # config.bind('H', 'back')
-config.bind('c', 'back')
+config.bind("c", "back")
 # config.bind('J', 'tab-next')
 # config.bind('K', 'tab-prev')
-config.bind(']', 'tab-next')
-config.bind('[', 'tab-prev')
+config.bind("]", "tab-next")
+config.bind("[", "tab-prev")
 # config.bind('L', 'forward')
 # config.bind('M', 'bookmark-add')
 # config.bind('N', 'search-prev')
@@ -1487,10 +1487,11 @@ config.bind('[', 'tab-prev')
 # config.bind('cd', 'download-clear')
 # config.bind('co', 'tab-only')
 # config.bind('d', 'tab-close')
-config.bind('x', 'tab-close')
-config.bind(',q', 'tab-close')
-config.bind(',nt', 'open -t')
-config.bind('\\nt', 'open -t')
+config.unbind("d")
+config.bind("x", "tab-close")
+config.bind(",q", "tab-close")
+config.bind(",nt", "open -t")
+config.bind("\\nt", "open -t")
 # config.bind('f', 'hint')
 # config.bind('g$', 'tab-focus -1')
 # config.bind('g0', 'tab-focus 1')
@@ -1505,8 +1506,8 @@ config.bind('\\nt', 'open -t')
 # config.bind('gf', 'view-source')
 # config.bind('gg', 'scroll-to-perc 0')
 # config.bind('gl', 'tab-move -')
-config.bind('{', 'tab-move -')
-config.bind('}', 'tab-move +')
+config.bind("{", "tab-move -")
+config.bind("}", "tab-move +")
 # config.bind('gm', 'tab-move')
 # config.bind('go', 'set-cmd-text :open {url:pretty}')
 # config.bind('gr', 'tab-move +')
@@ -1554,14 +1555,14 @@ config.bind('}', 'tab-move +')
 # config.bind('yy', 'yank')
 # config.bind('{{', 'navigate prev -t')
 # config.bind('}}', 'navigate next -t')
-config.bind(',l', 'spawn --userscript qute-pass') # login username and password
-config.bind(',u', 'spawn --userscript qute-pass --username-only --no-insert-mode')
-config.bind(',p', 'spawn --userscript qute-pass --password-only --no-insert-mode')
-config.bind('<Ctrl-b>', 'config-source')
-config.bind('<Ctrl-m>', 'spawn --detach mpv --force-window yes {url}')
-config.bind('<Ctrl-r>', 'spawn --userscript readability')
-config.bind('<Ctrl-y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
-config.bind('<Ctrl-Shift-I>', 'inspector')
+config.bind(",l", "spawn --userscript qute-pass")  # login username and password
+config.bind(",u", "spawn --userscript qute-pass --username-only --no-insert-mode")
+config.bind(",p", "spawn --userscript qute-pass --password-only --no-insert-mode")
+config.bind("<Ctrl-b>", "config-source")
+config.bind("<Ctrl-m>", "spawn --detach mpv --force-window yes {url}")
+config.bind("<Ctrl-r>", "spawn --userscript readability")
+config.bind("<Ctrl-y>", "hint links spawn --detach mpv --force-window yes {hint-url}")
+config.bind("<Ctrl-Shift-I>", "inspector")
 
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')
@@ -1591,7 +1592,7 @@ config.bind('<Ctrl-Shift-I>', 'inspector')
 # config.bind('y', 'yank selection', mode='caret')
 # config.bind('{', 'move-to-end-of-prev-block', mode='caret')
 # config.bind('}', 'move-to-end-of-next-block', mode='caret')
-config.bind(',q', 'leave-mode', mode='caret')
+config.bind(",q", "leave-mode", mode="caret")
 
 ## Bindings for command mode
 # config.bind('<Alt-B>', 'rl-backward-word', mode='command')
@@ -1618,7 +1619,7 @@ config.bind(',q', 'leave-mode', mode='caret')
 # config.bind('<Ctrl-Y>', 'rl-yank', mode='command')
 # config.bind('<Down>', 'completion-item-focus --history next', mode='command')
 # config.bind('<Escape>', 'leave-mode', mode='command')
-config.bind(',q', 'leave-mode', mode='command')
+config.bind(",q", "leave-mode", mode="command")
 # config.bind('<Return>', 'command-accept', mode='command')
 # config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 # config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
@@ -1630,7 +1631,7 @@ config.bind(',q', 'leave-mode', mode='command')
 # config.bind('<Ctrl-F>', 'hint links', mode='hint')
 # config.bind('<Ctrl-R>', 'hint --rapid links tab-bg', mode='hint')
 # config.bind('<Escape>', 'leave-mode', mode='hint')
-config.bind(',q', 'leave-mode', mode='hint')
+config.bind(",q", "leave-mode", mode="hint")
 # config.bind('<Return>', 'follow-hint', mode='hint')
 
 ## Bindings for insert mode
@@ -1641,8 +1642,8 @@ config.bind(',q', 'leave-mode', mode='hint')
 
 ## Bindings for passthrough mode
 # config.bind('<Ctrl-V>', 'leave-mode', mode='passthrough')
-#config.bind(',q', 'leave-mode', mode='passthrough')
-config.bind('<Escape>', 'leave-mode', mode='passthrough')
+# config.bind(',q', 'leave-mode', mode='passthrough')
+config.bind("<Escape>", "leave-mode", mode="passthrough")
 
 ## Bindings for prompt mode
 # config.bind('<Alt-B>', 'rl-backward-word', mode='prompt')
@@ -1668,16 +1669,16 @@ config.bind('<Escape>', 'leave-mode', mode='passthrough')
 # config.bind('<Up>', 'prompt-item-focus prev', mode='prompt')
 # config.bind('n', 'prompt-accept no', mode='prompt')
 # config.bind('y', 'prompt-accept yes', mode='prompt')
-config.bind(',q', 'leave-mode', mode='prompt')
+config.bind(",q", "leave-mode", mode="prompt")
 
 ## Bindings for register mode
 # config.bind('<Escape>', 'leave-mode', mode='register')
-config.bind(',q', 'leave-mode', mode='register')
+config.bind(",q", "leave-mode", mode="register")
 
 
-
-
-host_config = os.path.expanduser("~/.config/qutebrowser/{}.py".format(socket.gethostname()))
+host_config = os.path.expanduser(
+    "~/.config/qutebrowser/{}.py".format(socket.gethostname())
+)
 if os.path.exists(host_config):
     with open(host_config) as f:
         exec(f.read())
