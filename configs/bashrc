@@ -40,6 +40,7 @@ export DOTFILE_PLUGINS=(
     ps
     python
     ruby
+    rust
     rvm
     systemd
     tmux

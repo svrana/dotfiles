@@ -169,6 +169,7 @@ export INSTALLERS=(
     qutebrowser
     ripgrep
     solarize
+    spotifyd
     standard-notes
     terraform
     update-systemd-resolved
@@ -195,6 +196,8 @@ export CREATE_DIRS=(
     ~/.config/qutebrowser
     ~/.config/ranger
     ~/.config/rofi
+    ~/.config/spotifyd
+    ~/.config/spotify-tui
     ~/.config/systemd/user
     ~/.ipython/profile_default
     ~/.kitchen
@@ -220,13 +223,17 @@ export FILE_LINKS=(
     "${DOCUMENTS}/apps/qutebrowser/bookmarks    ~/.config/qutebrowser/bookmarks/urls"
     "${DOCUMENTS}/apps/qutebrowser/quickmarks   ~/.config/qutebrowser/quickmarks"
     "${DOCUMENTS}/apps/aerc/accounts.conf       ~/.config/aerc/accounts.conf"
+    "${DOCUMENTS}/apps/spotify-tui/client.yml   ~/.config/spotify-tui/client.yml"
     "${DOTFILES}/misc/androidstudio.desktop     ~/.local/share/applications/"
     "${DOTFILES}/misc/51-android.rules          /etc/udev/rules.d/51-android.rules"
     "${DOTFILES}/misc/lock.service              /etc/systemd/system/lock.service"
+    "${DOTFILES}/misc/cmus.desktop              ~/.local/share/applications/"
     "${DOTFILES}/misc/nmtui.desktop             ~/.local/share/applications/"
+    "${DOTFILES}/misc/spotify-tui.desktop       ~/.local/share/applications/"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/aerc/aerc.conf                      ~/.config/aerc/aerc.conf"
     "${RCS}/aerc/binds.conf                     ~/.config/aerc/binds.conf"
+    "${RCS}/alacritty/alacritty.yml             ~/.config/alacritty/alacritty.yml"
     "${RCS}/X/10-evdev.conf                     /etc/X11/xorg.conf.d/10-evdev.conf"
     "${RCS}/X/Xmodmap                           ~/.Xmodmap"
     "${RCS}/X/Xresources                        ~/.Xresources"
@@ -234,7 +241,6 @@ export FILE_LINKS=(
     "${RCS}/X/xorg.conf                         /etc/X11/xorg.conf"
     "${RCS}/X/xserverrc                         ~/.xserverrc"
     "${RCS}/X/xsessionrc                        ~/.xsessionrc"
-    "${RCS}/alacritty.yml                       ~/.config/alacritty/alacritty.yml"
     "${RCS}/bash_profile                        ~/.bash_profile"
     "${RCS}/bashrc                              ~/.bashrc"
     "${RCS}/cmus.rc                             ~/.config/cmus/rc"
@@ -256,6 +262,7 @@ export FILE_LINKS=(
     "${RCS}/ranger/scope.sh                     ~/.config/ranger/scope.sh"
     "${RCS}/rofi.config                         ~/.config/rofi/config"
     "${RCS}/rvmrc                               ~/.rvmrc"
+    "${RCS}/spotifyd.conf                       ~/.config/spotifyd/spotifyd.conf"
     "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
     "${RCS}/system/bluetooth.main.conf          /etc/bluetooth/main.conf"
     "${RCS}/system/pulse-default.pa             /etc/pulse/default.pa"

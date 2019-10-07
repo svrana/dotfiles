@@ -182,6 +182,7 @@ exec --no-startup-id unclutter
 exec --no-startup-id autocutsel -fork -selection CLIPBOARD
 exec --no-startup-id autocutsel -fork -selection PRIMARY
 exec --no-startup-id python3 $HOME/Apps/autotiling/autotiling.py
+exec --no-startup-id $HOME/.local/bin/spotifyd
 
 assign [class="qutebrowser"] $ws3
 exec --no-startup-id $HOME/.local/bin/qutebrowser
@@ -190,8 +191,10 @@ exec --no-startup-id $HOME/.local/bin/qutebrowser
 #exec --no-startup-id thunderbird
 #exec --no-startup-id i3-msg 'workspace 2; exec alacritty -e tmux'
 
-for_window [class="Spotify"] move to workspace 4
-exec --no-startup-id spotify
+#for_window [class="Spotify"] move to workspace 4
+#exec --no-startup-id spotify
+exec --no-startup-id i3-msg 'workspace 4; exec alacritty -e $HOME/.cargo/bin/spt; workspace 1'
+exec --no-startup-id i3-msg 'workspace 4; exec alacritty -e cmus; workspace 1'
 
 for_window [class="Standard Notes"] move scratchpad, move position 1000 50, resize set 1800 2000
 exec --no-startup-id $HOME/.local/bin/standard-notes
@@ -235,6 +238,7 @@ client.background       #ffffff
 bindsym $mod+b [class="Thunderbird"] focus
 bindsym $mod+n [class="Alacritty"] focus
 bindsym $mod+m [class="qutebrowser"] focus
-bindsym $mod+comma [class="Spotify"] focus
+#bindsym $mod+comma [class="Spotify"] focus
+bindsym $mod+comma [instance="Spotify"] focus
 bindsym $mod+0 [class="Standard Notes"] scratchpad show
 bindsym $mod+9 [class="Slack"] scratchpad show
