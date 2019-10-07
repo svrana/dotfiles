@@ -112,6 +112,7 @@ export PACKAGE_LIST=(
     python-xcbgen
     python3-dev
     python3-pip
+    python3-venv
     qemu-kvm
     ranger
     rofi
