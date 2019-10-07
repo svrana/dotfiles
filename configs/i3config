@@ -236,7 +236,7 @@ client.background       #ffffff
 
 # Application shortcuts
 bindsym $mod+b [class="Thunderbird"] focus
-bindsym $mod+n [class="Alacritty"] focus
+bindsym $mod+n [class="Alacritty" instance="Alacritty"] focus
 bindsym $mod+m [class="qutebrowser"] focus
 #bindsym $mod+comma [class="Spotify"] focus
 bindsym $mod+comma [instance="Spotify"] focus

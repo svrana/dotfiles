@@ -22,7 +22,6 @@ export PPA_KEYS=(
     "neovim      keyserver.ubuntu.com                                   8231B6DD"
     "node.js     https://deb.nodesource.com/gpgkey/nodesource.gpg.key   68576280"
     "rvm         keyserver.ubuntu.com                                   F4E3FBBE"
-    "signal      https://updates.signal.org/desktop/apt/keys.asc        57F6FB06"
 )
 
 # bhs: add a few ppas
@@ -32,7 +31,6 @@ export PPA_LIST=(
     "node.js    https://deb.nodesource.com/node_10.x                bionic main"
     "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
 #    bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
-#    "signal     https://updates.signal.org/desktop/apt              xenial main"
 )
 
 # bhs: packages to install
@@ -120,7 +118,6 @@ export PACKAGE_LIST=(
     ruby-dev
     #rvm can't get this to install in ci. as if debian_frontend is not set to noninteractive
     shellcheck
-    signal-desktop
     silversearcher-ag
     swig
     tmux
