@@ -172,6 +172,7 @@ for_window [class="Gsimplecal"] floating enable
 # Application startup
 #
 exec_always --no-startup-id $HOME/.local/bin/polybar-launch.sh
+exec_always --no-startup-id $HOME/.local/bin/autotiling-launch.sh
 exec --no-startup-id dbus-launch /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dbus-launch /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id insync start --headless
@@ -181,7 +182,6 @@ exec --no-startup-id hsetroot -solid "#002b36"
 exec --no-startup-id unclutter
 exec --no-startup-id autocutsel -fork -selection CLIPBOARD
 exec --no-startup-id autocutsel -fork -selection PRIMARY
-exec --no-startup-id python3 $HOME/Apps/autotiling/autotiling.py
 exec --no-startup-id $HOME/.local/bin/spotifyd
 
 assign [class="qutebrowser"] $ws3
