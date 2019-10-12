@@ -19,7 +19,7 @@ main() {
 }
 
 if [ -d "$TRAVIS" ]; then
-    echo "Skipping open source spotify builds on Travis"
+    echo "Skipping spotifyd and spotify-tui builds on Travis"
 else
     main
 fi
