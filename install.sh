@@ -228,6 +228,7 @@ export FILE_LINKS=(
     "${DOTFILES}/misc/cmus.desktop              ~/.local/share/applications/"
     "${DOTFILES}/misc/nmtui.desktop             ~/.local/share/applications/"
     "${DOTFILES}/misc/spotify-tui.desktop       ~/.local/share/applications/"
+    "${DOTFILES}/misc/aerc.desktop              ~/.local/share/applications/"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/aerc/aerc.conf                      ~/.config/aerc/aerc.conf"
     "${RCS}/aerc/binds.conf                     ~/.config/aerc/binds.conf"
