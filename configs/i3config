@@ -193,8 +193,8 @@ exec --no-startup-id $HOME/.local/bin/qutebrowser
 
 #for_window [class="Spotify"] move to workspace 4
 #exec --no-startup-id spotify
-exec --no-startup-id i3-msg 'workspace 4; exec alacritty -e $HOME/.cargo/bin/spt; workspace 1'
-exec --no-startup-id i3-msg 'workspace 4; exec alacritty -e cmus; workspace 1'
+#exec --no-startup-id i3-msg 'workspace 4; exec alacritty -e $HOME/.cargo/bin/spt; workspace 1'
+#exec --no-startup-id i3-msg 'workspace 4; exec alacritty -e cmus; workspace 1'
 
 for_window [class="Standard Notes"] move scratchpad, move position 1000 50, resize set 1800 2000
 exec --no-startup-id $HOME/.local/bin/standard-notes
