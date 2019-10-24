@@ -42,6 +42,7 @@ export DOTFILE_PLUGINS=(
     ruby
     rust
     rvm
+    sai
     systemd
     tmux
     direnv		# direnv must be initialized last
