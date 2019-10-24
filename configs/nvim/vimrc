@@ -55,6 +55,7 @@ Plug 'zchee/deoplete-go'
 Plug 'zchee/deoplete-jedi'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'psf/black' 			" python formatting
+Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " File handling
 Plug 'junegunn/fzf.vim'
