@@ -39,6 +39,7 @@ export DOTFILE_PLUGINS=(
     powerline-go
     ps
     python
+    pulumi
     ruby
     rust
     rvm
