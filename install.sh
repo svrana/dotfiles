@@ -153,6 +153,7 @@ export GLOBAL_GEMS=(
 export INSTALLERS=(
     aerc
     alacritty
+    aws
     dbeaver
     fd
     fonts
