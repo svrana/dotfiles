@@ -36,9 +36,9 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'vim-scripts/matchit.zip'
 
 " Programming (general)
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
-"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'ternjs/tern_for_vim'
 Plug 'svrana/neomake'
 Plug 'majutsushi/tagbar' 		" ide
@@ -51,10 +51,10 @@ Plug '$APPS/fzf'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " mostly for identifier jumping
 Plug 'wsdjeg/vim-fetch' 		" open file:lineno:colno see sf()
 "Plug 'fatih/gomodifytags'
-Plug 'zchee/deoplete-go'
-Plug 'zchee/deoplete-jedi'
-Plug 'fishbullet/deoplete-ruby'
-Plug 'psf/black' 			" python formatting
+"Plug 'zchee/deoplete-go'
+"Plug 'zchee/deoplete-jedi'
+"Plug 'fishbullet/deoplete-ruby'
+"Plug 'psf/black' 			" python formatting
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " File handling
@@ -75,6 +75,7 @@ Plug 'google/vim-jsonnet'
 Plug 'posva/vim-vue'
 Plug 'justinmk/vim-sneak'
 Plug 'tmux-plugins/vim-tmux'  		" editing .tmux.conf
+Plug 'leafgarland/typescript-vim'
 
 call plug#end() 			" All of your Plugins must be added before the following line
 set mouse=a
@@ -101,18 +102,18 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_b='' "Disable showing branch cause it crowds the filename
 let g:airline_section_y='' "Disable filetype cause it's mostly useless
 " use error & warning count of diagnostics form coc.nvim
-"let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-"let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 " create a part for server status.
-" function! GetServerStatus()
-"   return get(g:, 'coc_status', '')
-" endfunction
-" call airline#parts#define_function('coc', 'GetServerStatus')
-" function! AirlineInit()
-"   let g:airline_section_a = airline#section#create(['coc'])
-" endfunction
-" autocmd User AirlineAfterInit call AirlineInit()
+function! GetServerStatus()
+  return get(g:, 'coc_status', '')
+endfunction
+call airline#parts#define_function('coc', 'GetServerStatus')
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create(['coc'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
 " exclude overwrite statusline of list filetype
 let g:airline_exclude_filetypes = ["list"]
@@ -147,7 +148,7 @@ let g:peekaboo_delay=300
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 " let g:deoplete#disable_auto_complete = 1
 "set completeopt=longest,menuone,preview
 "let g:deoplete#sources = {}
@@ -446,14 +447,14 @@ set lazyredraw
 nnoremap Q @@
 
 " === coc.nvim ===
-"let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python', 'coc-github']
-"nmap <silent> <leader>cd <Plug>(coc-definition)
-"nmap <silent> <leader>cr <Plug>(coc-references)
-"nmap <silent> <leader>ci <Plug>(coc-implementation)
-"nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
-"nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
-"nmap <silent> <leader>ct <Plug>(coc-type-definition)
-"nmap <silent> <leader>cr <Plug>(coc-rename)
+let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python', 'coc-github', 'coc-tsserver']
+nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>cr <Plug>(coc-references)
+nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>ct <Plug>(coc-type-definition)
+nmap <silent> <leader>cr <Plug>(coc-rename)
 ""===end coc.nvim settings
 ""
 " git
@@ -523,3 +524,19 @@ endfunction
   " \   'jediEnabled': v:true,
   " \   'pythonPath': split(execute('!which python'), '\n')[-1]
   " \ })
+  "
+
+" function! coctagfunc#tagfunc(pattern, flags, info) abort
+" 	if a:flags != "c"
+" 		return v:null
+" 	endif
+
+" 	let name = expand("<cword>")
+" 	execute("call CocAction('jumpDefinition')")
+" 	let filename = expand('%:p')
+" 	let cursor_pos = getpos(".")
+" 	let cmd = '/\%'.cursor_pos[1].'l\%'.cursor_pos[2].'c/'
+" 	execute("normal \<C-o>")
+" 	return [ { 'name': name, 'filename': filename, 'cmd': cmd } ]
+" endfunction
+" set tagfunc=coctagfunc#tagfunc
