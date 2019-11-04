@@ -1,6 +1,11 @@
 [ -f ~/.bashrc ] && source ~/.bashrc
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
+  # If not using a graphical login, then start up x ourselves
+  link=$(readlink -nf /etc/systemd/system/default.target)
+  if [ "$link"="/etc/systemd/system/default.target" ]; then
+    exec startx
+  fi
+  echo ooo
 fi
 
