@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function __install_standard_notes() {
-    local version=3.0.17
+    local version=3.0.19
     local filename="standard-notes-${version}-x86_64.AppImage"
     local dest="$BIN_DIR/$filename"
 
