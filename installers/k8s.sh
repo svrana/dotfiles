@@ -9,8 +9,9 @@ function __dotfiles_install_k8s_tools() {
 
 
     if [ ! -f "$BIN_DIR/kubectl" ]; then
+        version=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
         wget -q --show-progress  \
-            https://storage.googleapis.com/kubernetes-release/release/v1.10.4/bin/linux/amd64/kubectl \
+            https://storage.googleapis.com/kubernetes-release/release/$version/bin/linux/amd64/kubectl \
             -O "$BIN_DIR/kubectl" && chmod +x "$BIN_DIR/kubectl"
         chmod +x "$BIN_DIR/kubectl"
     fi
