@@ -30,7 +30,7 @@ export PPA_LIST=(
     "neovim     http://ppa.launchpad.net/neovim-ppa/stable/ubuntu   bionic main"
     "node.js    https://deb.nodesource.com/node_10.x                bionic main"
     "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
-#    bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
+#    "bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
 )
 
 # bhs: packages to install
@@ -56,6 +56,8 @@ export PACKAGE_LIST=(
     i3
     i3-wm
     insync
+    hsetroot
+    jq
     keychain
     libasound2-dev
     libcairo2-dev
@@ -103,6 +105,7 @@ export PACKAGE_LIST=(
     openvpn
     pandoc
     pass
+    pinentry-gtk2
     pkg-config
     python-dev
     python-m2crypto
@@ -229,6 +232,8 @@ export FILE_LINKS=(
     "${DOTFILES}/misc/cmus.desktop              ~/.local/share/applications/"
     "${DOTFILES}/misc/nmtui.desktop             ~/.local/share/applications/"
     "${DOTFILES}/misc/spotify-tui.desktop       ~/.local/share/applications/"
+# need machine only section ;P
+#    "${DOTFILES}/misc/thunderbird.desktop       ~/.local/share/applications/"
     "${DOTFILES}/misc/aerc.desktop              ~/.local/share/applications/"
     "${DOTFILES}/scripts/qute-pass              ~/.local/share/qutebrowser/userscripts/qute-pass"
     "${RCS}/aerc/aerc.conf                      ~/.config/aerc/aerc.conf"
@@ -266,6 +271,7 @@ export FILE_LINKS=(
     "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
     "${RCS}/system/bluetooth.main.conf          /etc/bluetooth/main.conf"
     "${RCS}/system/pulse-default.pa             /etc/pulse/default.pa"
+    "${RCS}/system/sudoers.shaw                 /etc/sudoers.d/shaw"
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
 )
 

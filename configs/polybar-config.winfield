@@ -131,7 +131,7 @@ ramp-signal-foreground = ${colors.foreground}
 
 [module/eth]
 type = internal/network
-interface = eth0
+interface = eno1
 interval = 3.0
 
 format-connected-prefix = " "
