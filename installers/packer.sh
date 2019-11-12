@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 function install() {
-    VERSION=1.2.4
+    VERSION=1.4.5
     NAME="packer"
     FILENAME="${NAME}_${VERSION}_linux_amd64.zip"
     DEST_DIR='/usr/local/bin'
