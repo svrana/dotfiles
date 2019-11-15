@@ -1,0 +1,11 @@
+Section "Screen"
+    Identifier     "Screen1"
+    Device         "Device1"
+    Monitor        "Monitor1"
+    DefaultDepth    24
+    Option         "Stereo" "0"
+    Option "metamodes" "nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+    SubSection     "Display"
+        Depth       24
+    EndSubSection
+EndSection
