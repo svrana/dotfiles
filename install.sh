@@ -271,7 +271,7 @@ export FILE_LINKS=(
     "${RCS}/standard-notes-userprefs.json       ~/.config/Standard Notes/user-preferences.json"
     "${RCS}/system/bluetooth.main.conf          /etc/bluetooth/main.conf"
     "${RCS}/system/pulse-default.pa             /etc/pulse/default.pa"
-    "${RCS}/system/sudoers.shaw                 /etc/sudoers.d/shaw"
+#    "${RCS}/system/sudoers.shaw                 /etc/sudoers.d/shaw"
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
 )
 
