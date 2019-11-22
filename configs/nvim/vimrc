@@ -92,7 +92,7 @@ nnoremap <leader>dn :set relativenumber!<CR>
 "remove trailing whitespace on save
 autocmd! BufWritePre * :%s/\s\+$//e
 "autoformat python code with black on save
-autocmd BufWritePre *.py execute ':Black'
+"autocmd BufWritePre *.py execute ':Black'
 
 "let g:markdown_composer_autostart = 0
 
