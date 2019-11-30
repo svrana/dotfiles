@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ ! -z "$TRAVIS" ]; then
+    echo "skipping i3lock color compile on travis to avoid timeout"
+    return
+fi
+
 if [ ! -d $APPS/i3lock-color ]; then
     git clone https://github.com/PandorasFox/i3lock-color.git $APPS/i3lock-color
     pushd $APPS/i3lock-color
