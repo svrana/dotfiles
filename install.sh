@@ -273,6 +273,7 @@ export FILE_LINKS=(
     "${RCS}/system/pulse-default.pa             /etc/pulse/default.pa"
 #    "${RCS}/system/sudoers.shaw                 /etc/sudoers.d/shaw"
     "${RCS}/weechat.conf                        ~/.weechat/weechat.conf"
+    "${RCS}/inputrc                             ~/.inputrc"
 )
 
 # bhs: add user running this to these groups
