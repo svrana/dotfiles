@@ -4,7 +4,7 @@ before_install:
 - docker build -f .Dockerfile-ci --pull --tag dotfiles/base .
 - sed -i '/git@github.com/, /github.com\// s/^/#/' configs/git/gitconfig
 script:
-- docker run --tty --env TRAVIS --volume `pwd`:/home/shaw/.dotfiles dotfiles/base ./install.sh
+  - docker run -u shaw:shaw --tty --env TRAVIS --volume `pwd`:/home/shaw/.dotfiles dotfiles/base ./install.sh
 notifications:
   slack:
     secure: ByzI8UecdT6rUIRIF8VnMQjNSEq3hJdJuo0Fd0LNVPiaKHl6VORZlQ3jm+wbEO7Ql8Im3/4vOk60Ijq3OedvOfT3dynCsSKxkuf2Sl1A4ORpQ2zP6+Wxe3U6FYZV4/8sRQPyx2kMjathkr8kC4FCcGBoQtYWHxfc8LWWm+OH2x0=
