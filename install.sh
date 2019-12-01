@@ -160,7 +160,7 @@ export INSTALLERS=(
     dbeaver
     fd
     fonts
-    gradle
+    #gradle
     hugo
     i3lock-color
     neovim

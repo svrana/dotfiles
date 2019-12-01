@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -z "$TRAVIS" ]; then
-    echo "skipping i3lock color compile on travis to avoid timeout"
+    egood "skipping i3lock color compile on travis to avoid timeout"
     return
 fi
 

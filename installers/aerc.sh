@@ -2,7 +2,7 @@
 
 
 if [ ! -z "$TRAVIS" ]; then
-    echo "skipping aerc color compile on travis to avoid timeout"
+    egood "skipping aerc color compile on travis to avoid timeout"
     return
 fi
 

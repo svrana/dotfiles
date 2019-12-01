@@ -18,8 +18,8 @@ main() {
     fi
 }
 
-if [ -d "$TRAVIS" ]; then
-    echo "Skipping spotifyd and spotify-tui builds on Travis"
+if [ ! -z "$TRAVIS" ]; then
+    egood "Skipping spotifyd and spotify-tui builds on Travis"
 else
     main
 fi
