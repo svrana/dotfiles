@@ -10,10 +10,13 @@ function install() {
         return
     fi
 
-    wget -P "$DOWNLOADS" "https://releases.hashicorp.com/${NAME}/${VERSION}/${FILENAME}"
-    unzip "${DOWNLOADS}/${FILENAME}"
-    sudo mv ${NAME} /usr/local/bin/${NAME}
-    rm "${DOWNLOADS}/$FILENAME"
+    TEMPDIR=$(mktemp -d)
+    wget -P "$TEMPDIR" "https://releases.hashicorp.com/${NAME}/${VERSION}/${FILENAME}"
+    pushd $TEMPDIR
+    unzip "${TEMPDIR}/${FILENAME}" && \
+    sudo mv ${NAME} /usr/local/bin/${NAME} && \
+    popd
+    rm -r "$TEMPDIR"
 }
 
 install

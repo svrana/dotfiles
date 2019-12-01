@@ -173,7 +173,7 @@ export INSTALLERS=(
     solarize
     spotifyd
     standard-notes
-    terraform
+#    terraform
     update-systemd-resolved
 )
 
