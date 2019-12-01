@@ -5,7 +5,6 @@ RUN apt-get update && apt-get install -y \
 	curl \
 	git \
 	gpg \
-	snapd \
 	sudo
 
 RUN useradd --create-home shaw
@@ -14,6 +13,8 @@ RUN sed -i '/^%sudo/c\%sudo ALL=(ALL:ALL) NOPASSWD:ALL' /etc/sudoers
 
 USER shaw
 RUN mkdir -p /home/shaw/.ssh
+# for some reason this creating the .config directory fails from installer.. precreate to work around
+RUN mkdir -p /home/shaw/.config
 RUN printf "Host github.com\n\tStrictHostKeyChecking no" | tee /home/shaw/.ssh/config
 RUN mkdir -p /home/shaw/Projects && git clone https://github.com/svrana/bash-home-scaffold /home/shaw/Projects/bash-home-scaffold
 
