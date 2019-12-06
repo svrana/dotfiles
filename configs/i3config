@@ -55,6 +55,7 @@ bindsym Mod1+Control+t exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec --no-startup-id "rofi -theme solarized -show drun -modi drun,run -eh 2 -padding 16 -show-icons"
