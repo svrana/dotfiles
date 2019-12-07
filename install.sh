@@ -22,14 +22,16 @@ export PPA_KEYS=(
     "neovim      keyserver.ubuntu.com                                   8231B6DD"
     "node.js     https://deb.nodesource.com/gpgkey/nodesource.gpg.key   68576280"
     "rvm         keyserver.ubuntu.com                                   F4E3FBBE"
+    "kgilmer     keyserver.ubuntu.com                                   C35556DC"
 )
-
+#sudo add-apt-repository ppa:kgilmer/speed-ricer
 # bhs: add a few ppas
 export PPA_LIST=(
     "insync     http://apt.insynchq.com/ubuntu                      bionic non-free contrib"
     "neovim     http://ppa.launchpad.net/neovim-ppa/stable/ubuntu   bionic main"
     "node.js    https://deb.nodesource.com/node_10.x                bionic main"
     "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
+    "i3-gaps    http://ppa.launchpad.net/kgilmer/speed-ricer/ubuntu bionic main"
 #    "bluez      http://ppa.launchpad.net/bluetooth/bluez/ubuntu     bionic main"
 )
 
@@ -53,8 +55,7 @@ export PACKAGE_LIST=(
     flex
     fonts-powerline
     git
-    i3
-    i3-wm
+    i3-gaps
     insync
     hsetroot
     jq
@@ -105,6 +106,7 @@ export PACKAGE_LIST=(
     openvpn
     pandoc
     pass
+    polybar
     pinentry-gtk2
     pkg-config
     python-dev
@@ -166,7 +168,7 @@ export INSTALLERS=(
     neovim
     packer
     pass
-    polybar
+ #   polybar
     powerline
     qutebrowser
     ripgrep
