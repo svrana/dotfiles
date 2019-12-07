@@ -6,7 +6,7 @@ GOPATH=${GOPATH:-$HOME/.go}
 function __install_golang() {
     [ -d "$GOROOT" ] && return 0
 
-    local version=1.13
+    local version=1.13.5
     local url=https://dl.google.com/go
     local filename=go${version}.linux-amd64.tar.gz
 
