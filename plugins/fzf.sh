@@ -12,6 +12,6 @@ if [ ! -z "$PS1" ]; then
     bind -x '"\C-n": f() { pushd $DOTFILES > /dev/null ; local file=$(fzf -m --height 80% --reverse) && [[ -n $file ]] && nvim $file ; popd > /dev/null ; }; f'
 fi
 
-function fzf-down() {
+fzf-down() {
     fzf --height 50% "$@" --border
 }

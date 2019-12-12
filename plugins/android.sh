@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 export ANDROID_HOME=~/.android
 export ANDROID_SDK=~/.android-sdk
@@ -8,7 +8,7 @@ export ANDROID_STUDIO=~/Apps/android-studio
 PATH_append $ANDROID_STUDIO/bin:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
 
 
-function apk-install() {
+apk_install() {
     local filename=${1}
 
     if [ -z "$filename" ]; then
