@@ -94,8 +94,8 @@ autocmd! BufWritePre * :%s/\s\+$//e
 "autoformat python code with black on save
 "autocmd BufWritePre *.py execute ':Black'
 
-"let g:markdown_composer_autostart = 0
-
+let g:markdown_composer_autostart = 0
+let g:markdown_composer_browser="epiphany-browser"
 
 " Statusline stetup
 let g:airline_powerline_fonts = 1
@@ -353,6 +353,7 @@ map! <M-Esc>[64~ <S-MouseDown>
 map  <M-Esc>[65~ <S-MouseUp>
 map! <M-Esc>[65~ <S-MouseUp>
 
+nnoremap <silent> <LocalLeader>cs :ComposerStart<cr>
 nnoremap <silent> <LocalLeader>t :FZF<cr>
 nnoremap <silent> <LocalLeader>sf :Rg<cr>
 
