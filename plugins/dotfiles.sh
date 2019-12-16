@@ -35,3 +35,16 @@ vii() {
     installer_path=$DOTFILES/installers/${installer}.sh
     $EDITOR "$installer_path"
 }
+
+
+#
+# Run dotfiles installer
+#
+ri() {
+    [ -z "$1" ] && return
+    local installer="${1%.sh}"
+    local installer_path
+
+    installer_path=$DOTFILES/installers/${installer}.sh
+    source "$installer_path"
+}
