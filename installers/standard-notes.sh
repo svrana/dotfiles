@@ -1,8 +1,8 @@
 #!/bin/bash
 
 function __install_standard_notes() {
-    local version=3.0.19
-    local filename="standard-notes-${version}-x86_64.AppImage"
+    local version=3.0.23
+    local filename="Standard-Notes-${version}.AppImage"
     local dest="$BIN_DIR/$filename"
 
     if [ ! -f "$dest" ]; then
