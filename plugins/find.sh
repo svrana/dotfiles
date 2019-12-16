@@ -18,7 +18,3 @@ fe() {
 fa() {
     find . -iname '*'"$1"'*' -printf "%P\n" 2>/dev/null
 }
-
-
-# kill vim swap files
-alias kvswap='rm  ~/.local/share/nvim/swap/*'

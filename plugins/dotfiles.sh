@@ -10,7 +10,7 @@ alias cvi='vi $DOTFILES'
 #
 # Load a dotfiles plugin into editor
 #
-function vip() {
+vip() {
     [ -z "$1" ] && return
     local plugin="${1%.sh}"
     local plugin_path
@@ -27,7 +27,7 @@ function vip() {
 #
 # Load a dotfiles installer into editor
 #
-function vii() {
+vii() {
     [ -z "$1" ] && return
     local installer="${1%.sh}"
     local installer_path

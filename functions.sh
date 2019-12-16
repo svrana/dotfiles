@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # prompts for a y/n from user, returning 0 or 1 respectively
-function ask() {
+ask() {
     echo -n "$@" '[y/N] ' ; read ans
 
     case "$ans" in
@@ -24,17 +24,18 @@ alias diff='diff -u'
 alias rmkey='ssh-keygen -f "~/.ssh/known_hosts" -R'
 alias upgrade='sudo apt update && sudo apt upgrade -y && sudo apt clean && sudo apt autoremove -y'
 alias diskspace="du -S | sort -n -r |less"
+alias kvswap='rm  ~/.local/share/nvim/swap/*'
 
-function md() {
+md() {
     [ -z "$1" ] && return
     mkdir "$1" && cd "$1"
 }
 
-function cores() {
+cores() {
     grep -c ^processor /proc/cpuinfo
 }
 
-function s() {
+s() {
     if [[ $# == 0 ]]; then
         sudo $(history -p '!!')
     else
@@ -42,7 +43,7 @@ function s() {
     fi
 }
 
-function extract() {
+extract() {
     if [ -f "$1" ] ; then
         case $1 in
             *.tar.bz2)   tar xjvf "$1"     ;;
@@ -87,7 +88,7 @@ trim() {
 # Remove all invalid directories from PATH
 #
 # @return String PATH
-function PATH_clean() {
+PATH_clean() {
     local tmp=()
     for dir in $(split "$PATH" ":") ; do
         [ -d "$dir" ] && tmp+=("$dir")
@@ -97,7 +98,7 @@ function PATH_clean() {
     export PATH="$new_path"
 }
 
-function PATH_prepend() {
+PATH_prepend() {
     [ -z "$1" ] && return
 
     local paths
@@ -112,7 +113,7 @@ function PATH_prepend() {
     done
 }
 
-function PATH_append() {
+PATH_append() {
     [ -z "$1" ] && return
 
     local paths
@@ -127,7 +128,7 @@ function PATH_append() {
     done
 }
 
-function CDPATH_append() {
+CDPATH_append() {
     [ -z "$1" ] && return
 
     local paths
@@ -139,7 +140,7 @@ function CDPATH_append() {
     done
 }
 
-function loopit() {
+loopit() {
     if [ -z "$1" ]; then
         echo 'Must provide command to loop'
         return 1
@@ -152,7 +153,7 @@ function loopit() {
 }
 
 # Search for a string in the files in all subdirectories of $PWD
-function sf() {
+sf() {
     if [ "$#" -lt 1 ]; then
         echo "Supply string to search for!"
         return 1

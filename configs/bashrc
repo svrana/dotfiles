@@ -19,19 +19,19 @@ export TERM=xterm-256color                  # this is for solarized
 #
 # shellcheck disable=SC2034
 export DOTFILE_PLUGINS=(
-    android
+#   android
     aws
     bash
     cd
     dircolors
     docker
     dotfiles
-    find
+#    find
     fzf
     git
     go
     gruf
-    java
+#    java
     keychain
     k8s
     less
@@ -40,7 +40,6 @@ export DOTFILE_PLUGINS=(
     ps
     python
     pulumi
-    ruby
     rust
     rvm
     sai
