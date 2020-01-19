@@ -20,8 +20,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Vim functionality helpers
+<<<<<<< HEAD
 Plug 'tpope/vim-obsession'		" auto-session handling
 Plug 'junegunn/vim-peekaboo'		" show contents of copy buffer
+=======
+Plug 'tpope/vim-obsession' 		" auto-session handling
+Plug 'junegunn/vim-peekaboo' 		" show contents of copy buffer
+Plug 'mhinz/vim-startify'
+>>>>>>> dispatch and startify plugins
 
 " Git related plugisn
 Plug 'tpope/vim-fugitive'		" mostly for blame
@@ -41,12 +47,20 @@ Plug 'ervandew/supertab'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'ternjs/tern_for_vim'
 Plug 'svrana/neomake'
+<<<<<<< HEAD
 Plug 'majutsushi/tagbar'		" ide
 Plug 'wellle/tmux-complete.vim'		" completion from other tmux panes
 Plug 'SirVer/ultisnips'			" snippet handler
 Plug 'honza/vim-snippets'		" Snippets are separated from the engine.
 Plug 'Chiel92/vim-autoformat'
 "Plug 'idbrii/vim-tagimposter'
+=======
+Plug 'majutsushi/tagbar' 		" ide
+Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
+Plug 'SirVer/ultisnips' 		" snippet handler
+Plug 'honza/vim-snippets' 		" Snippets are separated from the engine.
+Plug 'tpope/vim-dispatch'
+>>>>>>> dispatch and startify plugins
 
 " Language specific functionality
 Plug '$APPS/fzf'
@@ -420,8 +434,9 @@ let g:go_fmt_command = "goimports"
 "let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_metalinter_autosave_enabled = ['gopls', 'vet']
 
-"let g:go_auto_type_info = 1
-set updatetime=100	" update every 100ms
+" v-- nice but long info causes a 'press any key' and also overwrites errors
+" let g:go_auto_type_info = 1
+set updatetime=100 	" update every 100ms
 let g:go_fmt_autosave = 1
 let g:go_list_type = "quickfix"
 "let g:go_def_mode='godef'
@@ -444,7 +459,7 @@ nnoremap Q @@
 let g:airline#extensions#coc#enabled = 1
 let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python', 'coc-git', 'coc-tsserver', 'coc-tslint-plugin']
 nmap <silent> <leader>cd <Plug>(coc-definition)
-nmap <silent> <leader>cr <Plug>(coc-references)
+nmap <silent> <leader>cc <Plug>(coc-references)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
 nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
