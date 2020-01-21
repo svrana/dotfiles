@@ -26,7 +26,7 @@ function __dotfiles_go_install() {
     fi
 
     if [ ! -f "$GOPATH/bin/gopls" ]; then
-        "$GOROOT/bin/go" get -u golang.org/x/tools/cmd/gopls
+        "$GOROOT/bin/go" get -u golang.org/x/tools/gopls
     fi
 
     if [ ! -f "$GOPATH/bin/golint" ]; then
