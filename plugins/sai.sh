@@ -1,8 +1,14 @@
 source $HOME/Documents/synthesis/aws.env
 
-# export VRAY_NUM_THREADS=28
+#export VRAY_NUM_THREADS=28
 
-# PATH_append /usr/ChaosGroup/V-Ray/Standalone_for_linux_x64/bin
-# PATH_append /usr/ChaosGroup/VRLService/OLS
+PATH_append /opt/hfs17.5/bin
+
+export LD_LIBRARY_PATH=/opt/vray_houdini
+export HOUDINI_USER_PREF_DIR=/home/shaw/.config/houdini17.5
+
+#pushd /opt/hfs17.5/ > /dev/null  2>&1
+#source houdini_setup > /dev/null 2>&1
+#popd > /dev/null 2>&1
 
 
