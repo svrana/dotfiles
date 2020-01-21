@@ -128,6 +128,7 @@ export PACKAGE_LIST=(
     tmux
     tox
     virtualenv
+    qalc
     wget
     xautolock
     xcb-proto
