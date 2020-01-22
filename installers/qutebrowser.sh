@@ -5,7 +5,7 @@ install() {
     if [ ! -d "$dest" ]; then
         git clone https://github.com/qutebrowser/qutebrowser.git "$APPS/qutebrowser"
         pushd "$dest"
-        tox -e mkvenv-pypi
+        python scripts/mkvenv.py
         #./scripts/asciidoc2html.py
         popd
     fi
