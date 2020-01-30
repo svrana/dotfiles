@@ -93,6 +93,8 @@ nnoremap <leader>dn :set relativenumber!<CR>
 autocmd! BufWritePre * :%s/\s\+$//e
 "autoformat python code with black on save
 "autocmd BufWritePre *.py execute ':Black'
+"
+let g:typescript_indent_disable = 1
 
 let g:markdown_composer_autostart = 0
 let g:markdown_composer_browser="epiphany-browser"
