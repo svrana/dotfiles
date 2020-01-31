@@ -43,6 +43,8 @@ if [ ! -d ~/.virtualenvs/neovim3 ]; then
     virtualenv -p /usr/bin/python3 "$WORKON_HOME/neovim3"
     "$WORKON_HOME/neovim3/bin/pip3" install neovim
     "$WORKON_HOME/neovim3/bin/pip3" install jedi
+    # for https://github.com/Chiel92/vim-autoformat
+    "$WORKON_HOME/neovim3/bin/pip3" install pynvim
 fi
 
 # if [ ! -d ~/.virtualenvs/neovim2 ]; then
