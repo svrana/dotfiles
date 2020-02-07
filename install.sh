@@ -37,6 +37,7 @@ export PPA_LIST=(
 
 # bhs: packages to install
 export PACKAGE_LIST=(
+    asciidoc
     apt-utils
     autoconf
     autocutsel
