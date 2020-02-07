@@ -102,7 +102,6 @@ export PACKAGE_LIST=(
     network-manager-openvpn
     network-manager-openvpn-gnome
     nodejs
-    #notify-osd
     openjdk-8-jdk
     openvpn
     pandoc
