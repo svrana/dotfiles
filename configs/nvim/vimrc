@@ -46,6 +46,7 @@ Plug 'wellle/tmux-complete.vim'		" completion from other tmux panes
 Plug 'SirVer/ultisnips'			" snippet handler
 Plug 'honza/vim-snippets'		" Snippets are separated from the engine.
 Plug 'Chiel92/vim-autoformat'
+"Plug 'idbrii/vim-tagimposter'
 
 " Language specific functionality
 Plug '$APPS/fzf'
@@ -441,7 +442,7 @@ nnoremap Q @@
 " === coc.nvim ===
 "
 let g:airline#extensions#coc#enabled = 1
-let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python', 'coc-github', 'coc-tsserver', 'coc-tslint-plugin']
+let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python', 'coc-git', 'coc-tsserver', 'coc-tslint-plugin']
 nmap <silent> <leader>cd <Plug>(coc-definition)
 nmap <silent> <leader>cr <Plug>(coc-references)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
@@ -449,6 +450,10 @@ nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>ct <Plug>(coc-type-definition)
 nmap <silent> <leader>cr <Plug>(coc-rename)
+
+"au FileType typescript nnoremap <C-]> :TagImposterAnticipateJump <Bar> <Plug>(coc-definition)<CR>
+"nnoremap <buffer> <Leader>jT :<C-u> TagImposterAnticipateJump <Bar> OmniSharpGotoDefinition<CR>
+
 ""===end coc.nvim settings
 ""
 " git
