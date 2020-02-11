@@ -20,14 +20,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Vim functionality helpers
-<<<<<<< HEAD
 Plug 'tpope/vim-obsession'		" auto-session handling
 Plug 'junegunn/vim-peekaboo'		" show contents of copy buffer
-=======
-Plug 'tpope/vim-obsession' 		" auto-session handling
-Plug 'junegunn/vim-peekaboo' 		" show contents of copy buffer
 Plug 'mhinz/vim-startify'
->>>>>>> dispatch and startify plugins
 
 " Git related plugisn
 Plug 'tpope/vim-fugitive'		" mostly for blame
@@ -47,20 +42,12 @@ Plug 'ervandew/supertab'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'ternjs/tern_for_vim'
 Plug 'svrana/neomake'
-<<<<<<< HEAD
 Plug 'majutsushi/tagbar'		" ide
 Plug 'wellle/tmux-complete.vim'		" completion from other tmux panes
 Plug 'SirVer/ultisnips'			" snippet handler
 Plug 'honza/vim-snippets'		" Snippets are separated from the engine.
 Plug 'Chiel92/vim-autoformat'
 "Plug 'idbrii/vim-tagimposter'
-=======
-Plug 'majutsushi/tagbar' 		" ide
-Plug 'wellle/tmux-complete.vim' 	" completion from other tmux panes
-Plug 'SirVer/ultisnips' 		" snippet handler
-Plug 'honza/vim-snippets' 		" Snippets are separated from the engine.
-Plug 'tpope/vim-dispatch'
->>>>>>> dispatch and startify plugins
 
 " Language specific functionality
 Plug '$APPS/fzf'
