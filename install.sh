@@ -47,6 +47,7 @@ export PACKAGE_LIST=(
     cmake-data
     cmus
     curl
+    dante-client
     dunst
     entr
     exuberant-ctags
