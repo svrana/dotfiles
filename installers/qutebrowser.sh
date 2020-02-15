@@ -3,6 +3,7 @@
 install() {
     local dest="$APPS/qutebrowser"
     if [ ! -d "$dest" ]; then
+        sudo apt-get install asciidoc --no-install-recommends
         git clone https://github.com/qutebrowser/qutebrowser.git "$APPS/qutebrowser"
         pushd "$dest"
         python3 scripts/mkvenv.py
