@@ -165,6 +165,9 @@ export INSTALLERS=(
     fonts
     #gradle
     hugo
+    kubectl
+    kubectx
+    k9s
     i3lock-color
     neovim
     packer
