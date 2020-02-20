@@ -57,7 +57,7 @@ Plug 'wsdjeg/vim-fetch'			" open file:lineno:colno see sf()
 "Plug 'zchee/deoplete-go'
 "Plug 'zchee/deoplete-jedi'
 "Plug 'fishbullet/deoplete-ruby'
-"Plug 'psf/black'			" python formatting
+Plug 'psf/black'			" python formatting
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " File handling
