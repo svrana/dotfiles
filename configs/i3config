@@ -241,8 +241,8 @@ client.background       #ffffff
 bindsym $mod+b [class="Thunderbird"] focus
 bindsym $mod+n [instance="tmux"] focus
 bindsym $mod+m [class="qutebrowser"] focus
-bindsym $mod+comma [class="Spotify"] focus
-#bindsym $mod+comma [instance="Spotify"] focus
+#bindsym $mod+comma [class="Spotify"] focus
+bindsym $mod+comma [instance="Spotify"] focus
 bindsym $mod+0 [class="Standard Notes"] scratchpad show
 bindsym $mod+9 [class="Slack"] scratchpad show
 
