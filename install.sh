@@ -46,6 +46,7 @@ export PACKAGE_LIST=(
     cmake
     cmake-data
     cmus
+    ctl
     curl
     dante-client
     dunst
@@ -213,6 +214,7 @@ export CREATE_DIRS=(
     ~/.local/share/fonts
     ~/.local/share/qutebrowser/userscripts
     ~/.weechat
+    ~/.k9s
 )
 
 # A list of symbolic links that point to directories that should be created.
