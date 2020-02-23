@@ -18,6 +18,7 @@ Plug 'svrana/solarize'			" solarize everything
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+"Plug 'edkolev/tmuxline.vim'
 
 " Vim functionality helpers
 Plug 'tpope/vim-obsession'		" auto-session handling
@@ -25,7 +26,7 @@ Plug 'junegunn/vim-peekaboo'		" show contents of copy buffer
 Plug 'mhinz/vim-startify'
 Plug 'gioele/vim-autoswap' 		" swap to the active tmux pane instead of annoying swap file msg
 
-" Git related plugisn
+" Git related plugins
 Plug 'tpope/vim-fugitive'		" mostly for blame
 Plug 'airblade/vim-gitgutter'		" showing and staging chunks
 Plug 'jreybert/vimagit'			" project wide git
@@ -46,7 +47,7 @@ Plug 'svrana/neomake'
 Plug 'majutsushi/tagbar'		" ide
 Plug 'wellle/tmux-complete.vim'		" completion from other tmux panes
 "Plug 'SirVer/ultisnips'			" snippet handler
-Plug 'honza/vim-snippets'		" Snippets are separated from the engine.
+"Plug 'honza/vim-snippets'		" Snippets are separated from the engine.
 Plug 'Chiel92/vim-autoformat'
 "Plug 'idbrii/vim-tagimposter'
 
@@ -80,6 +81,7 @@ Plug 'posva/vim-vue'
 Plug 'justinmk/vim-sneak'
 Plug 'tmux-plugins/vim-tmux'		" editing .tmux.conf
 Plug 'leafgarland/typescript-vim'
+
 
 call plug#end()				" All of your Plugins must be added before the following line
 set mouse=a
