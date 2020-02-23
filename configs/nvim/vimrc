@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-obsession'		" auto-session handling
 Plug 'junegunn/vim-peekaboo'		" show contents of copy buffer
 Plug 'mhinz/vim-startify'
+Plug 'gioele/vim-autoswap' 		" swap to the active tmux pane instead of annoying swap file msg
 
 " Git related plugisn
 Plug 'tpope/vim-fugitive'		" mostly for blame
@@ -44,7 +45,7 @@ Plug 'ternjs/tern_for_vim'
 Plug 'svrana/neomake'
 Plug 'majutsushi/tagbar'		" ide
 Plug 'wellle/tmux-complete.vim'		" completion from other tmux panes
-Plug 'SirVer/ultisnips'			" snippet handler
+"Plug 'SirVer/ultisnips'			" snippet handler
 Plug 'honza/vim-snippets'		" Snippets are separated from the engine.
 Plug 'Chiel92/vim-autoformat'
 "Plug 'idbrii/vim-tagimposter'
@@ -57,7 +58,7 @@ Plug 'wsdjeg/vim-fetch'			" open file:lineno:colno see sf()
 "Plug 'zchee/deoplete-go'
 "Plug 'zchee/deoplete-jedi'
 "Plug 'fishbullet/deoplete-ruby'
-Plug 'psf/black'			" python formatting
+"Plug 'psf/black'			" python formatting
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " File handling
@@ -91,6 +92,10 @@ set relativenumber
 set number
 "toggle display of numbers
 nnoremap <leader>dn :set relativenumber!<CR>
+
+" vim-autoswap
+set title titlestring=
+let g:autoswap_detect_tmux = 1
 
 "remove trailing whitespace on save
 autocmd! BufWritePre * :%s/\s\+$//e

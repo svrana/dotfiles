@@ -170,6 +170,7 @@ export INSTALLERS=(
     kubectx
     k9s
     i3lock-color
+    libtool-bin
     neovim
     packer
     pass
