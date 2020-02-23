@@ -181,6 +181,7 @@ export INSTALLERS=(
     spotifyd
     standard-notes
 #    terraform
+    wmctrl
     update-systemd-resolved
 )
 
