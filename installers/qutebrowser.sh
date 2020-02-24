@@ -7,8 +7,8 @@ install() {
         git clone https://github.com/qutebrowser/qutebrowser.git "$APPS/qutebrowser"
         pushd "$dest"
         python3 scripts/mkvenv.py
-        #./scripts/asciidoc2html.py
-        scripts/dev/update_3rdparty.py
+        .venv/bin/python3 scripts/asciidoc2html.py
+        .venv/bin/python3 scripts/dev/update_3rdparty.py
         popd
     fi
     ln -sf "$DOTFILES/misc/qutebrowser.desktop" "$HOME/.local/share/applications/qutebrowser.desktop"
