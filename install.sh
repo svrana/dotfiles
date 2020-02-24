@@ -46,7 +46,6 @@ export PACKAGE_LIST=(
     cmake
     cmake-data
     cmus
-    ctl
     curl
     dante-client
     dunst
@@ -130,6 +129,7 @@ export PACKAGE_LIST=(
     tox
     virtualenv
     qalc
+    wmctrl
     wget
     xautolock
     xcb-proto
