@@ -1,11 +1,11 @@
 #!/bin/bash
 
 function _update_ps1() {
-    local priority='root,user,perms,virtualenv,vgo,git-branch,cwd'
-    local modules='perms,user,venv,vgo,gitlite,ssh,cwd'
+    local priority='root,perms,venv,git-branch,exit,cwd'
+    local modules='perms,venv,gitlite,ssh,cwd,exit'
     PS1="$(powerline-go -theme default -modules ${modules} \
         -priority ${priority} -cwd-max-depth 3 -max-width 65 \
-        -path-aliases \~/go/src/github.com=@go-gh
+        -path-aliases \~/go/src/github.com=@go-gh,\~/Projects/aws-infra=aws-infra,\~/Projects/apis=apis
         )"
 }
 
