@@ -51,7 +51,6 @@ Plug 'wellle/tmux-complete.vim'		" completion from other tmux panes
 "Plug 'SirVer/ultisnips'			" snippet handler
 "Plug 'honza/vim-snippets'		" Snippets are separated from the engine.
 Plug 'Chiel92/vim-autoformat'
-"Plug 'idbrii/vim-tagimposter'
 
 " Language specific functionality
 Plug '$APPS/fzf'
@@ -475,9 +474,6 @@ nmap <silent> <leader>cp <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>cn <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>ct <Plug>(coc-type-definition)
 nmap <silent> <leader>cr <Plug>(coc-rename)
-
-"au FileType typescript nnoremap <C-]> :TagImposterAnticipateJump <Bar> <Plug>(coc-definition)<CR>
-"nnoremap <buffer> <Leader>jT :<C-u> TagImposterAnticipateJump <Bar> OmniSharpGotoDefinition<CR>
 
 ""===end coc.nvim settings
 ""
