@@ -25,7 +25,7 @@ Plug 'tpope/vim-obsession'		" auto-session handling
 
 Plug 'junegunn/vim-peekaboo'		" show contents of copy buffer
 Plug 'mhinz/vim-startify'
-Plug 'gioele/vim-autoswap' 		" swap to the active tmux pane instead of annoying swap file msg
+"Plug 'gioele/vim-autoswap' 		" swap to the active tmux pane instead of annoying swap file msg
 Plug 'unblevable/quick-scope'
 
 " Git related plugins
@@ -465,7 +465,7 @@ set lazyredraw
 nnoremap Q @@
 
 " === coc.nvim ===
-"
+set tagfunc=CocTagFunc
 let g:airline#extensions#coc#enabled = 1
 let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python', 'coc-git', 'coc-tsserver', 'coc-tslint-plugin']
 nmap <silent> <leader>cd <Plug>(coc-definition)
