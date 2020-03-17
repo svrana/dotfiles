@@ -19,7 +19,6 @@ unset _install_deps
 # bhs: fetch the gpg key ids from the keyservers
 export PPA_KEYS=(
     "insync      keyserver.ubuntu.com                                   ACCAF35C"
-    "neovim      keyserver.ubuntu.com                                   8231B6DD"
     "node.js     https://deb.nodesource.com/gpgkey/nodesource.gpg.key   68576280"
     "rvm         keyserver.ubuntu.com                                   F4E3FBBE"
     "kgilmer     keyserver.ubuntu.com                                   C35556DC"
@@ -28,7 +27,6 @@ export PPA_KEYS=(
 # bhs: add a few ppas
 export PPA_LIST=(
     "insync     http://apt.insynchq.com/ubuntu                      bionic non-free contrib"
-    "neovim     http://ppa.launchpad.net/neovim-ppa/stable/ubuntu   bionic main"
     "node.js    https://deb.nodesource.com/node_10.x                bionic main"
     "rvm        http://ppa.launchpad.net/rael-gc/rvm/ubuntu         bionic main"
     "i3-gaps    http://ppa.launchpad.net/kgilmer/speed-ricer/ubuntu bionic main"
@@ -98,7 +96,6 @@ export PACKAGE_LIST=(
     libxkbcommon-x11-dev
     libxml2-dev
     mpv
-    neovim
     network-manager-openvpn
     network-manager-openvpn-gnome
     nodejs
@@ -171,7 +168,7 @@ export INSTALLERS=(
     k9s
     i3lock-color
     libtool-bin
-    #neovim
+    neovim
     packer
     pass
  #   polybar
