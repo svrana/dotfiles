@@ -6,7 +6,8 @@ mkdir -p ~/.config/nvim/bundle
 mkdir -p ~/.config/nvim/autoload
 
 if [ ! -f /usr/bin/nvim ]; then
-    NVIM_VERSION="v0.4.3"
+    #NVIM_VERSION="v0.4.3"
+    NVIM_VERSION="nightly"
     curl -Lo "$HOME/Downloads/nvim" https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim.appimage
     chmod +x "$HOME/Downloads/nvim"
     sudo mv "$HOME/Downloads/nvim" /usr/bin/nvim

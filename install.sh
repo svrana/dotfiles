@@ -171,7 +171,7 @@ export INSTALLERS=(
     k9s
     i3lock-color
     libtool-bin
-    neovim
+    #neovim
     packer
     pass
  #   polybar
