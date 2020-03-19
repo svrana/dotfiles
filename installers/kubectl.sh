@@ -1,7 +1,8 @@
 #!/bin/bash
 
 if [ ! -f "$BIN_DIR/kubectl" ]; then
-    version=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
+    #version=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
+    version='v1.14.0'
     wget -q --show-progress  \
         https://storage.googleapis.com/kubernetes-release/release/$version/bin/linux/amd64/kubectl \
         -O "$BIN_DIR/kubectl" && chmod +x "$BIN_DIR/kubectl"
