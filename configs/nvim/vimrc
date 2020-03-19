@@ -465,7 +465,7 @@ nnoremap Q @@
 
 " === coc.nvim ===
 set tagfunc=CocTagFunc
-let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#enabled = 0
 let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-python', 'coc-git', 'coc-tsserver', 'coc-tslint-plugin']
 nmap <silent> <leader>cd <Plug>(coc-definition)
 nmap <silent> <leader>cc <Plug>(coc-references)
