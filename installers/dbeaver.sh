@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APPNAME="dbeaver-ce"
-VERSION="6.3.2"
+VERSION="7.0.1"
 FILENAME="${APPNAME}_${VERSION}_amd64.deb"
 URL="https://dbeaver.io/files/$VERSION/$FILENAME"
 
