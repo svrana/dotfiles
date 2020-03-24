@@ -207,13 +207,13 @@ exec --no-startup-id slack
 
 
 # (Pulse) Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.local/bin/pa-volume.sh --up
-bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.local/bin/pa-volume.sh --down
-bindsym XF86AudioMute exec --no-startup-id $HOME/.local/bin/pa-volume.sh --togmute
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.local/bin/vol.sh --up
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.local/bin/vol.sh --down
+bindsym XF86AudioMute exec --no-startup-id $HOME/.local/bin/vol.sh --togmute
 
-bindsym Mod1+Control+u exec --no-startup-id $HOME/.local/bin/pa-volume.sh --up
-bindsym Mod1+Control+d exec --no-startup-id $HOME/.local/bin/pa-volume.sh --down
-bindsym Mod1+Control+m exec --no-startup-id $HOME/.local/bin/pa-volume.sh --togmute
+bindsym Mod1+Control+u exec --no-startup-id $HOME/.local/bin/vol.sh --up
+bindsym Mod1+Control+d exec --no-startup-id $HOME/.local/bin/vol.sh --down
+bindsym Mod1+Control+m exec --no-startup-id $HOME/.local/bin/vol.sh --togmute
 
 # Media player controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play
