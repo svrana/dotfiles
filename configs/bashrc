@@ -12,7 +12,11 @@ export PROMPT_COMMAND='history -a'
 export EDITOR=nvim
 export TERM=xterm-256color                  # this is for solarized
 
-shopt -s autocd
+export XDG_CONFIG_HOME="$HOME/.config"      # default XDG_ directories
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+shopt -s autocd                             # cd into directory without typing cd
 
 #
 # Set the dotfile plugins to load. These correspond to files in
