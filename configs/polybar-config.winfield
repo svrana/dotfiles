@@ -101,18 +101,24 @@ label-urgent = %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = ${self.label-focused-padding}
 
-[module/xbacklight]
-type = internal/xbacklight
-format = <label> <bar>
-label = BL
+; [module/xbacklight]
+; type = internal/xbacklight
+; format = <label>
+; label =   %percentage%%
 
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-fill = ─
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-foreground = ${colors.foreground-alt}
+
+; [module/xbacklight]
+; type = internal/xbacklight
+; format = <label> <bar>
+; label = BL
+
+; bar-width = 10
+; bar-indicator = |
+; bar-indicator-foreground = #fff
+; bar-fill = ─
+; bar-fill-foreground = #9f78e1
+; bar-empty = ─
+; bar-empty-foreground = ${colors.foreground-alt}
 
 [module/wlan]
 type = internal/network
